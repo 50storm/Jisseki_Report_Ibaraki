@@ -40,13 +40,13 @@ namespace Jisseki_Report_Ibaraki.common {
         protected global::System.Web.UI.WebControls.HyperLink linkMenu;
         
         /// <summary>
-        /// LinkButtonLogOut コントロール。
+        /// btnLogOut コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonLogOut;
+        protected global::System.Web.UI.WebControls.Button btnLogOut;
         
         /// <summary>
         /// lblMsg コントロール。

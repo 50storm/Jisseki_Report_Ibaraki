@@ -325,8 +325,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
                 //Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");
                 //Response.Write("<p style=background-color:red;>" + ex.StackTrace + "</p>");
-                lblMsg.Text = "エラー";
-                 
+                lblMsg.Text = "エラー";                
 
             }
 

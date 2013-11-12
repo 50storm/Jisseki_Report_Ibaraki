@@ -511,18 +511,17 @@ namespace Jisseki_Report_Ibaraki.common
             }
             catch (Exception ex)
             {
-                this.lblMsg.Text = "ex.Message";
+                this.lblMsg.Text = ex.Message;
              //   Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");
              //   Response.Write("<p style=background-color:red;>" + ex.StackTrace + "</p>");
             }           
                         
        }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void btnLogOut_Click(object sender, EventArgs e)
         {
             Session.Abandon();
             Response.Redirect(URL.LOGIN_DEALER);
-
         }
     }
 }

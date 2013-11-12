@@ -942,5 +942,11 @@ namespace Jisseki_Report_Ibaraki.common
 
         }
 
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect(URL.LOGIN_DEALER);
+        }
+
     }
 }

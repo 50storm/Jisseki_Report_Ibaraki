@@ -4,6 +4,25 @@
 <head id="Head1" runat="server">
 <link rel="stylesheet" href="../Css/input.css" type="text/css" />
 <link rel="stylesheet" href="../Css/print.css" type="text/css" media="print" />
+<style type="text/css">
+        #linkMenu
+        {
+        	color:#0000ff;
+        	background:transparent;
+        	font-size:18px;
+        }
+        #btnLogOut
+        {
+        	/*LinkButtonが動作しない*/
+        	/*LinkButton風にＣＳＳを当てる*/
+        	text-decoration:underline;
+            color:#0000ff;
+            border:none;
+            background:transparent;
+            font-size:18px;
+        }
+</style>
+
     <title>新車登録台数報告書【削除】</title>
 </head>
 <body>
@@ -12,7 +31,7 @@
 <!--メニュー-->
 <div style="float:left;">
     <asp:HyperLink ID="linkMenu" runat="server" NavigateUrl="~/member/menu/Dealer.aspx">メニュー</asp:HyperLink>
-    <asp:LinkButton ID="LinkButtonLogOut" runat="server"  onclick="LinkButton1_Click">ログアウト</asp:LinkButton>
+    <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"  />    
 </div>
 <!--メッセージ-->
 <div id="Message" >

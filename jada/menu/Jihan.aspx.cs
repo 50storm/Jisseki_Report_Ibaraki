@@ -31,18 +31,15 @@ namespace Jisseki_Report_Ibaraki.jada.menu
 
         }
 
-
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect(URL.LOGIN_DEALER);
-
-        }
-
         protected void bnt_DownloadReortedData_Click(object sender, EventArgs e)
         {
             Response.Redirect(URL.DOWNLOAD_REPORTRED_DATA);
+        }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect(URL.LOGIN_DEALER);
         }
     }
 }

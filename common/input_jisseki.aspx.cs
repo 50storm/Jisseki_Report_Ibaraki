@@ -712,11 +712,7 @@ namespace Jisseki_Report_Ibaraki.common
 
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect(URL.LOGIN_DEALER);
-        }
+
 
         protected void btnPrint_Click(object sender, EventArgs e)
         {
@@ -750,6 +746,12 @@ namespace Jisseki_Report_Ibaraki.common
             Page.ClientScript.RegisterStartupScript(this.GetType(), "startup", js);
 
 
+        }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect(URL.LOGIN_DEALER);
         }
         
     }

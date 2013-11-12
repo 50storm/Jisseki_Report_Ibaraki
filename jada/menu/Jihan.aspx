@@ -26,9 +26,26 @@
        {
             margin:0px; padding:0px;
        }
-       #MasterDivBtn{
-        width:230px;height:280px;border:1px solid black; padding:10px 10px 10px 10px;
+       #MasterDivBtn
+       {
+            width:230px;height:280px;border:1px solid black; padding:10px 10px 10px 10px;
        }
+       #jadaLogOut
+       {
+       	    clear:left;
+       	}
+       	#btnLogOut
+       	{
+       		/*LinkButtonが動作しない*/
+        	/*LinkButton風にＣＳＳを当てる*/
+        	border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            text-decoration:underline;
+            color:#0000ff;
+            background:transparent;
+            height: 17px;
+        }
     </style>
     <title>自販連メニュー</title>
 </head>
@@ -56,8 +73,9 @@
             <p><asp:Button ID="btn_ID" runat="server" Text="会員マスタ" onclick="btn_ID_Click" /></p>
         </div>
     </div>
-    <div  style="clear:left">
-        <asp:LinkButton ID="LinkButtonLogOut" runat="server"  onclick="LinkButton1_Click">ログアウト</asp:LinkButton>
+    <div id="jadaLogOut">
+        <asp:Button ID="btnLogOut" runat="server" Text="ログアウト" 
+            onclick="btnLogOut_Click" />
     </div>
     </form>
 </body>
