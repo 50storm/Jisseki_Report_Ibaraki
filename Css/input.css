@@ -1,0 +1,114 @@
+﻿#test
+{
+	display: none;
+	
+	}
+body
+{
+	font-size:large;
+	
+	}
+.txtType1
+{
+	width:1cm;
+	
+	}
+
+form
+{
+	width:19cm;
+}
+
+/*外枠*/
+#Wrapper
+{
+/*
+	width:2480px;
+	height:3508px;
+*/
+	width:21.0cm;
+	height:29.7cm;
+	border:1mm pink solid;
+	
+}
+
+/*元号*/
+#Era
+{
+	float:right;
+	
+	}
+/*宛先*/
+#To
+{
+	/*loat:left;*/
+	clear:right;
+	
+	}
+/*会社名*/
+#Coname
+{
+	margin-left:5cm;
+}
+
+/*担当者*/
+#Tantou
+{
+	margin-left:3.2cm;
+}
+
+/*タイトル*/
+#Title
+{
+	margin-left:2cm;
+}
+
+/*当社の～*/
+#NarratvieText
+{
+	margin-left:1cm;
+	
+}
+/*次*/
+#Next
+{
+	margin: 1cm 10cm;
+}
+
+/*テーブル*/
+#Table
+{
+	width:19cm;
+	/*margin:0cm 0.5cm;*/
+	border: 1px solid blue;
+	background-color:Gray;
+}
+
+#tblReport
+{
+	table-layout: fixed;
+    border: 1px #E3E3E3 solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width:19cm;
+/* dth :21cm; */
+}
+#tblReport th{
+	border: 1px #E3E3E3 solid;
+	/*width:1cm;*/
+/*
+	border:1px;
+	border-style: solid; 
+	border-color:"black";
+*/
+}
+#tblReport td
+{
+	border: 1px #E3E3E3 solid;
+	/*width:1cm;*/
+	/*
+	border:1px;
+	border-style: solid; 
+	border-color:"black";
+*/
+}
