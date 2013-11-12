@@ -1,14 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Jihan.aspx.cs" Inherits="Jisseki_Report_Ibaraki.jada.menu.Jihan" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <style type="text/css">
         /*新車登録台数報告*/
         #ReportDiv
         {
-            width:400px;height:300px; float:left; margin-bottom:10px; padding:0px;
+            width:400px;height:345px; float:left; margin-bottom:32px; padding:0px;
+           /* border: 1px solid pink;*/
         }
         #ReportDivTitle
         {
@@ -16,19 +15,19 @@
         }
         #ReportDivBtn
         {
-            width:320px;height:220px;border:1px solid black; padding:10px 10px 10px 10px;margin:0px
+            width:320px;height:280px;border:1px solid black; padding:10px 10px 10px 10px;margin:0px
         }
         /*マスター保守*/
        #MasterDiv
        {
-           width:400px;height:300px; float:left; padding:0px;
+           width:400px;height:345px; float:left; padding:0px;
        }
        #MasterDivTitle
        {
             margin:0px; padding:0px;
        }
        #MasterDivBtn{
-        width:230px;height:220px;border:1px solid black; padding:10px 10px 10px 10px;
+        width:230px;height:280px;border:1px solid black; padding:10px 10px 10px 10px;
        }
     </style>
     <title>自販連メニュー</title>
