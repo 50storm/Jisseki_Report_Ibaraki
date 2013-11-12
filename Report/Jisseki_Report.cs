@@ -26,46 +26,46 @@ namespace Jisseki_Report_Ibaraki.Report
         private void detail_Format(object sender, EventArgs e)
         {
 
-            //初期表示
-            JapaneseCalendar jCalender = new JapaneseCalendar();
-            int iEra = jCalender.GetEra(DateTime.Now);
-            switch (iEra)
+            try
             {
-                case 4://平成
-                    lblEra.Text = "平成";
-                    break;
+                //初期表示
+                JapaneseCalendar jCalender = new JapaneseCalendar();
+                int iEra = jCalender.GetEra(DateTime.Now);
+                switch (iEra)
+                {
+                    case 4://平成
+                        lblEra.Text = "平成";
+                        break;
 
-                case 3://昭和
-                    lblEra.Text = "昭和";
-                    
-                    break;
+                    case 3://昭和
+                        lblEra.Text = "昭和";
 
-                case 2://大正
-                    lblEra.Text = "大正";
-                    
-                    break;
+                        break;
 
-                case 1://明治
-                    lblEra.Text = "明治";
-                    
-                    break;
+                    case 2://大正
+                        lblEra.Text = "大正";
+
+                        break;
+
+                    case 1://明治
+                        lblEra.Text = "明治";
+
+                        break;
+
+                }
+                DateTime JapaneseDate = DateTime.Parse(
+                    this.txtYear.Text + "/" +
+                    this.txtMonth.Text + "/" +
+                    this.txtDay.Text
+                           );
+                this.txtYear.Text = jCalender.GetYear(JapaneseDate).ToString();
+            }
+            catch
+            {
 
             }
-            DateTime JapaneseDate = DateTime.Parse(
-                this.txtYear.Text + "/" +
-                this.txtMonth.Text + "/" +
-                this.txtDay.Text
-                       );
-            this.txtYear.Text=jCalender.GetYear(JapaneseDate).ToString();
 
-
-
-            
-
-
-        }
-
-        
+        }       
 
     }
 }

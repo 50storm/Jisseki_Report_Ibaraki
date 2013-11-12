@@ -85,8 +85,6 @@ namespace Jisseki_Report_Ibaraki.Report
                        + "  INNER JOIN "
                        + "   [Jisseki_Report_Ibaraki].[dbo].[ID]   I "
                        + " ON H.COCODE = I.COCODE "
-                     
-                       
                        + " WHERE "
                        + " H.COCODE = @COCODE "
                        + " AND " 
@@ -113,28 +111,31 @@ namespace Jisseki_Report_Ibaraki.Report
             // レポートを作成します。
             try
             {
-                SqlConnection Conn = new SqlConnection(strConn);
-                Conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = getSql();
-                cmd.Connection = Conn;
 
-                    //セッションで渡すとき
-                    cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["Jisseki_Report_COCODE"].ToString()));
-                    cmd.Parameters.Add(new SqlParameter("@YearRep", this.Session["Jisseki_Report_YearRep"].ToString()));
-                    cmd.Parameters.Add(new SqlParameter("@MonthRep", this.Session["Jisseki_Report_MonthRep"].ToString()));
+                using (SqlConnection Conn = new SqlConnection(strConn))
+                {
+                    Conn.Open();
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.CommandText = getSql();
+                        cmd.Connection = Conn;
 
+                        //セッションで渡すとき
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["Jisseki_Report_COCODE"].ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@YearRep", this.Session["Jisseki_Report_YearRep"].ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@MonthRep", this.Session["Jisseki_Report_MonthRep"].ToString()));
 
+                        using (SqlDataAdapter Adapter = new SqlDataAdapter())
+                        {
+                            Adapter.SelectCommand = cmd;
+                            DataTable dt = new DataTable();
+                            Adapter.Fill(dt);
+                            rpt.DataSource = dt;
 
-
-                
-                SqlDataAdapter Adapter = new SqlDataAdapter();
-                Adapter.SelectCommand = cmd;
-                DataTable dt = new DataTable();
-                Adapter.Fill(dt);
-                rpt.DataSource = dt;
-
-                rpt.Run(false);
+                            rpt.Run(false);
+                        }
+                    }
+                }
 
             }
             catch (DataDynamics.ActiveReports.ReportException eRunReport)
@@ -146,7 +147,7 @@ namespace Jisseki_Report_Ibaraki.Report
                 return;
             }
 
-       
+            //以下はサンプルコードをそのまま流用。
 
             Response.Clear();
             Response.ClearContent();
