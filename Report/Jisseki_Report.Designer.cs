@@ -508,7 +508,7 @@
             this.txtCONAME.Height = 0.3149607F;
             this.txtCONAME.Left = 2.834646F;
             this.txtCONAME.Name = "txtCONAME";
-            this.txtCONAME.Style = "font-family: ＭＳ Ｐ明朝; font-size: 14pt";
+            this.txtCONAME.Style = "font-family: ＭＳ Ｐゴシック; font-size: 14pt";
             this.txtCONAME.Text = "テスト会社名";
             this.txtCONAME.Top = 1.259843F;
             this.txtCONAME.Width = 4.645669F;
@@ -541,7 +541,7 @@
             this.txtTANTOU.Height = 0.314961F;
             this.txtTANTOU.Left = 2.834646F;
             this.txtTANTOU.Name = "txtTANTOU";
-            this.txtTANTOU.Style = "font-family: ＭＳ Ｐ明朝; font-size: 14pt";
+            this.txtTANTOU.Style = "font-family: ＭＳ Ｐゴシック; font-size: 14pt";
             this.txtTANTOU.Text = "担当者名";
             this.txtTANTOU.Top = 1.811024F;
             this.txtTANTOU.Width = 4.645669F;
@@ -993,7 +993,7 @@
             this.txtMonthRep1.Height = 0.3149607F;
             this.txtMonthRep1.Left = 1.889764F;
             this.txtMonthRep1.Name = "txtMonthRep1";
-            this.txtMonthRep1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; text-align: center";
+            this.txtMonthRep1.Style = "font-family: ＭＳ Ｐゴシック; font-size: 18pt; text-align: center";
             this.txtMonthRep1.Text = "99";
             this.txtMonthRep1.Top = 3.307087F;
             this.txtMonthRep1.Width = 0.3937008F;
@@ -1851,7 +1851,7 @@
             this.txtMonthRep0.Height = 0.3149607F;
             this.txtMonthRep0.Left = 1.259843F;
             this.txtMonthRep0.Name = "txtMonthRep0";
-            this.txtMonthRep0.Style = "font-family: ＭＳ Ｐ明朝; font-size: 19pt; font-weight: bold; text-align: center";
+            this.txtMonthRep0.Style = "font-family: ＭＳ Ｐゴシック; font-size: 19pt; font-weight: bold; text-align: center";
             this.txtMonthRep0.Text = "99";
             this.txtMonthRep0.Top = 2.519685F;
             this.txtMonthRep0.Width = 0.3937008F;
@@ -1910,7 +1910,7 @@
             // 
             // line5
             // 
-            this.line5.Height = 5.586697F;
+            this.line5.Height = 5.586699F;
             this.line5.Left = 0.1456693F;
             this.line5.LineWeight = 3F;
             this.line5.Name = "line5";
@@ -1923,7 +1923,7 @@
             // 
             // line6
             // 
-            this.line6.Height = 5.590551F;
+            this.line6.Height = 5.590549F;
             this.line6.Left = 8.110236F;
             this.line6.LineWeight = 3F;
             this.line6.Name = "line6";
@@ -2066,7 +2066,7 @@
             // 
             // line18
             // 
-            this.line18.Height = 5.590551F;
+            this.line18.Height = 5.590549F;
             this.line18.Left = 1.653543F;
             this.line18.LineWeight = 1F;
             this.line18.Name = "line18";
@@ -2079,7 +2079,7 @@
             // 
             // line19
             // 
-            this.line19.Height = 5.590551F;
+            this.line19.Height = 5.590549F;
             this.line19.Left = 2.913386F;
             this.line19.LineWeight = 1F;
             this.line19.Name = "line19";
@@ -2092,7 +2092,7 @@
             // 
             // line20
             // 
-            this.line20.Height = 5.590551F;
+            this.line20.Height = 5.590549F;
             this.line20.Left = 4.173229F;
             this.line20.LineWeight = 1F;
             this.line20.Name = "line20";
@@ -2105,7 +2105,7 @@
             // 
             // line21
             // 
-            this.line21.Height = 5.590551F;
+            this.line21.Height = 5.590549F;
             this.line21.Left = 5.433071F;
             this.line21.LineWeight = 1F;
             this.line21.Name = "line21";
@@ -2118,7 +2118,7 @@
             // 
             // line22
             // 
-            this.line22.Height = 5.590551F;
+            this.line22.Height = 5.590549F;
             this.line22.Left = 6.692914F;
             this.line22.LineWeight = 1F;
             this.line22.Name = "line22";

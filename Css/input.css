@@ -1,114 +1,264 @@
-﻿#test
-{
-	display: none;
-	
-	}
-body
-{
-	font-size:large;
-	
-	}
-.txtType1
-{
-	width:1cm;
-	
-	}
-
-form
-{
-	width:19cm;
-}
-
+﻿/*Div*/
 /*外枠*/
 #Wrapper
 {
-/*
-	width:2480px;
-	height:3508px;
-*/
-	width:21.0cm;
-	height:29.7cm;
-	border:1mm pink solid;
+	/*width:21.0cm;*/
+	/*height:29.7cm;*/
+	width:800px;
+	height:1010px;
+	border:1mm black solid;
+}
+/*メニュー*/
+#Menu
+{
+	/*position:fixed;*/
+	float:left;
+	/*width:5cm;*/
+	width:200px;
+	/*height:1cm;*/
+	height:25px;
+	border:4px solid lime;
+}
+/*メッセージ*/
+#Message
+{
+	/*position:fixed;*/
+	float:left;
+	width:450px;
 	
+	height:25px;
+	/*border:1px solid blue;*/
 }
 
 /*元号*/
 #Era
-{
+{	
 	float:right;
+	width:250px;
+	height:40px;
 	
-	}
+	/*border:1px solid black;*/
+	margin-left:450px;
+}
+.Era
+{
+	width:20px;
+	
+}
+/*社団法人*/
+#DivTo
+{
+	clear:right;
+	width:800px;
+	height:40px;
+	/*border: 5px blue solid;*/
+
+}
+#DivSyaDanHouZin
+{
+	margin-left:100px;
+	font-size:x-small;
+	float:left;
+	width:40px;
+	height:20px;
+	/*border: 5px blue solid;*/
+}
+#DivSyaDan
+{
+	float:left;
+	width:40px;
+	height:10px;
+	/*border: 1px green solid;*/
+	
+}
+#DivHouZin
+{
+	float:left;
+	width:40px;
+	height:10px;
+	/*
+	border: 3px green solid;
+	*/
+}
+
 /*宛先*/
 #To
 {
-	/*loat:left;*/
-	clear:right;
+	/*clear:both;*/
+	float:left;
+	width:500px;
+
+	/*
+	margin:15px 0px;
+	*/
+	/*
+	margin-bottom:10px;
+	*/
+	/*border:1px solid black;*/
+	font-size:x-large;
+	font-weight:bold;
 	
-	}
+}
 /*会社名*/
 #Coname
 {
-	margin-left:5cm;
+	/*margin-left:200px;*/
+	padding-left:250px;
+	width:500px;
+	/*border:1px solid black;*/
+	/*margin-bottom:10px;*/
+
 }
 
 /*担当者*/
 #Tantou
 {
-	margin-left:3.2cm;
+	/*margin-left:3.2cm;*/
+	/*border:1px solid black;*/
+	width:570px;
+	padding-left:180px;
+	/*margin-bottom:10px;*/
 }
 
 /*タイトル*/
 #Title
 {
-	margin-left:2cm;
+	/*margin-left:2cm;*/
+	/*
+	border:1px solid black;
+	*/
+	width:580px;
+	padding-left:170px;
+	font-size:x-large;
+	font-weight:bold;
 }
 
+
 /*当社の～*/
-#NarratvieText
+#NarratvieText1
 {
-	margin-left:1cm;
-	
+	/*margin-left:1cm;*/
+	padding-left:150px;
+	/*padding-top:0px;*/
+	/*padding-bottom:0px;*/
+	/*margin-bottom:0px;*/
+	width:620px;
+	height:20px;
+	/*
+	border:1px solid pink;
+	*/
 }
+#NarratvieText1 p
+{
+	height:20px; 
+}
+#NarratvieText2
+{
+	/*margin-left:1cm;*/
+	padding-left:130px;
+	width:620px;
+	height:20px; 
+	/*
+	border:1px solid black;
+	*/
+}
+
 /*次*/
 #Next
 {
-	margin: 1cm 10cm;
+	/*margin: 1cm 10cm;*/
+	padding-left:360px;
+	font-size:x-large;
+	font-weight:bold;
+	width:385;
+	height:60px; 
+	/*
+	border:1px solid lime;
+	*/
 }
 
 /*テーブル*/
-#Table
+#TableDiv
 {
-	width:19cm;
-	/*margin:0cm 0.5cm;*/
+	width:800px;
+	/*
 	border: 1px solid blue;
-	background-color:Gray;
+	*/
+	/*background-color:Gray;*/
 }
-
 #tblReport
 {
 	table-layout: fixed;
-    border: 1px #E3E3E3 solid;
+    border: 2px black solid;
     border-collapse: collapse;
-    border-spacing: 0;
-    width:19cm;
-/* dth :21cm; */
+	/*border-collapse: separate;*/
+    width:800px;
+
 }
-#tblReport th{
-	border: 1px #E3E3E3 solid;
-	/*width:1cm;*/
-/*
-	border:1px;
-	border-style: solid; 
-	border-color:"black";
-*/
+
+#tblReport colgroup.class1
+{
+	width:50px;
+	/*background:Pink;*/
+}
+#tblReport colgroup.class3
+{
+	width:120px;
+	vertical-align:middle;
+	text-align:center;
+	/*background:blue;*/
+}
+
+#tblReport th
+{
+	
+	border: 1px black solid;
 }
 #tblReport td
 {
-	border: 1px #E3E3E3 solid;
-	/*width:1cm;*/
-	/*
-	border:1px;
-	border-style: solid; 
-	border-color:"black";
-*/
+	border: 1px  black solid;
+	text-align:center;
+}
+.txtTableType1
+{
+	width:80px;
+	text-align:center;
+}
+.txtTableType2
+{
+	width:30px;
+	text-align:center;
+}
+
+.Category
+{
+	white-space:nowrap;	
+}
+
+#linkMenu
+{
+	color:#0000ff;
+	background:transparent;
+	font-size:18px;
+	font-weight:bold;
+	font-family:@@MS UI Gothic;
+}
+#btnLogOut
+{
+	/*LinkButtonが動作しない*/
+	/*LinkButton風にＣＳＳを当てる*/
+	text-decoration:underline;
+    color:#0000ff;
+    border:none;
+    background:transparent;
+    font-size:18px;
+    font-family:@@MS UI Gothic;
+}
+#txtSyamei
+{
+	width:300px;	
+}
+#txtTantou
+{
+	width:300px;	
 }

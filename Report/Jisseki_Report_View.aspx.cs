@@ -105,9 +105,7 @@ namespace Jisseki_Report_Ibaraki.Report
             strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
 
             ActiveReport rpt = new Jisseki_Report();
-            
-            //rpt.Run(false);
-
+           
             // レポートを作成します。
             try
             {

@@ -189,11 +189,6 @@
     <Compile Include="Tools\Utility.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.sitemap">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Report\Jisseki_Report.resx">
       <DependentUpon>Jisseki_Report.cs</DependentUpon>

@@ -50,10 +50,13 @@
         #txtCOCODE
         {
             ime-mode:inactive;
+            width:100px;
+            
         }
         #txtPassword
         {
             ime-mode:disabled;    
+            width:100px;
         }
     </style>
     <title>新車登録台数報告システム</title>
