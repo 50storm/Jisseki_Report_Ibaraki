@@ -7,6 +7,7 @@
 	width:800px;
 	height:1010px;
 	border:1mm black solid;
+	padding:2px 2px 2px 2px;
 }
 /*メニュー*/
 #Menu
@@ -261,4 +262,24 @@
 #txtTantou
 {
 	width:300px;	
+}
+#txtYearRep0
+{
+	width:20px;
+	height:20px;
+}
+#txtYearRep1
+{
+	width:20px;
+	height:20px;
+}
+#txtMonthRep0
+{
+	width:20px;
+	height:20px;
+}
+#txtMonthRep1
+{
+	width:20px;
+	height:20px;
 }

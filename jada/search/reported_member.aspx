@@ -3,10 +3,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>受信データ確認画面</title>
 </head>
 <body>
-    <h1>送信確認画面</h1>
+    <h1>受信データ確認画面</h1>
     <form id="form1" runat="server">
     <div>
         <asp:Label   ID="lblDateRep" runat="server" >新車登録台数報告年月：</asp:Label>        

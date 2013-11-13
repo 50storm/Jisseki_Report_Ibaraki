@@ -3,26 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 <link rel="stylesheet" href="../Css/input.css" type="text/css" />
-<link rel="stylesheet" href="../Css/print.css" type="text/css" media="print" />
-<style type="text/css">
-        #linkMenu
-        {
-        	color:#0000ff;
-        	background:transparent;
-        	font-size:18px;
-        }
-        #btnLogOut
-        {
-        	/*LinkButtonが動作しない*/
-        	/*LinkButton風にＣＳＳを当てる*/
-        	text-decoration:underline;
-            color:#0000ff;
-            border:none;
-            background:transparent;
-            font-size:18px;
-        }
-</style>
-
     <title>新車登録台数報告書【削除】</title>
 </head>
 <body>
@@ -76,10 +56,10 @@
 	<div id="Title">
 	    <p>
 	    	<asp:Label ID="lblEraRep0" runat="server" Text="元号"></asp:Label>
-	    	<asp:TextBox ID="txtYearRep0" runat="server" Width="20px" 
+	    	<asp:TextBox ID="txtYearRep0" runat="server" 
                 onblur="setYear0ToYear1();" MaxLength="2" ></asp:TextBox>年
 	    	<asp:TextBox ID="txtMonthRep0" runat="server" Text="99"  
-                onblur="setMonth0ToMonth1();" Width="20px" MaxLength="2"></asp:TextBox>
+                onblur="setMonth0ToMonth1();"  MaxLength="2"></asp:TextBox>
 	    	月分新車新規登録台数報告書
 	    </p>
 	</div>
@@ -88,10 +68,9 @@
 	    <p id="p1" class="p1">
 	    	当初の
 	    	<asp:Label ID="lblEraRep1" runat="server" Text="元号"></asp:Label>
-	    	<asp:TextBox ID="txtYearRep1" runat="server" Width="20px" 
+	    	<asp:TextBox ID="txtYearRep1" runat="server" 
                 onblur="setYear1ToYear0();" MaxLength="2" ></asp:TextBox>年
-	    	<span><asp:TextBox ID="txtMonthRep1" runat="server"  Text="99"   
-                onblur="setMonth1ToMonth0();" Width="20px" MaxLength="2"></asp:TextBox></span>
+	    	<span><asp:TextBox ID="txtMonthRep1" runat="server"  Text="99"    onblur="setMonth1ToMonth0();"  MaxLength="2"></asp:TextBox></span>
 	    	月分新車新登録、届出台数は次のとおりであり
 	    </p>
     </div>
