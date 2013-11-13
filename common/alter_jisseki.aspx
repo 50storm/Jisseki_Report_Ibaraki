@@ -83,7 +83,7 @@
                 onblur="setYear0ToYear1();" MaxLength="2" ></asp:TextBox>年
 	    	<asp:TextBox ID="txtMonthRep0" runat="server" Text="99"  
                 onblur="setMonth0ToMonth1();" Width="20px" MaxLength="2"></asp:TextBox>
-	    	月分新車登録台数報告書
+	    	月分新車新規登録台数報告書
 	    </p>
 	</div>
 	<!--説明文1-->
