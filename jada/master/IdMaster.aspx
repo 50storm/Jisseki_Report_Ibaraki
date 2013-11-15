@@ -4,8 +4,46 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<style type="text/css">
+#txtCOCODE
+{
+	Width:60px;
+}
+#txtCONAME
+{
+    Width:180px;
+}
+#txtRepName
+{
+    Width:90px;	
+}
+#txtPostalCode
+{
+	 Width:60px;
+}
+#txtAddress
+{
+	 Width:120px;
+}
+#txtTel
+{	
+	Width:60px;	
+}
+#txtPassword
+{
+	Width:60px;
+}
+#txtMember
+{
+    Width:100px;	
+}
+#txtshort_CONAME
+{
+    Width:180px;
+}
+</style>
     <title>会員マスターメンテナンス</title>
-    <script type="text/javascript" src="../../Script/Utility.js" ></script>
+    <script type="text/javascript" src="../Css/Script/Utility.js" ></script>
     <script type="text/javascript">
         function confirmDeletion()
         { 
@@ -23,11 +61,10 @@
             }
         }
     </script>
-    
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div id="input" >
         <table border="1px">
         <tr>
             <th>会社コード</th>
@@ -41,15 +78,15 @@
             <th>略名</th>
         </tr>
         <tr>
-            <td><asp:TextBox ID="txtCOCODE" runat="server"  Width="60px" MaxLength="4"></asp:TextBox></td>
-            <td><asp:TextBox ID="txtCONAME" runat="server"  Width="180px" MaxLength="40"></asp:TextBox></td>
-            <td><asp:TextBox ID="txtRepName" runat="server"  Width="90px" MaxLength="10" ></asp:TextBox></td>
-            <td><asp:TextBox ID="txtPostalCode" runat="server"  Width="60px"> </asp:TextBox></td>
-            <td><asp:TextBox ID="txtAddress" runat="server"  Width="120px" MaxLength="50"></asp:TextBox></td>
-            <td><asp:TextBox ID="txtTel" runat="server"  Width="60px" MaxLength="12"></asp:TextBox></td>
-            <td><asp:TextBox ID="txtPassword" runat="server"  Width="60px" MaxLength="15"></asp:TextBox></td>
-            <td><asp:TextBox ID="txtMember" runat="server"  Width="100px" MaxLength="1"></asp:TextBox></td>
-            <td><asp:TextBox ID="txtshort_CONAME" runat="server"  Width="180px" MaxLength="40"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtCOCODE" runat="server"   MaxLength="4"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtCONAME" runat="server"   MaxLength="40"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtRepName" runat="server"   MaxLength="10" ></asp:TextBox></td>
+            <td><asp:TextBox ID="txtPostalCode" runat="server" > </asp:TextBox></td>
+            <td><asp:TextBox ID="txtAddress" runat="server"  MaxLength="50"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtTel" runat="server"   MaxLength="12"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtPassword" runat="server"   MaxLength="15"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtMember" runat="server"   MaxLength="1"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtshort_CONAME" runat="server" MaxLength="40"></asp:TextBox></td>
         </tr>
         </table>
         <asp:Button ID="btnInsert" runat="server" Text="登録" onclick="btnInsert_Click" 

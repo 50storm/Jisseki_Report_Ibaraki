@@ -75,9 +75,18 @@ namespace Jisseki_Report_Ibaraki.member.search
                         DataTable header = new DataTable("新車台数ヘッダー");
                         Adapter.Fill(header);
 
-
-                        Gridview1.DataSource = header;
-                        Gridview1.DataBind();
+                        if (header.Rows.Count == 0)
+                        {
+                            //Gridview1.EmptyDataText = "検索データはありません。";
+                            Gridview1.DataSource = header;
+                            Gridview1.DataBind();
+                            lblMsg.Text = "検索データはありません。";
+                        }
+                        else
+                        {
+                            Gridview1.DataSource = header;
+                            Gridview1.DataBind();
+                        }
                     }
 
                     

@@ -739,10 +739,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.Session["Jisseki_Report_MonthRep"] = this.txtMonthRep0.Text;
             }
 
-            string REPORT_JISSEKI_REPORT = "../Report/Jisseki_Report_View.aspx";
+            
             string js = "";
             js += "<script language='JavaScript'>";
-            js += "window.open('" + REPORT_JISSEKI_REPORT + "')";
+            js += "window.open('" + URL.REPORT_JISSEKI_REPORT_JS + "')";
             js += "</script>";
 
 

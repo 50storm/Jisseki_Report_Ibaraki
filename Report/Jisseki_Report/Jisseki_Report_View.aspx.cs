@@ -22,9 +22,7 @@ namespace Jisseki_Report_Ibaraki.Report
     public partial class Jisseki_Report_View : System.Web.UI.Page
     {
         private string strConn;
-        private string qCOCODE ;
-        private string qYearRep;
-        private string qMonthRep;
+
 
         public string getSql()
         {

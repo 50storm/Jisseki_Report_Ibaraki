@@ -1,10 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nonReported_member.aspx.cs" Inherits="Jisseki_Report_Ibaraki.jada.search.nonReported_member" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>未受信データ会員</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -13,7 +11,7 @@
     </div>
     <div>
         <asp:gridview ID="Gridview1" runat="server" AutoGenerateColumns="False" 
-            Caption="未報告会員" >
+            Caption="未受信データ会員" >
             <Columns>
                 <asp:BoundField DataField="COCODE" HeaderText="会員コード" />
                 <asp:BoundField DataField="CONAME" HeaderText="会員名" />
@@ -27,5 +25,4 @@
     </div>
     </form>
 </body>
-
 </html>

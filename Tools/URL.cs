@@ -22,8 +22,9 @@ namespace Jisseki_Report_Ibaraki.Tools
       public const string SERCH_REPORTED = "~/jada/search/reported_member.aspx";     
       public const string ID_MASTER = "~/jada/master/IdMaster.aspx";
       public const string DOWNLOAD_REPORTRED_DATA = "~/jada/download/Jisseki_Report.aspx";
-      //レポート
-      public const string REPORT_JISSEKI_REPORT = "~/Report/Jisseki_Report_View.aspx";
+
+     //レポート
+      public const string REPORT_JISSEKI_REPORT_JS = "../Report/Jisseki_Report/Jisseki_Report_View.aspx";
 
 
 

@@ -2,6 +2,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<style type="text/css">
+.text2digit
+{
+	width:20px;
+	height:20px;
+	text-align:center;
+}
+</style>
     <title>実績報告書ダウンロード</title>
 </head>
 <body>
@@ -10,9 +18,9 @@
         <p>
             <asp:Label ID="Label2" runat="server" Text="実績報告書ダウンロード：" ></asp:Label>
             <asp:Label ID="lblEra" runat="server" Text="元号"></asp:Label>
-            <asp:TextBox ID="txtYearRep" runat="server" MaxLength="2" Width="20px"></asp:TextBox>
+            <asp:TextBox ID="txtYearRep" runat="server" MaxLength="2" class="text2digit" ></asp:TextBox>
             <asp:Label ID="lblYearRep" runat="server" Text="年"></asp:Label>
-            <asp:TextBox ID="txtMonthRep" runat="server" MaxLength="2" Width="20px"></asp:TextBox>
+            <asp:TextBox ID="txtMonthRep" runat="server" MaxLength="2"  class="text2digit"></asp:TextBox>
             <asp:Label ID="lblMonthRep" runat="server" Text="月"></asp:Label>
         </p>
         <p>
