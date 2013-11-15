@@ -100,7 +100,8 @@
     <asp:GridView ID="GridView1" runat="server" 
         AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" 
         DataKeyNames="COCODE" 
-        onselectedindexchanged="GridView1_SelectedIndexChanged">
+        onselectedindexchanged="GridView1_SelectedIndexChanged" 
+        onpageindexchanging="GridView1_PageIndexChanging" PageSize="20">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="COCODE" HeaderText="会員コード"   />
