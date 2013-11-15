@@ -86,7 +86,6 @@
             this.label24 = new DataDynamics.ActiveReports.Label();
             this.line1 = new DataDynamics.ActiveReports.Line();
             this.line2 = new DataDynamics.ActiveReports.Line();
-            this.line3 = new DataDynamics.ActiveReports.Line();
             this.label25 = new DataDynamics.ActiveReports.Label();
             this.label26 = new DataDynamics.ActiveReports.Label();
             this.label27 = new DataDynamics.ActiveReports.Label();
@@ -114,8 +113,6 @@
             this.line15 = new DataDynamics.ActiveReports.Line();
             this.line16 = new DataDynamics.ActiveReports.Line();
             this.line17 = new DataDynamics.ActiveReports.Line();
-            this.line18 = new DataDynamics.ActiveReports.Line();
-            this.line19 = new DataDynamics.ActiveReports.Line();
             this.line20 = new DataDynamics.ActiveReports.Line();
             this.line21 = new DataDynamics.ActiveReports.Line();
             this.line22 = new DataDynamics.ActiveReports.Line();
@@ -151,7 +148,10 @@
             this.label49 = new DataDynamics.ActiveReports.Label();
             this.label50 = new DataDynamics.ActiveReports.Label();
             this.txtMonthRep0 = new DataDynamics.ActiveReports.TextBox();
+            this.line3 = new DataDynamics.ActiveReports.Line();
             this.txtMonthRep1 = new DataDynamics.ActiveReports.TextBox();
+            this.line19 = new DataDynamics.ActiveReports.Line();
+            this.line18 = new DataDynamics.ActiveReports.Line();
             ((System.ComponentModel.ISupportInitialize)(this.txtCONAME)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNum_BigSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtU_BigSize)).BeginInit();
@@ -372,7 +372,7 @@
             this.txtMonthRep1,
             this.line19,
             this.line18});
-            this.detail.Height = 11.57998F;
+            this.detail.Height = 11.41732F;
             this.detail.Name = "detail";
             this.detail.Format += new System.EventHandler(this.detail_Format);
             // 
@@ -1079,12 +1079,12 @@
             // 
             // line1
             // 
-            this.line1.Height = 0.005167246F;
+            this.line1.Height = 0.005167007F;
             this.line1.Left = 0.7874016F;
             this.line1.LineWeight = 1F;
             this.line1.Name = "line1";
             this.line1.Top = 1.259843F;
-            this.line1.Width = 4.248442F;
+            this.line1.Width = 4.248441F;
             this.line1.X1 = 0.7874016F;
             this.line1.X2 = 5.035843F;
             this.line1.Y1 = 1.259843F;
@@ -1092,29 +1092,16 @@
             // 
             // line2
             // 
-            this.line2.Height = 0.005167365F;
+            this.line2.Height = 0.005167007F;
             this.line2.Left = 0.7874016F;
             this.line2.LineWeight = 1F;
             this.line2.Name = "line2";
             this.line2.Top = 1.338583F;
-            this.line2.Width = 4.248442F;
+            this.line2.Width = 4.248441F;
             this.line2.X1 = 0.7874016F;
             this.line2.X2 = 5.035843F;
             this.line2.Y1 = 1.338583F;
             this.line2.Y2 = 1.34375F;
-            // 
-            // line3
-            // 
-            this.line3.Height = 0F;
-            this.line3.Left = 0.944882F;
-            this.line3.LineWeight = 1F;
-            this.line3.Name = "line3";
-            this.line3.Top = 2.047244F;
-            this.line3.Width = 6.141733F;
-            this.line3.X1 = 0.944882F;
-            this.line3.X2 = 7.086615F;
-            this.line3.Y1 = 2.047244F;
-            this.line3.Y2 = 2.047244F;
             // 
             // label25
             // 
@@ -1385,12 +1372,12 @@
             // 
             // line13
             // 
-            this.line13.Height = 2.283465F;
+            this.line13.Height = 2.283464F;
             this.line13.Left = 0.472441F;
             this.line13.LineWeight = 1F;
             this.line13.Name = "line13";
             this.line13.Top = 2.204725F;
-            this.line13.Width = 1.788139E-07F;
+            this.line13.Width = 2.086163E-07F;
             this.line13.X1 = 0.472441F;
             this.line13.X2 = 0.4724412F;
             this.line13.Y1 = 2.204725F;
@@ -1403,7 +1390,7 @@
             this.line14.LineWeight = 1F;
             this.line14.Name = "line14";
             this.line14.Top = 2.204725F;
-            this.line14.Width = 4.768372E-07F;
+            this.line14.Width = 0F;
             this.line14.X1 = 7.244095F;
             this.line14.X2 = 7.244095F;
             this.line14.Y1 = 2.204725F;
@@ -1424,7 +1411,7 @@
             // 
             // line16
             // 
-            this.line16.Height = 1.338583F;
+            this.line16.Height = 1.338582F;
             this.line16.Left = 4.094489F;
             this.line16.LineWeight = 1F;
             this.line16.Name = "line16";
@@ -1447,32 +1434,6 @@
             this.line17.X2 = 2.992126F;
             this.line17.Y1 = 2.204725F;
             this.line17.Y2 = 3.543308F;
-            // 
-            // line18
-            // 
-            this.line18.Height = 0F;
-            this.line18.Left = 0.472441F;
-            this.line18.LineWeight = 1F;
-            this.line18.Name = "line18";
-            this.line18.Top = 6.062993F;
-            this.line18.Width = 6.771656F;
-            this.line18.X1 = 0.472441F;
-            this.line18.X2 = 7.244097F;
-            this.line18.Y1 = 6.062993F;
-            this.line18.Y2 = 6.062993F;
-            // 
-            // line19
-            // 
-            this.line19.Height = 0F;
-            this.line19.Left = 0.472441F;
-            this.line19.LineWeight = 1F;
-            this.line19.Name = "line19";
-            this.line19.Top = 6.141733F;
-            this.line19.Width = 6.771656F;
-            this.line19.X1 = 0.472441F;
-            this.line19.X2 = 7.244097F;
-            this.line19.Y1 = 6.141733F;
-            this.line19.Y2 = 6.141733F;
             // 
             // line20
             // 
@@ -1606,7 +1567,7 @@
             // 
             // line30
             // 
-            this.line30.Height = 4.80315F;
+            this.line30.Height = 4.803146F;
             this.line30.Left = 0.472441F;
             this.line30.LineWeight = 1F;
             this.line30.Name = "line30";
@@ -1645,7 +1606,7 @@
             // 
             // line33
             // 
-            this.line33.Height = 3.937008F;
+            this.line33.Height = 3.937007F;
             this.line33.Left = 2.913386F;
             this.line33.LineWeight = 1F;
             this.line33.Name = "line33";
@@ -1658,7 +1619,7 @@
             // 
             // line34
             // 
-            this.line34.Height = 3.937008F;
+            this.line34.Height = 3.937007F;
             this.line34.Left = 4.094489F;
             this.line34.LineWeight = 1F;
             this.line34.Name = "line34";
@@ -1671,7 +1632,7 @@
             // 
             // line35
             // 
-            this.line35.Height = 4.80315F;
+            this.line35.Height = 4.803146F;
             this.line35.Left = 5.196851F;
             this.line35.LineWeight = 1F;
             this.line35.Name = "line35";
@@ -1684,7 +1645,7 @@
             // 
             // line36
             // 
-            this.line36.Height = 4.80315F;
+            this.line36.Height = 4.803146F;
             this.line36.Left = 7.244095F;
             this.line36.LineWeight = 1F;
             this.line36.Name = "line36";
@@ -1893,6 +1854,19 @@
             this.txtMonthRep0.Top = 1.732284F;
             this.txtMonthRep0.Width = 0.3958333F;
             // 
+            // line3
+            // 
+            this.line3.Height = 0F;
+            this.line3.Left = 0.944882F;
+            this.line3.LineWeight = 1F;
+            this.line3.Name = "line3";
+            this.line3.Top = 2.047244F;
+            this.line3.Width = 6.141733F;
+            this.line3.X1 = 0.944882F;
+            this.line3.X2 = 7.086615F;
+            this.line3.Y1 = 2.047244F;
+            this.line3.Y2 = 2.047244F;
+            // 
             // txtMonthRep1
             // 
             this.txtMonthRep1.DataField = "MonthRep";
@@ -1903,6 +1877,32 @@
             this.txtMonthRep1.Text = "99";
             this.txtMonthRep1.Top = 5.748032F;
             this.txtMonthRep1.Width = 0.3958333F;
+            // 
+            // line19
+            // 
+            this.line19.Height = 0F;
+            this.line19.Left = 0.472441F;
+            this.line19.LineWeight = 1F;
+            this.line19.Name = "line19";
+            this.line19.Top = 6.141733F;
+            this.line19.Width = 6.771656F;
+            this.line19.X1 = 0.472441F;
+            this.line19.X2 = 7.244097F;
+            this.line19.Y1 = 6.141733F;
+            this.line19.Y2 = 6.141733F;
+            // 
+            // line18
+            // 
+            this.line18.Height = 0F;
+            this.line18.Left = 0.472441F;
+            this.line18.LineWeight = 1F;
+            this.line18.Name = "line18";
+            this.line18.Top = 6.062993F;
+            this.line18.Width = 6.771656F;
+            this.line18.X1 = 0.472441F;
+            this.line18.X2 = 7.244097F;
+            this.line18.Y1 = 6.062993F;
+            this.line18.Y2 = 6.062993F;
             // 
             // Invoice
             // 

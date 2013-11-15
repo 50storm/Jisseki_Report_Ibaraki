@@ -498,12 +498,13 @@
             this.line28,
             this.label49,
             this.label50});
-            this.detail.Height = 11.65125F;
+            this.detail.Height = 11.20333F;
             this.detail.Name = "detail";
             this.detail.Format += new System.EventHandler(this.detail_Format);
             // 
             // txtCONAME
             // 
+            this.txtCONAME.CanGrow = false;
             this.txtCONAME.DataField = "CONAME";
             this.txtCONAME.Height = 0.3149607F;
             this.txtCONAME.Left = 2.834646F;
@@ -537,6 +538,7 @@
             // 
             // txtTANTOU
             // 
+            this.txtTANTOU.CanGrow = false;
             this.txtTANTOU.DataField = "TANTOU";
             this.txtTANTOU.Height = 0.314961F;
             this.txtTANTOU.Left = 2.834646F;
@@ -1740,6 +1742,7 @@
             // 
             // txtYear
             // 
+            this.txtYear.CanGrow = false;
             this.txtYear.DataField = "Year";
             this.txtYear.Height = 0.2362204F;
             this.txtYear.Left = 6.141733F;
@@ -1751,6 +1754,7 @@
             // 
             // txtMonth
             // 
+            this.txtMonth.CanGrow = false;
             this.txtMonth.DataField = "Month";
             this.txtMonth.Height = 0.2362203F;
             this.txtMonth.Left = 6.771654F;
@@ -1762,6 +1766,7 @@
             // 
             // txtDay
             // 
+            this.txtDay.CanGrow = false;
             this.txtDay.DataField = "Day";
             this.txtDay.Height = 0.2362203F;
             this.txtDay.Left = 7.401575F;

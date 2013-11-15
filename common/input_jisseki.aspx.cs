@@ -81,6 +81,7 @@ namespace Jisseki_Report_Ibaraki.common
                 txtMonthRep1.Text = string.Empty;
 
                 this.btnPrint.Visible = false;
+                this.btnKariInvoice.Visible = false;
 
                 //メニューを会員、自販連で分ける
                 if (jadaUser)
@@ -670,8 +671,8 @@ namespace Jisseki_Report_Ibaraki.common
                             Tran.Commit();
                             btnSubmit.Enabled = false;
                             this.lblMsg.Text = "登録しました";
-                            btnPrint.Visible = true;
- 
+                            this.btnPrint.Visible = true;
+                            this.btnKariInvoice.Visible = true;
 
                         }
                         catch
