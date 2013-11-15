@@ -36,7 +36,7 @@
     <div id="DivTo">
         <div id="DivSyaDanHouZin">
 	        <div id="DivSyaDan">
-	        	社団
+	        	一般社団
 	        </div>
 	        <div id="DivHouZin">
 	        	法人
@@ -240,7 +240,8 @@
 <!--ボタン-->
 <div>
     <asp:Button ID="btnSubmit" runat="server" Text="修正" onclick="btnSubmit_Click"   onclientclick="return checkForms();" />
-    <asp:Button ID="btnPrint" runat="server" Text="印刷" onclick="btnPrint_Click"  Height="21px" />
+    <asp:Button ID="btnPrint" runat="server" Text="印刷" onclick="btnPrint_Click"   />
+    <asp:Button ID="btnKariInvoice" runat="server" Text="仮請求書印刷"   onclick="btnKariInvoice_Click"    />
 </div>
 </form>
 </div>

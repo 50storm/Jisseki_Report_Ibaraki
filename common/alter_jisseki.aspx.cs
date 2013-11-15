@@ -900,13 +900,6 @@ namespace Jisseki_Report_Ibaraki.common
                         
        }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect(URL.LOGIN_DEALER);
-
-        }
-
         protected void btnPrint_Click(object sender, EventArgs e)
         {
 
@@ -928,17 +921,13 @@ namespace Jisseki_Report_Ibaraki.common
                 this.Session["Jisseki_Report_YearRep"] = Utility.HeiseiToChristianEra(this.txtYearRep0.Text);
                 this.Session["Jisseki_Report_MonthRep"] = this.txtMonthRep0.Text;
             }
-            
-                        
+             
             string js = "";
             js += "<script language='JavaScript'>";
             js += "window.open('" + URL.REPORT_JISSEKI_REPORT_JS + "')";
             js += "</script>";
-
-           
+          
             Page.ClientScript.RegisterStartupScript(this.GetType(), "startup", js);
-
-
 
         }
 
@@ -946,6 +935,37 @@ namespace Jisseki_Report_Ibaraki.common
         {
             Session.Abandon();
             Response.Redirect(URL.LOGIN_DEALER);
+        }
+
+        protected void btnKariInvoice_Click(object sender, EventArgs e)
+        {
+
+            //セッションで渡す
+            if (jadaUser)
+            {
+
+                //自販連ユーザー
+                this.Session["Jisseki_Report_COCODE"] = qCOCODE;
+                this.Session["Jisseki_Report_YearRep"] = Utility.HeiseiToChristianEra(this.txtYearRep0.Text);
+                this.Session["Jisseki_Report_MonthRep"] = this.txtMonthRep0.Text;
+
+
+            }
+            else
+            {
+                //会員
+                this.Session["Jisseki_Report_COCODE"] = this.Session["COCODE"];
+                this.Session["Jisseki_Report_YearRep"] = Utility.HeiseiToChristianEra(this.txtYearRep0.Text);
+                this.Session["Jisseki_Report_MonthRep"] = this.txtMonthRep0.Text;
+            }
+
+            string js = "";
+            js += "<script language='JavaScript'>";
+            js += "window.open('" + URL.REPORT_KARI_INVOICE_REPORT_JS + "')";
+            js += "</script>";
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "startup", js);
+
         }
 
     }

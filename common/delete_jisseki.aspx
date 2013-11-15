@@ -34,7 +34,7 @@
     <div id="DivTo">
         <div id="DivSyaDanHouZin">
 	        <div id="DivSyaDan">
-	        	社団
+	        	一般社団
 	        </div>
 	        <div id="DivHouZin">
 	        	法人

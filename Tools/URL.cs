@@ -23,12 +23,10 @@ namespace Jisseki_Report_Ibaraki.Tools
       public const string ID_MASTER = "~/jada/master/IdMaster.aspx";
       public const string DOWNLOAD_REPORTRED_DATA = "~/jada/download/Jisseki_Report.aspx";
 
-     //レポート
+      //レポート
+      //実績報告書(相対パスJavaScript用)
       public const string REPORT_JISSEKI_REPORT_JS = "../Report/Jisseki_Report/Jisseki_Report_View.aspx";
-
-
-
-
-
+      //仮請求書(相対パスJavaScript用)
+      public const string REPORT_KARI_INVOICE_REPORT_JS = "../Report/Invoice/Invoice_View.aspx";
     }
 }

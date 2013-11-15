@@ -30,7 +30,7 @@ namespace Jisseki_Report_Ibaraki.Report
 
         string Sql = " SELECT "
                     //{乗(大) +  貨(大)　+ バス(大) }*216
-                    + "I.CONAME as CONAME, "
+                    + "I.CONAME as CONAME, H.MonthRep as MonthRep, "
                     //乗(中小」) +  貨(中小)　+ バス(中小)
                     + "(" 
                     + "M.JK_J1 + TC.JK_J1 +  TK.JK_J1  + S.JK_J1 + G.JK_J1 "
@@ -194,13 +194,9 @@ namespace Jisseki_Report_Ibaraki.Report
                         cmd.Connection = Conn;
 
                         //セッションで渡すとき
-                        //cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["Jisseki_Report_COCODE"].ToString()));
-                        //cmd.Parameters.Add(new SqlParameter("@YearRep", this.Session["Jisseki_Report_YearRep"].ToString()));
-                        //cmd.Parameters.Add(new SqlParameter("@MonthRep", this.Session["Jisseki_Report_MonthRep"].ToString()));
-
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", "0001"));
-                        cmd.Parameters.Add(new SqlParameter("@YearRep", "2013"));
-                        cmd.Parameters.Add(new SqlParameter("@MonthRep", "10"));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["Jisseki_Report_COCODE"].ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@YearRep", this.Session["Jisseki_Report_YearRep"].ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@MonthRep", this.Session["Jisseki_Report_MonthRep"].ToString()));
 
 
                         using (SqlDataAdapter Adapter = new SqlDataAdapter())

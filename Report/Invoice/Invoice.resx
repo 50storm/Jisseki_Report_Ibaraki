@@ -117,8 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtSum_BigSize.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_MediumSmall.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtU_Average.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSumSibuMemberFee.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_Kamotu7t.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_Kamotu6DP9_5t.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_Kamotu4DP9_3t.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_Kamotu2DP9_2DP5t.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_Over2001cc.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_To2000From1000cc.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_Over30.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSum_LessThan29.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
   <data name="txtSumSibuMemberFeeHeader.OutputFormat" xml:space="preserve">
     <value>¥#,##0</value>
+  </data>
+  <data name="txtU_MemberFee.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="txtSumMemberFee.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
   </data>
   <data name="textBox1.OutputFormat" xml:space="preserve">
     <value>¥#,##0</value>

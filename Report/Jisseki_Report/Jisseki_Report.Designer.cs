@@ -550,12 +550,12 @@
             // 
             this.lblSyadan.Height = 0.2083333F;
             this.lblSyadan.HyperLink = null;
-            this.lblSyadan.Left = 1.338583F;
+            this.lblSyadan.Left = 1.102362F;
             this.lblSyadan.Name = "lblSyadan";
             this.lblSyadan.Style = "font-family: ＭＳ Ｐ明朝; text-align: right";
-            this.lblSyadan.Text = "社団";
+            this.lblSyadan.Text = "一般社団";
             this.lblSyadan.Top = 0.7086615F;
-            this.lblSyadan.Width = 0.3937008F;
+            this.lblSyadan.Width = 0.6299216F;
             // 
             // lblHoujin
             // 
