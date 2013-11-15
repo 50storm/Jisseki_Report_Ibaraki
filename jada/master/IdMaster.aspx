@@ -97,11 +97,9 @@
             onclientclick="return confirmDeletion();" />
         <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
     </div>
-    <asp:GridView ID="GridView1" runat="server" 
-        AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" 
-        DataKeyNames="COCODE" 
-        onselectedindexchanged="GridView1_SelectedIndexChanged" 
-        onpageindexchanging="GridView1_PageIndexChanging" PageSize="20">
+<asp:GridView ID="GridView1" runat="server"  AutoGenerateColumns="False"  
+        DataKeyNames="COCODE" onselectedindexchanged="GridView1_SelectedIndexChanged" 
+        opageindexchanging="GridView1_PageIndexChanging" PageSize="500">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="COCODE" HeaderText="会員コード"   />
@@ -114,7 +112,7 @@
             <asp:BoundField DataField="Member" HeaderText="会員フラグ"  />
             <asp:BoundField DataField="short_CONAME" HeaderText="略名"  />
         </Columns>
-    </asp:GridView>
+</asp:GridView>
     <!--
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:JissekiConnectionString %>" 

@@ -331,12 +331,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
         }
 
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            this.GridView1.PageIndex = e.NewPageIndex;
-
-        }
-
+       
      
     }
 }
