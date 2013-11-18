@@ -123,6 +123,8 @@ namespace Jisseki_Report_Ibaraki.jada.download
                            + "   [Jisseki_Report_Ibaraki].[dbo].[ID]   I "
                            + " ON H.COCODE = I.COCODE "
                            + " WHERE "
+                           + " I.Member = 1 "//会員のみ(念のため)
+                           + " AND "           
                            + " H.YearRep = @YearRep "
                            + " AND "           
                            + " H.MonthRep = @MonthRep ";
