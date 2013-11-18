@@ -72,6 +72,7 @@
     <Content Include="common\input_jisseki.aspx" />
     <Content Include="Css\input.css" />
     <Content Include="Css\print.css" />
+    <Content Include="Css\input_ie6.css" />
     <Content Include="jada\download\Jisseki_Report.aspx" />
     <Content Include="jada\master\IdMaster.aspx" />
     <Content Include="jada\menu\Jihan.aspx" />

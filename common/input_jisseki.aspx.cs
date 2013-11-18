@@ -26,7 +26,586 @@ namespace Jisseki_Report_Ibaraki.common
             private String qCOCODE;
         #endregion
 
-            #region "メソッド"
+            #region "チェックメソッド"
+
+            private bool HeaderIsValid() {
+                if (this.txtYear.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "送信日は必須入力です";
+                    return false;
+
+                }
+
+                if (this.txtMonth.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "送信日は必須入力です";
+                    return false;
+
+                }
+
+                if (this.txtDay.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "送信日は必須入力です";
+                    return false;
+
+                }
+
+                if (this.txtSyamei.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "会社名は必須入力です";
+                    return false;
+                }
+
+
+                if (this.txtTantou.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "担当者は必須入力です";
+                    return false;
+                }
+
+                if (this.txtYearRep0.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "報告日は必須入力です";
+                    return false;
+
+                }
+
+                if (this.txtMonthRep0.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "報告日は必須入力です";
+                    return false;
+
+                }
+
+                if (this.txtYearRep1.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "報告日は必須入力です";
+                    return false;
+
+                }
+
+                if (this.txtMonthRep1.Text == string.Empty)
+                {
+                    this.lblMsg.Text = "報告日は必須入力です";
+                    return false;
+
+                }
+
+                return true;
+
+            }
+
+
+            /// <summary>
+            /// 何も入力されてないときは、半角の0に強制変換
+            /// </summary>
+            private void Mito_ConvertNothingTo0() {
+                //貨物
+                if (this.txtMito_Kamotu1.Text.Trim() == string.Empty)
+                {
+                    this.txtMito_Kamotu1.Text = "0";
+                    
+                }
+
+                if (this.txtMito_Kamotu2.Text == string.Empty)
+                {
+                    this.txtMito_Kamotu2.Text = "0";
+                    
+                }
+
+                if (this.txtMito_Kamotu3.Text == string.Empty)
+                {
+                    this.txtMito_Kamotu3.Text = "0";
+                    
+                }
+
+                if (this.txtMito_Kamotu4.Text == string.Empty)
+                {
+                    this.txtMito_Kamotu4.Text = "0";
+                    
+                }
+                
+                //バス
+                if (this.txtMito_Bus1.Text == string.Empty)
+                {
+                    this.txtMito_Bus1.Text = "0";
+
+                }
+
+
+                if (this.txtMito_Bus2.Text == string.Empty)
+                {
+                    this.txtMito_Bus2.Text = "0";
+
+                }
+
+
+                //乗用及び貨物車                
+                if (this.txtMito_JK_J1.Text == string.Empty)
+                {
+                    this.txtMito_JK_J1.Text = "0";
+                    
+                }
+
+
+                if (this.txtMito_JK_K1.Text == string.Empty)
+                {
+                    this.txtMito_JK_K1.Text = "0";
+                    
+                }
+
+                if (this.txtMito_JK_J2.Text == string.Empty)
+                {
+                    this.txtMito_JK_J2.Text = "0";
+                    
+                }
+
+
+                if (this.txtMito_JK_K2.Text == string.Empty)
+                {
+                    this.txtMito_JK_K2.Text = "0";
+                    
+                }
+
+                if (this.txtMito_JK_J3.Text == string.Empty)
+                {
+                    this.txtMito_JK_J3.Text = "0";
+                    
+                }
+
+
+                if (this.txtMito_JK_K3.Text == string.Empty)
+                {
+                    this.txtMito_JK_K3.Text = "0";
+                    
+                }
+
+                //小計
+                if (this.txtMito_SubTotal1.Text == string.Empty)
+                {
+                    this.txtMito_SubTotal1.Text = "0";
+                    
+                }
+
+                //合計
+                if (this.txtMito_Total1.Text == string.Empty)
+                {
+                    this.txtMito_Total1.Text = "0";
+                    
+                }
+
+            }
+
+            /// <summary>
+            /// 何も入力されてないときは、半角の0に強制変換
+            /// </summary>
+            private void Tuchiura_ConvertNothingTo0()
+            {
+                //貨物
+                if (this.txtTuchiura_Kamotu1.Text.Trim() == string.Empty)
+                {
+                    this.txtTuchiura_Kamotu1.Text = "0";
+
+                }
+
+                if (this.txtTuchiura_Kamotu2.Text == string.Empty)
+                {
+                    this.txtTuchiura_Kamotu2.Text = "0";
+
+                }
+
+                if (this.txtTuchiura_Kamotu3.Text == string.Empty)
+                {
+                    this.txtTuchiura_Kamotu3.Text = "0";
+
+                }
+
+                if (this.txtTuchiura_Kamotu4.Text == string.Empty)
+                {
+                    this.txtTuchiura_Kamotu4.Text = "0";
+
+                }
+
+                //バス
+                if (this.txtTuchiura_Bus1.Text == string.Empty)
+                {
+                    this.txtTuchiura_Bus1.Text = "0";
+
+                }
+
+
+                if (this.txtTuchiura_Bus2.Text == string.Empty)
+                {
+                    this.txtTuchiura_Bus2.Text = "0";
+
+                }
+
+
+                //乗用及び貨物車                
+                if (this.txtTuchiura_JK_J1.Text == string.Empty)
+                {
+                    this.txtTuchiura_JK_J1.Text = "0";
+
+                }
+
+
+                if (this.txtTuchiura_JK_K1.Text == string.Empty)
+                {
+                    this.txtTuchiura_JK_K1.Text = "0";
+
+                }
+
+                if (this.txtTuchiura_JK_J2.Text == string.Empty)
+                {
+                    this.txtTuchiura_JK_J2.Text = "0";
+
+                }
+
+
+                if (this.txtTuchiura_JK_K2.Text == string.Empty)
+                {
+                    this.txtTuchiura_JK_K2.Text = "0";
+
+                }
+
+                if (this.txtTuchiura_JK_J3.Text == string.Empty)
+                {
+                    this.txtTuchiura_JK_J3.Text = "0";
+
+                }
+
+
+                if (this.txtTuchiura_JK_K3.Text == string.Empty)
+                {
+                    this.txtTuchiura_JK_K3.Text = "0";
+
+                }
+
+                //小計
+                if (this.txtTuchiura_SubTotal1.Text == string.Empty)
+                {
+                    this.txtTuchiura_SubTotal1.Text = "0";
+
+                }
+
+                //合計
+                if (this.txtTuchiura_Total1.Text == string.Empty)
+                {
+                    this.txtTuchiura_Total1.Text = "0";
+
+                }
+
+            }
+
+
+            /// <summary>S
+            /// 何も入力されてないときは、半角の0に強制変換
+            /// </summary>
+            private void Tukuba_ConvertNothingTo0()
+            {
+                //貨物
+                if (this.txtTukuba_Kamotu1.Text.Trim() == string.Empty)
+                {
+                    this.txtTukuba_Kamotu1.Text = "0";
+
+                }
+
+                if (this.txtTukuba_Kamotu2.Text == string.Empty)
+                {
+                    this.txtTukuba_Kamotu2.Text = "0";
+
+                }
+
+                if (this.txtTukuba_Kamotu3.Text == string.Empty)
+                {
+                    this.txtTukuba_Kamotu3.Text = "0";
+
+                }
+
+                if (this.txtTukuba_Kamotu4.Text == string.Empty)
+                {
+                    this.txtTukuba_Kamotu4.Text = "0";
+
+                }
+
+                //バス
+                if (this.txtTukuba_Bus1.Text == string.Empty)
+                {
+                    this.txtTukuba_Bus1.Text = "0";
+
+                }
+
+
+                if (this.txtTukuba_Bus2.Text == string.Empty)
+                {
+                    this.txtTukuba_Bus2.Text = "0";
+
+                }
+
+
+                //乗用及び貨物車                
+                if (this.txtTukuba_JK_J1.Text == string.Empty)
+                {
+                    this.txtTukuba_JK_J1.Text = "0";
+
+                }
+
+
+                if (this.txtTukuba_JK_K1.Text == string.Empty)
+                {
+                    this.txtTukuba_JK_K1.Text = "0";
+
+                }
+
+                if (this.txtTukuba_JK_J2.Text == string.Empty)
+                {
+                    this.txtTukuba_JK_J2.Text = "0";
+
+                }
+
+
+                if (this.txtTukuba_JK_K2.Text == string.Empty)
+                {
+                    this.txtTukuba_JK_K2.Text = "0";
+
+                }
+
+                if (this.txtTukuba_JK_J3.Text == string.Empty)
+                {
+                    this.txtTukuba_JK_J3.Text = "0";
+
+                }
+
+
+                if (this.txtTukuba_JK_K3.Text == string.Empty)
+                {
+                    this.txtTukuba_JK_K3.Text = "0";
+
+                }
+
+                //小計
+                if (this.txtTukuba_SubTotal1.Text == string.Empty)
+                {
+                    this.txtTukuba_SubTotal1.Text = "0";
+
+                }
+
+                //合計
+                if (this.txtTukuba_Total1.Text == string.Empty)
+                {
+                    this.txtTukuba_Total1.Text = "0";
+
+                }
+
+            }
+
+            /// <summary>
+            /// 何も入力されてないときは、半角の0に強制変換
+            /// </summary>
+            private void Sonota_ConvertNothingTo0()
+            {
+                //貨物
+                if (this.txtSonota_Kamotu1.Text.Trim() == string.Empty)
+                {
+                    this.txtSonota_Kamotu1.Text = "0";
+
+                }
+
+                if (this.txtSonota_Kamotu2.Text == string.Empty)
+                {
+                    this.txtSonota_Kamotu2.Text = "0";
+
+                }
+
+                if (this.txtSonota_Kamotu3.Text == string.Empty)
+                {
+                    this.txtSonota_Kamotu3.Text = "0";
+
+                }
+
+                if (this.txtSonota_Kamotu4.Text == string.Empty)
+                {
+                    this.txtSonota_Kamotu4.Text = "0";
+
+                }
+
+                //バス
+                if (this.txtSonota_Bus1.Text == string.Empty)
+                {
+                    this.txtSonota_Bus1.Text = "0";
+
+                }
+
+
+                if (this.txtSonota_Bus2.Text == string.Empty)
+                {
+                    this.txtSonota_Bus2.Text = "0";
+
+                }
+
+
+                //乗用及び貨物車                
+                if (this.txtSonota_JK_J1.Text == string.Empty)
+                {
+                    this.txtSonota_JK_J1.Text = "0";
+
+                }
+
+
+                if (this.txtSonota_JK_K1.Text == string.Empty)
+                {
+                    this.txtSonota_JK_K1.Text = "0";
+
+                }
+
+                if (this.txtSonota_JK_J2.Text == string.Empty)
+                {
+                    this.txtSonota_JK_J2.Text = "0";
+
+                }
+
+
+                if (this.txtSonota_JK_K2.Text == string.Empty)
+                {
+                    this.txtSonota_JK_K2.Text = "0";
+
+                }
+
+                if (this.txtSonota_JK_J3.Text == string.Empty)
+                {
+                    this.txtSonota_JK_J3.Text = "0";
+
+                }
+
+
+                if (this.txtSonota_JK_K3.Text == string.Empty)
+                {
+                    this.txtSonota_JK_K3.Text = "0";
+
+                }
+
+                //小計
+                if (this.txtSonota_SubTotal1.Text == string.Empty)
+                {
+                    this.txtSonota_SubTotal1.Text = "0";
+
+                }
+
+                //合計
+                if (this.txtSonota_Total1.Text == string.Empty)
+                {
+                    this.txtSonota_Total1.Text = "0";
+
+                }
+
+            }
+
+            /// <summary>
+            /// 何も入力されてないときは、半角の0に強制変換
+            /// </summary>
+            private void Goukei_ConvertNothingTo0()
+            {
+                //貨物
+                if (this.txtGoukei_Kamotu1.Text.Trim() == string.Empty)
+                {
+                    this.txtGoukei_Kamotu1.Text = "0";
+
+                }
+
+                if (this.txtGoukei_Kamotu2.Text == string.Empty)
+                {
+                    this.txtGoukei_Kamotu2.Text = "0";
+
+                }
+
+                if (this.txtGoukei_Kamotu3.Text == string.Empty)
+                {
+                    this.txtGoukei_Kamotu3.Text = "0";
+
+                }
+
+                if (this.txtGoukei_Kamotu4.Text == string.Empty)
+                {
+                    this.txtGoukei_Kamotu4.Text = "0";
+
+                }
+
+                //バス
+                if (this.txtGoukei_Bus1.Text == string.Empty)
+                {
+                    this.txtGoukei_Bus1.Text = "0";
+
+                }
+
+
+                if (this.txtGoukei_Bus2.Text == string.Empty)
+                {
+                    this.txtGoukei_Bus2.Text = "0";
+
+                }
+
+
+                //乗用及び貨物車                
+                if (this.txtGoukei_JK_J1.Text == string.Empty)
+                {
+                    this.txtGoukei_JK_J1.Text = "0";
+
+                }
+
+
+                if (this.txtGoukei_JK_K1.Text == string.Empty)
+                {
+                    this.txtGoukei_JK_K1.Text = "0";
+
+                }
+
+                if (this.txtGoukei_JK_J2.Text == string.Empty)
+                {
+                    this.txtGoukei_JK_J2.Text = "0";
+
+                }
+
+
+                if (this.txtGoukei_JK_K2.Text == string.Empty)
+                {
+                    this.txtGoukei_JK_K2.Text = "0";
+
+                }
+
+                if (this.txtGoukei_JK_J3.Text == string.Empty)
+                {
+                    this.txtGoukei_JK_J3.Text = "0";
+
+                }
+
+
+                if (this.txtGoukei_JK_K3.Text == string.Empty)
+                {
+                    this.txtGoukei_JK_K3.Text = "0";
+
+                }
+
+                //小計
+                if (this.txtGoukei_SubTotal1.Text == string.Empty)
+                {
+                    this.txtGoukei_SubTotal1.Text = "0";
+
+                }
+
+                //合計
+                if (this.txtGoukei_Total1.Text == string.Empty)
+                {
+                    this.txtGoukei_Total1.Text = "0";
+
+                }
+
+            }
+
+
+
+            #endregion
+
+            #region "初期化メソッド"
             /// <summary>
             /// InitializeForm
             /// </summary>
@@ -577,69 +1156,30 @@ namespace Jisseki_Report_Ibaraki.common
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            //入力チェック
+            //入力チェックTODO サーバーサイドのチェック
             //サーバー再度でも念のため
-            if (this.txtYear.Text == string.Empty) {
-                this.lblMsg.Text = "送信日は必須入力です";
-                return ;
-               
-            }
-
-            if (this.txtMonth.Text == string.Empty)
-            {
-                this.lblMsg.Text = "送信日は必須入力です";
-                return;
-
-            }
-
-            if (this.txtDay.Text == string.Empty)
-            {
-                this.lblMsg.Text = "送信日は必須入力です";
-                return;
-
-            }
-
-            if(this.txtSyamei.Text == string.Empty)
-            {
-                this.lblMsg.Text = "会社名は必須入力です";
+            //必須チェック
+            if (!HeaderIsValid()) {
                 return;
             }
 
 
-            if (this.txtTantou.Text == string.Empty)
-            {
-                this.lblMsg.Text = "担当者は必須入力です";
-                return;
-            }
+            //何もないときは0に変換する
+            //水戸
+            this.Mito_ConvertNothingTo0();
+            //土浦
+            this.Tuchiura_ConvertNothingTo0();
+            //つくば
+            this.Tukuba_ConvertNothingTo0();
+            //その他
+            this.Sonota_ConvertNothingTo0();
+            //合計
+            this.Goukei_ConvertNothingTo0();
 
-            if (this.txtYearRep0.Text == string.Empty)
-            {
-                this.lblMsg.Text = "報告日は必須入力です";
-                return;
 
-            }
 
-            if (this.txtMonthRep0.Text == string.Empty)
-            {
-                this.lblMsg.Text = "報告日は必須入力です";
-                return;
 
-            }
-
-            if (this.txtYearRep1.Text == string.Empty)
-            {
-                this.lblMsg.Text = "報告日は必須入力です";
-                return;
-
-            }
-
-            if (this.txtMonthRep1.Text == string.Empty)
-            {
-                this.lblMsg.Text = "報告日は必須入力です";
-                return;
-
-            }
-
+   
             try
             {
                 using (SqlConnection Conn = new SqlConnection(strConn))

@@ -43,7 +43,7 @@
 }
 </style>
     <title>会員マスターメンテナンス</title>
-    <script type="text/javascript" src="../Css/Script/Utility.js" ></script>
+    <script type="text/javascript" src="../../Scripts/Utility.js" ></script>
     <script type="text/javascript">
         function confirmDeletion()
         { 
@@ -76,6 +76,7 @@
             <th>パスワード</th>
             <th>会員フラグ<br/>(1:会員/0:自販連)</th>
             <th>略名</th>
+            <th>ポジション</th>
         </tr>
         <tr>
             <td><asp:TextBox ID="txtCOCODE" runat="server"   MaxLength="4"></asp:TextBox></td>
@@ -87,6 +88,7 @@
             <td><asp:TextBox ID="txtPassword" runat="server"   MaxLength="15"></asp:TextBox></td>
             <td><asp:TextBox ID="txtMember" runat="server"   MaxLength="1"></asp:TextBox></td>
             <td><asp:TextBox ID="txtshort_CONAME" runat="server" MaxLength="40"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtPosition" runat="server" MaxLength="3"></asp:TextBox></td>
         </tr>
         </table>
         <asp:Button ID="btnInsert" runat="server" Text="登録" onclick="btnInsert_Click" 
@@ -111,6 +113,7 @@
             <asp:BoundField DataField="Password" HeaderText="パスワード" />
             <asp:BoundField DataField="Member" HeaderText="会員フラグ"  />
             <asp:BoundField DataField="short_CONAME" HeaderText="略名"  />
+            <asp:BoundField DataField="Position" HeaderText="ポジション" />
         </Columns>
 </asp:GridView>
     <!--

@@ -99,6 +99,8 @@ namespace Jisseki_Report_Ibaraki.jada.download
                            + " , G.JK_J1 as G_JK_J1  , G.JK_K1 as G_JK_K1 , G.JK_J2 as G_JK_J2 , G.JK_K2   as G_JK_K2 , G.JK_J3   as G_JK_J3 , G.JK_K3   as G_JK_K3 "
                            + " , G.SubTotal1 as G_SubTotal1 , G.Total1 as G_Total1 "
 
+                           //ポジション追加
+                           + " , I.Position as Position "
 
                            + " FROM "
                            + "  [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Header]  H "
@@ -167,7 +169,7 @@ namespace Jisseki_Report_Ibaraki.jada.download
                         //Goukei
                         Writer.Write("G_Kamotu1,G_Kamotu2,G_Kamotu3,G_Kamotu4,G_Bus1,G_Bus2,");
                         Writer.Write("G_JK_J1,G_JK_K1,G_JK_J2,G_JK_K2,G_JK_J3,G_JK_K3,");
-                        Writer.WriteLine("G_SubTotal1,G_Total1,");
+                        Writer.WriteLine("G_SubTotal1,G_Total1,Position");
 
 
 
@@ -334,8 +336,9 @@ namespace Jisseki_Report_Ibaraki.jada.download
                             CsvLine += Reader["G_SubTotal1"].ToString();
                             CsvLine += ",";
                             CsvLine += Reader["G_Total1"].ToString();
+                            CsvLine += ",";
+                            CsvLine += Reader["Position"].ToString();
                             Writer.WriteLine(CsvLine);
-                            //Writer.Flush();
 
                         }
 

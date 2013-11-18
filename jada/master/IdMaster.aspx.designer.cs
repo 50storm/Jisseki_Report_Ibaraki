@@ -103,6 +103,15 @@ namespace Jisseki_Report_Ibaraki.jada.master {
         protected global::System.Web.UI.WebControls.TextBox txtshort_CONAME;
         
         /// <summary>
+        /// txtPosition コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPosition;
+        
+        /// <summary>
         /// btnInsert コントロール。
         /// </summary>
         /// <remarks>

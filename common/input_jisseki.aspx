@@ -4,6 +4,10 @@
 <head runat="server">
 <script type="text/javascript" src="../Scripts/Utility.js"></script>
 <script type="text/javascript" src="../Scripts/inputJisseki.js"></script>
+<!--[if IE 6 ]>
+ここにIE6だけで表示させたい内容を入れる
+<link rel="stylesheet" href="../Css/input_ie6.css" type="text/css" />
+<![endif]-->
 <link rel="stylesheet" href="../Css/input.css" type="text/css" />
     <title>新車登録台数報告書【登録】</title>
 </head>

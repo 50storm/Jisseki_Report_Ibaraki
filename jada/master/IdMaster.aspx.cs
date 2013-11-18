@@ -102,6 +102,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             txtPassword.Text = reader["Password"].ToString();
                             txtMember.Text = reader["Member"].ToString();
                             txtshort_CONAME.Text = reader["short_CONAME"].ToString();
+                            txtPosition.Text = reader["Position"].ToString();
 
                         }
                         else {
@@ -132,6 +133,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                       + "  ,[Password]     =  @Password     "
                       + "  ,[Member]       =  @Memeber      "
                       + "  ,[short_CONAME] =  @short_CONAME "
+                      + "  ,[Position]     =  @Position     "
                       + " WHERE   "
                             //Key
                       + " COCODE = @Key"
@@ -146,7 +148,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                     try
                     {
                         
-                        using (SqlCommand cmd = new SqlCommand(Sql, Conn))
+                        using (SqlCommand cmd = new SqlCommand(Sql, Conn, Tran))
                         {
                             cmd.Parameters.Add(new SqlParameter("@COCODE", this.txtCOCODE.Text));
                             cmd.Parameters.Add(new SqlParameter("@CONAME", this.txtCONAME.Text));
@@ -157,7 +159,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             cmd.Parameters.Add(new SqlParameter("@Password", this.txtPassword.Text));
                             cmd.Parameters.Add(new SqlParameter("@Memeber", this.txtMember.Text));
                             cmd.Parameters.Add(new SqlParameter("@short_CONAME", this.txtshort_CONAME.Text));
-
+                            cmd.Parameters.Add(new SqlParameter("@Position", this.txtPosition.Text));
                             cmd.Parameters.Add(new SqlParameter("@Key", this.txtCOCODE.Text));
                             cmd.ExecuteNonQuery();
 
@@ -167,8 +169,9 @@ namespace Jisseki_Report_Ibaraki.jada.master
                         Tran.Commit();
                         setGridView();
                     }
-                    catch
+                    catch (Exception ex)
                     {
+                        this.lblMsg.Text = ex.Message;
                         Tran.Rollback();
 
                     }
@@ -222,7 +225,8 @@ namespace Jisseki_Report_Ibaraki.jada.master
                          + ",[Tel] "
                          + ",[Password] "
                          + ",[Member] "
-                         + ",[short_CONAME] " 
+                         + ",[short_CONAME] "
+                         + ",[Position] " 
                          + ")"
                          + " VALUES "         
                          + "("
@@ -235,6 +239,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                          + ",@Password "
                          + ",@Member "
                          + ",@short_CONAME "
+                         + ",@Position "
                          + ")";
 
 
@@ -284,6 +289,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             cmd.Parameters.Add(new SqlParameter("@Password", this.txtPassword.Text));
                             cmd.Parameters.Add(new SqlParameter("@Member", this.txtMember.Text));
                             cmd.Parameters.Add(new SqlParameter("@short_CONAME", this.txtshort_CONAME.Text));
+                            cmd.Parameters.Add(new SqlParameter("@Position", this.txtPosition.Text));
                             cmd.ExecuteNonQuery();
                             //Commit Transaction
                             Tran.Commit();
