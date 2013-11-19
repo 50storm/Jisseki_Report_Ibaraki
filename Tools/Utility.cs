@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.VisualBasic;
+using System.Text.RegularExpressions;
+
 
 namespace Jisseki_Report_Ibaraki.Tools
 {
@@ -71,5 +74,41 @@ namespace Jisseki_Report_Ibaraki.Tools
                 return param;
             }
         }
+
+        /// <summary>
+        /// 全角→半角
+        /// </summary>
+        /// <param name="_Zenkaku"></param>
+        public static string ToHankaku(string _Zenkaku) {
+            return Strings.StrConv(_Zenkaku, VbStrConv.Narrow);       
+        }
+
+        public static bool Number3IsValid(string chkValue)   {
+            Regex reg = new Regex("[0-9]{1,3}");
+            if (reg.IsMatch(chkValue))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool IsNotNumber(string chkValue)
+        {
+            Regex reg = new Regex(@"\D");//数字以外はだめ
+            if (reg.IsMatch(chkValue))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+       
+
     }
 }

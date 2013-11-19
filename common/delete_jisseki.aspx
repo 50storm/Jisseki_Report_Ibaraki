@@ -1,8 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="delete_jisseki.aspx.cs" Inherits=" Jisseki_Report_Ibaraki.common.delete_jisseki" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="../Css/input.css" type="text/css" />
+<!--[if lt IE 8  ]>
+<link rel="stylesheet" href="../Css/input_ie6.css" type="text/css" />
+<![endif]-->
     <title>新車登録台数報告書【削除】</title>
 </head>
 <body>
@@ -10,8 +14,12 @@
 <form id="form1" runat="server" onsubmit="" >
     <!--メニュー-->	
 	<div id="Menu" >
-		<asp:HyperLink ID="linkMenu" runat="server" NavigateUrl="~/member/menu/Dealer.aspx">メニュー</asp:HyperLink>
-        <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
+		<div id="Menu_Link">
+    		<asp:HyperLink ID="linkMenu" runat="server" NavigateUrl="~/member/menu/Dealer.aspx">メニュー</asp:HyperLink>
+        </div>
+        <div id="Menu_Btn">
+            <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
+        </div>
     </div>
     <!--メッセージ-->
     <div id="Message" >
@@ -66,7 +74,7 @@
 	<!--説明文1-->
 	<div id="NarratvieText1">
 	    <p id="p1" class="p1">
-	    	当初の
+	    	当社の
 	    	<asp:Label ID="lblEraRep1" runat="server" Text="元号"></asp:Label>
 	    	<asp:TextBox ID="txtYearRep1" runat="server" 
                 onblur="setYear1ToYear0();" MaxLength="2" ></asp:TextBox>年
@@ -156,16 +164,16 @@
 		</tr>
 		<!--乗用車及び貨物車-->
 		<tr>
-			<td rowspan="4">
-                <p style="line-height:5px;">乗&nbsp;&nbsp;貨</p>
-                <p style="line-height:5px;padding-top:20px;">用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                <p style="line-height:5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;物</p>
-                <p style="line-height:5px;">及&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                <p style="line-height:5px;padding-top:20px;">び&nbsp;&nbsp;車</p>
+			<td rowspan="4" class="Row_JK">
+                <p id="Row_JK_1" >乗&nbsp;&nbsp;貨</p>
+                <p id="Row_JK_2" >用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p id="Row_JK_3" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;物</p>
+                <p id="Row_JK_4" >及&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p id="Row_JK_5" >び&nbsp;&nbsp;車</p>
             </td>
              <td >&nbsp;</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td>
 		</tr>
-		<tr  style="height:10px;">
+		<tr>
 			<td class="Category" ><p>2,100cc以上</p></td>
 			<td><asp:TextBox ID="txtMito_JK_J1" runat="server"       MaxLength="3"  class="txtTableType2"  ></asp:TextBox></td>
 			<td><asp:TextBox ID="txtMito_JK_K1" runat="server"       MaxLength="3"  class="txtTableType2" ></asp:TextBox></td>
@@ -225,14 +233,10 @@
 		</tbody>
 		</table>
 	</div>
-
 <!--フッター-->
-<div>
-	<p>※直納及び県外からの登録も含む。</p>
-	<p>※翌月5日までに必ず報告のこと。</p>
-<!--
-	<p id="test">【印刷時のみ見えます】</p>
--->
+<div id="footer">
+	<p class="footer_p">※直納及び県外からの登録も含む。</p>
+	<p class="footer_p" >※翌月5日までに必ず報告のこと。</p>
 </div>
 <!--ボタン-->
 <div>

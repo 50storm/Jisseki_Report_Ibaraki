@@ -5,7 +5,7 @@
 	/*width:21.0cm;*/
 	/*height:29.7cm;*/
 	width:800px;
-	height:1030px;
+	height:1010px;
 	border:1mm black solid;
 	padding:2px 2px 2px 2px;
 }
@@ -15,11 +15,11 @@
 	/*position:fixed;*/
 	float:left;
 	/*width:5cm;*/
-	width:145px;
+	width:300px;
 	/*height:1cm;*/
 	height:25px;
 	padding:0px 0px 0px 0px ;
-	/*border:4px solid lime;*/
+	border:4px solid lime;
 }
 /*メッセージ*/
 #Message
@@ -29,7 +29,6 @@
 	width:450px;
 	padding:0px 0px 0px 0px ;
 	height:25px;
-	margin-left:60px;
 	/*border:1px solid blue;*/
 }
 
@@ -238,23 +237,14 @@
 	white-space:nowrap;	
 }
 
-/*フッター*/
-#footer .footer_p
-{
-	padding-top:5px;
-	line-height:5px;	
-}
-
-
 #linkMenu
 {
 	color:#0000ff;
 	background:transparent;
 	font-size:18px;
 	font-weight:bold;
-	font-family:MS UI Gothic;
+	font-family:@@MS UI Gothic;
 	width:100px;
-	text-decoration:none;
 }
 #btnLogOut
 {
@@ -265,9 +255,8 @@
     border:none;
     background:transparent;
     font-size:18px;
-    font-family:MS UI Gothic;
+    font-family:@@MS UI Gothic;
     width:100px;
-    text-decoration:none;
 }
 #txtSyamei
 {
@@ -298,7 +287,6 @@
 	height:20px;
 }
 
-
 /*乗用及び貨物車*/
 .Row_JK{
 	height:180px;
@@ -326,21 +314,3 @@
 	padding-top:20px;
 }
 
-#Menu_Link{
-	/*border: 1px solid blue;*/
-	width:70px;
-	height:12px;
-	float:left;
-	/*margin-top:2px;*/
-	padding-top:2px;
-	padding-left:8px;
-	padding-bottom:2px;
-}
-
-#Menu_Btn{
-	/*border: 1px solid blue;*/
-	width:67px;
-	height:12px;
-	float:right;
-	text-align:left;
-}

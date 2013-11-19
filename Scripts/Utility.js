@@ -32,12 +32,15 @@ function isNumber(id) {
 
     //エラーの時は背景色を変える
     if (isNaN(obj.value)) {
-        document.getElementById(id).style.backgroundColor = "Pink";
-        document.getElementById(id).focus();
+        //document.getElementById(id).style.backgroundColor = "Pink";
+        //document.getElementById(id).focus();
+        isError(id);
         return false;
     } else {
-        document.getElementById(id).style.backgroundColor = "White";
-        return true
+        //document.getElementById(id).style.backgroundColor = "White";
+        isOk(id);
+        return true;
+
     }
 }
 //=============================
@@ -49,11 +52,28 @@ function isEmpty(id) {
 
     //エラーの時は背景色を変える
     if (obj.value == "") {
-        document.getElementById(id).style.backgroundColor = "Pink";
-        document.getElementById(id).focus();
+
+    //    document.getElementById(id).style.backgroundColor = "Pink";
+        //    document.getElementById(id).focus();
+        isError(id);
         return false;
     } else {
-        document.getElementById(id).style.backgroundColor = "White";
-        return true
+        //document.getElementById(id).style.backgroundColor = "White";
+        isOk(id);
+        return true;
     }
+}
+
+//=============================
+//エラー時に色を変える
+//=============================
+function isError(id) {
+    document.getElementById(id).style.backgroundColor = "Pink";
+    document.getElementById(id).focus();
+    document.getElementById(id).select();
+}
+
+function isOk(id) {
+    document.getElementById(id).style.backgroundColor = "White";
+
 }
