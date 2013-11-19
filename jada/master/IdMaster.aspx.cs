@@ -62,10 +62,10 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
 
             //ログインしていなければ表示しない
-           // if (Session["COCODE"] == null)
-           // {
-           //     Response.Redirect(URL.LOGIN_DEALER);
-           // }
+            if (Session["COCODE"] == null)
+            {
+                Response.Redirect(URL.LOGIN_DEALER);
+            }
 
 
             //接続文字列

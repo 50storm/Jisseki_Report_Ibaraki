@@ -41,5 +41,10 @@ namespace Jisseki_Report_Ibaraki.jada.menu
             Session.Abandon();
             Response.Redirect(URL.LOGIN_DEALER);
         }
+
+        protected void btnUnitPrice_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(URL.UNIT_PRICE_MADTER);
+        }
     }
 }

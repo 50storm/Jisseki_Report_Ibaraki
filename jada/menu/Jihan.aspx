@@ -71,6 +71,8 @@
         </div>
         <div id="MasterDivBtn">
             <p><asp:Button ID="btn_ID" runat="server" Text="会員マスタ" onclick="btn_ID_Click" /></p>
+            <p><asp:Button ID="btnUnitPrice" runat="server" Text="単価マスタ" 
+                    onclick="btnUnitPrice_Click"  /></p>
         </div>
     </div>
     <div id="jadaLogOut">

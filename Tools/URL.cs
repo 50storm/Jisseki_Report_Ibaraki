@@ -20,7 +20,10 @@ namespace Jisseki_Report_Ibaraki.Tools
       public const string MENU_JADA = "~/jada/menu/Jihan.aspx";
       public const string SERCH_NON_REPORTED = "~/jada/search/nonReported_member.aspx";
       public const string SERCH_REPORTED = "~/jada/search/reported_member.aspx";     
+      
       public const string ID_MASTER = "~/jada/master/IdMaster.aspx";
+      public const string UNIT_PRICE_MADTER = "~/jada/master/UnitPriceMaster.aspx";
+
       public const string DOWNLOAD_REPORTRED_DATA = "~/jada/download/Jisseki_Report.aspx";
 
       //レポート

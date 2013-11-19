@@ -72,10 +72,10 @@
     <Content Include="common\delete_jisseki.aspx" />
     <Content Include="common\input_jisseki.aspx" />
     <Content Include="Css\input.css" />
-    <Content Include="Css\print.css" />
     <Content Include="Css\input_ie6.css" />
     <Content Include="jada\download\Jisseki_Report.aspx" />
     <Content Include="jada\master\IdMaster.aspx" />
+    <Content Include="jada\master\UnitPriceMaster.aspx" />
     <Content Include="jada\menu\Jihan.aspx" />
     <Content Include="jada\search\reported_member.aspx" />
     <Content Include="jada\search\nonReported_member.aspx" />
@@ -131,6 +131,13 @@
     </Compile>
     <Compile Include="jada\master\IdMaster.aspx.designer.cs">
       <DependentUpon>IdMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jada\master\UnitPriceMaster.aspx.cs">
+      <DependentUpon>UnitPriceMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jada\master\UnitPriceMaster.aspx.designer.cs">
+      <DependentUpon>UnitPriceMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="jada\menu\Jihan.aspx.cs">
       <DependentUpon>Jihan.aspx</DependentUpon>
