@@ -80,27 +80,27 @@ namespace Jisseki_Report_Ibaraki.Report
                     //6.9t~5t
                     "(M.Kamotu2 + TK.Kamotu2 + TC.Kamotu2 + S.Kamotu2 + G.Kamotu2) as  Num_Kamotu6DP9_5t  ,"
                     +
-                    "U.[Kamotu6.9_5t]  as U_Kamotu6DP9_5t , "
+                    "U.[Kamotu6DP9_5t]  as U_Kamotu6DP9_5t , "
                     +
-                    "(M.Kamotu2 + TK.Kamotu2 + TC.Kamotu2 + S.Kamotu2 + G.Kamotu2)*U.[Kamotu6.9_5t] as Sum_Kamotu6DP9_5t  ,"
+                    "(M.Kamotu2 + TK.Kamotu2 + TC.Kamotu2 + S.Kamotu2 + G.Kamotu2)*U.[Kamotu6DP9_5t] as Sum_Kamotu6DP9_5t  ,"
 
 
                     //4.9t~3t
                     +
                     " (M.Kamotu3 + TK.Kamotu3 + TC.Kamotu3 + S.Kamotu3 + G.Kamotu3) as Num_Kamotu4DP9_3t  ,"
                     +
-                    " U.[Kamotu4.9_3t] as U_Kamotu4DP9_3t  ,"
+                    " U.[Kamotu4DP9_3t] as U_Kamotu4DP9_3t  ,"
                     +
-                    "(M.Kamotu3 + TK.Kamotu3 + TC.Kamotu3 + S.Kamotu3 + G.Kamotu3)*U.[Kamotu4.9_3t] as Sum_Kamotu4DP9_3t, "
+                    "(M.Kamotu3 + TK.Kamotu3 + TC.Kamotu3 + S.Kamotu3 + G.Kamotu3)*U.[Kamotu4DP9_3t] as Sum_Kamotu4DP9_3t, "
 
 
                     //2.9t~2.5t
                     +
                     "(M.Kamotu4 + TK.Kamotu4 + TC.Kamotu4 + S.Kamotu4 + G.Kamotu4) as Num_Kamotu2DP9_2DP5t  ,"
                     +
-                    " U.[Kamotu2.9_2.5t] as U_Kamotu2DP9_2DP5t  ,"
+                    " U.[Kamotu2DP9_2DP5t] as U_Kamotu2DP9_2DP5t  ,"
                     +
-                    "(M.Kamotu4 + TK.Kamotu4 + TC.Kamotu4 + S.Kamotu4 + G.Kamotu4)*U.[Kamotu2.9_2.5t] as Sum_Kamotu2DP9_2DP5t  ,"
+                    "(M.Kamotu4 + TK.Kamotu4 + TC.Kamotu4 + S.Kamotu4 + G.Kamotu4)*U.[Kamotu2DP9_2DP5t] as Sum_Kamotu2DP9_2DP5t  ,"
                     
 
                     //2,001cc

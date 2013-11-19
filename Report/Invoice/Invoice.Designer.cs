@@ -405,7 +405,7 @@
             this.txtU_BigSize.Height = 0.3229167F;
             this.txtU_BigSize.Left = 4.566929F;
             this.txtU_BigSize.Name = "txtU_BigSize";
-            this.txtU_BigSize.Style = "font-size: 13pt; text-align: center; vertical-align: middle";
+            this.txtU_BigSize.Style = "font-family: ＭＳ Ｐ明朝; font-size: 13pt; text-align: center; vertical-align: middle";
             this.txtU_BigSize.Text = "999";
             this.txtU_BigSize.Top = 2.677166F;
             this.txtU_BigSize.Width = 0.5905512F;
@@ -525,7 +525,7 @@
             // 
             this.label9.Height = 0.3149607F;
             this.label9.HyperLink = null;
-            this.label9.Left = 3.464567F;
+            this.label9.Left = 3.307087F;
             this.label9.Name = "label9";
             this.label9.Style = "font-family: ＭＳ Ｐ明朝; font-size: 14pt; vertical-align: middle";
             this.label9.Text = "月分会費";
@@ -549,7 +549,7 @@
             this.txtU_MediumSmall.Height = 0.3229167F;
             this.txtU_MediumSmall.Left = 4.566929F;
             this.txtU_MediumSmall.Name = "txtU_MediumSmall";
-            this.txtU_MediumSmall.Style = "font-size: 13pt; text-align: center; vertical-align: middle";
+            this.txtU_MediumSmall.Style = "font-family: ＭＳ Ｐ明朝; font-size: 13pt; text-align: center; vertical-align: middle";
             this.txtU_MediumSmall.Text = "999";
             this.txtU_MediumSmall.Top = 3.149606F;
             this.txtU_MediumSmall.Width = 0.5905512F;
@@ -990,7 +990,7 @@
             // 
             this.txtSumSibuMemberFeeHeader.DataField = "=Sum_BigSize+Sum_MediumSmall+U_Average+";
             this.txtSumSibuMemberFeeHeader.Height = 0.3229167F;
-            this.txtSumSibuMemberFeeHeader.Left = 5.196851F;
+            this.txtSumSibuMemberFeeHeader.Left = 5.275591F;
             this.txtSumSibuMemberFeeHeader.Name = "txtSumSibuMemberFeeHeader";
             this.txtSumSibuMemberFeeHeader.OutputFormat = resources.GetString("txtSumSibuMemberFeeHeader.OutputFormat");
             this.txtSumSibuMemberFeeHeader.Style = "font-family: ＭＳ Ｐ明朝; font-size: 20pt; font-style: italic; vertical-align: middle";
@@ -1070,7 +1070,7 @@
             // 
             this.label24.Height = 0.3079069F;
             this.label24.HyperLink = null;
-            this.label24.Left = 0.944882F;
+            this.label24.Left = 0.8661418F;
             this.label24.Name = "label24";
             this.label24.Style = "font-family: ＭＳ Ｐ明朝; font-size: 14pt; vertical-align: middle";
             this.label24.Text = "自販連茨城県支部";
@@ -1120,8 +1120,7 @@
             this.label26.HyperLink = null;
             this.label26.Left = 3.622048F;
             this.label26.Name = "label26";
-            this.label26.Style = "font-family: MS Reference Sans Serif; font-size: 13pt; text-align: center; vertic" +
-    "al-align: middle";
+            this.label26.Style = "font-family: ＭＳ Ｐ明朝; font-size: 13pt; text-align: center; vertical-align: middle";
             this.label26.Text = "台";
             this.label26.Top = 3.149606F;
             this.label26.Width = 0.3937009F;
@@ -1847,7 +1846,7 @@
             // 
             this.txtMonthRep0.DataField = "MonthRep";
             this.txtMonthRep0.Height = 0.3125F;
-            this.txtMonthRep0.Left = 2.992126F;
+            this.txtMonthRep0.Left = 2.834646F;
             this.txtMonthRep0.Name = "txtMonthRep0";
             this.txtMonthRep0.Style = "font-family: ＭＳ Ｐ明朝; font-size: 14pt; text-align: center; vertical-align: middle";
             this.txtMonthRep0.Text = "99";
@@ -1857,13 +1856,13 @@
             // line3
             // 
             this.line3.Height = 0F;
-            this.line3.Left = 0.944882F;
+            this.line3.Left = 0.472441F;
             this.line3.LineWeight = 1F;
             this.line3.Name = "line3";
             this.line3.Top = 2.047244F;
-            this.line3.Width = 6.141733F;
-            this.line3.X1 = 0.944882F;
-            this.line3.X2 = 7.086615F;
+            this.line3.Width = 6.771654F;
+            this.line3.X1 = 0.472441F;
+            this.line3.X2 = 7.244095F;
             this.line3.Y1 = 2.047244F;
             this.line3.Y2 = 2.047244F;
             // 
