@@ -26,6 +26,13 @@ namespace Jisseki_Report_Ibaraki.jada.download
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ログインしていなければ表示しない
+            if (Session["COCODE"] == null)
+            {
+                Response.Redirect(URL.LOGIN_DEALER);
+            }
+
+
             //接続文字列
             strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
             //

@@ -15,6 +15,11 @@ namespace Jisseki_Report_Ibaraki.member.menu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ログインしていなければ表示しない
+            if (Session["COCODE"] == null)
+            {
+                Response.Redirect(URL.LOGIN_DEALER);
+            }
 
         }
 

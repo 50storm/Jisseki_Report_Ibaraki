@@ -226,11 +226,13 @@
 {
 	width:80px;
 	text-align:center;
+	ime-mode:disabled;
 }
 .txtTableType2
 {
 	width:30px;
 	text-align:center;
+	ime-mode:disabled;
 }
 
 .Category

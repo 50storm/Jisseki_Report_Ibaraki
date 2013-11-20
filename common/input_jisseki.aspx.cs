@@ -1704,6 +1704,8 @@ namespace Jisseki_Report_Ibaraki.common
                 //自販連
                 jadaUser = true;
                 qCOCODE = Page.Request.QueryString.Get("COCODE");
+                //年月ももらってセット
+
 
             }
 

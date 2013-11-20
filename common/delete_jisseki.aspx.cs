@@ -96,7 +96,7 @@ namespace Jisseki_Report_Ibaraki.common
             //初期表示
             string SqlHeader =
                 " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Header]  "
-                + " WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";//TODO
+                + " WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
 
             using (SqlConnection Conn = new SqlConnection(strConn))
             {
@@ -149,7 +149,6 @@ namespace Jisseki_Report_Ibaraki.common
         {
             string SqlMito =
                     " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Mito]  "
-                //+ " WHERE COCODE=@COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
                     + " WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
             using (SqlConnection Conn = new SqlConnection(strConn))
             {
@@ -194,7 +193,6 @@ namespace Jisseki_Report_Ibaraki.common
         {
             string SqlTuchiura =
                     " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Tuchiura]  "
-                //+ " WHERE COCODE=@COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
                     + " WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
             using (SqlConnection Conn = new SqlConnection(strConn))
             {
@@ -398,17 +396,17 @@ namespace Jisseki_Report_Ibaraki.common
         private void deleteAll(SqlConnection Conn, SqlTransaction Tran)
         {
             String DeleteAll = "DELETE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Header] "
-                               + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month "
+                               + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep "
                                + " DELETE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Mito] "
-                               + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month "
+                               + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep "
                                + " DELETE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Tuchiura] "
-                               + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month "
+                               + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep "
                                + " DELETE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Tukuba] "
-                               + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month "
+                               + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep "
                                + " DELETE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Sonota] "
-                               + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month "
+                               + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep "
                                + " DELETE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Goukei] "
-                               + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month "
+                               + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep "
                                 ;
             //Sqlコネクション
             try
@@ -418,8 +416,8 @@ namespace Jisseki_Report_Ibaraki.common
                 //Sqlインジェクション回避
                 //キー項目
                 cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
-                cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
-                cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
                 cmd.Parameters.Add(new SqlParameter("@TANTOU", txtTantou.Text));
                 cmd.ExecuteNonQuery();
 
@@ -467,7 +465,23 @@ namespace Jisseki_Report_Ibaraki.common
                  if (!Page.IsPostBack)
                  {
                      initializeForm();
-                 }   
+                 }
+                 //一ヶ月過ぎてたら削除できないようにする
+                 TimeSpan ts;
+                 DateTime TimeReport = new DateTime(int.Parse(qYearRep),
+                                                int.Parse(qMonthRep), 1);
+
+                 DateTime TimeToday = new DateTime(DateTime.Today.Year,
+                                                   DateTime.Today.Month,
+                                                   DateTime.Today.Day);
+
+                 ts = TimeToday - TimeReport;
+                 if (ts.Days > 31)
+                 {
+                     this.lblMsg.Text = "一ヶ月以上過ぎているので削除できません";
+                     this.btnSubmit.Enabled = false;
+                 }
+
            }catch{
            
            }

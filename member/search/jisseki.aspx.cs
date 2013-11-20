@@ -23,11 +23,13 @@ namespace Jisseki_Report_Ibaraki.member.search
         //Index for Gridview
         private const int GV_INDEX_担当 = 0;
         private const int GV_INDEX_日付 = 1;
-        private const int GV_INDEX_YEAR = 4;
-        private const int GV_INDEX_MONTH = 5;
-        private const int GV_INDEX_DAY = 6;
-        private const int GV_INDEX_YEAR_REP = 7;
-        private const int GV_INDEX_MONTH_REP= 8;
+        private const int GV_INDEX_報告日付 = 2;
+        private const int GV_INDEX_YEAR = 5;
+        private const int GV_INDEX_MONTH = 6;
+        private const int GV_INDEX_DAY = 7;
+        private const int GV_INDEX_YEAR_REP = 8;
+        private const int GV_INDEX_MONTH_REP= 9;
+        
 
         //検索クエリー用
        // private string qCOCODE,qYearRep,qMonthRep;
@@ -39,11 +41,6 @@ namespace Jisseki_Report_Ibaraki.member.search
                 " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Header]  "
                 + " WHERE "
                 + " COCODE=@COCODE  "
-                /*
-                + " AND YearRep = @YearRep "
-                + " AND MonthRep = @MonthRep ";
-                */
-
                 +" AND ( YearRep >= @YearRepFrom AND MonthRep >= @MonthRepFrom) "
                 +" AND ( YearRep <= @YearRepTo AND MonthRep <= @MonthRepTo) ";
 
@@ -97,12 +94,20 @@ namespace Jisseki_Report_Ibaraki.member.search
                     for (int i = 0; i < Gridview1.Rows.Count; i++)
                     {
                         //Covert Christian Era To Japanese Era
+                        //送信日
                         DateTime JapaneseDate = DateTime.Parse(Gridview1.Rows[i].Cells[GV_INDEX_YEAR].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_DAY].Text);
-
                         wEra = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                         wYear = jCalender.GetYear(JapaneseDate).ToString();
                         wDate = wEra + wYear + "年" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH].Text + "月" + Gridview1.Rows[i].Cells[GV_INDEX_DAY].Text + "日";
                         Gridview1.Rows[i].Cells[GV_INDEX_日付].Text = wDate;
+
+                        //報告台数提出日
+                        DateTime JapaneseDateRep = DateTime.Parse(Gridview1.Rows[i].Cells[GV_INDEX_YEAR_REP].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH_REP].Text) ;
+                        wEra = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDateRep));
+                        wYear = jCalender.GetYear(JapaneseDateRep).ToString();
+                        wDate = wEra + wYear + "年" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH_REP].Text + "月";
+                        Gridview1.Rows[i].Cells[GV_INDEX_報告日付].Text = wDate;
+
 
 
                     }
@@ -124,6 +129,12 @@ namespace Jisseki_Report_Ibaraki.member.search
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ログインしていなければ表示しない
+            if (Session["COCODE"] == null)
+            {
+                Response.Redirect(URL.LOGIN_DEALER);
+            }
+
             //接続文字列
             strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
             
@@ -169,6 +180,13 @@ namespace Jisseki_Report_Ibaraki.member.search
                             wDate = wEra + wYear + "年" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH].Text + "月" + Gridview1.Rows[i].Cells[GV_INDEX_DAY].Text + "日";
                             Gridview1.Rows[i].Cells[GV_INDEX_日付].Text = wDate;
 
+                            //報告台数提出日
+                            DateTime JapaneseDateRep = DateTime.Parse(Gridview1.Rows[i].Cells[GV_INDEX_YEAR_REP].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH_REP].Text);
+                            wEra = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDateRep));
+                            wYear = jCalender.GetYear(JapaneseDateRep).ToString();
+                            wDate = wEra + wYear + "年" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH_REP].Text + "月";
+                            Gridview1.Rows[i].Cells[GV_INDEX_報告日付].Text = wDate;
+
 
                         }
                         //送信日
@@ -188,18 +206,26 @@ namespace Jisseki_Report_Ibaraki.member.search
        
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+
+            //TODO:時間があればやる
+            //TimeSpan ts;
+            //DateTime RepFrom = new DateTime(int.Parse(Utility.HeiseiToChristianEra(this.txtYearRepFrom.Text)), 
+            //                               int.Parse(this.txtMonthRepFrom.Text),1);
+
+            //DateTime RepTo = new DateTime(int.Parse(Utility.HeiseiToChristianEra(this.txtYearRepTo.Text)),
+            //                               int.Parse(this.txtMonthRepTo.Text), 1);
+            //ts = RepTo - RepFrom;
+            //if(  ts.Days > 365){
+            //    this.lblMsg.Text = "一年以上は検索できません。";            
+            //}
+
+
+
             this.searchReportData(Session["COCODE"].ToString(),
                 Utility.HeiseiToChristianEra(this.txtYearRepFrom.Text), this.txtMonthRepFrom.Text,
                 Utility.HeiseiToChristianEra(this.txtYearRepTo.Text), this.txtMonthRepTo.Text);
         }
 
-        protected void Gridview1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int row = Gridview1.SelectedIndex;
-
-
-
-        }
 
     }
 }

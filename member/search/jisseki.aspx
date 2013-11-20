@@ -32,10 +32,15 @@
     <div>
     <asp:gridview ID="Gridview1" runat="server" AutoGenerateColumns="False" 
             style="margin-right: 0px" 
-            onselectedindexchanged="Gridview1_SelectedIndexChanged" >
+           >
     <Columns>
         <asp:BoundField DataField="TANTOU" HeaderText="担当者" />
         <asp:BoundField HeaderText="送信日付" />
+        
+            
+        <asp:BoundField HeaderText="報告年月" />
+        
+            
         <asp:HyperLinkField Text="削除" DataNavigateUrlFields="COCODE,YearRep,MonthRep" 
             DataNavigateUrlFormatString="~/common/delete_jisseki.aspx?COCODE={0}&amp;YearRep={1}&amp;MonthRep={2}" 
             Target="_blank" />

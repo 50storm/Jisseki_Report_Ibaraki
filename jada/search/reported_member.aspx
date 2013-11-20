@@ -37,6 +37,7 @@
         <asp:BoundField DataField="CONAME" HeaderText="会社名" />
         <asp:BoundField DataField="TANTOU" HeaderText="会員担当者" />
         <asp:BoundField HeaderText="受信日付" />
+        <asp:BoundField HeaderText="報告年月" />
         <asp:HyperLinkField Text="削除" DataNavigateUrlFields="COCODE,YearRep,MonthRep" 
             DataNavigateUrlFormatString="~/common/delete_jisseki.aspx?COCODE={0}&amp;YearRep={1}&amp;MonthRep={2}" 
             Target="_blank" />

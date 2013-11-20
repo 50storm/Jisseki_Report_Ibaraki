@@ -12,6 +12,7 @@ using System.Collections;
 using System.Web.Security;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using Jisseki_Report_Ibaraki.Tools;
 
 using DataDynamics.ActiveReports;
 using DataDynamics.ActiveReports.Export.Pdf;
@@ -98,6 +99,12 @@ namespace Jisseki_Report_Ibaraki.Report
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ログインしていなければ表示しない
+            if (Session["COCODE"] == null)
+            {
+                Response.Redirect(URL.LOGIN_DEALER);
+            }
+
 
             //接続文字列
             strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;

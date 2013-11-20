@@ -1559,7 +1559,7 @@ namespace Jisseki_Report_Ibaraki.common
                                     + "   ,[Day]    = @Day "
                                     + "   ,[COCODE] = @COCODE "
                                     + "   ,[TANTOU] = @TANTOU "
-                                    + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
+                                    + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
 
 
             //Sqlコネクション
@@ -1570,6 +1570,9 @@ namespace Jisseki_Report_Ibaraki.common
                 //Sqlインジェクション回避
                 //キー項目
                 cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
                 cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
                 cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
                 cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
@@ -1612,7 +1615,7 @@ namespace Jisseki_Report_Ibaraki.common
                                  + " ,[JK_K3]     = @JK_K3 "
                                  + " ,[SubTotal1] = @SubTotal1 "
                                  + " ,[Total1]    = @Total1 "
-                                 + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
+                                 + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
                                  
                            
             //Sqlコネクション
@@ -1623,6 +1626,9 @@ namespace Jisseki_Report_Ibaraki.common
                 //Sqlインジェクション回避
                 //キー項目
                 cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
                 cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
                 cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
                 cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
@@ -1685,7 +1691,7 @@ namespace Jisseki_Report_Ibaraki.common
                                  + " ,[JK_K3]     = @JK_K3 "
                                  + " ,[SubTotal1] = @SubTotal1 "
                                  + " ,[Total1]    = @Total1 "
-                                 + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
+                                 + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
 
 
             //Sqlコネクション
@@ -1695,10 +1701,16 @@ namespace Jisseki_Report_Ibaraki.common
                 cmd.CommandText = updateTuchiuraSql;
                 //Sqlインジェクション回避
                 //キー項目
+                //キー項目
                 cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
+
                 cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
                 cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
                 cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
+
 
 
                 //貨物
@@ -1758,7 +1770,7 @@ namespace Jisseki_Report_Ibaraki.common
                                  + " ,[JK_K3]     = @JK_K3 "
                                  + " ,[SubTotal1] = @SubTotal1 "
                                  + " ,[Total1]    = @Total1 "
-                                 + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
+                                 + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
 
 
             //Sqlコネクション
@@ -1769,6 +1781,8 @@ namespace Jisseki_Report_Ibaraki.common
                 //Sqlインジェクション回避
                 //キー項目
                 cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
 
                 cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
                 cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
@@ -1832,7 +1846,7 @@ namespace Jisseki_Report_Ibaraki.common
                                  + " ,[JK_K3]     = @JK_K3 "
                                  + " ,[SubTotal1] = @SubTotal1 "
                                  + " ,[Total1]    = @Total1 "
-                                 + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
+                                 + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
 
 
             //Sqlコネクション
@@ -1843,6 +1857,9 @@ namespace Jisseki_Report_Ibaraki.common
                 //Sqlインジェクション回避
                 //キー項目
                 cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
                 cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
                 cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
                 cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
@@ -1951,7 +1968,7 @@ namespace Jisseki_Report_Ibaraki.common
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //try{
+            try{
                 //TODO
                  //ログインしていなければ表示しない
                  if (Session["COCODE"] == null) {
@@ -1975,7 +1992,7 @@ namespace Jisseki_Report_Ibaraki.common
 
                  //Receive Keys by GET
                  qCOCODE = Page.Request.QueryString.Get("COCODE");
-                 qYearRep = Page.Request.QueryString.Get("YearRep");
+                 qYearRep = Page.Request.QueryString.Get("YearRep");//西暦
                  qMonthRep = Page.Request.QueryString.Get("MonthRep");
             
             //     Response.Write(qCOCODE);
@@ -1986,10 +2003,31 @@ namespace Jisseki_Report_Ibaraki.common
                  if (!Page.IsPostBack)
                  {
                      initializeForm();
-                 }   
-           //}catch{
-           
-           //}
+                     //一ヶ月過ぎてたら修正できないようにする
+                     TimeSpan ts;
+                     DateTime TimeReport = new DateTime(int.Parse(qYearRep), 
+                                                    int.Parse(qMonthRep),1);
+
+                     DateTime TimeToday = new DateTime(DateTime.Today.Year,
+                                                       DateTime.Today.Month,
+                                                       DateTime.Today.Day);
+
+                     ts = TimeToday - TimeReport;
+                     if (ts.Days > 31)
+                     {
+                         this.lblMsg.Text = "一ヶ月以上過ぎているので修正できません";
+                         this.btnSubmit.Enabled = false;
+                     }
+
+
+
+
+                 }
+            }
+            catch
+            {
+
+            }
             
         }
 

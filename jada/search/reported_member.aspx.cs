@@ -23,15 +23,16 @@ namespace Jisseki_Report_Ibaraki.jada.search
         //Index for Gridview
         private const int GV_INDEX_会社コード = 0;
         private const int GV_INDEX_会社名 = 1;
-        private const int GV_INDEX_会員担当者 = 2;//TODO 途中
+        private const int GV_INDEX_会員担当者 = 2;
         private const int GV_INDEX_受信日付 = 3;
-        private const int GV_INDEX_削除 = 4;
-        private const int GV_INDEX_修正 = 5;
-        private const int GV_INDEX_YEAR = 6;
-        private const int GV_INDEX_MONTH = 7;
-        private const int GV_INDEX_DAY = 8;
-        private const int GV_INDEX_YEAR_REP = 9;
-        private const int GV_INDEX_MONTH_REP = 10;
+        private const int GV_INDEX_報告日付 = 4;
+        private const int GV_INDEX_削除 = 5;
+        private const int GV_INDEX_修正 = 6;
+        private const int GV_INDEX_YEAR = 7;
+        private const int GV_INDEX_MONTH = 8;
+        private const int GV_INDEX_DAY = 9;
+        private const int GV_INDEX_YEAR_REP = 10;
+        private const int GV_INDEX_MONTH_REP = 11;
 
 
 
@@ -90,11 +91,17 @@ namespace Jisseki_Report_Ibaraki.jada.search
                     {
                         //Covert Christian Era To Japanese Era
                         DateTime JapaneseDate = DateTime.Parse(Gridview1.Rows[i].Cells[GV_INDEX_YEAR].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_DAY].Text);
-
                         wEra = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                         wYear = jCalender.GetYear(JapaneseDate).ToString();
                         wDate = wEra + wYear + "年" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH].Text + "月" + Gridview1.Rows[i].Cells[GV_INDEX_DAY].Text + "日";
                         Gridview1.Rows[i].Cells[GV_INDEX_受信日付].Text = wDate;
+
+                        //報告台数提出日
+                        DateTime JapaneseDateRep = DateTime.Parse(Gridview1.Rows[i].Cells[GV_INDEX_YEAR_REP].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH_REP].Text);
+                        wEra = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDateRep));
+                        wYear = jCalender.GetYear(JapaneseDateRep).ToString();
+                        wDate = wEra + wYear + "年" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH_REP].Text + "月";
+                        Gridview1.Rows[i].Cells[GV_INDEX_報告日付].Text = wDate;
 
 
                     }
@@ -115,7 +122,14 @@ namespace Jisseki_Report_Ibaraki.jada.search
 
         
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {   
+            //ログインしていなければ表示しない
+            if (Session["COCODE"] == null)
+            {
+                Response.Redirect(URL.LOGIN_DEALER);
+            }
+
+
             //接続文字列
             strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
             
@@ -154,12 +168,22 @@ namespace Jisseki_Report_Ibaraki.jada.search
                         for (int i = 0; i < Gridview1.Rows.Count; i++)
                         {
                             //Covert Christian Era To Japanese Era
+                            //送信(受信)日付
                             DateTime JapaneseDate = DateTime.Parse(Gridview1.Rows[i].Cells[GV_INDEX_YEAR].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_DAY].Text);
-
                             wEra = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                             wYear = jCalender.GetYear(JapaneseDate).ToString();
                             wDate = wEra + wYear + "年" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH].Text + "月" + Gridview1.Rows[i].Cells[GV_INDEX_DAY].Text + "日";
                             Gridview1.Rows[i].Cells[GV_INDEX_受信日付].Text = wDate;
+
+
+                            //報告台数提出日
+                            DateTime JapaneseDateRep = DateTime.Parse(Gridview1.Rows[i].Cells[GV_INDEX_YEAR_REP].Text + "/" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH_REP].Text);
+                            wEra = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDateRep));
+                            wYear = jCalender.GetYear(JapaneseDateRep).ToString();
+                            wDate = wEra + wYear + "年" + Gridview1.Rows[i].Cells[GV_INDEX_MONTH_REP].Text + "月";
+                            Gridview1.Rows[i].Cells[GV_INDEX_報告日付].Text = wDate;
+
+
 
 
                         }
