@@ -362,7 +362,7 @@ namespace Jisseki_Report_Ibaraki.Report
 
         protected void Page_Load(object sender, EventArgs e)
         {
-         //try { 
+         try { 
             //ログインしていなければ表示しない
             if (Session["COCODE"] == null)
             {
@@ -380,11 +380,13 @@ namespace Jisseki_Report_Ibaraki.Report
                  //通常会員
                 this.runInvoice();
             }
-            
 
-        //}catch{
-    
-        //}
+
+         }
+         catch
+         {
+
+         }
 
       }
     }

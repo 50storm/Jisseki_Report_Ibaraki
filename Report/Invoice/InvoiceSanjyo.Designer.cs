@@ -25,7 +25,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(Invoice));
+            System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(InvoiceSanjyo));
             this.detail = new DataDynamics.ActiveReports.Detail();
             this.label14 = new DataDynamics.ActiveReports.Label();
             this.label15 = new DataDynamics.ActiveReports.Label();
@@ -84,7 +84,6 @@
             this.line31 = new DataDynamics.ActiveReports.Line();
             this.line32 = new DataDynamics.ActiveReports.Line();
             this.line33 = new DataDynamics.ActiveReports.Line();
-            this.line34 = new DataDynamics.ActiveReports.Line();
             this.line35 = new DataDynamics.ActiveReports.Line();
             this.line36 = new DataDynamics.ActiveReports.Line();
             this.label34 = new DataDynamics.ActiveReports.Label();
@@ -107,6 +106,7 @@
             this.txtMonthRep1 = new DataDynamics.ActiveReports.TextBox();
             this.line19 = new DataDynamics.ActiveReports.Line();
             this.line18 = new DataDynamics.ActiveReports.Line();
+            this.line34 = new DataDynamics.ActiveReports.Line();
             ((System.ComponentModel.ISupportInitialize)(this.label14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label16)).BeginInit();
@@ -254,7 +254,7 @@
             this.line19,
             this.line18,
             this.line34});
-            this.detail.Height = 11.41732F;
+            this.detail.Height = 6.72982F;
             this.detail.Name = "detail";
             this.detail.Format += new System.EventHandler(this.detail_Format);
             // 
@@ -966,19 +966,6 @@
             this.line33.Y1 = 0.944882F;
             this.line33.Y2 = 4.881891F;
             // 
-            // line34
-            // 
-            this.line34.Height = 3.937009F;
-            this.line34.Left = 4.094489F;
-            this.line34.LineWeight = 1F;
-            this.line34.Name = "line34";
-            this.line34.Top = 0.944882F;
-            this.line34.Width = 0F;
-            this.line34.X1 = 4.094489F;
-            this.line34.X2 = 4.094489F;
-            this.line34.Y1 = 0.944882F;
-            this.line34.Y2 = 4.881891F;
-            // 
             // line35
             // 
             this.line35.Height = 4.803148F;
@@ -1189,7 +1176,7 @@
             this.label50.Name = "label50";
             this.label50.Style = "font-family: ＭＳ Ｐ明朝; font-size: 13pt; text-align: center; vertical-align: middle";
             this.label50.Text = "振込先：常陽銀行　本店　普通預金　117235　　茨城県自動車販売店協会";
-            this.label50.Top = 11.1811F;
+            this.label50.Top = 5.905512F;
             this.label50.Width = 6.771654F;
             // 
             // txtMonthRep1
@@ -1229,13 +1216,26 @@
             this.line18.Y1 = 0.7874016F;
             this.line18.Y2 = 0.7874016F;
             // 
-            // Invoice
+            // line34
+            // 
+            this.line34.Height = 3.937009F;
+            this.line34.Left = 4.094489F;
+            this.line34.LineWeight = 1F;
+            this.line34.Name = "line34";
+            this.line34.Top = 0.944882F;
+            this.line34.Width = 0F;
+            this.line34.X1 = 4.094489F;
+            this.line34.X2 = 4.094489F;
+            this.line34.Y1 = 0.944882F;
+            this.line34.Y2 = 4.881891F;
+            // 
+            // InvoiceSanjyo
             // 
             this.MasterReport = false;
             this.PageSettings.Margins.Bottom = 0F;
             this.PageSettings.Margins.Left = 0F;
             this.PageSettings.Margins.Right = 0F;
-            this.PageSettings.Margins.Top = 0F;
+            this.PageSettings.Margins.Top = 0.7874016F;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 8.267716F;
