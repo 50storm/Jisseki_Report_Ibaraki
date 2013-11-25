@@ -244,10 +244,10 @@
 	<p class="footer_p" >※翌月5日までに必ず報告のこと。</p>
 </div>
 <!--ボタン-->
-<div>
-    <asp:Button ID="btnSubmit" runat="server" Text="修正" onclick="btnSubmit_Click"   onclientclick="return checkForms();" />
-    <asp:Button ID="btnPrint" runat="server" Text="印刷" onclick="btnPrint_Click"   />
-    <asp:Button ID="btnKariInvoice" runat="server" Text="仮請求書印刷"   onclick="btnKariInvoice_Click"    />
+<div id="footerButton">
+	<asp:Button ID="btnSubmit" runat="server" Text="送信" onclick="btnSubmit_Click" onclientclick="return checkForms();" class="FooterBtn"/>
+	<asp:Button ID="btnPrint" runat="server" Text="印刷" onclick="btnPrint_Click"  class="FooterBtn" />
+    <asp:Button ID="btnKariInvoice" runat="server" Text="仮請求書印刷"   onclick="btnKariInvoice_Click"  class="FooterBtn"  />
 </div>
 </form>
 </div>

@@ -240,8 +240,8 @@
 	<p class="footer_p" >※翌月5日までに必ず報告のこと。</p>
 </div>
 <!--ボタン-->
-<div>
-    <asp:Button ID="btnSubmit" runat="server" Text="削除" onclick="btnSubmit_Click" />
+<div  id="footerButton">
+    <asp:Button ID="btnSubmit" runat="server" Text="削除" onclick="btnSubmit_Click" class="FooterBtn" />
 </div>
 </form>
 </div>

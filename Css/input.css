@@ -241,12 +241,40 @@
 }
 
 /*フッター*/
-#footer .footer_p
+#footer
 {
+	float:left;
+	/*margin-top:1px;	*/
 	padding-top:5px;
-	line-height:5px;	
+	width:300px;
+	height:70px;
+	/*border:1px solid pink;*/
 }
 
+
+#footer .footer_p
+{
+/*	padding-top:5px;*/
+	line-height:11px;	
+}
+
+
+/*ボタン*/
+#footerButton 
+{
+	float:left;
+	padding-top:10px;	
+	width:400px;
+	height:70px;
+	/*border:1px solid lime;*/
+	/*clear:both;*/
+	
+}
+.FooterBtn
+{
+	width:100px;
+	height:50px;
+}
 
 #linkMenu
 {
