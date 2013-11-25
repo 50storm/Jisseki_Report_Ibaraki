@@ -1502,7 +1502,14 @@ namespace Jisseki_Report_Ibaraki.common
                     cmd.CommandText = InsertTukubaSql;
                     //Sqlインジェクション回避
                     //キー項目
-                    cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                    if (jadaUser)
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                    }
                     cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
                     cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
                     cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));

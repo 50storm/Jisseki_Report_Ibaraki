@@ -16,105 +16,119 @@ namespace Jisseki_Report_Ibaraki.jada.master
         private string strConn;
 
         private void setGridView() {
-            string Sql = " SELECT * FROM [Jisseki_Report_Ibaraki].dbo.ID ";
-
-
-            using (SqlConnection Conn = new SqlConnection(strConn))
+            try
             {
-                Conn.Open();
-                using (SqlCommand cmd = new SqlCommand(Sql, Conn))
+                string Sql = " SELECT * FROM [Jisseki_Report_Ibaraki].dbo.ID ";
+                using (SqlConnection Conn = new SqlConnection(strConn))
                 {
-                    /*
-                    cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
-                    cmd.Parameters.Add(new SqlParameter("@YearRep", qYearRep));
-                    cmd.Parameters.Add(new SqlParameter("@MonthRep", qMonthRep));
-                    */
-                    //using (SqlDataReader Reader = cmd.ExecuteReader())
-                    //{
-                    using (SqlDataAdapter Adapter = new SqlDataAdapter(Sql, Conn))
+                    Conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(Sql, Conn))
                     {
-                        Adapter.SelectCommand = cmd;
-                        DataTable ID = new DataTable("IDマスタ");
-                        Adapter.Fill(ID);
-                        if (ID.Rows.Count == 0)
+                        /*
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        cmd.Parameters.Add(new SqlParameter("@YearRep", qYearRep));
+                        cmd.Parameters.Add(new SqlParameter("@MonthRep", qMonthRep));
+                        */
+                        //using (SqlDataReader Reader = cmd.ExecuteReader())
+                        //{
+                        using (SqlDataAdapter Adapter = new SqlDataAdapter(Sql, Conn))
                         {
-                            GridView1.EmptyDataText = "IDマスタに登録がありません。";
-                        }
-                        else
-                        {
+                            Adapter.SelectCommand = cmd;
+                            DataTable ID = new DataTable("IDマスタ");
+                            Adapter.Fill(ID);
+                            if (ID.Rows.Count == 0)
+                            {
+                                GridView1.EmptyDataText = "IDマスタに登録がありません。";
+                            }
+                            else
+                            {
 
-                            GridView1.DataSource = ID;
-                            GridView1.DataBind();
+                                GridView1.DataSource = ID;
+                                GridView1.DataBind();
+                            }
                         }
+                        //}
                     }
-                    //}
+                    Conn.Close();
                 }
-                Conn.Close();
             }
-        
-        
-        
+            catch
+            { 
+            
+            }       
         
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try{
+
+                //ログインしていなければ表示しない
+                if (Session["COCODE"] == null)
+                {
+                    Response.Redirect(URL.LOGIN_DEALER);
+                }
 
 
-            //ログインしていなければ表示しない
-            if (Session["COCODE"] == null)
-            {
-                Response.Redirect(URL.LOGIN_DEALER);
+                //接続文字列
+                strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
+                setGridView();
+            }catch{
             }
-
-
-            //接続文字列
-            strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
-            setGridView();
 
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int i = GridView1.SelectedIndex;
-            String Sql = " SELECT * FROM Jisseki_Report_Ibaraki.dbo.ID "
-                       + " WHERE "
-                       + " COCODE = @COCODE "  ;
-
-
-            using (SqlConnection Conn = new SqlConnection(strConn))
+            try
             {
-                Conn.Open();
-                using (SqlCommand cmd = new SqlCommand(Sql, Conn))
+                int i = GridView1.SelectedIndex;
+                String Sql = " SELECT * FROM Jisseki_Report_Ibaraki.dbo.ID "
+                           + " WHERE "
+                           + " COCODE = @COCODE ";
+
+
+                using (SqlConnection Conn = new SqlConnection(strConn))
                 {
+                    Conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(Sql, Conn))
+                    {
 
-                    cmd.Parameters.Add(new SqlParameter("@COCODE", GridView1.Rows[i].Cells[1].Text));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", GridView1.Rows[i].Cells[1].Text));
 
-                    using (SqlDataReader reader = cmd.ExecuteReader()) {
-                        if (reader.HasRows)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            reader.Read();
-                            txtCOCODE.Text = reader["COCODE"].ToString();
-                            txtCONAME.Text = reader["CONAME"].ToString();
-                            txtRepName.Text = reader["RepName"].ToString();
-                            txtAddress.Text = reader["Address"].ToString();
-                            txtTel.Text = reader["Tel"].ToString();
-                            txtPassword.Text = reader["Password"].ToString();
-                            txtMember.Text = reader["Member"].ToString();
-                            txtshort_CONAME.Text = reader["short_CONAME"].ToString();
-                            txtPosition.Text = reader["Position"].ToString();
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+                                txtCOCODE.Text = reader["COCODE"].ToString();
+                                txtCONAME.Text = reader["CONAME"].ToString();
+                                txtRepName.Text = reader["RepName"].ToString();
+                                txtAddress.Text = reader["Address"].ToString();
+                                txtTel.Text = reader["Tel"].ToString();
+                                txtPassword.Text = reader["Password"].ToString();
+                                txtMember.Text = reader["Member"].ToString();
+                                txtMemberType.Text = reader["MemberType"].ToString();
+                                txtshort_CONAME.Text = reader["short_CONAME"].ToString();
+                                txtPosition.Text = reader["Position"].ToString();
+
+                            }
+                            else
+                            {
+                                return;
+                            }
 
                         }
-                        else {
-                            return;
-                        }
-               
+
+
+
                     }
-
-                   
-
+                    Conn.Close();
                 }
-                Conn.Close();
+            }
+            catch { 
+            
+            
             }
 
         }
@@ -132,8 +146,10 @@ namespace Jisseki_Report_Ibaraki.jada.master
                       + "  ,[Tel]          =  @Tel          "
                       + "  ,[Password]     =  @Password     "
                       + "  ,[Member]       =  @Memeber      "
+                      + "  ,[MemberType]   =  @MemeberType  "
                       + "  ,[short_CONAME] =  @short_CONAME "
                       + "  ,[Position]     =  @Position     "
+                      + "  ,[isCanceled]   =  @isCanceled     "
                       + " WHERE   "
                             //Key
                       + " COCODE = @Key"
@@ -158,8 +174,10 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             cmd.Parameters.Add(new SqlParameter("@Tel", this.txtTel.Text));
                             cmd.Parameters.Add(new SqlParameter("@Password", this.txtPassword.Text));
                             cmd.Parameters.Add(new SqlParameter("@Memeber", this.txtMember.Text));
+                            cmd.Parameters.Add(new SqlParameter("@MemeberType", this.txtMemberType.Text));
                             cmd.Parameters.Add(new SqlParameter("@short_CONAME", this.txtshort_CONAME.Text));
                             cmd.Parameters.Add(new SqlParameter("@Position", this.txtPosition.Text));
+                            cmd.Parameters.Add(new SqlParameter("@isCanceled", this.txtisCanceled.Text));
                             cmd.Parameters.Add(new SqlParameter("@Key", this.txtCOCODE.Text));
                             cmd.ExecuteNonQuery();
 
@@ -225,8 +243,10 @@ namespace Jisseki_Report_Ibaraki.jada.master
                          + ",[Tel] "
                          + ",[Password] "
                          + ",[Member] "
+                         + ",[MemberType] "
                          + ",[short_CONAME] "
-                         + ",[Position] " 
+                         + ",[Position] "
+                         //+ ",[isCanceled] " 
                          + ")"
                          + " VALUES "         
                          + "("
@@ -238,32 +258,11 @@ namespace Jisseki_Report_Ibaraki.jada.master
                          + ",@Tel "
                          + ",@Password "
                          + ",@Member "
+                         + ",@MemberType "
                          + ",@short_CONAME "
                          + ",@Position "
+                         //+ ",@isCanceled"
                          + ")";
-
-
-
-            //SqlConnection Conn = new SqlConnection(strConn);
-            //Conn.Open();
-            //SqlCommand cmd = new SqlCommand();
-            //cmd.Connection = Conn;
-            //cmd.CommandText = Sql;
-            //cmd.Parameters.Add(new SqlParameter("@COCODE", this.txtCOCODE.Text));
-            //cmd.Parameters.Add(new SqlParameter("@CONAME", this.txtCONAME.Text));
-            //cmd.Parameters.Add(new SqlParameter("@RepName", this.txtRepName.Text));
-            //cmd.Parameters.Add(new SqlParameter("@PostalCode", this.txtPostalCode.Text));
-            //cmd.Parameters.Add(new SqlParameter("@Address", this.txtAddress.Text));
-            //cmd.Parameters.Add(new SqlParameter("@Tel", this.txtTel.Text));
-            //cmd.Parameters.Add(new SqlParameter("@Password", this.txtPassword.Text));
-            //cmd.Parameters.Add(new SqlParameter("@Member", this.txtMember.Text));
-            //cmd.Parameters.Add(new SqlParameter("@short_CONAME", this.txtshort_CONAME.Text));
-            //cmd.ExecuteNonQuery();
-            //this.setGridView();
-
-
-
-
 
             //入力チェック
             try
@@ -288,8 +287,10 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             cmd.Parameters.Add(new SqlParameter("@Tel", this.txtTel.Text));
                             cmd.Parameters.Add(new SqlParameter("@Password", this.txtPassword.Text));
                             cmd.Parameters.Add(new SqlParameter("@Member", this.txtMember.Text));
+                            cmd.Parameters.Add(new SqlParameter("@MemberType", this.txtMemberType.Text));
                             cmd.Parameters.Add(new SqlParameter("@short_CONAME", this.txtshort_CONAME.Text));
                             cmd.Parameters.Add(new SqlParameter("@Position", this.txtPosition.Text));
+                            //cmd.Parameters.Add(new SqlParameter("@isCanceled", this.txtPosition.Text));
                             cmd.ExecuteNonQuery();
                             //Commit Transaction
                             Tran.Commit();
@@ -326,7 +327,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
 
             }
-            catch (Exception ex)
+            catch 
             {
 
                 //Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");

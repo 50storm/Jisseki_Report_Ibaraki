@@ -415,7 +415,14 @@ namespace Jisseki_Report_Ibaraki.common
                 cmd.CommandText = DeleteAll;
                 //Sqlインジェクション回避
                 //キー項目
-                cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                if (jadaUser)
+                {
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                }
+                else
+                {
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                }
                 cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
                 cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
                 cmd.Parameters.Add(new SqlParameter("@TANTOU", txtTantou.Text));

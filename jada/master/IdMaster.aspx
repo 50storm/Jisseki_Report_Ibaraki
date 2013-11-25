@@ -69,26 +69,31 @@
         <tr>
             <th>会社コード</th>
             <th>会社名</th>
+            <th>略名</th>
             <th>代表者名</th>
             <th>郵便番号</th>
             <th>住所</th>
             <th>電話番号</th>
             <th>パスワード</th>
-            <th>会員フラグ<br/>(1:会員/0:自販連)</th>
-            <th>略名</th>
+            <th>会員フラグ<br/>(0:自販連/1:会員)</th>
+            <th>会員種別<br/>(0:通常/1:賛助)</th>
             <th>ポジション</th>
+            <th>退会フラグ</th>
         </tr>
         <tr>
             <td><asp:TextBox ID="txtCOCODE" runat="server"   MaxLength="4"></asp:TextBox></td>
             <td><asp:TextBox ID="txtCONAME" runat="server"   MaxLength="40"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtshort_CONAME" runat="server" MaxLength="40"></asp:TextBox></td>
             <td><asp:TextBox ID="txtRepName" runat="server"   MaxLength="10" ></asp:TextBox></td>
             <td><asp:TextBox ID="txtPostalCode" runat="server" > </asp:TextBox></td>
             <td><asp:TextBox ID="txtAddress" runat="server"  MaxLength="50"></asp:TextBox></td>
             <td><asp:TextBox ID="txtTel" runat="server"   MaxLength="12"></asp:TextBox></td>
             <td><asp:TextBox ID="txtPassword" runat="server"   MaxLength="15"></asp:TextBox></td>
             <td><asp:TextBox ID="txtMember" runat="server"   MaxLength="1"></asp:TextBox></td>
-            <td><asp:TextBox ID="txtshort_CONAME" runat="server" MaxLength="40"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtMemberType" runat="server"   MaxLength="1"></asp:TextBox></td>
+            
             <td><asp:TextBox ID="txtPosition" runat="server" MaxLength="3"></asp:TextBox></td>
+            <td><asp:TextBox ID="txtisCanceled" runat="server" MaxLength="3"></asp:TextBox></td>
         </tr>
         </table>
         <asp:Button ID="btnInsert" runat="server" Text="登録" onclick="btnInsert_Click" 
@@ -105,14 +110,16 @@
             <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="COCODE" HeaderText="会員コード"   />
             <asp:BoundField DataField="CONAME" HeaderText="会員名"  />
+            <asp:BoundField DataField="short_CONAME" HeaderText="略名"  />
             <asp:BoundField DataField="RepName" HeaderText="代表者名"  />
             <asp:BoundField DataField="PostalCode" HeaderText="郵便番号"  />
             <asp:BoundField DataField="Address" HeaderText="住所" />
             <asp:BoundField DataField="Tel" HeaderText="電話番号"  />
             <asp:BoundField DataField="Password" HeaderText="パスワード" />
-            <asp:BoundField DataField="Member" HeaderText="会員フラグ"  />
-            <asp:BoundField DataField="short_CONAME" HeaderText="略名"  />
+            <asp:BoundField DataField="Member" HeaderText="会員フラグ(0:自販連/1:会員)"  />
+            <asp:BoundField DataField="MemberType" HeaderText="会員種別(0:通常/1:賛助)"  />
             <asp:BoundField DataField="Position" HeaderText="ポジション" />
+            <asp:BoundField DataField="isCanceled" HeaderText="退会フラグ" />
         </Columns>
 </asp:GridView>
     <!--

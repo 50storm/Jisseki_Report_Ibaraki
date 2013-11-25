@@ -191,6 +191,12 @@
     <Compile Include="Report\Invoice\Invoice.Designer.cs">
       <DependentUpon>Invoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\Invoice\InvoiceSanjyo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Invoice\InvoiceSanjyo.Designer.cs">
+      <DependentUpon>InvoiceSanjyo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\Invoice\Invoice_View.aspx.cs">
       <DependentUpon>Invoice_View.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,6 +224,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Report\Invoice\Invoice.resx">
       <DependentUpon>Invoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Invoice\InvoiceSanjyo.resx">
+      <DependentUpon>InvoiceSanjyo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\Jisseki_Report\Jisseki_Report.resx">
       <DependentUpon>Jisseki_Report.cs</DependentUpon>

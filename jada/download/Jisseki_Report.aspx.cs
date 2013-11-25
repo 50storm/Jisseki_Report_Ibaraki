@@ -411,7 +411,7 @@ namespace Jisseki_Report_Ibaraki.jada.download
             if (!File.Exists(this.DownloadWritePath +this.DownloadFileName))
             {
     //            lblMsg.Text = "ファイル存在しません。";
-                using(File.Create(this.DownloadWritePath + this.DownloadFileName));
+                using (File.Create(this.DownloadWritePath + this.DownloadFileName)) { };
                
                 
 

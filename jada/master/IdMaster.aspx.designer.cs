@@ -40,6 +40,15 @@ namespace Jisseki_Report_Ibaraki.jada.master {
         protected global::System.Web.UI.WebControls.TextBox txtCONAME;
         
         /// <summary>
+        /// txtshort_CONAME コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtshort_CONAME;
+        
+        /// <summary>
         /// txtRepName コントロール。
         /// </summary>
         /// <remarks>
@@ -94,13 +103,13 @@ namespace Jisseki_Report_Ibaraki.jada.master {
         protected global::System.Web.UI.WebControls.TextBox txtMember;
         
         /// <summary>
-        /// txtshort_CONAME コントロール。
+        /// txtMemberType コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtshort_CONAME;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberType;
         
         /// <summary>
         /// txtPosition コントロール。
@@ -110,6 +119,15 @@ namespace Jisseki_Report_Ibaraki.jada.master {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPosition;
+        
+        /// <summary>
+        /// txtisCanceled コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtisCanceled;
         
         /// <summary>
         /// btnInsert コントロール。

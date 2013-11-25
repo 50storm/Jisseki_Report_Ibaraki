@@ -24,8 +24,7 @@ namespace Jisseki_Report_Ibaraki.Report
     {
         private string strConn;
 
-
-        public string getSql()
+        private string getSql()
         {
 
         string Sql = " SELECT "
@@ -169,22 +168,46 @@ namespace Jisseki_Report_Ibaraki.Report
 
         }
 
+        /// <summary>
+        /// 賛助会員かどうか
+        /// </summary>
+        /// <returns></returns>
+        private Boolean IsSanjyo()
+        {
+            SqlConnection Conn = new SqlConnection(strConn);
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand();
+            
+            cmd.CommandText = "SELECT * FROM  [Jisseki_Report_Ibaraki].[dbo].[ID] WHERE COCODE = @COCODE ";
+            cmd.Connection = Conn;
+  
+            //セッションで渡すとき
+            cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["Jisseki_Report_COCODE"].ToString()));
 
+            SqlDataReader Readr = cmd.ExecuteReader();
+                Readr.Read();
+                if (Readr["MemberType"] == null)
+                {
+                    return false;
+                }
+                if (Readr["MemberType"].ToString() == "0")
+                {
+                    return false;
+                }
+                if (Readr["MemberType"].ToString() == "1")
+                {
+                    return true;
+                }
+                return false;
+            
+     
+        }
+        
+        /// <summary>
+        /// 通常会員
+        /// </summary>
+        private void runInvoice(){
 
-        protected void Page_Load(object sender, EventArgs e)
-        {           
-            //ログインしていなければ表示しない
-            if (Session["COCODE"] == null)
-            {
-                Response.Redirect(URL.LOGIN_DEALER);
-            }
-
-
-            //実績報告書
-            this.getSql();
-
-            //接続文字列
-            strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
             ActiveReport rpt = new Invoice();
 
             // レポートを作成します。
@@ -194,7 +217,7 @@ namespace Jisseki_Report_Ibaraki.Report
                 using (SqlConnection Conn = new SqlConnection(strConn))
                 {
                     Conn.Open();
-       
+
                     using (SqlCommand cmd = new SqlCommand())
                     {
                         cmd.CommandText = getSql();
@@ -208,12 +231,13 @@ namespace Jisseki_Report_Ibaraki.Report
 
                         using (SqlDataAdapter Adapter = new SqlDataAdapter())
                         {
+
                             Adapter.SelectCommand = cmd;
                             DataTable dt = new DataTable();
                             Adapter.Fill(dt);
                             rpt.DataSource = dt;
-
                             rpt.Run(false);
+
                         }
                     }
                 }
@@ -255,9 +279,113 @@ namespace Jisseki_Report_Ibaraki.Report
 
             // バッファリングされているすべての内容をクライアントへ送信します。
             Response.End();
-
-
-
+        
         }
+
+
+        private void runInvoiceSanjyo(){
+        
+            ActiveReport rpt = new InvoiceSanjyo();
+
+            // レポートを作成します。
+            try
+            {
+
+                using (SqlConnection Conn = new SqlConnection(strConn))
+                {
+                    Conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.CommandText = getSql();
+                        cmd.Connection = Conn;
+
+                        //セッションで渡すとき
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["Jisseki_Report_COCODE"].ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@YearRep", this.Session["Jisseki_Report_YearRep"].ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@MonthRep", this.Session["Jisseki_Report_MonthRep"].ToString()));
+
+
+                        using (SqlDataAdapter Adapter = new SqlDataAdapter())
+                        {
+
+                            Adapter.SelectCommand = cmd;
+                            DataTable dt = new DataTable();
+                            Adapter.Fill(dt);
+                            rpt.DataSource = dt;
+                            rpt.Run(false);
+
+                        }
+                    }
+                }
+
+            }
+            catch (DataDynamics.ActiveReports.ReportException eRunReport)
+            {
+                // レポートの作成に失敗した場合、クライアントにエラーメッセージを表示します。
+                Response.Clear();
+                Response.Write("<h1>レポート生成時にエラーが発生しました。</h1>");
+                Response.Write("<font face=\"MS UI Gothic\">" + eRunReport.ToString() + "</font>");
+                return;
+            }
+
+            //以下はサンプルコードをそのまま流用。
+
+            Response.Clear();
+            Response.ClearContent();
+            Response.ClearHeaders();
+
+            //  ブラウザに対してPDFドキュメントの適切なビューワを使用するように指定します。
+            Response.ContentType = "application/pdf";
+
+            Response.AddHeader("content-disposition", "inline; filename=MyPDF.PDF");
+            // 次のコードに置き換えると新しいウィンドウを開きます：
+            // Response.AddHeader("content-disposition","attachment; filename=MyPDF.PDF");
+
+            // PDFエクスポートクラスのインスタンスを作成します。
+            PdfExport pdf = new PdfExport();
+
+            // PDFの出力用のメモリストリームを作成します。
+            System.IO.MemoryStream memStream = new System.IO.MemoryStream();
+
+            // メモリストリームにPDFエクスポートを行います。
+            pdf.Export(rpt.Document, memStream);
+
+            // 出力ストリームにPDFのストリームを出力します。
+            Response.BinaryWrite(memStream.ToArray());
+
+            // バッファリングされているすべての内容をクライアントへ送信します。
+            Response.End();
+        
+        
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+         //try { 
+            //ログインしていなければ表示しない
+            if (Session["COCODE"] == null)
+            {
+                Response.Redirect(URL.LOGIN_DEALER);
+            }
+            //接続文字列
+            strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
+            if (IsSanjyo())
+            {
+                 //賛助会員
+                 this.runInvoiceSanjyo();
+            }
+            else
+            {
+                 //通常会員
+                this.runInvoice();
+            }
+            
+
+        //}catch{
+    
+        //}
+
+      }
     }
 }

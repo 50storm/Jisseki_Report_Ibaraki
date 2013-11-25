@@ -73,6 +73,7 @@ namespace Jisseki_Report_Ibaraki
                     Session["COCODE"] = reader["COCODE"];
                     Session["CONAME"] = reader["CONAME"];
                     Session["Member"] = reader["Member"];
+                    Session["MemberType"] = reader["MemberType"];//通常:0・賛助:1
 
                     if (reader["Member"].ToString().Equals("1"))
                     {
