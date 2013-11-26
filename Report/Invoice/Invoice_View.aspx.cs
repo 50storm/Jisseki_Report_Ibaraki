@@ -190,11 +190,11 @@ namespace Jisseki_Report_Ibaraki.Report
                 {
                     return false;
                 }
-                if (Readr["MemberType"].ToString() == "0")
+                if (Readr["MemberType"].ToString().Trim() == "0")
                 {
                     return false;
                 }
-                if (Readr["MemberType"].ToString() == "1")
+                if (Readr["MemberType"].ToString().Trim() == "1")
                 {
                     return true;
                 }

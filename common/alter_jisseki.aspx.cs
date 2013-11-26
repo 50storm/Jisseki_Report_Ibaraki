@@ -2025,7 +2025,7 @@ namespace Jisseki_Report_Ibaraki.common
                      Response.Redirect("loginJisseki.aspx");           
                  }
 
-                 if (Session["Member"].ToString() == "1")
+                 if (Session["Member"].ToString().Trim() == "1")
                  { //TODO自販連ユーザーと振り分け
                      //会員
                      jadaUser = false;

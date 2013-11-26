@@ -1701,7 +1701,7 @@ namespace Jisseki_Report_Ibaraki.common
 
             
             //Receive Keys by GET         
-            if (this.Session["Member"].ToString() == "1")
+            if (this.Session["Member"].ToString().Trim() == "1")
             {
                 //会員
                 jadaUser = false;

@@ -75,7 +75,7 @@ namespace Jisseki_Report_Ibaraki
                     Session["Member"] = reader["Member"];
                     Session["MemberType"] = reader["MemberType"];//通常:0・賛助:1
 
-                    if (reader["Member"].ToString().Equals("1"))
+                    if (reader["Member"].ToString().Trim().Equals("1"))
                     {
                         //会員メニュー
                         Response.Redirect(URL.MENU_DEALER);
