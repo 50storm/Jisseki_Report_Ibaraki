@@ -1537,15 +1537,15 @@ namespace Jisseki_Report_Ibaraki.common
             this.txtYearRep1.Enabled = false;
             this.txtMonthRep0.Enabled = false;
             this.txtMonthRep1.Enabled = false;
-            //メニューを会員、自販連で分ける
-            if (jadaUser)
-            {
-                linkMenu.NavigateUrl = URL.MENU_JADA;
-            }
-            else
-            {
-                linkMenu.NavigateUrl = URL.MENU_DEALER;
-            }
+            ////メニューを会員、自販連で分ける
+            //if (jadaUser)
+            //{
+            //    linkMenu.NavigateUrl = URL.MENU_JADA;
+            //}
+            //else
+            //{
+            //    linkMenu.NavigateUrl = URL.MENU_DEALER;
+            //}
 
         }
         #endregion
@@ -2265,16 +2265,22 @@ namespace Jisseki_Report_Ibaraki.common
 
         protected void btnlinkMenu_Click(object sender, EventArgs e)
         {
-            if (Session["Member"].ToString() == "1")
+            try
             {
-                //会員
-                Response.Redirect(URL.MENU_DEALER);
-            }
-            else
-            {
-                //自販連
-                Response.Redirect(URL.MENU_JADA);
+                if (Session["Member"].ToString().Trim() == "1")
+                {
+                    //会員
+                    Response.Redirect(URL.MENU_DEALER);
+                }
+                else
+                {
+                    //自販連
+                    Response.Redirect(URL.MENU_JADA);
 
+                }
+            }
+            catch { 
+            
             }
         }
     }

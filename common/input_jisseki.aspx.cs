@@ -1235,15 +1235,15 @@ namespace Jisseki_Report_Ibaraki.common
                 this.btnPrint.Visible = false;
                 this.btnKariInvoice.Visible = false;
 
-                //メニューを会員、自販連で分ける
-                if (jadaUser)
-                {
-                    linkMenu.NavigateUrl = URL.MENU_JADA;
-                }
-                else
-                {
-                    linkMenu.NavigateUrl = URL.MENU_DEALER;
-                }
+                ////メニューを会員、自販連で分ける
+                //if (jadaUser)
+                //{
+                //    linkMenu.NavigateUrl = URL.MENU_JADA;
+                //}
+                //else
+                //{
+                //    linkMenu.NavigateUrl = URL.MENU_DEALER;
+                //}
             }
 
 
@@ -1948,16 +1948,23 @@ namespace Jisseki_Report_Ibaraki.common
 
         protected void btnlinkMenu_Click(object sender, EventArgs e)
         {
-            if (Session["Member"].ToString() == "1")
-            {
-                //会員
-                Response.Redirect(URL.MENU_DEALER);
-            }
-            else
-            {
-                //自販連
-                Response.Redirect(URL.MENU_JADA);
 
+            try
+            {
+                if (Session["Member"].ToString().Trim() == "1")
+                {
+                    //会員
+                    Response.Redirect(URL.MENU_DEALER);
+                }
+                else
+                {
+                    //自販連
+                    Response.Redirect(URL.MENU_JADA);
+
+                }
+            }
+            catch
+            {
             }
 
         }

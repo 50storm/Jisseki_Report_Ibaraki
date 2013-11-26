@@ -368,13 +368,13 @@ namespace Jisseki_Report_Ibaraki.common
             if (jadaUser) 
             {
                 this.setHeaderForJada();
-                this.linkMenu.NavigateUrl = URL.MENU_JADA;
+                //this.linkMenu.NavigateUrl = URL.MENU_JADA;
   
             }
             else
             {
                 this.setHeader();
-                this.linkMenu.NavigateUrl = URL.MENU_DEALER;
+                //this.linkMenu.NavigateUrl = URL.MENU_DEALER;
             
             }
             this.setMito();
@@ -549,16 +549,22 @@ namespace Jisseki_Report_Ibaraki.common
 
         protected void btnlinkMenu_Click(object sender, EventArgs e)
         {
-            if (Session["Member"].ToString() == "1")
+            try
             {
-                //会員
-                Response.Redirect(URL.MENU_DEALER);
-            }
-            else
-            {
-                //自販連
-                Response.Redirect(URL.MENU_JADA);
+                if (Session["Member"].ToString().Trim() == "1")
+                {
+                    //会員
+                    Response.Redirect(URL.MENU_DEALER);
+                }
+                else
+                {
+                    //自販連
+                    Response.Redirect(URL.MENU_JADA);
 
+                }
+            }
+            catch
+            {
             }
 
         }
