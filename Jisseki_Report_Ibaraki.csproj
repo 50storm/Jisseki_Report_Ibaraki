@@ -74,6 +74,7 @@
     <Content Include="Css\input.css" />
     <Content Include="Css\inputText.css" />
     <Content Include="Css\input_ie6.css" />
+    <Content Include="Global.asax" />
     <Content Include="jada\download\Jisseki_Report.aspx" />
     <Content Include="jada\master\IdMaster.aspx" />
     <Content Include="jada\master\UnitPriceMaster.aspx" />
@@ -120,6 +121,9 @@
     </Compile>
     <Compile Include="common\input_jisseki.aspx.designer.cs">
       <DependentUpon>input_jisseki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="jada\download\Jisseki_Report.aspx.cs">
       <DependentUpon>Jisseki_Report.aspx</DependentUpon>

@@ -487,6 +487,8 @@ namespace Jisseki_Report_Ibaraki.common
                  {
                      this.lblMsg.Text = "一ヶ月以上過ぎているので削除できません";
                      this.btnSubmit.Enabled = false;
+                     this.btnSubmit.Width = 100;
+                     this.btnSubmit.Height = 50;
                  }
 
            }catch{
@@ -543,6 +545,22 @@ namespace Jisseki_Report_Ibaraki.common
         {
             Session.Abandon();
             Response.Redirect(URL.LOGIN_DEALER);
+        }
+
+        protected void btnlinkMenu_Click(object sender, EventArgs e)
+        {
+            if (Session["Member"].ToString() == "1")
+            {
+                //会員
+                Response.Redirect(URL.MENU_DEALER);
+            }
+            else
+            {
+                //自販連
+                Response.Redirect(URL.MENU_JADA);
+
+            }
+
         }
     }
 }

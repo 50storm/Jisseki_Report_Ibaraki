@@ -1945,6 +1945,22 @@ namespace Jisseki_Report_Ibaraki.common
             Page.ClientScript.RegisterStartupScript(this.GetType(), "startup", js);
 
         }
+
+        protected void btnlinkMenu_Click(object sender, EventArgs e)
+        {
+            if (Session["Member"].ToString() == "1")
+            {
+                //会員
+                Response.Redirect(URL.MENU_DEALER);
+            }
+            else
+            {
+                //自販連
+                Response.Redirect(URL.MENU_JADA);
+
+            }
+
+        }
         
     }
 }

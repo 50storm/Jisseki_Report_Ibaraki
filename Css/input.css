@@ -286,10 +286,9 @@
 	width:100px;
 	text-decoration:none;
 }
-#btnLogOut
+/*メニューボタン*/
+.BtnMenu
 {
-	/*LinkButtonが動作しない*/
-	/*LinkButton風にＣＳＳを当てる*/
 	text-decoration:underline;
     color:#0000ff;
     border:none;
@@ -299,6 +298,7 @@
     width:100px;
     text-decoration:none;
 }
+
 #txtSyamei
 {
 	width:300px;	
@@ -362,15 +362,13 @@
 	height:12px;
 	float:left;
 	/*margin-top:2px;*/
-	padding-top:2px;
-	padding-left:8px;
-	padding-bottom:2px;
+
 }
 
 #Menu_Btn{
 	/*border: 1px solid blue;*/
-	width:67px;
+	width:70px;
 	height:12px;
 	float:right;
-	text-align:left;
+
 }

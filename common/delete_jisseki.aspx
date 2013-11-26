@@ -16,7 +16,11 @@
     <!--メニュー-->	
 	<div id="Menu" >
 		<div id="Menu_Link">
+            <!--Dev1ではエラーとなる-->
+            <!--
     		<asp:HyperLink ID="linkMenu" runat="server" NavigateUrl="~/member/menu/Dealer.aspx">メニュー</asp:HyperLink>
+            -->
+            <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
         </div>
         <div id="Menu_Btn">
             <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
