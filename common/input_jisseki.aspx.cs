@@ -1694,7 +1694,7 @@ namespace Jisseki_Report_Ibaraki.common
         {
             //ログインしていなければ表示しない
             if (Session["COCODE"] == null) {
-                Response.Redirect("loginJisseki.aspx");           
+                Response.Redirect(URL.LOGIN_DEALER);         
             }
             //接続文字列
             strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;

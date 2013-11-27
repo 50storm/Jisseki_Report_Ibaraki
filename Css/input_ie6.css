@@ -10,18 +10,35 @@
 	padding:2px 2px 2px 2px;
 }
 /*メニュー*/
+
 #Menu
 {
-	/*position:fixed;*/
+	/*
 	float:left;
-	/*width:5cm;*/
 	width:210px;
-	/*height:1cm;*/
-	height:6px;
+	height:30px;
 	padding:0px 0px 0px 0px ;
-	/*border:4px solid lime;*/
+*/
 	
 }
+#Menu_Link
+{
+	/*
+	width:50px;
+	height:12px;
+	float:left;
+*/
+}
+
+#Menu_Btn
+{
+	/*
+	width:67px;
+	height:12px;
+	float:left;
+*/
+}
+
 /*メッセージ*/
 #Message
 {
@@ -244,14 +261,17 @@
 /*メニューボタン*/
 .BtnMenu
 {
+/*
 	text-decoration:underline;
     color:#0000ff;
     border:none;
     background:transparent;
     font-size:18px;
     font-family:MS UI Gothic;
+*/
     width:100px;
     text-decoration:none;
+	
 }
 
 #txtSyamei
@@ -311,23 +331,3 @@
 	padding-top:20px;
 }
 
-#Menu_Link{
-	/*border: 1px solid blue;*/
-	width:50px;
-	height:12px;
-	float:left;
-	/*margin-top:2px;*/
-	/*
-	padding-top:2px;
-	padding-left:8px;
-	padding-bottom:2px;
-	*/
-}
-
-#Menu_Btn{
-	/*border: 1px solid blue;*/
-	width:67px;
-	height:12px;
-	float:left;
-	text-align:left;
-}
