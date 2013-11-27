@@ -3,6 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <script type="text/javascript" src="../Scripts/inputJisseki_Key.js"></script>
+<script type="text/javascript">
+        function confirmDeletion()
+        { 
+            if(!confirm("削除してよろしいですか？")) 
+            {
+                return false;
+            }
+        }
+</script>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../Css/input.css" type="text/css" />
 <!--[if lt IE 8  ]>
@@ -179,7 +188,7 @@
              <td >&nbsp;</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td>
 		</tr>
 		<tr>
-			<td class="Category" ><p>2,100cc以上</p></td>
+			<td class="Category" ><p>2,001cc以上</p></td>
 			<td><asp:TextBox ID="txtMito_JK_J1" runat="server"       MaxLength="3"  class="txtTableType2"  ></asp:TextBox></td>
 			<td><asp:TextBox ID="txtMito_JK_K1" runat="server"       MaxLength="3"  class="txtTableType2" ></asp:TextBox></td>
 			<td><asp:TextBox ID="txtTuchiura_JK_J1" runat="server"   MaxLength="3"  class="txtTableType2" ></asp:TextBox></td>
@@ -245,7 +254,8 @@
 </div>
 <!--ボタン-->
 <div  id="footerButton">
-    <asp:Button ID="btnSubmit" runat="server" Text="削除" onclick="btnSubmit_Click" class="FooterBtn" />
+    <asp:Button ID="btnSubmit" runat="server" Text="削除" onclick="btnSubmit_Click" 
+        class="FooterBtn" onclientclick="return confirmDeletion();" />
 </div>
 </form>
 </div>
