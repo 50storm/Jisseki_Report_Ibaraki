@@ -1,23 +1,4 @@
-﻿//=============================
-//報告月日のコピー
-//=============================
-function setMonth0ToMonth1() {
-    var obj = document.getElementById("txtMonthRep0");
-    document.getElementById("txtMonthRep1").innerText = obj.value;
-}
-function setMonth1ToMonth0() {
-    var obj = document.getElementById("txtMonthRep1");
-    document.getElementById("txtMonthRep0").innerText = obj.value;
-}
-function setYear0ToYear1() {
-    var obj = document.getElementById("txtYearRep0");
-    document.getElementById("txtYearRep1").innerText = obj.value;
-}
-function setYear1ToYear0() {
-    var obj = document.getElementById("txtYearRep1");
-    document.getElementById("txtYearRep0").innerText = obj.value;
-}
-
+﻿
 //=============================
 //check Header
 //=============================
@@ -28,10 +9,8 @@ var flagHeader =
 	txtTantou: false,
     txtSyamei:false,
     txtYearRep0:false,
-    txtMonthRep0: false,
-    txtYearRep1: false,
-    txtMonthRep1: false
-
+    txtMonthRep0: false
+    
 };
 
 
@@ -89,23 +68,10 @@ function headerIsMust()
 
     }
 
-    if (isEmpty("txtYearRep1")) {
-        flagHeader.txtYearRep1 = true;
-    } else {
-        flagHeader.txtYearRep1 = false;
-    }
-
-    if (isEmpty("txtMonthRep1")) {
-        flagHeader.txtMonthRep1 = true;
-    } else {
-        flagHeader.txtMonthRep1 = false;
-    }
-
     if (   flagHeader.txtYear     && flagHeader.txtMonth && flagHeader.txtDay
         && flagHeader.txtSyamei   && flagHeader.txtTantou
         && flagHeader.txtYearRep0 && flagHeader.txtMonthRep0
-        && flagHeader.txtYearRep1 && flagHeader.txtMonthRep1
-        ) {
+            ) {
      
     } else {
         return false;
@@ -145,22 +111,9 @@ function headerNumberIsValid() {
     } else {
         flagHeader.txtMonthRep0 = false;
     }
-
-    if (isNumber("txtYearRep1")) {
-        flagHeader.txtYearRep1 = true;
-    } else {
-        flagHeader.txtYearRep1 = false;
-    }
-
-    if (isNumber("txtMonthRep1")) {
-        flagHeader.txtMonthRep1 = true;
-    } else {
-        flagHeader.txtMonthRep1 = false;
-    }
-
+    
     if (flagHeader.txtYear && flagHeader.txtMonth && flagHeader.txtDay
         && flagHeader.txtYearRep0 && flagHeader.txtMonthRep0
-        && flagHeader.txtYearRep1 && flagHeader.txtMonthRep1
         ) {
     
     } else {
@@ -183,15 +136,8 @@ function headerMonthRangeIsValid() {
         flagHeader.txtMonthRep0 = true;
     }
 
-    if (document.getElementById("txtMonthRep1").value * 1 > 12 || document.getElementById("txtMonthRep1").value * 1 < 1) {
-        flagHeader.txtMonthRep1 = false;
 
-    }
-    else {
-        flagHeader.txtMonthRep1 = true;
-    }
-
-    if (flagHeader.txtMonthRep1 && flagHeader.txtMonthRep1) {
+    if (flagHeader.txtMonthRep0) {
 
     } else { 
         return false;
@@ -200,25 +146,6 @@ function headerMonthRangeIsValid() {
     return true;
 }
 
-function Rep0IsRep1() {
-    if (document.getElementById("txtYearRep0").value !== document.getElementById("txtYearRep1").value) {
-        flagHeader.txtYearRep0 = false;
-    } else {
-        flagHeader.txtYearRep0 = true;
-    }
-    if (document.getElementById("txtMonthRep0").value !== document.getElementById("txtMonthRep1").value) {
-        flagHeader.txtMonthRep0 = false;
-    } else {
-        flagHeader.txtMonthRep0 = true;
-    }
-
-    if (flagHeader.txtYearRep0 && flagHeader.txtMonthRep0) {
-
-    } else {
-        return false;
-    }
-    return true;
-}
 
 function checkFormsHeader() {
 
@@ -234,11 +161,6 @@ function checkFormsHeader() {
 
     //範囲チェック
     if (!headerMonthRangeIsValid()) {
-        return false;
-    }
-
-    //同じ報告日かチェック
-    if (!Rep0IsRep1()) {
         return false;
     }
 
