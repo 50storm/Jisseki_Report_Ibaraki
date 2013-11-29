@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<link rel="stylesheet" href="../../Css/input.css" type="text/css" />
     <style type="text/css">
         #Wrapper
         {
@@ -137,7 +138,19 @@
 <body>
     <form id="form1" runat="server">
     <div id="Wrapper">
-
+    <!--メニュー-->	
+	<div id="Menu" >
+        <div id="Menu_Link">
+            <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
+        </div>
+        <div id="Menu_Btn">
+            <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
+        </div>
+    </div>
+    <!--改行-->
+    <div>
+        <br/><br/><br/>
+    </div>
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="Code,COCODE" 
             DataSourceID="SqlDataSource_UnitPriceMaster" BackColor="#DEBA84" 
             BorderColor="#DEBA84" BorderStyle="Solid" BorderWidth="3px" CellPadding="3" 

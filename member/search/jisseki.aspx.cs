@@ -226,6 +226,18 @@ namespace Jisseki_Report_Ibaraki.member.search
                 Utility.HeiseiToChristianEra(this.txtYearRepTo.Text), this.txtMonthRepTo.Text);
         }
 
+        //ログアウト
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect(URL.LOGIN_DEALER);
+        }
+
+        //メニュー
+        protected void btnlinkMenu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(URL.MENU_DEALER);
+        }
 
     }
 }

@@ -104,6 +104,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                                 txtCOCODE.Text = reader["COCODE"].ToString();
                                 txtCONAME.Text = reader["CONAME"].ToString();
                                 txtRepName.Text = reader["RepName"].ToString();
+                                txtPostalCode.Text = reader["PostalCode"].ToString();
                                 txtAddress.Text = reader["Address"].ToString();
                                 txtTel.Text = reader["Tel"].ToString();
                                 txtPassword.Text = reader["Password"].ToString();
@@ -338,7 +339,32 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
         }
 
-       
-     
+
+        protected void btnlinkMenu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //自販連
+                Response.Redirect(URL.MENU_JADA);
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Session.Abandon();
+                Response.Redirect(URL.LOGIN_DEALER);
+
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

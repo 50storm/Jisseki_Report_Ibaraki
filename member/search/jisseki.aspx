@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<link rel="stylesheet" href="../../Css/input.css" type="text/css" />
 <style type="text/css">
 .text2digit
 {
@@ -13,8 +14,23 @@
     <title>送信確認画面</title>
 </head>
 <body>
+<!--外枠-->	
+<div id="Wrapper">
     <h1>送信確認画面</h1>
     <form id="form1" runat="server">
+    <!--メニュー-->	
+	<div id="Menu" >
+        <div id="Menu_Link">
+            <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
+        </div>
+        <div id="Menu_Btn">
+            <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
+        </div>
+    </div>
+    <!--改行-->
+    <div>
+        <br/><br/><br/>
+    </div>
     <div>
         <asp:Label   ID="lblDateRep" runat="server" >新車登録台数報告年月：</asp:Label>        
         <asp:TextBox ID="txtYearRepFrom" runat="server" MaxLength="2" class="text2digit" ></asp:TextBox>
@@ -61,6 +77,7 @@
         </asp:gridview>    
     </div>
     </form>
+</div>
 </body>
 
 </html>

@@ -58,5 +58,31 @@ namespace Jisseki_Report_Ibaraki.jada.master
         }
 
 
+        protected void btnlinkMenu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //自販連
+                Response.Redirect(URL.MENU_JADA);
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Session.Abandon();
+                Response.Redirect(URL.LOGIN_DEALER);
+
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
