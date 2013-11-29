@@ -95,22 +95,6 @@ namespace Jisseki_Report_Ibaraki.common
 
             }
 
-            if (this.txtYearRep1.Text == string.Empty)
-            {
-                this.lblMsg.Text = "報告日は必須入力です";
-                this.txtYearRep1.Focus();
-                return false;
-
-            }
-
-            if (this.txtMonthRep1.Text == string.Empty)
-            {
-                this.lblMsg.Text = "報告日は必須入力です";
-                this.txtMonthRep1.Focus();
-                return false;
-
-            }
-
 
             //数値
             if (Utility.IsNotNumber(this.txtYear.Text)) 
@@ -150,36 +134,7 @@ namespace Jisseki_Report_Ibaraki.common
                 return false;
             }
 
-            if (Utility.IsNotNumber(this.txtYearRep1.Text))
-            {
-                this.lblMsg.Text = "報告日は半角数値を入れてください";
-                this.txtYearRep1.Focus();
-                return false;
-            }      
-            
-            if (Utility.IsNotNumber(this.txtMonthRep1.Text))
-            {
-                this.lblMsg.Text = "報告日は半角数値を入れてください";
-                this.txtMonthRep1.Focus();
-                return false;
-            }
-
-            //報告日０と１が同じかどうか
-            if(!this.txtYearRep0.Text.ToString().Equals(this.txtYearRep1.Text)){
-                this.lblMsg.Text = "報告日に矛盾があります";
-                this.txtYearRep0.Focus();
-                return false;
-            }
-            if (!this.txtMonthRep0.Text.ToString().Equals(this.txtMonthRep1.Text))
-            {
-                this.lblMsg.Text = "報告日に矛盾があります";
-                this.txtMonthRep0.Focus();
-                return false;
-            }
-
-
-
-            
+                      
             //年のチェック
             if (int.Parse(this.txtYear.Text) < 1)
             {
@@ -193,12 +148,6 @@ namespace Jisseki_Report_Ibaraki.common
                 return false;
 
             }
-            if (int.Parse(this.txtYearRep1.Text) < 1)
-            {
-                this.txtYearRep1.Focus();
-                return false;
-
-            }   
 
             //月のチェック
             if (int.Parse(this.txtMonth.Text) > 12 || int.Parse(this.txtMonth.Text) < 1) 
@@ -213,11 +162,6 @@ namespace Jisseki_Report_Ibaraki.common
                 return false;
             }
 
-            if (int.Parse(this.txtMonthRep1.Text) > 12 || int.Parse(this.txtMonthRep1.Text) < 1)
-            {
-                this.txtMonthRep1.Focus();
-                return false;
-            }
 
             //日のチェック
             if (int.Parse(this.txtDay.Text) > 31 || int.Parse(this.txtDay.Text) < 1)
@@ -1221,14 +1165,14 @@ namespace Jisseki_Report_Ibaraki.common
                         JapaneseCalendar jCalender = new JapaneseCalendar();
                         this.lblEra.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                         this.lblEraRep0.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
-                        this.lblEraRep1.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
+     
                         this.txtYear.Text = jCalender.GetYear(JapaneseDate).ToString();
                         this.txtYearRep0.Text = jCalender.GetYear(JapaneseDate).ToString();
-                        this.txtYearRep1.Text = jCalender.GetYear(JapaneseDate).ToString();
+     
 
                         this.txtMonth.Text = Reader["Month"].ToString();
                         this.txtMonthRep0.Text = Reader["MonthRep"].ToString();
-                        this.txtMonthRep1.Text = Reader["MonthRep"].ToString();
+     
 
                         this.txtDay.Text = Reader["Day"].ToString();
                         this.txtSyamei.Text = Reader["CONAME"].ToString();
@@ -1275,14 +1219,13 @@ namespace Jisseki_Report_Ibaraki.common
                         JapaneseCalendar jCalender = new JapaneseCalendar();
                         this.lblEra.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                         this.lblEraRep0.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
-                        this.lblEraRep1.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
+                        
                         this.txtYear.Text = jCalender.GetYear(JapaneseDate).ToString();
                         this.txtYearRep0.Text = jCalender.GetYear(JapaneseDate).ToString();
-                        this.txtYearRep1.Text = jCalender.GetYear(JapaneseDate).ToString();
-                        
+                                                
                         this.txtMonth.Text = Reader["Month"].ToString();
                         this.txtMonthRep0.Text = Reader["MonthRep"].ToString();
-                        this.txtMonthRep1.Text = Reader["MonthRep"].ToString();
+
 
                         this.txtDay.Text = Reader["Day"].ToString();
                       　this.txtSyamei.Text = Session["CONAME"].ToString();//TODO 自販連からきたときと別
@@ -1534,18 +1477,8 @@ namespace Jisseki_Report_Ibaraki.common
             //Key項目
             //EnableをFalse
             this.txtYearRep0.Enabled = false;
-            this.txtYearRep1.Enabled = false;
             this.txtMonthRep0.Enabled = false;
-            this.txtMonthRep1.Enabled = false;
-            ////メニューを会員、自販連で分ける
-            //if (jadaUser)
-            //{
-            //    linkMenu.NavigateUrl = URL.MENU_JADA;
-            //}
-            //else
-            //{
-            //    linkMenu.NavigateUrl = URL.MENU_DEALER;
-            //}
+            this.txtTantou.Focus();
 
         }
         #endregion

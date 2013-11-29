@@ -87,22 +87,6 @@ namespace Jisseki_Report_Ibaraki.common
 
                 }
 
-                if (this.txtYearRep1.Text == string.Empty)
-                {
-                    this.lblMsg.Text = "報告日は必須入力です";
-                    this.txtYearRep1.Focus();
-                    return false;
-
-                }
-
-                if (this.txtMonthRep1.Text == string.Empty)
-                {
-                    this.lblMsg.Text = "報告日は必須入力です";
-                    this.txtMonthRep1.Focus();
-                    return false;
-
-                }
-
 
                 //数値
                 if (Utility.IsNotNumber(this.txtYear.Text))
@@ -142,37 +126,7 @@ namespace Jisseki_Report_Ibaraki.common
                     return false;
                 }
 
-                if (Utility.IsNotNumber(this.txtYearRep1.Text))
-                {
-                    this.lblMsg.Text = "報告日は半角数値を入れてください";
-                    this.txtYearRep1.Focus();
-                    return false;
-                }
-
-                if (Utility.IsNotNumber(this.txtMonthRep1.Text))
-                {
-                    this.lblMsg.Text = "報告日は半角数値を入れてください";
-                    this.txtMonthRep1.Focus();
-                    return false;
-                }
-
-                //報告日０と１が同じかどうか
-                if (!this.txtYearRep0.Text.ToString().Equals(this.txtYearRep1.Text))
-                {
-                    this.lblMsg.Text = "報告日に矛盾があります";
-                    this.txtYearRep0.Focus();
-                    return false;
-                }
-                if (!this.txtMonthRep0.Text.ToString().Equals(this.txtMonthRep1.Text))
-                {
-                    this.lblMsg.Text = "報告日に矛盾があります";
-                    this.txtMonthRep0.Focus();
-                    return false;
-                }
-
-
-
-
+                
                 //年のチェック
                 if (int.Parse(this.txtYear.Text) < 1)
                 {
@@ -186,13 +140,7 @@ namespace Jisseki_Report_Ibaraki.common
                     return false;
 
                 }
-                if (int.Parse(this.txtYearRep1.Text) < 1)
-                {
-                    this.txtYearRep1.Focus();
-                    return false;
-
-                }
-
+                
                 //月のチェック
                 if (int.Parse(this.txtMonth.Text) > 12 || int.Parse(this.txtMonth.Text) < 1)
                 {
@@ -203,12 +151,6 @@ namespace Jisseki_Report_Ibaraki.common
                 if (int.Parse(this.txtMonthRep0.Text) > 12 || int.Parse(this.txtMonthRep0.Text) < 1)
                 {
                     this.txtMonthRep0.Focus();
-                    return false;
-                }
-
-                if (int.Parse(this.txtMonthRep1.Text) > 12 || int.Parse(this.txtMonthRep1.Text) < 1)
-                {
-                    this.txtMonthRep1.Focus();
                     return false;
                 }
 
@@ -1193,28 +1135,21 @@ namespace Jisseki_Report_Ibaraki.common
                     case 4://平成
                         lblEra.Text = "平成";
                         lblEraRep0.Text = "平成";
-                        lblEraRep1.Text = "平成";
                         break;
 
                     case 3://昭和
                         lblEra.Text = "昭和";
                         lblEraRep0.Text = "昭和";
-                        lblEraRep1.Text = "昭和";
-
                         break;
 
                     case 2://大正
                         lblEra.Text = "大正";
                         lblEraRep0.Text = "大正";
-                        lblEraRep1.Text = "大正";
-
                         break;
 
                     case 1://明治
                         lblEra.Text = "明治";
                         lblEraRep0.Text = "明治";
-                        lblEraRep1.Text = "明治";
-
                         break;
 
                 }
@@ -1230,20 +1165,10 @@ namespace Jisseki_Report_Ibaraki.common
 
                 //報告日
                 txtMonthRep0.Text = string.Empty;
-                txtMonthRep1.Text = string.Empty;
 
                 this.btnPrint.Visible = false;
                 this.btnKariInvoice.Visible = false;
-
-                ////メニューを会員、自販連で分ける
-                //if (jadaUser)
-                //{
-                //    linkMenu.NavigateUrl = URL.MENU_JADA;
-                //}
-                //else
-                //{
-                //    linkMenu.NavigateUrl = URL.MENU_DEALER;
-                //}
+                this.txtTantou.Focus();
             }
 
 
@@ -1734,6 +1659,7 @@ namespace Jisseki_Report_Ibaraki.common
                 
                 }               
             }
+            
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

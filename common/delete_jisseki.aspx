@@ -2,7 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<script type="text/javascript" src="../Scripts/inputJisseki_Key.js"></script>
 <script type="text/javascript">
         function confirmDeletion()
         { 
@@ -12,11 +11,8 @@
             }
         }
 </script>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <link rel="stylesheet" href="../Css/input.css" type="text/css" />
-<!--[if lt IE 8  ]>
-<link rel="stylesheet" href="../Css/input_ie6.css" type="text/css" />
-<![endif]-->
     <title>新車登録台数報告書【削除】</title>
 </head>
 <body>
@@ -25,10 +21,6 @@
     <!--メニュー-->	
 	<div id="Menu" >
 		<div id="Menu_Link">
-            <!--Dev1ではエラーとなる-->
-            <!--
-    		<asp:HyperLink ID="linkMenu" runat="server" NavigateUrl="~/member/menu/Dealer.aspx">メニュー</asp:HyperLink>
-            -->
             <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
         </div>
         <div id="Menu_Btn">
@@ -39,81 +31,45 @@
     <div id="Message" >
         <asp:Label ID="lblMsg" runat="server" BackColor="#33CCFF"></asp:Label>
 	</div >
-	<!--元号-->
-	<div id="Era">
-		<p>
-			登録日：
-			<asp:Label ID="lblEra"  runat="server" Text="元号"></asp:Label>
-            <asp:TextBox ID="txtYear" runat="server"  MaxLength="2" class="Era"></asp:TextBox>
-			年
-			<asp:TextBox  ID="txtMonth" runat="server"  MaxLength="2"   class="Era"></asp:TextBox>
-			月
-			<asp:TextBox  ID="txtDay" runat="server"  MaxLength="2"   class="Era"></asp:TextBox>
-			日
-		</p>
-	</div>
-	<!--宛先-->
-    <div id="DivTo">
-        <div id="DivSyaDanHouZin">
-	        <div id="DivSyaDan">
-	        	一般社団
-	        </div>
-	        <div id="DivHouZin">
-	        	法人
-	        </div>
-        </div>
-        <div id="To">
-	        	日本自動車販売協会連合会茨城県支部長　殿
-        </div>
+    <div>
+        <asp:Label ID="lblEraRep0" runat="server" Text="元号"></asp:Label>
+	    <asp:TextBox ID="txtYearRep0" runat="server"  MaxLength="2" ></asp:TextBox>年
+	    <asp:TextBox ID="txtMonthRep0" runat="server" Text="99"   MaxLength="2"></asp:TextBox>
+        月分新車新規登録台数報告書
     </div>
-	<!--社名-->
-	<div id="Coname">
-		<p>社　名<asp:TextBox ID="txtSyamei" runat="server" MaxLength="40"></asp:TextBox></p>
-	</div>
-	<!--担当者-->
-	<div id="Tantou">
-	    <p>担当者　　氏　名<asp:TextBox ID="txtTantou" runat="server" MaxLength="50"></asp:TextBox></p>
-	</div>
-	<!--タイトル-->
-	<div id="Title">
-	    <p>
-	    	<asp:Label ID="lblEraRep0" runat="server" Text="元号"></asp:Label>
-	    	<asp:TextBox ID="txtYearRep0" runat="server" 
-                onblur="setYear0ToYear1();" MaxLength="2" ></asp:TextBox>年
-	    	<asp:TextBox ID="txtMonthRep0" runat="server" Text="99"  
-                onblur="setMonth0ToMonth1();"  MaxLength="2"></asp:TextBox>
-	    	月分新車新規登録台数報告書
-	    </p>
-	</div>
-	<!--説明文1-->
-	<div id="NarratvieText1">
-	    <p id="p1" class="p1">
-	    	当社の
-	    	<asp:Label ID="lblEraRep1" runat="server" Text="元号"></asp:Label>
-	    	<asp:TextBox ID="txtYearRep1" runat="server" 
-                onblur="setYear1ToYear0();" MaxLength="2" ></asp:TextBox>年
-	    	<span><asp:TextBox ID="txtMonthRep1" runat="server"  Text="99"    onblur="setMonth1ToMonth0();"  MaxLength="2"></asp:TextBox></span>
-	    	月分新車新登録、届出台数は次のとおりであり
-	    </p>
-    </div>
-    <!--説明文2-->
-    <div id="NarratvieText2">
-	    <p id="p2" class="p1">
-	    	ますから報告します。
-	    </p>
-	</div>
-	<!--次-->
-	<div id="Next">
-		<p>次</p>
-	</div>
-	<!--テーブル-->    
+    <div>
+        <table>
+            <tr>
+                <td>
+                    登録日
+                </td>
+                <td>
+                    <asp:Label ID="lblEra"  runat="server" Text="元号"></asp:Label>
+                    <asp:TextBox ID="txtYear" runat="server"  MaxLength="2" class="Era"></asp:TextBox>
+	    		    年
+	    		    <asp:TextBox  ID="txtMonth" runat="server"  MaxLength="2"   class="Era"></asp:TextBox>
+	    		    月
+	    		    <asp:TextBox  ID="txtDay" runat="server"  MaxLength="2"   class="Era"></asp:TextBox>
+	    		    日
+                </td>
+            </tr>
+            <tr>
+                <td>社　名</td>
+                <td><asp:TextBox ID="txtSyamei" runat="server" MaxLength="40"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>担当者</td>
+                <td><asp:TextBox ID="txtTantou" runat="server" MaxLength="50"></asp:TextBox></td>
+            </tr>
+        </table>
+    </div>	<!--テーブル-->    
 	<div id="TableDiv" >
 		<table id="tblReport"  >
         <colgroup  id="" class="class1">
         </colgroup>
         <colgroup span="2" id="" class="class2">
-            <col  style="width:120px;">
-            <col>
+            <col  style="width:120px;" />
+            <col />
         </colgroup>
         <colgroup span="9" id="" class="class3">
         </colgroup>

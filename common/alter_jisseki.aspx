@@ -6,111 +6,66 @@
 <script type="text/javascript" src="../Scripts/inputJisseki.js"></script>
 <script type="text/javascript" src="../Scripts/inputJisseki_AutoSum.js"></script>
 <script type="text/javascript" src="../Scripts/inputJisseki_Key.js"></script>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <link rel="stylesheet" href="../Css/input.css" type="text/css" />
-<!--[if lt IE 8  ]>
-<link rel="stylesheet" href="../Css/input_ie6.css" type="text/css" />
-<![endif]-->
     <title>新車登録台数報告書【修正】</title>
 </head>
-<body onkeydown="return  SkipEnter();">
+<body onload="return setFocus();">
 <div id="Wrapper">
-<form id="form1" runat="server" onsubmit="" >
+<form id="form1" runat="server" >
     <!--メニュー-->	
 	<div id="Menu" >
         <div id="Menu_Link">
-            <!--Dev1ではエラーとなる-->
-            <!--
-		    <asp:HyperLink ID="linkMenu" runat="server" NavigateUrl="~/member/menu/Dealer.aspx">メニュー</asp:HyperLink>
-            -->
-            <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  
-                onclick="btnlinkMenu_Click" class="BtnMenu" />
+            <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"    onclick="btnlinkMenu_Click" class="BtnMenu" />
         </div>
         <div id="Menu_Btn">
-            <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    
-                onclick="btnLogOut_Click"  class="BtnMenu"  />
+            <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click"  class="BtnMenu"  />
         </div>
     </div>
     <!--メッセージ-->
     <div id="Message" >
         <asp:Label ID="lblMsg" runat="server" BackColor="#33CCFF"></asp:Label>
 	</div >
-	<!--元号-->
-	<div id="Era">
-		<p>
-			登録日：
-			<asp:Label ID="lblEra"  runat="server" Text="元号"></asp:Label>
-            <asp:TextBox ID="txtYear" runat="server"  MaxLength="2" class="Era"></asp:TextBox>
-			年
-			<asp:TextBox  ID="txtMonth" runat="server"  MaxLength="2"   class="Era"></asp:TextBox>
-			月
-			<asp:TextBox  ID="txtDay" runat="server"  MaxLength="2"   class="Era"></asp:TextBox>
-			日
-		</p>
-	</div>
-	<!--宛先-->
-    <div id="DivTo">
-        <div id="DivSyaDanHouZin">
-	        <div id="DivSyaDan">
-	        	一般社団
-	        </div>
-	        <div id="DivHouZin">
-	        	法人
-	        </div>
-        </div>
-        <div id="To">
-	        	日本自動車販売協会連合会茨城県支部長　殿
-        </div>
+    <div>
+        <asp:Label ID="lblEraRep0" runat="server" Text="元号"></asp:Label>
+	    <asp:TextBox ID="txtYearRep0" runat="server"  MaxLength="2" ></asp:TextBox>年
+	    <asp:TextBox ID="txtMonthRep0" runat="server" Text="99"   MaxLength="2"></asp:TextBox>
+        月分新車新規登録台数報告書
     </div>
-	<!--社名-->
-	<div id="Coname">
-		<p>社　名<asp:TextBox ID="txtSyamei" runat="server" MaxLength="40"></asp:TextBox></p>
-	</div>
-	<!--担当者-->
-	<div id="Tantou">
-	    <p>担当者　　氏　名<asp:TextBox ID="txtTantou" runat="server" MaxLength="50"></asp:TextBox></p>
-	</div>
-	<!--タイトル-->
-	<div id="Title">
-	    <p>
-	    	<asp:Label ID="lblEraRep0" runat="server" Text="元号"></asp:Label>
-	    	<asp:TextBox ID="txtYearRep0" runat="server" 
-                onblur="setYear0ToYear1();" MaxLength="2" ></asp:TextBox>年
-	    	<asp:TextBox ID="txtMonthRep0" runat="server" Text="99"  
-                onblur="setMonth0ToMonth1();"  MaxLength="2"></asp:TextBox>
-	    	月分新車新規登録台数報告書
-	    </p>
-	</div>
-	<!--説明文1-->
-	<div id="NarratvieText1">
-	    <p id="p1" class="p1">
-	    	当社の
-	    	<asp:Label ID="lblEraRep1" runat="server" Text="元号"></asp:Label>
-	    	<asp:TextBox ID="txtYearRep1" runat="server" 
-                onblur="setYear1ToYear0();" MaxLength="2" ></asp:TextBox>年
-	    	<span><asp:TextBox ID="txtMonthRep1" runat="server"  Text="99"   
-                onblur="setMonth1ToMonth0();"  MaxLength="2"></asp:TextBox></span>
-	    	月分新車新登録、届出台数は次のとおりであり
-	    </p>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    登録日
+                </td>
+                <td>
+                    <asp:Label ID="lblEra"  runat="server" Text="元号"></asp:Label>
+                    <asp:TextBox ID="txtYear" runat="server"  MaxLength="2" class="Era"></asp:TextBox>
+	    		    年
+	    		    <asp:TextBox  ID="txtMonth" runat="server"  MaxLength="2"   class="Era"></asp:TextBox>
+	    		    月
+	    		    <asp:TextBox  ID="txtDay" runat="server"  MaxLength="2"   class="Era"></asp:TextBox>
+	    		    日
+                </td>
+            </tr>
+            <tr>
+                <td>社　名</td>
+                <td><asp:TextBox ID="txtSyamei" runat="server" MaxLength="40"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>担当者</td>
+                <td><asp:TextBox ID="txtTantou" runat="server" MaxLength="50"></asp:TextBox></td>
+            </tr>
+        </table>
     </div>
-    <!--説明文2-->
-    <div id="NarratvieText2">
-	    <p id="p2" class="p1">
-	    	ますから報告します。
-	    </p>
-	</div>
-	<!--次-->
-	<div id="Next">
-		<p>次</p>
-	</div>
 	<!--テーブル-->    
 	<div id="TableDiv" >
 		<table id="tblReport"  >
         <colgroup  id="" class="class1">
         </colgroup>
         <colgroup span="2" id="" class="class2">
-            <col  style="width:120px;">
-            <col>
+            <col  style="width:120px;" />
+            <col />
         </colgroup>
         <colgroup span="9" id="" class="class3">
         </colgroup>
@@ -185,7 +140,7 @@
              <td >&nbsp;</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td>
 		</tr>
 		<tr >
-			<td class="Category" ><p>2,100cc以上</p></td>
+			<td class="Category" ><p>2,001cc以上</p></td>
 			<td><asp:TextBox ID="txtMito_JK_J1" runat="server"       MaxLength="3"  class="txtTableType2" onblur="SumMitoSubTotal();SumMito();" ></asp:TextBox></td>
 			<td><asp:TextBox ID="txtMito_JK_K1" runat="server"       MaxLength="3"  class="txtTableType2" onblur="SumMitoSubTotal();SumMito();" ></asp:TextBox></td>
 			<td><asp:TextBox ID="txtTuchiura_JK_J1" runat="server"   MaxLength="3"  class="txtTableType2" onblur="SumTuchiuraSubTotal();SumTuchiura();" ></asp:TextBox></td>
@@ -251,6 +206,7 @@
 </div>
 <!--ボタン-->
 <div id="footerButton">
+	<br />
 	<asp:Button ID="btnSubmit" runat="server" Text="送信" onclick="btnSubmit_Click" onclientclick="return checkForms();" class="FooterBtn"/>
 	<asp:Button ID="btnPrint" runat="server" Text="印刷" onclick="btnPrint_Click"  class="FooterBtn" />
     <asp:Button ID="btnKariInvoice" runat="server" Text="仮請求書印刷"   onclick="btnKariInvoice_Click"  class="FooterBtn"  />

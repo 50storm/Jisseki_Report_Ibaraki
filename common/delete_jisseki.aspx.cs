@@ -67,15 +67,10 @@ namespace Jisseki_Report_Ibaraki.common
                         JapaneseCalendar jCalender = new JapaneseCalendar();
                         this.lblEra.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                         this.lblEraRep0.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
-                        this.lblEraRep1.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                         this.txtYear.Text = jCalender.GetYear(JapaneseDate).ToString();
                         this.txtYearRep0.Text = jCalender.GetYear(JapaneseDate).ToString();
-                        this.txtYearRep1.Text = jCalender.GetYear(JapaneseDate).ToString();
-
                         this.txtMonth.Text = Reader["Month"].ToString();
                         this.txtMonthRep0.Text = Reader["MonthRep"].ToString();
-                        this.txtMonthRep1.Text = Reader["MonthRep"].ToString();
-
                         this.txtDay.Text = Reader["Day"].ToString();
                         this.txtSyamei.Text = Reader["CONAME"].ToString();
                         this.txtTantou.Text = Reader["TANTOU"].ToString();
@@ -120,15 +115,11 @@ namespace Jisseki_Report_Ibaraki.common
                         JapaneseCalendar jCalender = new JapaneseCalendar();
                         this.lblEra.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                         this.lblEraRep0.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
-                        this.lblEraRep1.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
                         this.txtYear.Text = jCalender.GetYear(JapaneseDate).ToString();
                         this.txtYearRep0.Text = jCalender.GetYear(JapaneseDate).ToString();
-                        this.txtYearRep1.Text = jCalender.GetYear(JapaneseDate).ToString();
-                        
+                      
                         this.txtMonth.Text = Reader["Month"].ToString();
                         this.txtMonthRep0.Text = Reader["MonthRep"].ToString();
-                        this.txtMonthRep1.Text = Reader["MonthRep"].ToString();
-
                         this.txtDay.Text = Reader["Day"].ToString();
                         this.txtSyamei.Text = Session["CONAME"].ToString();
                         this.txtTantou.Text = Reader["TANTOU"].ToString();
@@ -386,9 +377,8 @@ namespace Jisseki_Report_Ibaraki.common
             //Key項目
             //EnableをFalse
             this.txtYearRep0.Enabled = false;
-            this.txtYearRep1.Enabled = false;
             this.txtMonthRep0.Enabled = false;
-            this.txtMonthRep1.Enabled = false;
+            this.txtTantou.Focus();
 
         }
 
