@@ -34,7 +34,7 @@ namespace Jisseki_Report_Ibaraki.jada.search
                             + " [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Header] H "
                             + " ON I.COCODE = H.COCODE "
                             + " WHERE "
-                            + " H.Year = @Year AND H.Month = @Month "
+                            + " H.YearRep = @YearRep AND H.MonthRep = @MonthRep "//20131204
                             + " AND I.Member = '1' "
                             + " ) "
                             + " AND Member = '1' ";
@@ -45,8 +45,8 @@ namespace Jisseki_Report_Ibaraki.jada.search
                 Conn.Open();
                 SqlCommand cmd = new SqlCommand(strSql, Conn);
 
-                cmd.Parameters.Add(new SqlParameter("@Year",Utility.HeiseiToChristianEra(this.txtYearRep.Text)));
-                cmd.Parameters.Add(new SqlParameter("@Month", this.txtMonthRep.Text));
+                cmd.Parameters.Add(new SqlParameter("@YearRep",Utility.HeiseiToChristianEra(this.txtYearRep.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", this.txtMonthRep.Text));
 
 
                 using (SqlDataAdapter Adapter = new SqlDataAdapter(strSql, Conn))
@@ -83,7 +83,7 @@ namespace Jisseki_Report_Ibaraki.jada.search
                 JapaneseCalendar jCalender = new JapaneseCalendar();
 
                 this.txtYearRep.Text = jCalender.GetYear(DateTime.Today).ToString();
-                this.txtMonthRep.Text = DateTime.Today.Month.ToString();
+                this.txtMonthRep.Text = DateTime.Today.AddMonths(-1).Month.ToString();
             }
             
 
@@ -92,7 +92,36 @@ namespace Jisseki_Report_Ibaraki.jada.search
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            this.showData();
+            try
+            {
+                if (Utility.IsNotNumber(this.txtYearRep.Text))
+                {
+                    this.txtYearRep.BackColor = System.Drawing.Color.Pink;
+                    return;
+
+                }
+                else
+                {
+                    this.txtYearRep.BackColor = System.Drawing.Color.White;
+                }
+
+                if (Utility.IsNotNumber(this.txtMonthRep.Text))
+                {
+                    this.txtMonthRep.BackColor = System.Drawing.Color.Pink;
+                    return;
+
+                }
+                else
+                {
+                    this.txtMonthRep.BackColor = System.Drawing.Color.White;
+                }
+
+                this.showData();
+            }
+            catch 
+            { 
+            
+            }
         }
 
         protected void btnlinkMenu_Click(object sender, EventArgs e)
@@ -120,6 +149,35 @@ namespace Jisseki_Report_Ibaraki.jada.search
             
             }
         }
+
+   
+        protected void Gridview1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                //画面の年月
+                this.Session["YearRep"] = this.txtYearRep.Text.Trim();
+                this.Session["MonthRep"] = this.txtMonthRep.Text.Trim();
+
+                //会社コード
+                int rowIndex = Convert.ToInt16(e.CommandArgument);
+                GridView gridView = (GridView)e.CommandSource;
+                GridViewRow row = gridView.Rows[rowIndex];
+                this.Session["COCODE_MEMBER"] = row.Cells[0].Text;
+                Response.Redirect(URL.INPUT_JISSEKI);
+            }
+            catch 
+            { 
+            
+            }
+        }
+
+        protected void Gridview1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
 
     }
 }

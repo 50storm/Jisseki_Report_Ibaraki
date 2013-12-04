@@ -9,6 +9,7 @@
 	width:20px;
 	height:20px;
 	text-align:center;
+	ime-mode:disabled;
 }
 #Wrapper
 {
@@ -16,7 +17,29 @@
 
 }
 </style>
+<script type="text/javascript" src="../../Scripts/Utility.js"></script> 
 <script type="text/javascript">
+
+    function validateForm() {
+        if (!isNumber("txtYearRepFrom")) {
+            return false;
+        }
+
+        if (!isNumber("txtYearRepTo")) {
+            return false;
+        }
+
+        if (!isNumber("txtMonthRepFrom")) {
+            return false;
+        }
+
+        if (!isNumber("txtMonthRepTo")) {
+            return false;
+        }
+
+    }
+
+
     // ==============================
     //  カーソル制御処理
     // ==============================
@@ -80,20 +103,23 @@
     </div>
     <div>
         <asp:Label   ID="lblDateRep" runat="server" >新車登録台数報告年月：</asp:Label>        
-        <asp:TextBox ID="txtYearRepFrom" runat="server" MaxLength="2"  class="text2digit" ></asp:TextBox>
+        <asp:TextBox ID="txtYearRepFrom" runat="server" MaxLength="2"  class="text2digit" onFocus="select();" ></asp:TextBox>
         <asp:Label   ID="lblYearRepFrom" runat="server" >年</asp:Label>
-        <asp:TextBox ID="txtMonthRepFrom" runat="server" MaxLength="2"   class="text2digit" ></asp:TextBox>
+        <asp:TextBox ID="txtMonthRepFrom" runat="server" MaxLength="2"   class="text2digit" onFocus="select();"></asp:TextBox>
         <asp:Label 　ID="lblMonthRepFrom" runat="server">月</asp:Label>
         ～
-        <asp:TextBox ID="txtYearRepTo" runat="server" MaxLength="2"   class="text2digit" ></asp:TextBox>
+        <asp:TextBox ID="txtYearRepTo" runat="server" MaxLength="2"   class="text2digit" onFocus="select();"></asp:TextBox>
         <asp:Label   ID="lblYearRepTo" runat="server" >年</asp:Label>
-        <asp:TextBox ID="txtMonthRepTo" runat="server" MaxLength="2"   class="text2digit" ></asp:TextBox>
+        <asp:TextBox ID="txtMonthRepTo" runat="server" MaxLength="2"   class="text2digit" onFocus="select();" ></asp:TextBox>
         <asp:Label 　ID="lblMonthRepTo" runat="server">月</asp:Label>
-        <asp:Button  ID="btnSearch" runat="server" Text="検索" onclick="btnSearch_Click" />
+        <asp:Button  ID="btnSearch" runat="server" Text="検索" onclick="btnSearch_Click" 
+            onclientclick="return validateForm();" />
         <asp:Label ID="lblMsg" runat="server" ></asp:Label>
     </div>
     <div>
-    <asp:gridview ID="Gridview1" runat="server" AutoGenerateColumns="False" style="margin-right: 0px" >
+    <asp:gridview ID="Gridview1" runat="server" AutoGenerateColumns="False" 
+            style="margin-right: 0px" 
+            onselectedindexchanged="Gridview1_SelectedIndexChanged" >
     <Columns>
         <asp:BoundField DataField="COCODE" HeaderText="会社コード" />
         <asp:BoundField DataField="CONAME" HeaderText="会社名" />

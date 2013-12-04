@@ -197,7 +197,14 @@ namespace Jisseki_Report_Ibaraki.member.search
                         Gridview1.Columns[GV_INDEX_YEAR_REP].Visible = false;
                         Gridview1.Columns[GV_INDEX_MONTH_REP].Visible = false;
 
+                        //初期値
+                        this.txtYearRepFrom.Text = jCalender.GetYear(DateTime.Today).ToString();
+                        this.txtMonthRepFrom.Text = "1";
+                        this.txtYearRepTo.Text = jCalender.GetYear(DateTime.Today).ToString();
+                        this.txtMonthRepTo.Text = "12";
+                        
                     }
+                  
             }
            
             }
@@ -220,10 +227,60 @@ namespace Jisseki_Report_Ibaraki.member.search
             //}
 
 
+            try
+            {
+                //数字以外はだめよ
+                if (Utility.IsNotNumber(this.txtYearRepFrom.Text))
+                {
+                    this.txtYearRepFrom.BackColor = System.Drawing.Color.Pink;
+                    return;
 
-            this.searchReportData(Session["COCODE"].ToString(),
-                Utility.HeiseiToChristianEra(this.txtYearRepFrom.Text), this.txtMonthRepFrom.Text,
-                Utility.HeiseiToChristianEra(this.txtYearRepTo.Text), this.txtMonthRepTo.Text);
+                }
+                else 
+                {
+                    this.txtYearRepFrom.BackColor = System.Drawing.Color.White;
+                }
+
+                if (Utility.IsNotNumber(this.txtYearRepTo.Text))
+                {
+                    this.txtYearRepTo.BackColor = System.Drawing.Color.Pink;
+                    return;
+
+                }
+                else
+                {
+                    this.txtYearRepTo.BackColor = System.Drawing.Color.White;
+                } 
+
+                if (Utility.IsNotNumber(this.txtMonthRepFrom.Text))
+                {
+                    this.txtMonthRepFrom.BackColor = System.Drawing.Color.Pink;
+                    return;
+
+                }
+                else
+                {
+                    this.txtMonthRepFrom.BackColor = System.Drawing.Color.White;
+                }
+
+                if (Utility.IsNotNumber(this.txtMonthRepTo.Text))
+                {
+                    this.txtMonthRepTo.BackColor = System.Drawing.Color.Pink;
+                    return;
+
+                }
+                else
+                {
+                    this.txtMonthRepTo.BackColor = System.Drawing.Color.White;
+                }
+
+                this.searchReportData(Session["COCODE"].ToString(),
+                    Utility.HeiseiToChristianEra(this.txtYearRepFrom.Text), this.txtMonthRepFrom.Text,
+                    Utility.HeiseiToChristianEra(this.txtYearRepTo.Text), this.txtMonthRepTo.Text);
+            }
+            catch { 
+            
+            }
         }
 
         //ログアウト

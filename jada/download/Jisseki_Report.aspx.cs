@@ -65,6 +65,10 @@ namespace Jisseki_Report_Ibaraki.jada.download
                     break;  
 
             }
+            this.txtYearRep.Text = jCalender.GetYear(DateTime.Today).ToString();
+            this.txtMonthRep.Text = DateTime.Today.AddMonths(-1).Month.ToString();
+
+
         }
 
 
@@ -376,65 +380,93 @@ namespace Jisseki_Report_Ibaraki.jada.download
 
         protected void btnDownload_Click(object sender, EventArgs e)
         {
-
-            //入力チェック
-            //TODO::JavaScriptでも
-            if (this.txtYearRep.Text.Trim() == string.Empty)
+            try
             {
-                lblMsg.Text = "ダウンロードする実績報告書の年月を入力してください。";
-                return;
+                //入力チェック
+                //TODO::JavaScriptでも
+                if (this.txtYearRep.Text.Trim() == string.Empty)
+                {
+                    lblMsg.Text = "ダウンロードする実績報告書の年月を入力してください。";
+                    this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                    return;
+                }
+                else
+                {
+                    lblMsg.Text = "";
+                }
+
+                if (this.txtMonthRep.Text.Trim() == string.Empty)
+                {
+                    lblMsg.Text = "ダウンロードする実績報告書の年月を入力してください。";
+                    this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                    return;
+                }
+                else
+                {
+                    lblMsg.Text = "";
+                }
+
+
+                if (this.txtFileName.Text.Trim() == string.Empty)
+                {
+                    lblMsg.Text = "ファイル名を入力してください。";
+                    this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                    return;
+                }
+                else
+                {
+                    lblMsg.Text = "";
+                }
+
+
+                DownloadFileName = this.txtFileName.Text.Trim();
+
+                //TODO::CSVファイルのディレクトリ、ファイルの存在チェック
+                if (!Directory.Exists(this.DownloadWritePath))
+                {
+                    lblMsg.Text = "ディレクトリが存在しません。";
+                    this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                    return;
+
+                }
+                else
+                {
+                    lblMsg.Text = "";
+                }
+
+
+
+                if (!File.Exists(this.DownloadWritePath + this.DownloadFileName))
+                {
+                    //            lblMsg.Text = "ファイル存在しません。";
+                    using (File.Create(this.DownloadWritePath + this.DownloadFileName)) { };
+
+
+
+                    //            return;
+
+                }
+
+
+                //SELECT
+                //Key項目で結合
+                string qYearRep = Utility.HeiseiToChristianEra(this.txtYearRep.Text);
+                string qMonthRep = this.txtMonthRep.Text;
+
+                //ファイルを作る
+                string Sql = getSql();
+                if (!this.writeData(Sql, qYearRep, qMonthRep))
+                {
+                    this.lblMsg.Text = "ダウンロードデータがありませんでした。";
+                    this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                };
+
+                //クライアントへ返す
+                this.outData();
+
             }
-
-            if (this.txtMonthRep.Text.Trim() == string.Empty)
-            {
-                lblMsg.Text = "ダウンロードする実績報告書の年月を入力してください。";
-                return;
+            catch { 
             }
-
-            
-            if (this.txtFileName.Text.Trim() == string.Empty)
-            {
-                lblMsg.Text = "ファイル名を入力してください。";
-                return;
-            }
-
-            DownloadFileName = this.txtFileName.Text.Trim();
-
-            //TODO::CSVファイルのディレクトリ、ファイルの存在チェック
-            if (!Directory.Exists(this.DownloadWritePath)){
-                lblMsg.Text="ディレクトリが存在しません。";
-                return;
-
-            }
-
-
-            if (!File.Exists(this.DownloadWritePath +this.DownloadFileName))
-            {
-    //            lblMsg.Text = "ファイル存在しません。";
-                using (File.Create(this.DownloadWritePath + this.DownloadFileName)) { };
-               
-                
-
-    //            return;
-
-            }
-
-
-            //SELECT
-            //Key項目で結合
-            string qYearRep  = Utility.HeiseiToChristianEra(this.txtYearRep.Text);
-            string qMonthRep = this.txtMonthRep.Text;
-
-            //ファイルを作る
-            string Sql = getSql();
-            if (!this.writeData(Sql, qYearRep, qMonthRep)) {
-                this.lblMsg.Text = "ダウンロードデータがありませんでした。";
-            };
-
-            //クライアントへ返す
-            this.outData();            
-            
-        
         }
 
         protected void btnlinkMenu_Click(object sender, EventArgs e)

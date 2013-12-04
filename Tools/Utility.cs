@@ -21,13 +21,13 @@ namespace Jisseki_Report_Ibaraki.Tools
             if (strYY == string.Empty)
             {
                 iYY = 0;
-            } 
-            else 
+            }
+            else
             {
                 iYY = int.Parse(strYY);
             }
             return (iYY + 1988).ToString();
-
+ 
         }
         /// <summary>
         /// Get JapaneseEraLetter

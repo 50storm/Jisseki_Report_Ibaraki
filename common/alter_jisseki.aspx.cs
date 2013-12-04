@@ -2084,23 +2084,6 @@ namespace Jisseki_Report_Ibaraki.common
                  {
                      initializeForm();
                      ////一ヶ月過ぎてたら修正できないようにする
-                     //TimeSpan ts;
-                     //DateTime TimeReport = new DateTime(int.Parse(qYearRep), 
-                     //                               int.Parse(qMonthRep),1);
-
-                     //DateTime TimeToday = new DateTime(DateTime.Today.Year,
-                     //                                  DateTime.Today.Month,
-                     //                                  DateTime.Today.Day);
-
-                     //ts = TimeToday - TimeReport;
-                     //if (ts.Days > 31)
-                     //{
-                     //    this.lblMsg.Text = "一ヶ月以上過ぎているので修正できません";
-                     //    this.lblMsg.BackColor = System.Drawing.Color.Pink;//無理やりサーバーで指定しないと色が付かない
-                     //    this.btnSubmit.Enabled = false;
-                     //    this.btnSubmit.Width=100;
-                     //    this.btnSubmit.Height= 50;
-                     //}
 
 
 

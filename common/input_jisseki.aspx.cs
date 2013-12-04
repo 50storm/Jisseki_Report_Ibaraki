@@ -22,8 +22,8 @@ namespace Jisseki_Report_Ibaraki.common
             //接続文字列
             private String strConn;
             //自販連か会員か
-            private bool jadaUser;
-            private String qCOCODE;
+            //private bool jadaUser;
+            //private String qCOCODE;
         #endregion
 
 
@@ -1202,7 +1202,64 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtTantou.Focus();
             }
 
+            private void initializeFormJada()
+            {
 
+                //初期表示
+                JapaneseCalendar jCalender = new JapaneseCalendar();
+                int iEra = jCalender.GetEra(DateTime.Now);
+                switch (iEra)
+                {
+                    case 4://平成
+                        lblEra.Text = "平成";
+                        lblEraRep0.Text = "平成";
+                        break;
+
+                    case 3://昭和
+                        lblEra.Text = "昭和";
+                        lblEraRep0.Text = "昭和";
+                        break;
+
+                    case 2://大正
+                        lblEra.Text = "大正";
+                        lblEraRep0.Text = "大正";
+                        break;
+
+                    case 1://明治
+                        lblEra.Text = "明治";
+                        lblEraRep0.Text = "明治";
+                        break;
+
+                }
+
+
+                //送信日
+                txtYear.Text = jCalender.GetYear(DateTime.Today).ToString();
+                txtMonth.Text = jCalender.GetMonth(DateTime.Today).ToString();
+                txtDay.Text = jCalender.GetDayOfMonth(DateTime.Today).ToString();
+                txtYear.Enabled = false;
+                txtMonth.Enabled = false;
+                txtDay.Enabled = false;
+
+                //会社名
+                txtSyamei.Text = Session["CONAME"].ToString();
+                txtSyamei.Enabled = false;
+
+
+                //報告日
+                this.txtYearRep0.Text = this.Session["YearRep"].ToString();
+                this.txtYearRep0.Enabled = false;
+                this.txtMonthRep0.Text = this.Session["MonthRep"].ToString();
+                this.txtMonthRep0.Enabled = false;
+
+                //自販連ユーザーは
+                //入力制限なし
+
+
+                this.btnPrint.Visible = false;
+                this.btnKariInvoice.Visible = false;
+                this.txtTantou.Focus();
+            }
 
             #endregion
 
@@ -1222,7 +1279,8 @@ namespace Jisseki_Report_Ibaraki.common
                     using (SqlCommand cmd = new SqlCommand(SqlHeader, Conn))
                     {
 
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        //cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE_MEMBER"].ToString()));
                         using (SqlDataReader Reader = cmd.ExecuteReader())
                         {
                             Reader.Read();
@@ -1256,9 +1314,9 @@ namespace Jisseki_Report_Ibaraki.common
                     SqlCommand cmd = new SqlCommand(InsertHeaderSql, Conn, Tran);
                     cmd.CommandText = InsertHeaderSql;
                     //Sqlインジェクション回避
-                    if (jadaUser)
+                    if (this.Session["Member"].ToString().Trim() == "0")
                     {
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE_MEMBER"].ToString()));
                     }
                     else
                     {
@@ -1312,9 +1370,9 @@ namespace Jisseki_Report_Ibaraki.common
                     cmd.CommandText = InsertMitoSql;
                     //Sqlインジェクション回避
                     //キー項目
-                    if (jadaUser)
+                    if (this.Session["Member"].ToString().Trim() == "0")
                     {
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE_MEMBER"].ToString()));
                     }
                     else
                     {
@@ -1385,9 +1443,9 @@ namespace Jisseki_Report_Ibaraki.common
                     cmd.CommandText = InsertTuchiuraSql;
                     //Sqlインジェクション回避
                     //キー項目
-                    if (jadaUser)
+                    if (this.Session["Member"].ToString().Trim() == "0")
                     {
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE_MEMBER"].ToString()));
                     }
                     else
                     {
@@ -1458,9 +1516,9 @@ namespace Jisseki_Report_Ibaraki.common
                     cmd.CommandText = InsertTukubaSql;
                     //Sqlインジェクション回避
                     //キー項目
-                    if (jadaUser)
+                    if (this.Session["Member"].ToString().Trim() == "0")
                     {
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE_MEMBER"].ToString()));
                     }
                     else
                     {
@@ -1530,9 +1588,9 @@ namespace Jisseki_Report_Ibaraki.common
                     cmd.CommandText = InsertSonotaSql;
                     //Sqlインジェクション回避
                     //キー項目
-                    if (jadaUser)
+                    if (this.Session["Member"].ToString().Trim() == "0")
                     {
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE_MEMBER"].ToString()));
                     }
                     else
                     {
@@ -1602,9 +1660,9 @@ namespace Jisseki_Report_Ibaraki.common
                     cmd.CommandText = InsertGoukeiSql;
                     //Sqlインジェクション回避
                     //キー項目
-                    if (jadaUser)
+                    if (this.Session["Member"].ToString().Trim() == "0")
                     {
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE_MEMBER"].ToString()));
                     }
                     else
                     {
@@ -1656,32 +1714,17 @@ namespace Jisseki_Report_Ibaraki.common
             strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
 
             
-            //Receive Keys by GET         
-            if (this.Session["Member"].ToString().Trim() == "1")
-            {
-                //会員
-                jadaUser = false;
-            }
-            else 
-            {   
-                //自販連
-                jadaUser = true;
-                qCOCODE = Page.Request.QueryString.Get("COCODE");
-                //年月ももらってセット
-
-
-            }
-
-
+    
             if (Page.IsPostBack)
             {
 
             }
             else 
             {
-                if (jadaUser)
+                if (this.Session["Member"].ToString().Trim() == "0")
                 {
-                    initializeForm();
+                    //自販連
+                    initializeFormJada();
                     setHeader();
                 }
                 else 
@@ -1845,11 +1888,11 @@ namespace Jisseki_Report_Ibaraki.common
         {
 
             //セッションで渡す
-            if (jadaUser)
+            if (this.Session["Member"].ToString().Trim() == "0")
             {
 
                 //自販連ユーザー
-                this.Session["Jisseki_Report_COCODE"] = qCOCODE;
+                this.Session["Jisseki_Report_COCODE"] = this.Session["COCODE_MEMBER"].ToString();
                 this.Session["Jisseki_Report_YearRep"] = Utility.HeiseiToChristianEra(this.txtYearRep0.Text);
                 this.Session["Jisseki_Report_MonthRep"] = this.txtMonthRep0.Text;
 
@@ -1884,11 +1927,11 @@ namespace Jisseki_Report_Ibaraki.common
         protected void btnKariInvoice_Click(object sender, EventArgs e)
         {
             //セッションで渡す
-            if (jadaUser)
+            if (this.Session["Member"].ToString().Trim() == "0")
             {
 
                 //自販連ユーザー
-                this.Session["Jisseki_Report_COCODE"] = qCOCODE;
+                this.Session["Jisseki_Report_COCODE"] = this.Session["COCODE_MEMBER"].ToString(); ;
                 this.Session["Jisseki_Report_YearRep"] = Utility.HeiseiToChristianEra(this.txtYearRep0.Text);
                 this.Session["Jisseki_Report_MonthRep"] = this.txtMonthRep0.Text;
 
