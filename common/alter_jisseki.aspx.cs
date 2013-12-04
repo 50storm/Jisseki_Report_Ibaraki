@@ -1571,7 +1571,7 @@ namespace Jisseki_Report_Ibaraki.common
 
             this.txtSyamei.Enabled = false;
 
-            this.txtGoukei_Bus1.Enabled = false;
+           //TODO this.txtGoukei_Bus1.Enabled = false;
 
 
             this.txtTantou.Focus();
