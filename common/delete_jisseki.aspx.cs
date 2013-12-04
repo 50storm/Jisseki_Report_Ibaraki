@@ -547,23 +547,24 @@ namespace Jisseki_Report_Ibaraki.common
                  {
                      initializeForm();
                  }
-                 //一ヶ月過ぎてたら削除できないようにする
-                 TimeSpan ts;
-                 DateTime TimeReport = new DateTime(int.Parse(qYearRep),
-                                                int.Parse(qMonthRep), 1);
+                 ////一ヶ月過ぎてたら削除できないようにする
+                 //TimeSpan ts;
+                 //DateTime TimeReport = new DateTime(int.Parse(qYearRep),
+                 //                               int.Parse(qMonthRep), 1);
 
-                 DateTime TimeToday = new DateTime(DateTime.Today.Year,
-                                                   DateTime.Today.Month,
-                                                   DateTime.Today.Day);
+                 //DateTime TimeToday = new DateTime(DateTime.Today.Year,
+                 //                                  DateTime.Today.Month,
+                 //                                  DateTime.Today.Day);
 
-                 ts = TimeToday - TimeReport;
-                 if (ts.Days > 31)
-                 {
-                     this.lblMsg.Text = "一ヶ月以上過ぎているので削除できません";
-                     this.btnSubmit.Enabled = false;
-                     this.btnSubmit.Width = 100;
-                     this.btnSubmit.Height = 50;
-                 }
+                 //ts = TimeToday - TimeReport;
+                 //if (ts.Days > 31)
+                 //{
+                 //    this.lblMsg.Text = "一ヶ月以上過ぎているので削除できません";
+                 //    this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                 //    this.btnSubmit.Enabled = false;
+                 //    this.btnSubmit.Width = 100;
+                 //    this.btnSubmit.Height = 50;
+                 //}
 
            }catch{
            
@@ -590,7 +591,7 @@ namespace Jisseki_Report_Ibaraki.common
                             Tran.Commit();
                             this.btnSubmit.Enabled = false;
                             this.lblMsg.Text = "削除しました";
-
+                            this.lblMsg.BackColor = System.Drawing.Color.Pink;
                             //btnSubmit.Enabled = false;
                         }
                         catch
@@ -609,6 +610,7 @@ namespace Jisseki_Report_Ibaraki.common
             catch (Exception ex)
             {
                 this.lblMsg.Text = ex.Message;
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
              //   Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");
              //   Response.Write("<p style=background-color:red;>" + ex.StackTrace + "</p>");
             }           

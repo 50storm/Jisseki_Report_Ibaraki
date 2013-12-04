@@ -182,7 +182,9 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
                         Tran.Commit();
                         setGridView();
-                        lblMsg.Text = "更新しました";
+                        this.lblMsg.Text = "更新しました";
+                        this.lblMsg.BackColor = System.Drawing.Color.Pink;
+
                     }
                     catch (Exception ex)
                     {
@@ -228,82 +230,82 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
             if (txtCOCODE.Text.Trim() == string.Empty)
             {
-                lblMsg.Text = "会員コードは必須です";
-                txtCOCODE.BackColor = System.Drawing.Color.Purple;
-                txtCOCODE.Focus();
+                this.lblMsg.Text = "会員コードは必須です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                this.txtCOCODE.Focus();
                 return;
 
             }
             else 
             {
-                txtCOCODE.BackColor = System.Drawing.Color.White;
+                this.txtCOCODE.BackColor = System.Drawing.Color.White;
             }
 
             if (txtUID.Text.Trim() == string.Empty)
             {
-                lblMsg.Text = "ログインIDは必須です";
-                txtUID.BackColor = System.Drawing.Color.Purple;
-                txtUID.Focus();
+                this.lblMsg.Text = "ログインIDは必須です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                this.txtUID.Focus();
                 return;
 
             }
             else
             {
-                txtUID.BackColor = System.Drawing.Color.White;
+                this.txtUID.BackColor = System.Drawing.Color.White;
             }
 
 
             if (txtMember.Text.Trim() == string.Empty)
             {
-                lblMsg.Text = "会員フラグは必須です";
-                txtMember.BackColor = System.Drawing.Color.Purple;
-                txtMember.Focus();
+                this.lblMsg.Text = "会員フラグは必須です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                this.txtMember.Focus();
                 return;
 
             }
             else 
             {
-                lblMsg.Text = "";
-                txtMember.BackColor = System.Drawing.Color.White;
+                this.lblMsg.Text = "";
+                this.txtMember.BackColor = System.Drawing.Color.White;
             }
 
             if (txtMember.Text.Trim() != "0" && txtMember.Text.Trim() != "1")
             {
-                lblMsg.Text = "会員フラグは0か1を入力してください";
-                txtMember.BackColor = System.Drawing.Color.Purple;
-                txtMember.Focus();
+                this.lblMsg.Text = "会員フラグは0か1を入力してください";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                this.txtMember.Focus();
                 return;
             }
             else 
             {
-                lblMsg.Text = "";
-                txtMember.BackColor = System.Drawing.Color.White;
+                this.lblMsg.Text = "";
+                this.txtMember.BackColor = System.Drawing.Color.White;
             }
 
             if (txtMemberType.Text.Trim() == string.Empty)
             {
-                lblMsg.Text = "会員種別は必須です";
-                txtMemberType.BackColor = System.Drawing.Color.Purple;
-                txtMemberType.Focus();
+                this.lblMsg.Text = "会員種別は必須です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                this.lblMsg.BackColor = System.Drawing.Color.Pink; txtMemberType.Focus();
                 return;
             }
             else
             {
-                lblMsg.Text = "";
-                txtMemberType.BackColor = System.Drawing.Color.White;
+                this.lblMsg.BackColor = System.Drawing.Color.Pink; lblMsg.Text = "";
+                this.txtMemberType.BackColor = System.Drawing.Color.White;
             }
 
             if (txtMemberType.Text.Trim() != "0" && txtMemberType.Text.Trim() != "1")
             {
-                lblMsg.Text = "会員種別は0か1を入力してください";
-                txtMemberType.BackColor = System.Drawing.Color.Purple;
-                txtMemberType.Focus();
+                this.lblMsg.Text = "会員種別は0か1を入力してください";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                this.txtMemberType.Focus();
                 return;
             }
             else 
             {
-                lblMsg.Text = "";
-                txtMemberType.BackColor = System.Drawing.Color.White;
+                this.lblMsg.Text = "";
+                this.txtMemberType.BackColor = System.Drawing.Color.White;
             }
 
 
@@ -374,6 +376,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             Tran.Commit();
                             this.setGridView();
                             this.lblMsg.Text="登録しました";
+                            this.lblMsg.BackColor = System.Drawing.Color.Pink;
 
                         }
                         catch
@@ -393,14 +396,16 @@ namespace Jisseki_Report_Ibaraki.jada.master
             {
                 if (SqlEx.Number == 2627)
                 {                    
-                    lblMsg.Text="既に登録済です";
+                    this.lblMsg.Text="既に登録済です";
+                    this.lblMsg.BackColor = System.Drawing.Color.Pink;
                     //Response.Write("<p style=background-color:red;>既に登録済です</p>");
                 }
                 else
                 {
                     //Response.Write("<p style=background-color:red;>" + SqlEx.Message + "</p>");
                     //Response.Write("<p style=background-color:red;>" + SqlEx.StackTrace + "</p>");
-                    lblMsg.Text = "SQLエラー";
+                    this.lblMsg.Text = "SQLエラー";
+                    this.lblMsg.BackColor = System.Drawing.Color.Pink;
                  
                 }
 
@@ -411,7 +416,8 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
                 //Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");
                 //Response.Write("<p style=background-color:red;>" + ex.StackTrace + "</p>");
-                lblMsg.Text = "エラー";                
+                this.lblMsg.Text = "エラー";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
 
             }
 

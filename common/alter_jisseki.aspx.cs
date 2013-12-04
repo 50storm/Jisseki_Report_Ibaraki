@@ -42,6 +42,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (this.txtYear.Text == string.Empty)
             {
                 this.lblMsg.Text = "送信日は必須入力です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtYear.Focus();
                 return false;
 
@@ -50,6 +51,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (this.txtMonth.Text == string.Empty)
             {
                 this.lblMsg.Text = "送信日は必須入力です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtMonth.Focus();
                 return false;
 
@@ -59,6 +61,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (this.txtDay.Text == string.Empty)
             {
                 this.lblMsg.Text = "送信日は必須入力です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtDay.Focus();
                 return false;
 
@@ -67,6 +70,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (this.txtSyamei.Text == string.Empty)
             {
                 this.lblMsg.Text = "会社名は必須入力です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtSyamei.Focus();
                 return false;
             }
@@ -74,6 +78,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (this.txtTantou.Text == string.Empty)
             {
                 this.lblMsg.Text = "担当者は必須入力です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtTantou.Focus();
                 return false;
             }
@@ -82,6 +87,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (this.txtYearRep0.Text == string.Empty)
             {
                 this.lblMsg.Text = "報告日は必須入力です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtYearRep0.Focus();
                 return false;
 
@@ -90,6 +96,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (this.txtMonthRep0.Text == string.Empty)
             {
                 this.lblMsg.Text = "報告日は必須入力です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtMonthRep0.Focus();
                 return false;
 
@@ -100,6 +107,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (Utility.IsNotNumber(this.txtYear.Text)) 
             {
                 this.lblMsg.Text = "送信日は半角数値を入れてください";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtYear.Focus();
                 return false;
             }
@@ -107,6 +115,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (Utility.IsNotNumber(this.txtMonth.Text))
             {
                 this.lblMsg.Text = "送信日は半角数値を入れてください";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtMonth.Focus();
                 return false;
 
@@ -115,6 +124,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (Utility.IsNotNumber(this.txtDay.Text))
             {
                 this.lblMsg.Text = "送信日は半角数値を入れてください";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtDay.Focus();
                 return false;
             }
@@ -123,6 +133,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (Utility.IsNotNumber(this.txtYearRep0.Text))
             {
                 this.lblMsg.Text = "報告日は半角数値を入れてください";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtYearRep0.Focus();
                 return false;
             }
@@ -130,6 +141,7 @@ namespace Jisseki_Report_Ibaraki.common
             if (Utility.IsNotNumber(this.txtMonthRep0.Text))
             {
                 this.lblMsg.Text = "報告日は半角数値を入れてください";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 this.txtMonthRep0.Focus();
                 return false;
             }
@@ -1559,6 +1571,9 @@ namespace Jisseki_Report_Ibaraki.common
 
             this.txtSyamei.Enabled = false;
 
+            this.txtGoukei_Bus1.Enabled = false;
+
+
             this.txtTantou.Focus();
 
         }
@@ -2068,23 +2083,24 @@ namespace Jisseki_Report_Ibaraki.common
                  if (!Page.IsPostBack)
                  {
                      initializeForm();
-                     //一ヶ月過ぎてたら修正できないようにする
-                     TimeSpan ts;
-                     DateTime TimeReport = new DateTime(int.Parse(qYearRep), 
-                                                    int.Parse(qMonthRep),1);
+                     ////一ヶ月過ぎてたら修正できないようにする
+                     //TimeSpan ts;
+                     //DateTime TimeReport = new DateTime(int.Parse(qYearRep), 
+                     //                               int.Parse(qMonthRep),1);
 
-                     DateTime TimeToday = new DateTime(DateTime.Today.Year,
-                                                       DateTime.Today.Month,
-                                                       DateTime.Today.Day);
+                     //DateTime TimeToday = new DateTime(DateTime.Today.Year,
+                     //                                  DateTime.Today.Month,
+                     //                                  DateTime.Today.Day);
 
-                     ts = TimeToday - TimeReport;
-                     if (ts.Days > 31)
-                     {
-                         this.lblMsg.Text = "一ヶ月以上過ぎているので修正できません";
-                         this.btnSubmit.Enabled = false;
-                         this.btnSubmit.Width=100;
-                         this.btnSubmit.Height= 50;
-                     }
+                     //ts = TimeToday - TimeReport;
+                     //if (ts.Days > 31)
+                     //{
+                     //    this.lblMsg.Text = "一ヶ月以上過ぎているので修正できません";
+                     //    this.lblMsg.BackColor = System.Drawing.Color.Pink;//無理やりサーバーで指定しないと色が付かない
+                     //    this.btnSubmit.Enabled = false;
+                     //    this.btnSubmit.Width=100;
+                     //    this.btnSubmit.Height= 50;
+                     //}
 
 
 
@@ -2129,26 +2145,31 @@ namespace Jisseki_Report_Ibaraki.common
             //水戸
             if (!this.MitoIsValid()) {
                 this.lblMsg.Text="水戸の欄に数字以外の項目が入力されています。";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return ;
             }
             //土浦
             if (!this.TuchiuraIsValid()) {
                 this.lblMsg.Text = "土浦の欄に数字以外の項目が入力されています。";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //つくば
             if (!this.TukubaIsValid()) {
                 this.lblMsg.Text = "つくばの欄に数字以外の項目が入力されています。";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //その他
             if (!this.SonotaIsValid()) {
                 this.lblMsg.Text = "その他の欄に数字以外の項目が入力されています。";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //合計
             if (!this.GoukeiIsValid()) {
                 this.lblMsg.Text = "合計の欄に数字以外の項目が入力されています。";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
 
@@ -2184,6 +2205,7 @@ namespace Jisseki_Report_Ibaraki.common
                             Tran.Commit();
                             btnSubmit.Enabled = false;
                             this.lblMsg.Text = "修正しました";
+                            this.lblMsg.BackColor = System.Drawing.Color.Pink;
                         }
                         catch
                         {
@@ -2201,6 +2223,7 @@ namespace Jisseki_Report_Ibaraki.common
             catch (Exception ex)
             {
                 this.lblMsg.Text = ex.Message;
+				this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 //Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");
                 //Response.Write("<p style=background-color:red;>" + ex.StackTrace + "</p>");
             }           
