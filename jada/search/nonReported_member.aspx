@@ -70,11 +70,11 @@
             <Columns>
                 <asp:BoundField DataField="COCODE" HeaderText="会員コード" />
                 <asp:BoundField DataField="CONAME" HeaderText="会員名" />
-                <asp:BoundField DataField="RepName" HeaderText="代表者" />
+                <asp:BoundField DataField="RepName" HeaderText="担当者" />
                 <asp:BoundField DataField="Tel" HeaderText="電話番号" />
                 <asp:HyperLinkField DataNavigateUrlFields="COCODE"  
                     DataNavigateUrlFormatString="~/common/input_jisseki.aspx?COCODE={0}"  Text="登録" 
-                    Target="_blank" />
+                    Target="_self" />
             </Columns>
         </asp:gridview>    
     </div>

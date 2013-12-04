@@ -102,11 +102,11 @@
         <asp:BoundField HeaderText="報告年月" />
         <asp:HyperLinkField Text="削除" DataNavigateUrlFields="COCODE,YearRep,MonthRep" 
             DataNavigateUrlFormatString="~/common/delete_jisseki.aspx?COCODE={0}&amp;YearRep={1}&amp;MonthRep={2}" 
-            Target="_blank" />
+            Target="_self" />
         
         <asp:HyperLinkField Text="修正/印刷" DataNavigateUrlFields="COCODE,YearRep,MonthRep" 
             DataNavigateUrlFormatString="~/common/alter_jisseki.aspx?COCODE={0}&amp;YearRep={1}&amp;MonthRep={2}" 
-            Target="_blank" />
+            Target="_self" />
         
         <asp:BoundField DataField="Year" HeaderText="Year" />
         <asp:BoundField DataField="Month" HeaderText="Month" />

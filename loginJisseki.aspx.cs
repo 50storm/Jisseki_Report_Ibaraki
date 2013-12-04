@@ -43,53 +43,63 @@ namespace Jisseki_Report_Ibaraki
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            using (SqlConnection Conn = new SqlConnection(strConn)) {
-                Conn.Open();
-                string strSQL= "SELECT * FROM Jisseki_Report_Ibaraki.dbo.ID WHERE COCODE = @COCODE AND Password = @Password ";
-
-                SqlCommand cmd = new SqlCommand(strSQL,Conn);
-                cmd.Parameters.Add(new SqlParameter("@COCODE", txtCOCODE.Text));
-                cmd.Parameters.Add(new SqlParameter("@Password", txtPassword.Text));
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
+            try
+            {
+                using (SqlConnection Conn = new SqlConnection(strConn))
                 {
-                    //ログインOK
+                    Conn.Open();
+                    string strSQL = "SELECT * FROM Jisseki_Report_Ibaraki.dbo.ID WHERE COCODE = @COCODE AND Password = @Password ";
 
-                    //クッキーに登録
-                    HttpCookie cookieCOCODE = new HttpCookie("COCODE");
-                    cookieCOCODE.Value = txtCOCODE.Text;             
-                    cookieCOCODE.Expires = DateTime.Now.AddDays(30); 
-                    Response.Cookies.Add(cookieCOCODE);
+                    SqlCommand cmd = new SqlCommand(strSQL, Conn);
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", txtCOCODE.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Password", txtPassword.Text));
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    HttpCookie cookiePassword = new HttpCookie("Password");
-                    cookiePassword.Value = txtPassword.Text;         
-                    cookiePassword.Expires = DateTime.Now.AddDays(30);
-                    Response.Cookies.Add(cookiePassword);
-
-                    //セッションに情報入力
-                    reader.Read();
-                    Session["COCODE"] = reader["COCODE"];
-                    Session["CONAME"] = reader["CONAME"];
-                    Session["Member"] = reader["Member"];
-                    Session["MemberType"] = reader["MemberType"];//通常:0・賛助:1
-
-                    if (reader["Member"].ToString().Trim().Equals("1"))
+                    if (reader.HasRows)
                     {
-                        //会員メニュー
-                        Response.Redirect(URL.MENU_DEALER);
+                        //ログインOK
+
+                        //クッキーに登録
+                        HttpCookie cookieCOCODE = new HttpCookie("COCODE");
+                        cookieCOCODE.Value = txtCOCODE.Text;
+                        cookieCOCODE.Expires = DateTime.Now.AddDays(30);
+                        Response.Cookies.Add(cookieCOCODE);
+
+                        HttpCookie cookiePassword = new HttpCookie("Password");
+                        cookiePassword.Value = txtPassword.Text;
+                        cookiePassword.Expires = DateTime.Now.AddDays(30);
+                        Response.Cookies.Add(cookiePassword);
+
+                        //セッションに情報入力
+                        reader.Read();
+                        Session["COCODE"] = reader["COCODE"];
+                        Session["CONAME"] = reader["CONAME"];
+                        Session["Member"] = reader["Member"];
+                        Session["MemberType"] = reader["MemberType"];//通常:0・賛助:1
+
+                        if (reader["Member"].ToString().Trim().Equals("1"))
+                        {
+                            //会員メニュー
+                            Response.Redirect(URL.MENU_DEALER);
+                        }
+                        else
+                        {
+                            //自販連メニュー
+                            Response.Redirect(URL.MENU_JADA);
+                        }
                     }
                     else
                     {
-                        //自販連メニュー
-                        Response.Redirect(URL.MENU_JADA);
+                        //ログインNG           
+                        this.lblMsg.Text = "ログインIDまたはパスワードが違います。";
                     }
                 }
-                else { 
-                    //ログインNG           
-                    this.lblMsg.Text = "ログインIDまたはパスワードが違います。";
-                }              
+            }
+            catch(Exception ex){
+                Response.Write(ex.Message);
+
+            
+            
             }
         }
     }

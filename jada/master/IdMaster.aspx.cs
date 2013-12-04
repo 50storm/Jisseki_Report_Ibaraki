@@ -24,13 +24,6 @@ namespace Jisseki_Report_Ibaraki.jada.master
                     Conn.Open();
                     using (SqlCommand cmd = new SqlCommand(Sql, Conn))
                     {
-                        /*
-                        cmd.Parameters.Add(new SqlParameter("@COCODE", qCOCODE));
-                        cmd.Parameters.Add(new SqlParameter("@YearRep", qYearRep));
-                        cmd.Parameters.Add(new SqlParameter("@MonthRep", qMonthRep));
-                        */
-                        //using (SqlDataReader Reader = cmd.ExecuteReader())
-                        //{
                         using (SqlDataAdapter Adapter = new SqlDataAdapter(Sql, Conn))
                         {
                             Adapter.SelectCommand = cmd;
@@ -47,7 +40,6 @@ namespace Jisseki_Report_Ibaraki.jada.master
                                 GridView1.DataBind();
                             }
                         }
-                        //}
                     }
                     Conn.Close();
                 }
@@ -102,6 +94,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             {
                                 reader.Read();
                                 txtCOCODE.Text = reader["COCODE"].ToString();
+                                txtUID.Text = reader["UID"].ToString();
                                 txtCONAME.Text = reader["CONAME"].ToString();
                                 txtRepName.Text = reader["RepName"].ToString();
                                 txtPostalCode.Text = reader["PostalCode"].ToString();
@@ -140,6 +133,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
             string Sql= " UPDATE [Jisseki_Report_Ibaraki].[dbo].[ID] "
                       + " SET "
                       + "   [COCODE]       =  @COCODE       "
+                      + "  ,[UID]          =  @UID          "
                       + "  ,[CONAME]       =  @CONAME       "
                       + "  ,[RepName]      =  @RepName      "
                       + "  ,[PostalCode]   =  @PostalCode   "
@@ -168,6 +162,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                         using (SqlCommand cmd = new SqlCommand(Sql, Conn, Tran))
                         {
                             cmd.Parameters.Add(new SqlParameter("@COCODE", this.txtCOCODE.Text));
+                            cmd.Parameters.Add(new SqlParameter("@UID", this.txtUID.Text));
                             cmd.Parameters.Add(new SqlParameter("@CONAME", this.txtCONAME.Text));
                             cmd.Parameters.Add(new SqlParameter("@RepName", this.txtRepName.Text));
                             cmd.Parameters.Add(new SqlParameter("@PostalCode", this.txtPostalCode.Text));
@@ -187,6 +182,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
                         Tran.Commit();
                         setGridView();
+                        lblMsg.Text = "更新しました";
                     }
                     catch (Exception ex)
                     {
@@ -230,13 +226,92 @@ namespace Jisseki_Report_Ibaraki.jada.master
         protected void btnInsert_Click(object sender, EventArgs e)
         {
 
-            if (txtCOCODE.Text == string.Empty) {
+            if (txtCOCODE.Text.Trim() == string.Empty)
+            {
                 lblMsg.Text = "会員コードは必須です";
+                txtCOCODE.BackColor = System.Drawing.Color.Purple;
+                txtCOCODE.Focus();
+                return;
+
             }
+            else 
+            {
+                txtCOCODE.BackColor = System.Drawing.Color.White;
+            }
+
+            if (txtUID.Text.Trim() == string.Empty)
+            {
+                lblMsg.Text = "ログインIDは必須です";
+                txtUID.BackColor = System.Drawing.Color.Purple;
+                txtUID.Focus();
+                return;
+
+            }
+            else
+            {
+                txtUID.BackColor = System.Drawing.Color.White;
+            }
+
+
+            if (txtMember.Text.Trim() == string.Empty)
+            {
+                lblMsg.Text = "会員フラグは必須です";
+                txtMember.BackColor = System.Drawing.Color.Purple;
+                txtMember.Focus();
+                return;
+
+            }
+            else 
+            {
+                lblMsg.Text = "";
+                txtMember.BackColor = System.Drawing.Color.White;
+            }
+
+            if (txtMember.Text.Trim() != "0" && txtMember.Text.Trim() != "1")
+            {
+                lblMsg.Text = "会員フラグは0か1を入力してください";
+                txtMember.BackColor = System.Drawing.Color.Purple;
+                txtMember.Focus();
+                return;
+            }
+            else 
+            {
+                lblMsg.Text = "";
+                txtMember.BackColor = System.Drawing.Color.White;
+            }
+
+            if (txtMemberType.Text.Trim() == string.Empty)
+            {
+                lblMsg.Text = "会員種別は必須です";
+                txtMemberType.BackColor = System.Drawing.Color.Purple;
+                txtMemberType.Focus();
+                return;
+            }
+            else
+            {
+                lblMsg.Text = "";
+                txtMemberType.BackColor = System.Drawing.Color.White;
+            }
+
+            if (txtMemberType.Text.Trim() != "0" && txtMemberType.Text.Trim() != "1")
+            {
+                lblMsg.Text = "会員種別は0か1を入力してください";
+                txtMemberType.BackColor = System.Drawing.Color.Purple;
+                txtMemberType.Focus();
+                return;
+            }
+            else 
+            {
+                lblMsg.Text = "";
+                txtMemberType.BackColor = System.Drawing.Color.White;
+            }
+
+
 
             string Sql = " INSERT INTO [Jisseki_Report_Ibaraki].[dbo].[ID] "
                          + "(" 
                          + " [COCODE] "
+                         + ",[UID] "
                          + ",[CONAME] "
                          + ",[RepName] "
                          + ",[PostalCode] "
@@ -252,6 +327,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                          + " VALUES "         
                          + "("
                          + " @COCODE "
+                         + ",@UID    "
                          + ",@CONAME "
                          + ",@RepName "
                          + ",@PostalCode "
@@ -281,6 +357,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             cmd.CommandText = Sql;
                             cmd.Transaction = Tran;
                             cmd.Parameters.Add(new SqlParameter("@COCODE", this.txtCOCODE.Text));
+                            cmd.Parameters.Add(new SqlParameter("@UID", this.txtUID.Text));
                             cmd.Parameters.Add(new SqlParameter("@CONAME", this.txtCONAME.Text));
                             cmd.Parameters.Add(new SqlParameter("@RepName", this.txtRepName.Text));
                             cmd.Parameters.Add(new SqlParameter("@PostalCode", this.txtPostalCode.Text));
@@ -296,6 +373,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             //Commit Transaction
                             Tran.Commit();
                             this.setGridView();
+                            this.lblMsg.Text="登録しました";
 
                         }
                         catch
