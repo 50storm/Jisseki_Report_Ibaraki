@@ -197,67 +197,154 @@ namespace Jisseki_Report_Ibaraki.common
             //貨物
             if (Utility.IsNotNumber(this.txtMito_Kamotu1.Text))
             {
+                this.txtMito_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_Kamotu1.Focus();
                 return false;
+            }
+            else 
+            {
+                this.txtMito_Kamotu1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtMito_Kamotu2.Text))
             {
+                this.txtMito_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_Kamotu2.Focus();
                 return false;
             }
+            else
+            {
+                this.txtMito_Kamotu2.BackColor = System.Drawing.Color.White;
+            }
+            
             if (Utility.IsNotNumber(this.txtMito_Kamotu3.Text))
             {
+                this.txtMito_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_Kamotu3.Focus();
                 return false;
             }
+            else
+            {
+                this.txtMito_Kamotu3.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtMito_Kamotu4.Text))
             {
+                this.txtMito_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_Kamotu4.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_Kamotu4.BackColor = System.Drawing.Color.White;
             }
 
             //バス
             if (Utility.IsNotNumber(this.txtMito_Bus1.Text))
             {
+                this.txtMito_Bus1.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_Bus1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_Bus1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtMito_Bus2.Text))
             {
+                this.txtMito_Bus2.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_Bus2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_Bus2.BackColor = System.Drawing.Color.White;
             }
 
             //乗用及び貨物車
             if (Utility.IsNotNumber(this.txtMito_JK_J1.Text))
             {
+                this.txtMito_JK_J1.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_JK_J1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_JK_J1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtMito_JK_K1.Text))
             {
+                this.txtMito_JK_K1.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_JK_K1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_JK_K1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtMito_JK_J2.Text))
             {
+                this.txtMito_JK_J2.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_JK_J2.Focus();
                 return false;
+
+            }
+            else
+            {
+                this.txtMito_JK_J2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtMito_JK_K2.Text))
             {
+                this.txtMito_JK_K2.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_JK_K2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_JK_K2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtMito_JK_J3.Text))
             {
+                this.txtMito_JK_J3.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_JK_J3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_JK_J3.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtMito_JK_K3.Text))
             {
+                this.txtMito_JK_K3.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_JK_K3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_JK_K3.BackColor = System.Drawing.Color.White;
             }
 
             //小計
             if (Utility.IsNotNumber(this.txtMito_SubTotal1.Text))
             {
+                this.txtMito_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_SubTotal1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_SubTotal1.BackColor = System.Drawing.Color.White;
             }
 
             //合計
             if (Utility.IsNotNumber(this.txtMito_Total1.Text))
             {
+                this.txtMito_Total1.BackColor = System.Drawing.Color.Pink;
+                this.txtMito_Total1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtMito_Total1.BackColor = System.Drawing.Color.White;
             }
 
 
@@ -269,67 +356,154 @@ namespace Jisseki_Report_Ibaraki.common
             //貨物
             if (Utility.IsNotNumber(this.txtTuchiura_Kamotu1.Text))
             {
+                this.txtTuchiura_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_Kamotu1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_Kamotu1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTuchiura_Kamotu2.Text))
             {
+                this.txtTuchiura_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_Kamotu2.Focus();
                 return false;
             }
+            else
+            {
+                this.txtTuchiura_Kamotu2.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtTuchiura_Kamotu3.Text))
             {
+                this.txtTuchiura_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_Kamotu3.Focus();
                 return false;
             }
+            else
+            {
+                this.txtTuchiura_Kamotu3.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtTuchiura_Kamotu4.Text))
             {
+                this.txtTuchiura_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_Kamotu4.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_Kamotu4.BackColor = System.Drawing.Color.White;
             }
 
             //バス
             if (Utility.IsNotNumber(this.txtTuchiura_Bus1.Text))
             {
+                this.txtTuchiura_Bus1.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_Bus1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_Bus1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTuchiura_Bus2.Text))
             {
+                this.txtTuchiura_Bus2.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_Bus2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_Bus2.BackColor = System.Drawing.Color.White;
             }
 
             //乗用及び貨物車
             if (Utility.IsNotNumber(this.txtTuchiura_JK_J1.Text))
             {
+                this.txtTuchiura_JK_J1.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_JK_J1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_JK_J1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTuchiura_JK_K1.Text))
             {
+                this.txtTuchiura_JK_K1.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_JK_K1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_JK_K1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTuchiura_JK_J2.Text))
             {
+                this.txtTuchiura_JK_J2.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_JK_J2.Focus();
                 return false;
+
+            }
+            else
+            {
+                this.txtTuchiura_JK_J2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTuchiura_JK_K2.Text))
             {
+                this.txtTuchiura_JK_K2.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_JK_K2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_JK_K2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTuchiura_JK_J3.Text))
             {
+                this.txtTuchiura_JK_J3.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_JK_J3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_JK_J3.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTuchiura_JK_K3.Text))
             {
+                this.txtTuchiura_JK_K3.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_JK_K3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_JK_K3.BackColor = System.Drawing.Color.White;
             }
 
             //小計
             if (Utility.IsNotNumber(this.txtTuchiura_SubTotal1.Text))
             {
+                this.txtTuchiura_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_SubTotal1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_SubTotal1.BackColor = System.Drawing.Color.White;
             }
 
             //合計
             if (Utility.IsNotNumber(this.txtTuchiura_Total1.Text))
             {
+                this.txtTuchiura_Total1.BackColor = System.Drawing.Color.Pink;
+                this.txtTuchiura_Total1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTuchiura_Total1.BackColor = System.Drawing.Color.White;
             }
 
 
@@ -341,67 +515,154 @@ namespace Jisseki_Report_Ibaraki.common
             //貨物
             if (Utility.IsNotNumber(this.txtTukuba_Kamotu1.Text))
             {
+                this.txtTukuba_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_Kamotu1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_Kamotu1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTukuba_Kamotu2.Text))
             {
+                this.txtTukuba_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_Kamotu2.Focus();
                 return false;
             }
+            else
+            {
+                this.txtTukuba_Kamotu2.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtTukuba_Kamotu3.Text))
             {
+                this.txtTukuba_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_Kamotu3.Focus();
                 return false;
             }
+            else
+            {
+                this.txtTukuba_Kamotu3.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtTukuba_Kamotu4.Text))
             {
+                this.txtTukuba_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_Kamotu4.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_Kamotu4.BackColor = System.Drawing.Color.White;
             }
 
             //バス
             if (Utility.IsNotNumber(this.txtTukuba_Bus1.Text))
             {
+                this.txtTukuba_Bus1.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_Bus1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_Bus1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTukuba_Bus2.Text))
             {
+                this.txtTukuba_Bus2.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_Bus2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_Bus2.BackColor = System.Drawing.Color.White;
             }
 
             //乗用及び貨物車
             if (Utility.IsNotNumber(this.txtTukuba_JK_J1.Text))
             {
+                this.txtTukuba_JK_J1.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_JK_J1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_JK_J1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTukuba_JK_K1.Text))
             {
+                this.txtTukuba_JK_K1.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_JK_K1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_JK_K1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTukuba_JK_J2.Text))
             {
+                this.txtTukuba_JK_J2.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_JK_J2.Focus();
                 return false;
+
+            }
+            else
+            {
+                this.txtTukuba_JK_J2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTukuba_JK_K2.Text))
             {
+                this.txtTukuba_JK_K2.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_JK_K2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_JK_K2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTukuba_JK_J3.Text))
             {
+                this.txtTukuba_JK_J3.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_JK_J3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_JK_J3.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtTukuba_JK_K3.Text))
             {
+                this.txtTukuba_JK_K3.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_JK_K3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_JK_K3.BackColor = System.Drawing.Color.White;
             }
 
             //小計
             if (Utility.IsNotNumber(this.txtTukuba_SubTotal1.Text))
             {
+                this.txtTukuba_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_SubTotal1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_SubTotal1.BackColor = System.Drawing.Color.White;
             }
 
             //合計
             if (Utility.IsNotNumber(this.txtTukuba_Total1.Text))
             {
+                this.txtTukuba_Total1.BackColor = System.Drawing.Color.Pink;
+                this.txtTukuba_Total1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtTukuba_Total1.BackColor = System.Drawing.Color.White;
             }
 
 
@@ -413,67 +674,154 @@ namespace Jisseki_Report_Ibaraki.common
             //貨物
             if (Utility.IsNotNumber(this.txtSonota_Kamotu1.Text))
             {
+                this.txtSonota_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_Kamotu1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_Kamotu1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtSonota_Kamotu2.Text))
             {
+                this.txtSonota_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_Kamotu2.Focus();
                 return false;
             }
+            else
+            {
+                this.txtSonota_Kamotu2.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtSonota_Kamotu3.Text))
             {
+                this.txtSonota_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_Kamotu3.Focus();
                 return false;
             }
+            else
+            {
+                this.txtSonota_Kamotu3.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtSonota_Kamotu4.Text))
             {
+                this.txtSonota_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_Kamotu4.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_Kamotu4.BackColor = System.Drawing.Color.White;
             }
 
             //バス
             if (Utility.IsNotNumber(this.txtSonota_Bus1.Text))
             {
+                this.txtSonota_Bus1.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_Bus1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_Bus1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtSonota_Bus2.Text))
             {
+                this.txtSonota_Bus2.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_Bus2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_Bus2.BackColor = System.Drawing.Color.White;
             }
 
             //乗用及び貨物車
             if (Utility.IsNotNumber(this.txtSonota_JK_J1.Text))
             {
+                this.txtSonota_JK_J1.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_JK_J1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_JK_J1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtSonota_JK_K1.Text))
             {
+                this.txtSonota_JK_K1.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_JK_K1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_JK_K1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtSonota_JK_J2.Text))
             {
+                this.txtSonota_JK_J2.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_JK_J2.Focus();
                 return false;
+
+            }
+            else
+            {
+                this.txtSonota_JK_J2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtSonota_JK_K2.Text))
             {
+                this.txtSonota_JK_K2.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_JK_K2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_JK_K2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtSonota_JK_J3.Text))
             {
+                this.txtSonota_JK_J3.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_JK_J3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_JK_J3.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtSonota_JK_K3.Text))
             {
+                this.txtSonota_JK_K3.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_JK_K3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_JK_K3.BackColor = System.Drawing.Color.White;
             }
 
             //小計
             if (Utility.IsNotNumber(this.txtSonota_SubTotal1.Text))
             {
+                this.txtSonota_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_SubTotal1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_SubTotal1.BackColor = System.Drawing.Color.White;
             }
 
             //合計
             if (Utility.IsNotNumber(this.txtSonota_Total1.Text))
             {
+                this.txtSonota_Total1.BackColor = System.Drawing.Color.Pink;
+                this.txtSonota_Total1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtSonota_Total1.BackColor = System.Drawing.Color.White;
             }
 
 
@@ -485,72 +833,160 @@ namespace Jisseki_Report_Ibaraki.common
             //貨物
             if (Utility.IsNotNumber(this.txtGoukei_Kamotu1.Text))
             {
+                this.txtGoukei_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_Kamotu1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_Kamotu1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtGoukei_Kamotu2.Text))
             {
+                this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_Kamotu2.Focus();
                 return false;
             }
+            else
+            {
+                this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtGoukei_Kamotu3.Text))
             {
+                this.txtGoukei_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_Kamotu3.Focus();
                 return false;
             }
+            else
+            {
+                this.txtGoukei_Kamotu3.BackColor = System.Drawing.Color.White;
+            }
+
             if (Utility.IsNotNumber(this.txtGoukei_Kamotu4.Text))
             {
+                this.txtGoukei_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_Kamotu4.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_Kamotu4.BackColor = System.Drawing.Color.White;
             }
 
             //バス
             if (Utility.IsNotNumber(this.txtGoukei_Bus1.Text))
             {
+                this.txtGoukei_Bus1.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_Bus1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_Bus1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtGoukei_Bus2.Text))
             {
+                this.txtGoukei_Bus2.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_Bus2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_Bus2.BackColor = System.Drawing.Color.White;
             }
 
             //乗用及び貨物車
             if (Utility.IsNotNumber(this.txtGoukei_JK_J1.Text))
             {
+                this.txtGoukei_JK_J1.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_JK_J1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_JK_J1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtGoukei_JK_K1.Text))
             {
+                this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_JK_K1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtGoukei_JK_J2.Text))
             {
+                this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_JK_J2.Focus();
                 return false;
+
+            }
+            else
+            {
+                this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtGoukei_JK_K2.Text))
             {
+                this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_JK_K2.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtGoukei_JK_J3.Text))
             {
+                this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_JK_J3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.White;
             }
             if (Utility.IsNotNumber(this.txtGoukei_JK_K3.Text))
             {
+                this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_JK_K3.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.White;
             }
 
             //小計
             if (Utility.IsNotNumber(this.txtGoukei_SubTotal1.Text))
             {
+                this.txtGoukei_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_SubTotal1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_SubTotal1.BackColor = System.Drawing.Color.White;
             }
 
             //合計
             if (Utility.IsNotNumber(this.txtGoukei_Total1.Text))
             {
+                this.txtGoukei_Total1.BackColor = System.Drawing.Color.Pink;
+                this.txtGoukei_Total1.Focus();
                 return false;
+            }
+            else
+            {
+                this.txtGoukei_Total1.BackColor = System.Drawing.Color.White;
             }
 
 
             return true;
         }
+
 
 
  #endregion
@@ -2127,31 +2563,31 @@ namespace Jisseki_Report_Ibaraki.common
 
             //水戸
             if (!this.MitoIsValid()) {
-                this.lblMsg.Text="水戸の欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text="水戸の欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return ;
             }
             //土浦
             if (!this.TuchiuraIsValid()) {
-                this.lblMsg.Text = "土浦の欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "土浦の欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //つくば
             if (!this.TukubaIsValid()) {
-                this.lblMsg.Text = "つくばの欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "つくばの欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //その他
             if (!this.SonotaIsValid()) {
-                this.lblMsg.Text = "その他の欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "その他の欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //合計
             if (!this.GoukeiIsValid()) {
-                this.lblMsg.Text = "合計の欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "合計の欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }

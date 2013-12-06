@@ -7,6 +7,7 @@
 <script type="text/javascript" src="../Scripts/inputJisseki_AutoSum.js"></script>
 <script type="text/javascript" src="../Scripts/inputJisseki_Key.js"></script>
 <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=6;IE=7;IE=8;IE=9;IE=10">
 <link rel="stylesheet" href="../Css/input.css" type="text/css" />
    <title>新車登録台数報告書【登録】</title>
 </head>

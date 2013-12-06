@@ -28,9 +28,9 @@ namespace Jisseki_Report_Ibaraki
             {
                 //クッキーにあれば自動セット
 
-                if (Request.Cookies["COCODE"] != null)
+                if (Request.Cookies["UID"] != null)
                 {
-                    txtCOCODE.Text = Server.HtmlEncode(Request.Cookies["COCODE"].Value);
+                    txtCOCODE.Text = Server.HtmlEncode(Request.Cookies["UID"].Value);
                 }
 
                 if (Request.Cookies["Password"] != null)
@@ -43,15 +43,17 @@ namespace Jisseki_Report_Ibaraki
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+
             try
             {
+
                 using (SqlConnection Conn = new SqlConnection(strConn))
                 {
                     Conn.Open();
-                    string strSQL = "SELECT * FROM Jisseki_Report_Ibaraki.dbo.ID WHERE COCODE = @COCODE AND Password = @Password ";
+                    string strSQL = "SELECT * FROM Jisseki_Report_Ibaraki.dbo.ID WHERE UID = @UID AND Password = @Password ";
 
                     SqlCommand cmd = new SqlCommand(strSQL, Conn);
-                    cmd.Parameters.Add(new SqlParameter("@COCODE", txtCOCODE.Text));
+                    cmd.Parameters.Add(new SqlParameter("@UID", txtCOCODE.Text));
                     cmd.Parameters.Add(new SqlParameter("@Password", txtPassword.Text));
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -60,10 +62,10 @@ namespace Jisseki_Report_Ibaraki
                         //ログインOK
 
                         //クッキーに登録
-                        HttpCookie cookieCOCODE = new HttpCookie("COCODE");
-                        cookieCOCODE.Value = txtCOCODE.Text;
-                        cookieCOCODE.Expires = DateTime.Now.AddDays(30);
-                        Response.Cookies.Add(cookieCOCODE);
+                        HttpCookie cookieUID = new HttpCookie("UID");
+                        cookieUID.Value = txtCOCODE.Text;
+                        cookieUID.Expires = DateTime.Now.AddDays(30);
+                        Response.Cookies.Add(cookieUID);
 
                         HttpCookie cookiePassword = new HttpCookie("Password");
                         cookiePassword.Value = txtPassword.Text;
@@ -92,14 +94,15 @@ namespace Jisseki_Report_Ibaraki
                     {
                         //ログインNG           
                         this.lblMsg.Text = "ログインIDまたはパスワードが違います。";
+                        this.lblMsg.BackColor = System.Drawing.Color.Pink;
                     }
                 }
             }
-            catch(Exception ex){
-                Response.Write(ex.Message);
+            catch (Exception ex)
+            {
+                this.lblMsg.Text = ex.Message;
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
 
-            
-            
             }
         }
     }

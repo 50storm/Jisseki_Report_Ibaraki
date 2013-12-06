@@ -21,13 +21,427 @@ namespace Jisseki_Report_Ibaraki.common
 
             //接続文字列
             private String strConn;
-            //自販連か会員か
-            //private bool jadaUser;
-            //private String qCOCODE;
+        
         #endregion
 
+ #region"セッター"
+        private void setHeaderForJada() {
+            string SqlHeader =
+                " SELECT H.COCODE AS COCODE, "
+                + "      H.Year AS Year ,"
+                + "      H.Month AS Month ,"
+                + "      H.Day AS Day ,"
+                + "      H.YearRep AS YearRep ,"
+                + "      H.MonthRep AS MonthRep ,"
+                + "      H.TANTOU AS TANTOU  ,"
+                + "      I.CONAME AS CONAME  "
+                + " FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Header] H "
+                + " INNER JOIN  [Jisseki_Report_Ibaraki].[dbo].[ID] I"
+                + " ON H.COCODE = I.COCODE "
+                + " WHERE H.COCODE=@COCODE AND H.YearRep = @YearRep AND H.MonthRep = @MonthRep ";//TODO
 
-            #region "チェックメソッド"
+            using (SqlConnection Conn = new SqlConnection(strConn))
+            {
+                Conn.Open();
+                using (SqlCommand cmd = new SqlCommand(SqlHeader, Conn))
+                {
+
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@YearRep", this.txtYearRep0.Text));
+                    cmd.Parameters.Add(new SqlParameter("@MonthRep", this.txtMonthRep0.Text));
+
+
+                    using (SqlDataReader Reader = cmd.ExecuteReader())
+                    {
+                        Reader.Read();
+                        //Convert Christian Era To  Japanese Era
+                        DateTime JapaneseDate = DateTime.Parse(
+                                                Reader["Year"].ToString()
+                                                + "/" + Reader["Month"].ToString()
+                                                + "/" + Reader["Day"].ToString()
+                                               );
+                        JapaneseCalendar jCalender = new JapaneseCalendar();
+                        this.lblEra.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
+                        this.lblEraRep0.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
+     
+                        this.txtYear.Text = jCalender.GetYear(JapaneseDate).ToString();
+                        this.txtYearRep0.Text = jCalender.GetYear(JapaneseDate).ToString();
+     
+
+                        this.txtMonth.Text = Reader["Month"].ToString();
+                        this.txtMonthRep0.Text = Reader["MonthRep"].ToString();
+     
+
+                        this.txtDay.Text = Reader["Day"].ToString();
+                        this.txtSyamei.Text = Reader["CONAME"].ToString();
+                        this.txtTantou.Text = Reader["TANTOU"].ToString();
+
+                    }
+                }
+                Conn.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// setHeader
+        /// </summary>
+        private bool setHeader()
+        {
+            //初期表示
+
+
+            string SqlHeader =
+                " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Header]  "
+                + " WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";//TODO
+
+            using (SqlConnection Conn = new SqlConnection(strConn))
+            {
+                Conn.Open();
+                using (SqlCommand cmd = new SqlCommand(SqlHeader, Conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(this.txtYearRep0.Text)));
+                    cmd.Parameters.Add(new SqlParameter("@MonthRep", this.txtMonthRep0.Text));
+
+                    
+                    using (SqlDataReader Reader = cmd.ExecuteReader())
+                    {
+                        if (Reader.HasRows)
+                        {
+
+                            Reader.Read();
+                            //Convert Christian Era To  Japanese Era
+                            DateTime JapaneseDate = DateTime.Parse(
+                                                    Reader["Year"].ToString()
+                                                    + "/" + Reader["Month"].ToString()
+                                                    + "/" + Reader["Day"].ToString()
+                                                   );
+                            JapaneseCalendar jCalender = new JapaneseCalendar();
+                            this.lblEra.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
+                            this.lblEraRep0.Text = Utility.getJapaneseEra(jCalender.GetEra(JapaneseDate));
+
+                            this.txtYear.Text = jCalender.GetYear(JapaneseDate).ToString();
+                            this.txtYearRep0.Text = jCalender.GetYear(JapaneseDate).ToString();
+
+                            this.txtMonth.Text = Reader["Month"].ToString();
+                            this.txtMonthRep0.Text = Reader["MonthRep"].ToString();
+
+
+                            this.txtDay.Text = Reader["Day"].ToString();
+                            this.txtSyamei.Text = Session["CONAME"].ToString();//TODO 自販連からきたときと別
+
+
+                            this.txtTantou.Text = Reader["TANTOU"].ToString();
+                            Conn.Close();
+                            return true;
+                        }
+                        else 
+                        {
+                            Conn.Close();
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// setMitoData
+        /// </summary>
+        private void setMito() {
+            string SqlMito =
+                    " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Mito]  "
+                    //+ " WHERE COCODE=@COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
+                    +" WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+            using (SqlConnection Conn = new SqlConnection(strConn))
+            {
+                Conn.Open();
+                using (SqlCommand cmd = new SqlCommand(SqlMito, Conn))
+                {
+
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(this.txtYearRep0.Text)));
+                    cmd.Parameters.Add(new SqlParameter("@MonthRep", this.txtMonthRep0.Text));
+
+                    
+                    using (SqlDataReader Reader = cmd.ExecuteReader())
+                    {
+                        Reader.Read();
+                        //this.txtMito_Kamotu1.Text   = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtMito_Kamotu2.Text   = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtMito_Kamotu3.Text   = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtMito_Kamotu4.Text   = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtMito_Bus1.Text      = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtMito_Bus2.Text      = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtMito_JK_J1.Text     = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtMito_JK_K1.Text     = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtMito_JK_J2.Text     = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtMito_JK_K2.Text     = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtMito_JK_J3.Text     = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtMito_JK_K3.Text     = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtMito_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtMito_Total1.Text    = Utility.zeroToSpace(Reader["Total1"].ToString());
+
+                        this.txtMito_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtMito_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtMito_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtMito_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtMito_Bus1.Text    = Reader["Bus1"].ToString();
+                        this.txtMito_Bus2.Text    = Reader["Bus2"].ToString();
+                        this.txtMito_JK_J1.Text   = Reader["JK_J1"].ToString();
+                        this.txtMito_JK_K1.Text   = Reader["JK_K1"].ToString();
+                        this.txtMito_JK_J2.Text   = Reader["JK_J2"].ToString();
+                        this.txtMito_JK_K2.Text   = Reader["JK_K2"].ToString();
+                        this.txtMito_JK_J3.Text   = Reader["JK_J3"].ToString();
+                        this.txtMito_JK_K3.Text   = Reader["JK_K3"].ToString();
+                        this.txtMito_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtMito_Total1.Text = Reader["Total1"].ToString();
+
+
+
+                    }
+                }
+                Conn.Close();
+            }
+        
+        }
+
+        /// <summary>
+        /// setTuchiuraData
+        /// </summary>
+        private void setTuchiura()
+        {
+            string SqlTuchiura =
+                    " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Tuchiura]  "
+                    + " WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+            using (SqlConnection Conn = new SqlConnection(strConn))
+            {
+                Conn.Open();
+                using (SqlCommand cmd = new SqlCommand(SqlTuchiura, Conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(this.txtYearRep0.Text)));
+                    cmd.Parameters.Add(new SqlParameter("@MonthRep", this.txtMonthRep0.Text));
+
+
+                    using (SqlDataReader Reader = cmd.ExecuteReader())
+                    {
+                        Reader.Read();
+                        //this.txtTuchiura_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtTuchiura_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtTuchiura_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtTuchiura_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtTuchiura_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtTuchiura_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtTuchiura_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtTuchiura_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtTuchiura_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtTuchiura_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtTuchiura_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtTuchiura_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtTuchiura_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtTuchiura_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
+
+
+                        this.txtTuchiura_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtTuchiura_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtTuchiura_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtTuchiura_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtTuchiura_Bus1.Text  = Reader["Bus1"].ToString();
+                        this.txtTuchiura_Bus2.Text  = Reader["Bus2"].ToString();
+                        this.txtTuchiura_JK_J1.Text = Reader["JK_J1"].ToString();
+                        this.txtTuchiura_JK_K1.Text = Reader["JK_K1"].ToString();
+                        this.txtTuchiura_JK_J2.Text = Reader["JK_J2"].ToString();
+                        this.txtTuchiura_JK_K2.Text = Reader["JK_K2"].ToString();
+                        this.txtTuchiura_JK_J3.Text = Reader["JK_J3"].ToString();
+                        this.txtTuchiura_JK_K3.Text = Reader["JK_K3"].ToString();
+                        this.txtTuchiura_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtTuchiura_Total1.Text =  Reader["Total1"].ToString();
+
+                    }
+                }
+                Conn.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// setTukubaData
+        /// </summary>
+        private void setTukuba()
+        {
+            string SqlTukuba =
+                    " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Tukuba]  "
+                    +" WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+            using (SqlConnection Conn = new SqlConnection(strConn))
+            {
+                Conn.Open();
+                using (SqlCommand cmd = new SqlCommand(SqlTukuba, Conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE"].ToString()));
+                   cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(this.txtYearRep0.Text)));
+                    cmd.Parameters.Add(new SqlParameter("@MonthRep", this.txtMonthRep0.Text));
+
+
+                    using (SqlDataReader Reader = cmd.ExecuteReader())
+                    {
+                        Reader.Read();
+                        //this.txtTukuba_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtTukuba_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtTukuba_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtTukuba_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtTukuba_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtTukuba_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtTukuba_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtTukuba_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtTukuba_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtTukuba_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtTukuba_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtTukuba_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtTukuba_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtTukuba_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
+
+                        this.txtTukuba_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtTukuba_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtTukuba_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtTukuba_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtTukuba_Bus1.Text = Reader["Bus1"].ToString();
+                        this.txtTukuba_Bus2.Text = Reader["Bus2"].ToString();
+                        this.txtTukuba_JK_J1.Text = Reader["JK_J1"].ToString();
+                        this.txtTukuba_JK_K1.Text = Reader["JK_K1"].ToString();
+                        this.txtTukuba_JK_J2.Text = Reader["JK_J2"].ToString();
+                        this.txtTukuba_JK_K2.Text = Reader["JK_K2"].ToString();
+                        this.txtTukuba_JK_J3.Text = Reader["JK_J3"].ToString();
+                        this.txtTukuba_JK_K3.Text = Reader["JK_K3"].ToString();
+                        this.txtTukuba_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtTukuba_Total1.Text = Reader["Total1"].ToString();
+
+
+                    }
+                }
+                Conn.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// setSonotaData
+        /// </summary>
+        private void setSonota()
+        {
+            string SqlSonota =
+                    " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Sonota]  "
+                    +" WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+            using (SqlConnection Conn = new SqlConnection(strConn))
+            {
+                Conn.Open();
+                using (SqlCommand cmd = new SqlCommand(SqlSonota, Conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(this.txtYearRep0.Text)));
+                    cmd.Parameters.Add(new SqlParameter("@MonthRep", this.txtMonthRep0.Text));
+
+                    using (SqlDataReader Reader = cmd.ExecuteReader())
+                    {
+                        Reader.Read();
+                        //this.txtSonota_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtSonota_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtSonota_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtSonota_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtSonota_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtSonota_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtSonota_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtSonota_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtSonota_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtSonota_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtSonota_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtSonota_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtSonota_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtSonota_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
+
+                        this.txtSonota_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtSonota_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtSonota_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtSonota_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtSonota_Bus1.Text    =  Reader["Bus1"].ToString();
+                        this.txtSonota_Bus2.Text    =  Reader["Bus2"].ToString();
+                        this.txtSonota_JK_J1.Text = Reader["JK_J1"].ToString();
+                        this.txtSonota_JK_K1.Text = Reader["JK_K1"].ToString();
+                        this.txtSonota_JK_J2.Text = Reader["JK_J2"].ToString();
+                        this.txtSonota_JK_K2.Text = Reader["JK_K2"].ToString();
+                        this.txtSonota_JK_J3.Text = Reader["JK_J3"].ToString();
+                        this.txtSonota_JK_K3.Text = Reader["JK_K3"].ToString();
+                        this.txtSonota_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtSonota_Total1.Text = Reader["Total1"].ToString();
+
+                    }
+                }
+                Conn.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// setGoukeiData
+        /// </summary>
+        private void setGoukei()
+        {
+            string SqlGoukei =
+                    " SELECT * FROM [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Goukei]  "
+                    +" WHERE COCODE=@COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+            using (SqlConnection Conn = new SqlConnection(strConn))
+            {
+                Conn.Open();
+                using (SqlCommand cmd = new SqlCommand(SqlGoukei, Conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@COCODE", this.Session["COCODE"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(this.txtYearRep0.Text)));
+                    cmd.Parameters.Add(new SqlParameter("@MonthRep", this.txtMonthRep0.Text));
+
+
+                    using (SqlDataReader Reader = cmd.ExecuteReader())
+                    {
+                        Reader.Read();
+                        //this.txtGoukei_Kamotu1.Text     = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtGoukei_Kamotu2.Text     = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtGoukei_Kamotu3.Text     = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtGoukei_Kamotu4.Text     = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtGoukei_Bus1.Text        = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtGoukei_Bus2.Text        = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtGoukei_JK_J1.Text       = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtGoukei_JK_K1.Text       = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtGoukei_JK_J2.Text       = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtGoukei_JK_K2.Text       = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtGoukei_JK_J3.Text       = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtGoukei_JK_K3.Text       = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtGoukei_SubTotal1.Text   = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtGoukei_Total1.Text      = Utility.zeroToSpace(Reader["Total1"].ToString());
+
+                        this.txtGoukei_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtGoukei_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtGoukei_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtGoukei_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtGoukei_Bus1.Text  = Reader["Bus1"].ToString();
+                        this.txtGoukei_Bus2.Text  = Reader["Bus2"].ToString();
+                        this.txtGoukei_JK_J1.Text = Reader["JK_J1"].ToString();
+                        this.txtGoukei_JK_K1.Text = Reader["JK_K1"].ToString();
+                        this.txtGoukei_JK_J2.Text = Reader["JK_J2"].ToString();
+                        this.txtGoukei_JK_K2.Text = Reader["JK_K2"].ToString();
+                        this.txtGoukei_JK_J3.Text = Reader["JK_J3"].ToString();
+                        this.txtGoukei_JK_K3.Text = Reader["JK_K3"].ToString();
+                        this.txtGoukei_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtGoukei_Total1.Text = Reader["Total1"].ToString();
+
+                    }
+                }
+                Conn.Close();
+            }
+
+        }
+#endregion
+
+#region "チェックメソッド"
 
             private bool HeaderIsValid()
             {
@@ -178,77 +592,159 @@ namespace Jisseki_Report_Ibaraki.common
                 return true;
 
             }
-
-            /// <summary>
-            /// 水戸入力チェック
-            /// </summary>
-            /// <returns></returns>
             private bool MitoIsValid()
             {
                 //貨物
                 if (Utility.IsNotNumber(this.txtMito_Kamotu1.Text))
                 {
+                    this.txtMito_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_Kamotu1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_Kamotu1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtMito_Kamotu2.Text))
                 {
+                    this.txtMito_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_Kamotu2.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtMito_Kamotu2.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtMito_Kamotu3.Text))
                 {
+                    this.txtMito_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_Kamotu3.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtMito_Kamotu3.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtMito_Kamotu4.Text))
                 {
+                    this.txtMito_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_Kamotu4.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_Kamotu4.BackColor = System.Drawing.Color.White;
                 }
 
                 //バス
                 if (Utility.IsNotNumber(this.txtMito_Bus1.Text))
                 {
+                    this.txtMito_Bus1.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_Bus1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_Bus1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtMito_Bus2.Text))
                 {
+                    this.txtMito_Bus2.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_Bus2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_Bus2.BackColor = System.Drawing.Color.White;
                 }
 
                 //乗用及び貨物車
                 if (Utility.IsNotNumber(this.txtMito_JK_J1.Text))
                 {
+                    this.txtMito_JK_J1.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_JK_J1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_JK_J1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtMito_JK_K1.Text))
                 {
+                    this.txtMito_JK_K1.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_JK_K1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_JK_K1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtMito_JK_J2.Text))
                 {
+                    this.txtMito_JK_J2.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_JK_J2.Focus();
                     return false;
+
+                }
+                else
+                {
+                    this.txtMito_JK_J2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtMito_JK_K2.Text))
                 {
+                    this.txtMito_JK_K2.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_JK_K2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_JK_K2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtMito_JK_J3.Text))
                 {
+                    this.txtMito_JK_J3.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_JK_J3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_JK_J3.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtMito_JK_K3.Text))
                 {
+                    this.txtMito_JK_K3.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_JK_K3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_JK_K3.BackColor = System.Drawing.Color.White;
                 }
 
                 //小計
                 if (Utility.IsNotNumber(this.txtMito_SubTotal1.Text))
                 {
+                    this.txtMito_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_SubTotal1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_SubTotal1.BackColor = System.Drawing.Color.White;
                 }
 
                 //合計
                 if (Utility.IsNotNumber(this.txtMito_Total1.Text))
                 {
+                    this.txtMito_Total1.BackColor = System.Drawing.Color.Pink;
+                    this.txtMito_Total1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtMito_Total1.BackColor = System.Drawing.Color.White;
                 }
 
 
@@ -260,67 +756,154 @@ namespace Jisseki_Report_Ibaraki.common
                 //貨物
                 if (Utility.IsNotNumber(this.txtTuchiura_Kamotu1.Text))
                 {
+                    this.txtTuchiura_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_Kamotu1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_Kamotu1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTuchiura_Kamotu2.Text))
                 {
+                    this.txtTuchiura_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_Kamotu2.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtTuchiura_Kamotu2.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtTuchiura_Kamotu3.Text))
                 {
+                    this.txtTuchiura_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_Kamotu3.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtTuchiura_Kamotu3.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtTuchiura_Kamotu4.Text))
                 {
+                    this.txtTuchiura_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_Kamotu4.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_Kamotu4.BackColor = System.Drawing.Color.White;
                 }
 
                 //バス
                 if (Utility.IsNotNumber(this.txtTuchiura_Bus1.Text))
                 {
+                    this.txtTuchiura_Bus1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_Bus1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_Bus1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTuchiura_Bus2.Text))
                 {
+                    this.txtTuchiura_Bus2.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_Bus2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_Bus2.BackColor = System.Drawing.Color.White;
                 }
 
                 //乗用及び貨物車
                 if (Utility.IsNotNumber(this.txtTuchiura_JK_J1.Text))
                 {
+                    this.txtTuchiura_JK_J1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_JK_J1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_JK_J1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTuchiura_JK_K1.Text))
                 {
+                    this.txtTuchiura_JK_K1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_JK_K1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_JK_K1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTuchiura_JK_J2.Text))
                 {
+                    this.txtTuchiura_JK_J2.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_JK_J2.Focus();
                     return false;
+
+                }
+                else
+                {
+                    this.txtTuchiura_JK_J2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTuchiura_JK_K2.Text))
                 {
+                    this.txtTuchiura_JK_K2.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_JK_K2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_JK_K2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTuchiura_JK_J3.Text))
                 {
+                    this.txtTuchiura_JK_J3.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_JK_J3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_JK_J3.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTuchiura_JK_K3.Text))
                 {
+                    this.txtTuchiura_JK_K3.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_JK_K3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_JK_K3.BackColor = System.Drawing.Color.White;
                 }
 
                 //小計
                 if (Utility.IsNotNumber(this.txtTuchiura_SubTotal1.Text))
                 {
+                    this.txtTuchiura_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_SubTotal1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_SubTotal1.BackColor = System.Drawing.Color.White;
                 }
 
                 //合計
                 if (Utility.IsNotNumber(this.txtTuchiura_Total1.Text))
                 {
+                    this.txtTuchiura_Total1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTuchiura_Total1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTuchiura_Total1.BackColor = System.Drawing.Color.White;
                 }
 
 
@@ -332,67 +915,154 @@ namespace Jisseki_Report_Ibaraki.common
                 //貨物
                 if (Utility.IsNotNumber(this.txtTukuba_Kamotu1.Text))
                 {
+                    this.txtTukuba_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_Kamotu1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_Kamotu1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTukuba_Kamotu2.Text))
                 {
+                    this.txtTukuba_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_Kamotu2.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtTukuba_Kamotu2.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtTukuba_Kamotu3.Text))
                 {
+                    this.txtTukuba_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_Kamotu3.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtTukuba_Kamotu3.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtTukuba_Kamotu4.Text))
                 {
+                    this.txtTukuba_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_Kamotu4.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_Kamotu4.BackColor = System.Drawing.Color.White;
                 }
 
                 //バス
                 if (Utility.IsNotNumber(this.txtTukuba_Bus1.Text))
                 {
+                    this.txtTukuba_Bus1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_Bus1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_Bus1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTukuba_Bus2.Text))
                 {
+                    this.txtTukuba_Bus2.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_Bus2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_Bus2.BackColor = System.Drawing.Color.White;
                 }
 
                 //乗用及び貨物車
                 if (Utility.IsNotNumber(this.txtTukuba_JK_J1.Text))
                 {
+                    this.txtTukuba_JK_J1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_JK_J1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_JK_J1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTukuba_JK_K1.Text))
                 {
+                    this.txtTukuba_JK_K1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_JK_K1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_JK_K1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTukuba_JK_J2.Text))
                 {
+                    this.txtTukuba_JK_J2.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_JK_J2.Focus();
                     return false;
+
+                }
+                else
+                {
+                    this.txtTukuba_JK_J2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTukuba_JK_K2.Text))
                 {
+                    this.txtTukuba_JK_K2.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_JK_K2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_JK_K2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTukuba_JK_J3.Text))
                 {
+                    this.txtTukuba_JK_J3.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_JK_J3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_JK_J3.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtTukuba_JK_K3.Text))
                 {
+                    this.txtTukuba_JK_K3.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_JK_K3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_JK_K3.BackColor = System.Drawing.Color.White;
                 }
 
                 //小計
                 if (Utility.IsNotNumber(this.txtTukuba_SubTotal1.Text))
                 {
+                    this.txtTukuba_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_SubTotal1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_SubTotal1.BackColor = System.Drawing.Color.White;
                 }
 
                 //合計
                 if (Utility.IsNotNumber(this.txtTukuba_Total1.Text))
                 {
+                    this.txtTukuba_Total1.BackColor = System.Drawing.Color.Pink;
+                    this.txtTukuba_Total1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtTukuba_Total1.BackColor = System.Drawing.Color.White;
                 }
 
 
@@ -404,67 +1074,154 @@ namespace Jisseki_Report_Ibaraki.common
                 //貨物
                 if (Utility.IsNotNumber(this.txtSonota_Kamotu1.Text))
                 {
+                    this.txtSonota_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_Kamotu1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_Kamotu1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtSonota_Kamotu2.Text))
                 {
+                    this.txtSonota_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_Kamotu2.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtSonota_Kamotu2.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtSonota_Kamotu3.Text))
                 {
+                    this.txtSonota_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_Kamotu3.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtSonota_Kamotu3.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtSonota_Kamotu4.Text))
                 {
+                    this.txtSonota_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_Kamotu4.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_Kamotu4.BackColor = System.Drawing.Color.White;
                 }
 
                 //バス
                 if (Utility.IsNotNumber(this.txtSonota_Bus1.Text))
                 {
+                    this.txtSonota_Bus1.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_Bus1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_Bus1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtSonota_Bus2.Text))
                 {
+                    this.txtSonota_Bus2.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_Bus2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_Bus2.BackColor = System.Drawing.Color.White;
                 }
 
                 //乗用及び貨物車
                 if (Utility.IsNotNumber(this.txtSonota_JK_J1.Text))
                 {
+                    this.txtSonota_JK_J1.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_JK_J1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_JK_J1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtSonota_JK_K1.Text))
                 {
+                    this.txtSonota_JK_K1.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_JK_K1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_JK_K1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtSonota_JK_J2.Text))
                 {
+                    this.txtSonota_JK_J2.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_JK_J2.Focus();
                     return false;
+
+                }
+                else
+                {
+                    this.txtSonota_JK_J2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtSonota_JK_K2.Text))
                 {
+                    this.txtSonota_JK_K2.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_JK_K2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_JK_K2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtSonota_JK_J3.Text))
                 {
+                    this.txtSonota_JK_J3.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_JK_J3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_JK_J3.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtSonota_JK_K3.Text))
                 {
+                    this.txtSonota_JK_K3.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_JK_K3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_JK_K3.BackColor = System.Drawing.Color.White;
                 }
 
                 //小計
                 if (Utility.IsNotNumber(this.txtSonota_SubTotal1.Text))
                 {
+                    this.txtSonota_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_SubTotal1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_SubTotal1.BackColor = System.Drawing.Color.White;
                 }
 
                 //合計
                 if (Utility.IsNotNumber(this.txtSonota_Total1.Text))
                 {
+                    this.txtSonota_Total1.BackColor = System.Drawing.Color.Pink;
+                    this.txtSonota_Total1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtSonota_Total1.BackColor = System.Drawing.Color.White;
                 }
 
 
@@ -476,67 +1233,154 @@ namespace Jisseki_Report_Ibaraki.common
                 //貨物
                 if (Utility.IsNotNumber(this.txtGoukei_Kamotu1.Text))
                 {
+                    this.txtGoukei_Kamotu1.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_Kamotu1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_Kamotu1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtGoukei_Kamotu2.Text))
                 {
+                    this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_Kamotu2.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtGoukei_Kamotu3.Text))
                 {
+                    this.txtGoukei_Kamotu3.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_Kamotu3.Focus();
                     return false;
                 }
+                else
+                {
+                    this.txtGoukei_Kamotu3.BackColor = System.Drawing.Color.White;
+                }
+
                 if (Utility.IsNotNumber(this.txtGoukei_Kamotu4.Text))
                 {
+                    this.txtGoukei_Kamotu4.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_Kamotu4.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_Kamotu4.BackColor = System.Drawing.Color.White;
                 }
 
                 //バス
                 if (Utility.IsNotNumber(this.txtGoukei_Bus1.Text))
                 {
+                    this.txtGoukei_Bus1.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_Bus1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_Bus1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtGoukei_Bus2.Text))
                 {
+                    this.txtGoukei_Bus2.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_Bus2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_Bus2.BackColor = System.Drawing.Color.White;
                 }
 
                 //乗用及び貨物車
                 if (Utility.IsNotNumber(this.txtGoukei_JK_J1.Text))
                 {
+                    this.txtGoukei_JK_J1.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_JK_J1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_JK_J1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtGoukei_JK_K1.Text))
                 {
+                    this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_JK_K1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtGoukei_JK_J2.Text))
                 {
+                    this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_JK_J2.Focus();
                     return false;
+
+                }
+                else
+                {
+                    this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtGoukei_JK_K2.Text))
                 {
+                    this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_JK_K2.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtGoukei_JK_J3.Text))
                 {
+                    this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_JK_J3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.White;
                 }
                 if (Utility.IsNotNumber(this.txtGoukei_JK_K3.Text))
                 {
+                    this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_JK_K3.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.White;
                 }
 
                 //小計
                 if (Utility.IsNotNumber(this.txtGoukei_SubTotal1.Text))
                 {
+                    this.txtGoukei_SubTotal1.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_SubTotal1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_SubTotal1.BackColor = System.Drawing.Color.White;
                 }
 
                 //合計
                 if (Utility.IsNotNumber(this.txtGoukei_Total1.Text))
                 {
+                    this.txtGoukei_Total1.BackColor = System.Drawing.Color.Pink;
+                    this.txtGoukei_Total1.Focus();
                     return false;
+                }
+                else
+                {
+                    this.txtGoukei_Total1.BackColor = System.Drawing.Color.White;
                 }
 
 
@@ -1188,6 +2032,25 @@ namespace Jisseki_Report_Ibaraki.common
                 if (DateTime.Today.Day < 6)
                 {
                     txtMonthRep0.Text = jCalender.GetMonth(DateTime.Today.AddMonths(-1)).ToString();
+                    if (setHeader() == false)
+                    {
+                        //データなし
+                        ViewState["isResistered"] = false;
+                    }
+                    else
+                    {
+                        //データあり
+                        ViewState["isResistered"] = true;
+
+                        setMito();
+                        setTuchiura();
+                        setTukuba();
+                        setSonota();
+                        setGoukei();
+
+                        this.lblMsg.Text = "既に登録されています。";
+                        this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                    }
                 }
                 else 
                 {
@@ -1254,7 +2117,8 @@ namespace Jisseki_Report_Ibaraki.common
 
                 //自販連ユーザーは
                 //入力制限なし
-
+                //登録のみ
+                ViewState["isResistered"] = false;
 
                 this.btnPrint.Visible = false;
                 this.btnKariInvoice.Visible = false;
@@ -1267,7 +2131,7 @@ namespace Jisseki_Report_Ibaraki.common
             /// <summary>
             /// 自販連管理者が登録する場合
             /// </summary>
-            private void setHeader()
+            private void setHeaderJada()
             {
                 //初期表示
                 string SqlHeader =
@@ -1703,7 +2567,427 @@ namespace Jisseki_Report_Ibaraki.common
             }            
             #endregion
 
+
+        #region "更新メソッド"
+
+        private void updateHeader(SqlConnection Conn, SqlTransaction Tran)
+        {
+
+            String UpdateMitoSql = "UPDATE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Header] "
+                                    + " SET "
+                                    + "    [Year]   = @Year"
+                                    + "   ,[Month]  = @Month "
+                                    + "   ,[Day]    = @Day "
+                                    + "   ,[COCODE] = @COCODE "
+                                    + "   ,[TANTOU] = @TANTOU "
+                                    + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+
+
+            //Sqlコネクション
+            try
+            {
+                SqlCommand cmd = new SqlCommand(UpdateMitoSql, Conn, Tran);
+                cmd.CommandText = UpdateMitoSql;
+                //Sqlインジェクション回避
+               //キー項目
+                cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
+                cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
+                cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
+                cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
+                cmd.Parameters.Add(new SqlParameter("@TANTOU", txtTantou.Text));
+                cmd.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                throw;
+
+            }
+
+        }
+
+        /// <summary>
+        /// Update Mito's Data
+        /// </summary>
+        private void updateMito(SqlConnection Conn,SqlTransaction Tran){
             
+            //INSERT作成
+            //SqlConnection sn = new ;
+            String updateMitoSql = "UPDATE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Mito] "
+                                 + " SET"
+                                 + "  [Year]      = @Year "
+                                 + " ,[Month]     = @Month "
+                                 + " ,[Day]       = @Day "
+                                 + " ,[COCODE]    = @COCODE "
+                                 + " ,[Kamotu1]   = @Kamotu1 "
+                                 + " ,[Kamotu2]   = @Kamotu2 "
+                                 + " ,[Kamotu3]   = @Kamotu3 "
+                                 + " ,[Kamotu4]   = @Kamotu4 "
+                                 + " ,[Bus1]      = @Bus1  "
+                                 + " ,[Bus2]      = @Bus2 "
+                                 + " ,[JK_J1]     = @JK_J1 "
+                                 + " ,[JK_K1]     = @JK_K1 "
+                                 + " ,[JK_J2]     = @JK_J2 "
+                                 + " ,[JK_K2]     = @JK_K2 "
+                                 + " ,[JK_J3]     = @JK_J3 "
+                                 + " ,[JK_K3]     = @JK_K3 "
+                                 + " ,[SubTotal1] = @SubTotal1 "
+                                 + " ,[Total1]    = @Total1 "
+                                 + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+                                 
+                           
+            //Sqlコネクション
+            try
+            {
+                SqlCommand cmd = new SqlCommand(updateMitoSql, Conn, Tran);
+                cmd.CommandText = updateMitoSql;
+                //Sqlインジェクション回避
+                //キー項目
+                cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
+                cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
+                cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
+                cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
+
+
+                //貨物
+                cmd.Parameters.Add(new SqlParameter("@Kamotu1", txtMito_Kamotu1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu2", txtMito_Kamotu2.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu3", txtMito_Kamotu3.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu4", txtMito_Kamotu4.Text));
+                //バス
+                cmd.Parameters.Add(new SqlParameter("@Bus1", txtMito_Bus1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Bus2", txtMito_Bus2.Text));
+                //乗用　貨物
+                cmd.Parameters.Add(new SqlParameter("@JK_J1", txtMito_JK_J1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K1", txtMito_JK_K1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J2", txtMito_JK_J2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K2", txtMito_JK_K2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J3", txtMito_JK_J3.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K3", txtMito_JK_K3.Text));
+                cmd.Parameters.Add(new SqlParameter("@SubTotal1", txtMito_SubTotal1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Total1", txtMito_Total1.Text));
+                cmd.ExecuteNonQuery();
+
+            }
+            catch 
+            {
+                throw ;
+
+            }
+        
+        }
+
+
+        /// <summary>
+        /// Update Tuchiura's Data
+        /// </summary>
+        private void updateTuchiura(SqlConnection Conn, SqlTransaction Tran)
+        {
+
+            //INSERT作成
+            //SqlConnection sn = new ;
+            String updateTuchiuraSql = "UPDATE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Tuchiura] "
+                                 + " SET"
+                                 + "  [Year]      = @Year "
+                                 + " ,[Month]     = @Month "
+                                 + " ,[Day]       = @Day "
+                                 + " ,[COCODE]    = @COCODE "
+                                 + " ,[Kamotu1]   = @Kamotu1 "
+                                 + " ,[Kamotu2]   = @Kamotu2 "
+                                 + " ,[Kamotu3]   = @Kamotu3 "
+                                 + " ,[Kamotu4]   = @Kamotu4 "
+                                 + " ,[Bus1]      = @Bus1  "
+                                 + " ,[Bus2]      = @Bus2 "
+                                 + " ,[JK_J1]     = @JK_J1 "
+                                 + " ,[JK_K1]     = @JK_K1 "
+                                 + " ,[JK_J2]     = @JK_J2 "
+                                 + " ,[JK_K2]     = @JK_K2 "
+                                 + " ,[JK_J3]     = @JK_J3 "
+                                 + " ,[JK_K3]     = @JK_K3 "
+                                 + " ,[SubTotal1] = @SubTotal1 "
+                                 + " ,[Total1]    = @Total1 "
+                                 + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+
+
+            //Sqlコネクション
+            try
+            {
+                SqlCommand cmd = new SqlCommand(updateTuchiuraSql, Conn, Tran);
+                cmd.CommandText = updateTuchiuraSql;
+                //Sqlインジェクション回避
+                //キー項目
+                cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
+
+                cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
+                cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
+                cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
+
+
+
+                //貨物
+                cmd.Parameters.Add(new SqlParameter("@Kamotu1", txtTuchiura_Kamotu1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu2", txtTuchiura_Kamotu2.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu3", txtTuchiura_Kamotu3.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu4", txtTuchiura_Kamotu4.Text));
+                //バス
+                cmd.Parameters.Add(new SqlParameter("@Bus1", txtTuchiura_Bus1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Bus2", txtTuchiura_Bus2.Text));
+                //乗用　貨物
+                cmd.Parameters.Add(new SqlParameter("@JK_J1", txtTuchiura_JK_J1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K1", txtTuchiura_JK_K1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J2", txtTuchiura_JK_J2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K2", txtTuchiura_JK_K2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J3", txtTuchiura_JK_J3.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K3", txtTuchiura_JK_K3.Text));
+                cmd.Parameters.Add(new SqlParameter("@SubTotal1", txtTuchiura_SubTotal1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Total1", txtTuchiura_Total1.Text));
+                cmd.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                throw;
+
+            }
+
+        }
+
+
+        /// <summary>
+        /// Update Tukuba's Data
+        /// </summary>
+        private void updateTukuba(SqlConnection Conn, SqlTransaction Tran)
+        {
+
+            //INSERT作成
+            //SqlConnection sn = new ;
+            String updateTukubaSql = "UPDATE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Tukuba] "
+                                 + " SET"
+                                 + "  [Year]      = @Year "
+                                 + " ,[Month]     = @Month "
+                                 + " ,[Day]       = @Day "
+                                 + " ,[COCODE]    = @COCODE "
+                                 + " ,[Kamotu1]   = @Kamotu1 "
+                                 + " ,[Kamotu2]   = @Kamotu2 "
+                                 + " ,[Kamotu3]   = @Kamotu3 "
+                                 + " ,[Kamotu4]   = @Kamotu4 "
+                                 + " ,[Bus1]      = @Bus1  "
+                                 + " ,[Bus2]      = @Bus2 "
+                                 + " ,[JK_J1]     = @JK_J1 "
+                                 + " ,[JK_K1]     = @JK_K1 "
+                                 + " ,[JK_J2]     = @JK_J2 "
+                                 + " ,[JK_K2]     = @JK_K2 "
+                                 + " ,[JK_J3]     = @JK_J3 "
+                                 + " ,[JK_K3]     = @JK_K3 "
+                                 + " ,[SubTotal1] = @SubTotal1 "
+                                 + " ,[Total1]    = @Total1 "
+                                 + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+
+
+            //Sqlコネクション
+            try
+            {
+                SqlCommand cmd = new SqlCommand(updateTukubaSql, Conn, Tran);
+                cmd.CommandText = updateTukubaSql;
+                //Sqlインジェクション回避
+                //キー項目
+                //キー項目
+                cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
+                cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
+                cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
+                cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
+
+
+                //貨物
+                cmd.Parameters.Add(new SqlParameter("@Kamotu1", txtTukuba_Kamotu1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu2", txtTukuba_Kamotu2.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu3", txtTukuba_Kamotu3.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu4", txtTukuba_Kamotu4.Text));
+                //バス
+                cmd.Parameters.Add(new SqlParameter("@Bus1", txtTukuba_Bus1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Bus2", txtTukuba_Bus2.Text));
+                //乗用　貨物
+                cmd.Parameters.Add(new SqlParameter("@JK_J1", txtTukuba_JK_J1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K1", txtTukuba_JK_K1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J2", txtTukuba_JK_J2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K2", txtTukuba_JK_K2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J3", txtTukuba_JK_J3.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K3", txtTukuba_JK_K3.Text));
+                cmd.Parameters.Add(new SqlParameter("@SubTotal1", txtTukuba_SubTotal1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Total1", txtTukuba_Total1.Text));
+                cmd.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                throw;
+
+            }
+
+        }
+
+
+        /// <summary>
+        /// Update Sonota's Data
+        /// </summary>
+        private void updateSonota(SqlConnection Conn, SqlTransaction Tran)
+        {
+
+            //INSERT作成
+            //SqlConnection sn = new ;
+            String updateSonotaSql = "UPDATE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Sonota] "
+                                 + " SET"
+                                 + "  [Year]      = @Year "
+                                 + " ,[Month]     = @Month "
+                                 + " ,[Day]       = @Day "
+                                 + " ,[COCODE]    = @COCODE "
+                                 + " ,[Kamotu1]   = @Kamotu1 "
+                                 + " ,[Kamotu2]   = @Kamotu2 "
+                                 + " ,[Kamotu3]   = @Kamotu3 "
+                                 + " ,[Kamotu4]   = @Kamotu4 "
+                                 + " ,[Bus1]      = @Bus1  "
+                                 + " ,[Bus2]      = @Bus2 "
+                                 + " ,[JK_J1]     = @JK_J1 "
+                                 + " ,[JK_K1]     = @JK_K1 "
+                                 + " ,[JK_J2]     = @JK_J2 "
+                                 + " ,[JK_K2]     = @JK_K2 "
+                                 + " ,[JK_J3]     = @JK_J3 "
+                                 + " ,[JK_K3]     = @JK_K3 "
+                                 + " ,[SubTotal1] = @SubTotal1 "
+                                 + " ,[Total1]    = @Total1 "
+                                 + " WHERE COCODE = @COCODE AND YearRep = @YearRep AND MonthRep = @MonthRep ";
+
+
+            //Sqlコネクション
+            try
+            {
+                SqlCommand cmd = new SqlCommand(updateSonotaSql, Conn, Tran);
+                cmd.CommandText = updateSonotaSql;
+                //Sqlインジェクション回避
+                //キー項目
+                cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@YearRep", Utility.HeiseiToChristianEra(txtYearRep0.Text)));
+                cmd.Parameters.Add(new SqlParameter("@MonthRep", txtMonthRep0.Text));
+
+                cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
+                cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
+                cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
+
+
+                //貨物
+                cmd.Parameters.Add(new SqlParameter("@Kamotu1", txtSonota_Kamotu1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu2", txtSonota_Kamotu2.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu3", txtSonota_Kamotu3.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu4", txtSonota_Kamotu4.Text));
+                //バス
+                cmd.Parameters.Add(new SqlParameter("@Bus1", txtSonota_Bus1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Bus2", txtSonota_Bus2.Text));
+                //乗用　貨物
+                cmd.Parameters.Add(new SqlParameter("@JK_J1", txtSonota_JK_J1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K1", txtSonota_JK_K1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J2", txtSonota_JK_J2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K2", txtSonota_JK_K2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J3", txtSonota_JK_J3.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K3", txtSonota_JK_K3.Text));
+                cmd.Parameters.Add(new SqlParameter("@SubTotal1", txtSonota_SubTotal1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Total1", txtSonota_Total1.Text));
+                cmd.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                throw;
+
+            }
+
+        }
+
+
+        /// <summary>
+        /// Update Goukei's Data
+        /// </summary>
+        private void updateGoukei(SqlConnection Conn, SqlTransaction Tran)
+        {
+
+            //INSERT作成
+            //SqlConnection sn = new ;
+            String updateGoukeiSql = "UPDATE [Jisseki_Report_Ibaraki].[dbo].[Jisseki_Goukei] "
+                                 + " SET"
+                                 + "  [Year]      = @Year "
+                                 + " ,[Month]     = @Month "
+                                 + " ,[Day]       = @Day "
+                                 + " ,[COCODE]    = @COCODE "
+                                 + " ,[Kamotu1]   = @Kamotu1 "
+                                 + " ,[Kamotu2]   = @Kamotu2 "
+                                 + " ,[Kamotu3]   = @Kamotu3 "
+                                 + " ,[Kamotu4]   = @Kamotu4 "
+                                 + " ,[Bus1]      = @Bus1  "
+                                 + " ,[Bus2]      = @Bus2 "
+                                 + " ,[JK_J1]     = @JK_J1 "
+                                 + " ,[JK_K1]     = @JK_K1 "
+                                 + " ,[JK_J2]     = @JK_J2 "
+                                 + " ,[JK_K2]     = @JK_K2 "
+                                 + " ,[JK_J3]     = @JK_J3 "
+                                 + " ,[JK_K3]     = @JK_K3 "
+                                 + " ,[SubTotal1] = @SubTotal1 "
+                                 + " ,[Total1]    = @Total1 "
+                                 + " WHERE COCODE = @COCODE AND Year = @Year AND Month = @Month AND Day = @Day";
+
+
+            //Sqlコネクション
+            try
+            {
+                SqlCommand cmd = new SqlCommand(updateGoukeiSql, Conn, Tran);
+                cmd.CommandText = updateGoukeiSql;
+                //Sqlインジェクション回避
+                //キー項目
+                cmd.Parameters.Add(new SqlParameter("@COCODE", Session["COCODE"].ToString()));
+                cmd.Parameters.Add(new SqlParameter("@Year", Utility.HeiseiToChristianEra(txtYear.Text)));
+                cmd.Parameters.Add(new SqlParameter("@Month", txtMonth.Text));
+                cmd.Parameters.Add(new SqlParameter("@Day", txtDay.Text));
+
+
+                //貨物
+                cmd.Parameters.Add(new SqlParameter("@Kamotu1", txtGoukei_Kamotu1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu2", txtGoukei_Kamotu2.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu3", txtGoukei_Kamotu3.Text));
+                cmd.Parameters.Add(new SqlParameter("@Kamotu4", txtGoukei_Kamotu4.Text));
+                //バス
+                cmd.Parameters.Add(new SqlParameter("@Bus1", txtGoukei_Bus1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Bus2", txtGoukei_Bus2.Text));
+                //乗用　貨物
+                cmd.Parameters.Add(new SqlParameter("@JK_J1", txtGoukei_JK_J1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K1", txtGoukei_JK_K1.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J2", txtGoukei_JK_J2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K2", txtGoukei_JK_K2.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_J3", txtGoukei_JK_J3.Text));
+                cmd.Parameters.Add(new SqlParameter("@JK_K3", txtGoukei_JK_K3.Text));
+                cmd.Parameters.Add(new SqlParameter("@SubTotal1", txtGoukei_SubTotal1.Text));
+                cmd.Parameters.Add(new SqlParameter("@Total1", txtGoukei_Total1.Text));
+                cmd.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                throw;
+
+            }
+
+        }
+        #endregion
+#region"イベント"
         protected void Page_Load(object sender, EventArgs e)
         {
             //ログインしていなければ表示しない
@@ -1725,11 +3009,12 @@ namespace Jisseki_Report_Ibaraki.common
                 {
                     //自販連
                     initializeFormJada();
-                    setHeader();
+                    setHeaderJada();
                 }
                 else 
                 {
                     initializeForm();
+
                 
                 }               
             }
@@ -1769,120 +3054,182 @@ namespace Jisseki_Report_Ibaraki.common
             //水戸
             if (!this.MitoIsValid())
             {
-                this.lblMsg.Text = "水戸の欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "水戸の欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //土浦
             if (!this.TuchiuraIsValid())
             {
-                this.lblMsg.Text = "土浦の欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "土浦の欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //つくば
             if (!this.TukubaIsValid())
             {
-                this.lblMsg.Text = "つくばの欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "つくばの欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //その他
             if (!this.SonotaIsValid())
             {
-                this.lblMsg.Text = "その他の欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "その他の欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
             //合計
             if (!this.GoukeiIsValid())
             {
-                this.lblMsg.Text = "合計の欄に数字以外の項目が入力されています。";
+                this.lblMsg.Text = "合計の欄に整数以外の項目が入力されています。";
                 this.lblMsg.BackColor = System.Drawing.Color.Pink;
                 return;
             }
 
-   
-            try
+
+            if ((ViewState["isResistered"].Equals(true)))
             {
-                using (SqlConnection Conn = new SqlConnection(strConn))
+                //登録されている場合
+                try
                 {
-                    Conn.Open();
-                    using (SqlTransaction Tran = Conn.BeginTransaction())
+                    using (SqlConnection Conn = new SqlConnection(strConn))
                     {
-                        try
+                        Conn.Open();
+                        using (SqlTransaction Tran = Conn.BeginTransaction())
                         {
-                            //ヘッダー
-                            this.insertHeader(Conn, Tran);
+                            try
+                            {
+                                //ヘッダー
+                                this.updateHeader(Conn, Tran);
 
-                            //水戸
-                            this.insertMito(Conn,Tran);
+                                //水戸
+                                this.updateMito(Conn, Tran);
 
-                            //土浦
-                            this.insertTuchiura(Conn,Tran);
+                                //土浦
+                                this.updateTuchiura(Conn, Tran);
 
-                            //つくば
-                            this.insertTukuba(Conn,Tran);
+                                //つくば
+                                this.updateTukuba(Conn, Tran);
 
-                            //その他
-                            this.insertSonota(Conn,Tran);
+                                //その他
+                                this.updateSonota(Conn, Tran);
 
-                            //合計
-                            this.insertGoukei(Conn,Tran);
+                                //合計
+                                this.updateGoukei(Conn, Tran);
 
-                            //Commit Transaction
-                            Tran.Commit();
-                            btnSubmit.Enabled = false;
-                            this.lblMsg.Text = "登録しました";
-                            this.lblMsg.BackColor = System.Drawing.Color.Pink;
-                            this.btnPrint.Visible = true;
-                            this.btnKariInvoice.Visible = true;
+                                //Commit Transaction
+                                Tran.Commit();
+                                btnSubmit.Enabled = false;
+                                this.lblMsg.Text = "修正しました";
+                                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                            }
+                            catch
+                            {
+                                //Rollback Transaction
+                                Tran.Rollback();
+                                throw;
+
+                            }
 
                         }
-                        catch
-                        {
-                            //Rollback Transaction
-                            Tran.Rollback();
-                            throw;
-                           
-                        }
-                     
                     }
-                }
 
-  
-            }
-            catch (SqlException SqlEx){
-                if (SqlEx.Number == 2627)
+
+                }
+                catch (Exception ex)
                 {
-                   // Response.Write("<p style=background-color:red;>既に登録済です</p>");
-                    this.lblMsg.Text = "既に登録されています。";
+                    this.lblMsg.Text = ex.Message;
                     this.lblMsg.BackColor = System.Drawing.Color.Pink;
- 
+                    //Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");
+                    //Response.Write("<p style=background-color:red;>" + ex.StackTrace + "</p>");
                 }
-                else {
-                 //   Response.Write("<p style=background-color:red;>" + SqlEx.Message + "</p>");
-                 //   Response.Write("<p style=background-color:red;>" + SqlEx.StackTrace + "</p>");
-                    this.lblMsg.Text = SqlEx.Message;
-                    this.lblMsg.BackColor = System.Drawing.Color.Pink;
- 
-                }
-                
-            
-            }
-            catch (Exception ex)
-            {
-                
-               // Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");
-               // Response.Write("<p style=background-color:red;>" + ex.StackTrace + "</p>");
-                this.lblMsg.Text = ex.Message;
- 
 
+            }
+            else
+            {
+                //登録されていない場合
+                try
+                {
+                    using (SqlConnection Conn = new SqlConnection(strConn))
+                    {
+                        Conn.Open();
+                        using (SqlTransaction Tran = Conn.BeginTransaction())
+                        {
+                            try
+                            {
+                                //ヘッダー
+                                this.insertHeader(Conn, Tran);
+
+                                //水戸
+                                this.insertMito(Conn, Tran);
+
+                                //土浦
+                                this.insertTuchiura(Conn, Tran);
+
+                                //つくば
+                                this.insertTukuba(Conn, Tran);
+
+                                //その他
+                                this.insertSonota(Conn, Tran);
+
+                                //合計
+                                this.insertGoukei(Conn, Tran);
+
+                                //Commit Transaction
+                                Tran.Commit();
+                                btnSubmit.Enabled = false;
+                                this.lblMsg.Text = "登録しました";
+                                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                                this.btnPrint.Visible = true;
+                                this.btnKariInvoice.Visible = true;
+
+                            }
+                            catch
+                            {
+                                //Rollback Transaction
+                                Tran.Rollback();
+                                throw;
+
+                            }
+
+                        }
+                    }
+
+
+                }
+                catch (SqlException SqlEx)
+                {
+                    if (SqlEx.Number == 2627)
+                    {
+                        // Response.Write("<p style=background-color:red;>既に登録済です</p>");
+                        this.lblMsg.Text = "既に登録されています。";
+                        this.lblMsg.BackColor = System.Drawing.Color.Pink;
+
+                    }
+                    else
+                    {
+                        //   Response.Write("<p style=background-color:red;>" + SqlEx.Message + "</p>");
+                        //   Response.Write("<p style=background-color:red;>" + SqlEx.StackTrace + "</p>");
+                        this.lblMsg.Text = SqlEx.Message;
+                        this.lblMsg.BackColor = System.Drawing.Color.Pink;
+
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    // Response.Write("<p style=background-color:red;>" + ex.Message + "</p>");
+                    // Response.Write("<p style=background-color:red;>" + ex.StackTrace + "</p>");
+                    this.lblMsg.Text = ex.Message;
+
+
+                }
             }
 
         }
-
-
 
         protected void btnPrint_Click(object sender, EventArgs e)
         {
@@ -1976,6 +3323,8 @@ namespace Jisseki_Report_Ibaraki.common
             }
 
         }
-        
+
+#endregion
+
     }
 }

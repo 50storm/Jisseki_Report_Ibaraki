@@ -63,17 +63,27 @@ namespace Jisseki_Report_Ibaraki.jada.download
 
                         break;
                 }
+                //No28
+
+
+     
+
 
 
             }
             else
             {
-
-
-                this.txtFileName.Text = "JissekiReport.csv";
+     
+                //初期表示のみ
                 this.txtYearRep.Text = jCalender.GetYear(DateTime.Today).ToString();
                 this.txtMonthRep.Text = DateTime.Today.AddMonths(-1).Month.ToString();
 
+                //string strYearMonthDay = (jCalender.GetYear(DateTime.Today).ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Day.ToString());
+                string strYearMonthDay = (DateTime.Today.Year.ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Day.ToString());
+                string strHourMinSec = (DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString());
+
+
+                this.txtFileName.Text = this.txtYearRep.Text + this.txtMonthRep.Text + "Jisseki" + strYearMonthDay + strHourMinSec + ".csv"; 
 
                
             }
@@ -427,7 +437,7 @@ namespace Jisseki_Report_Ibaraki.jada.download
                     lblMsg.Text = "";
                 }
 
-
+                //
                 DownloadFileName = this.txtFileName.Text.Trim();
 
                 //TODO::CSVファイルのディレクトリ、ファイルの存在チェック

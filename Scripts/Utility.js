@@ -38,11 +38,22 @@ function isNumber(id) {
         return false;
     } else {
         //document.getElementById(id).style.backgroundColor = "White";
+        //-1とかも数値扱い
         isOk(id);
         return true;
 
     }
 }
+
+//TODO途中
+function isDecimal(id) {
+    var obj = document.getElementById(id);
+    if (obj.value.match(/^[-]?[0-9]+(¥.[0-9]+)?$/)) {
+        return true;
+    }
+    return false;
+}	
+
 //=============================
 //必須のチェック
 //=============================
