@@ -125,7 +125,6 @@
             this.line29 = new DataDynamics.ActiveReports.Line();
             this.line30 = new DataDynamics.ActiveReports.Line();
             this.line31 = new DataDynamics.ActiveReports.Line();
-            this.line32 = new DataDynamics.ActiveReports.Line();
             this.line33 = new DataDynamics.ActiveReports.Line();
             this.line34 = new DataDynamics.ActiveReports.Line();
             this.line35 = new DataDynamics.ActiveReports.Line();
@@ -152,6 +151,7 @@
             this.txtMonthRep1 = new DataDynamics.ActiveReports.TextBox();
             this.line19 = new DataDynamics.ActiveReports.Line();
             this.line18 = new DataDynamics.ActiveReports.Line();
+            this.line32 = new DataDynamics.ActiveReports.Line();
             ((System.ComponentModel.ISupportInitialize)(this.txtCONAME)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNum_BigSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtU_BigSize)).BeginInit();
@@ -383,9 +383,9 @@
             this.txtCONAME.Left = 0.8661418F;
             this.txtCONAME.Name = "txtCONAME";
             this.txtCONAME.Style = "font-family: ＭＳ Ｐ明朝; font-size: 14pt; text-align: left; vertical-align: middle";
-            this.txtCONAME.Text = "茨城小松フォークリフト株式会社　";
+            this.txtCONAME.Text = "三菱ふそうトラック・バス株式会社北関東ふそう";
             this.txtCONAME.Top = 0.7086615F;
-            this.txtCONAME.Width = 3.228347F;
+            this.txtCONAME.Width = 3.937008F;
             // 
             // txtNum_BigSize
             // 
@@ -1059,7 +1059,7 @@
             // 
             this.label23.Height = 0.3149606F;
             this.label23.HyperLink = null;
-            this.label23.Left = 4.173229F;
+            this.label23.Left = 4.488189F;
             this.label23.Name = "label23";
             this.label23.Style = "font-family: ＭＳ Ｐ明朝; font-size: 14pt; text-align: center; vertical-align: middle";
             this.label23.Text = "御中";
@@ -1084,22 +1084,22 @@
             this.line1.LineWeight = 1F;
             this.line1.Name = "line1";
             this.line1.Top = 1.023622F;
-            this.line1.Width = 4.248441F;
+            this.line1.Width = 4.488189F;
             this.line1.X1 = 0.7874016F;
-            this.line1.X2 = 5.035843F;
+            this.line1.X2 = 5.275591F;
             this.line1.Y1 = 1.023622F;
             this.line1.Y2 = 1.023622F;
             // 
             // line2
             // 
-            this.line2.Height = 0F;
+            this.line2.Height = 2.384186E-07F;
             this.line2.Left = 0.7874016F;
             this.line2.LineWeight = 1F;
             this.line2.Name = "line2";
             this.line2.Top = 1.102362F;
-            this.line2.Width = 4.251969F;
+            this.line2.Width = 4.488189F;
             this.line2.X1 = 0.7874016F;
-            this.line2.X2 = 5.039371F;
+            this.line2.X2 = 5.275591F;
             this.line2.Y1 = 1.102362F;
             this.line2.Y2 = 1.102362F;
             // 
@@ -1167,7 +1167,7 @@
             this.label30.Name = "label30";
             this.label30.Padding = new DataDynamics.ActiveReports.PaddingEx(20, 0, 0, 0);
             this.label30.Style = "font-family: ＭＳ Ｐ明朝; font-size: 13pt; text-align: right; vertical-align: middle";
-            this.label30.Text = "一般社団法人）日本自動車販売協会連合会茨城県支部";
+            this.label30.Text = "一般社団法人 日本自動車販売協会連合会茨城県支部";
             this.label30.Top = 4.72441F;
             this.label30.Width = 6.456694F;
             // 
@@ -1384,7 +1384,7 @@
             // 
             // line14
             // 
-            this.line14.Height = 2.440947F;
+            this.line14.Height = 2.440946F;
             this.line14.Left = 7.244095F;
             this.line14.LineWeight = 1F;
             this.line14.Name = "line14";
@@ -1566,7 +1566,7 @@
             // 
             // line30
             // 
-            this.line30.Height = 5.27559F;
+            this.line30.Height = 5.275588F;
             this.line30.Left = 0.472441F;
             this.line30.LineWeight = 1F;
             this.line30.Name = "line30";
@@ -1590,19 +1590,6 @@
             this.line31.Y1 = 10.7874F;
             this.line31.Y2 = 10.7874F;
             // 
-            // line32
-            // 
-            this.line32.Height = 0F;
-            this.line32.Left = 0.472441F;
-            this.line32.LineWeight = 1F;
-            this.line32.Name = "line32";
-            this.line32.Top = 11.25984F;
-            this.line32.Width = 6.771656F;
-            this.line32.X1 = 0.472441F;
-            this.line32.X2 = 7.244097F;
-            this.line32.Y1 = 11.25984F;
-            this.line32.Y2 = 11.25984F;
-            // 
             // line33
             // 
             this.line33.Height = 4.251968F;
@@ -1623,7 +1610,7 @@
             this.line34.LineWeight = 1F;
             this.line34.Name = "line34";
             this.line34.Top = 5.984252F;
-            this.line34.Width = 4.768372E-07F;
+            this.line34.Width = 0F;
             this.line34.X1 = 4.094489F;
             this.line34.X2 = 4.094489F;
             this.line34.Y1 = 5.984252F;
@@ -1631,7 +1618,7 @@
             // 
             // line35
             // 
-            this.line35.Height = 5.27559F;
+            this.line35.Height = 5.275588F;
             this.line35.Left = 5.196851F;
             this.line35.LineWeight = 1F;
             this.line35.Name = "line35";
@@ -1644,7 +1631,7 @@
             // 
             // line36
             // 
-            this.line36.Height = 5.27559F;
+            this.line36.Height = 5.275588F;
             this.line36.Left = 7.244095F;
             this.line36.LineWeight = 1F;
             this.line36.Name = "line36";
@@ -1902,6 +1889,19 @@
             this.line18.X2 = 7.244097F;
             this.line18.Y1 = 5.905512F;
             this.line18.Y2 = 5.905512F;
+            // 
+            // line32
+            // 
+            this.line32.Height = 0F;
+            this.line32.Left = 0.472441F;
+            this.line32.LineWeight = 1F;
+            this.line32.Name = "line32";
+            this.line32.Top = 11.25984F;
+            this.line32.Width = 6.771656F;
+            this.line32.X1 = 0.472441F;
+            this.line32.X2 = 7.244097F;
+            this.line32.Y1 = 11.25984F;
+            this.line32.Y2 = 11.25984F;
             // 
             // Invoice
             // 
