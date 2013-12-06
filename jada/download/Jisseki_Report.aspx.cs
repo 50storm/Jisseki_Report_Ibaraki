@@ -35,39 +35,48 @@ namespace Jisseki_Report_Ibaraki.jada.download
 
             //接続文字列
             strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
-            //
             DownloadWritePath = ConfigurationManager.AppSettings["DownloadWritePath"].ToString();
 
-            if (!Page.IsPostBack)
-            {
-                this.txtFileName.Text = "JissekiReport.csv";
-            }
             JapaneseCalendar jCalender = new JapaneseCalendar();
-            int iEra = jCalender.GetEra(DateTime.Now);
-            switch (iEra)
+            if (Page.IsPostBack)
             {
-                case 4://平成
-                    lblEra.Text = "平成";
-                    break;
 
-                case 3://昭和
-                    lblEra.Text = "昭和";
-                    break;
+                
+                int iEra = jCalender.GetEra(DateTime.Now);
+                switch (iEra)
+                {
+                    case 4://平成
+                        lblEra.Text = "平成";
+                        break;
 
-                case 2://大正
-                    lblEra.Text = "大正";
- 
-                    break;
+                    case 3://昭和
+                        lblEra.Text = "昭和";
+                        break;
 
-                case 1://明治
-                    lblEra.Text = "明治";
- 
-                    break;  
+                    case 2://大正
+                        lblEra.Text = "大正";
+
+                        break;
+
+                    case 1://明治
+                        lblEra.Text = "明治";
+
+                        break;
+                }
+
 
             }
-            this.txtYearRep.Text = jCalender.GetYear(DateTime.Today).ToString();
-            this.txtMonthRep.Text = DateTime.Today.AddMonths(-1).Month.ToString();
+            else
+            {
 
+
+                this.txtFileName.Text = "JissekiReport.csv";
+                this.txtYearRep.Text = jCalender.GetYear(DateTime.Today).ToString();
+                this.txtMonthRep.Text = DateTime.Today.AddMonths(-1).Month.ToString();
+
+
+               
+            }
 
         }
 
