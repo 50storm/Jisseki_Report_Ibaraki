@@ -53,7 +53,7 @@
                 return false;
             }
         }
-        function confirmRegister()
+        function confirmRegister() 
         {
             if (!isNumber("txtCOCODE"))
             {
@@ -64,6 +64,7 @@
     </script>
 </head>
 <body>
+    <h1>会員マスター</h1>
     <form id="form1" runat="server">
     <!--メニュー-->	
 	<div id="Menu" >

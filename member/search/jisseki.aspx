@@ -11,9 +11,54 @@
 	text-align:center;
 }
 </style>
+<script type="text/javascript">
+// ==============================
+//  カーソル制御処理
+// ==============================
+    function setFocus() {
+        document.getElementById('txtYearRepFrom').onkeydown
+        = function () {
+            if (event.keyCode == 13) {
+                document.getElementById('txtMonthRepFrom').focus();
+                document.getElementById('txtMonthRepFrom').select();
+                return false;
+            }
+        }
+
+        document.getElementById('txtMonthRepFrom').onkeydown
+        = function () {
+            if (event.keyCode == 13) {
+                document.getElementById('txtYearRepTo').focus();
+                document.getElementById('txtYearRepTo').select();
+                return false;
+            }
+        }
+
+        document.getElementById('txtYearRepTo').onkeydown
+        = function () {
+            if (event.keyCode == 13) {
+                document.getElementById('txtMonthRepTo').focus();
+                document.getElementById('txtMonthRepTo').select();
+                return false;
+            }
+        }
+
+        document.getElementById('txtMonthRepTo').onkeydown
+        = function () {
+            if (event.keyCode == 13) {
+                document.getElementById('btnSearch').focus();
+                document.getElementById('btnSearch').select();
+                return false;
+            }
+        }
+
+
+    }
+
+</script>
     <title>送信確認画面</title>
 </head>
-<body>
+<body  onload="return setFocus();">
 <!--外枠-->	
 <div id="Wrapper">
     <h1>送信確認画面</h1>

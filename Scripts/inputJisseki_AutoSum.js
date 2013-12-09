@@ -105,6 +105,101 @@ function SumBus2() {
 
 }
 
+//20131202
+function JK_J1() {
+    var Mito = document.getElementById("txtMito_JK_J1");
+    var Tuchiura = document.getElementById("txtTuchiura_JK_J1");
+    var Tukuba = document.getElementById("txtTukuba_JK_J1");
+    var Sonota = document.getElementById("txtSonota_JK_J1")
+
+    if (isNaN(Mito.value) || isNaN(Tuchiura.value) || isNaN(Tukuba.value)
+        || isNaN(Sonota.value)
+    ) {
+        return false;
+
+    }
+    document.getElementById("txtGoukei_JK_J1").value = Mito.value * 1 + Tuchiura.value * 1 + Tukuba.value * 1 + Sonota.value * 1;
+}
+
+function JK_K1() {
+    var Mito = document.getElementById("txtMito_JK_K1");
+    var Tuchiura = document.getElementById("txtTuchiura_JK_K1");
+    var Tukuba = document.getElementById("txtTukuba_JK_K1");
+    var Sonota = document.getElementById("txtSonota_JK_K1")
+
+    if (isNaN(Mito.value) || isNaN(Tuchiura.value) || isNaN(Tukuba.value)
+        || isNaN(Sonota.value)
+    ) {
+        return false;
+
+    }
+    document.getElementById("txtGoukei_JK_K1").value = Mito.value * 1 + Tuchiura.value * 1 + Tukuba.value * 1 + Sonota.value * 1;
+}
+
+
+function JK_J2() {
+    var Mito = document.getElementById("txtMito_JK_J2");
+    var Tuchiura = document.getElementById("txtTuchiura_JK_J2");
+    var Tukuba = document.getElementById("txtTukuba_JK_J2");
+    var Sonota = document.getElementById("txtSonota_JK_J2")
+
+    if (isNaN(Mito.value) || isNaN(Tuchiura.value) || isNaN(Tukuba.value)
+        || isNaN(Sonota.value)
+    ) {
+        return false;
+
+    }
+    document.getElementById("txtGoukei_JK_J2").value = Mito.value * 1 + Tuchiura.value * 1 + Tukuba.value * 1 + Sonota.value * 1;
+}
+
+
+function JK_K2() {
+    var Mito = document.getElementById("txtMito_JK_K2");
+    var Tuchiura = document.getElementById("txtTuchiura_JK_K2");
+    var Tukuba = document.getElementById("txtTukuba_JK_K2");
+    var Sonota = document.getElementById("txtSonota_JK_K2")
+
+    if (isNaN(Mito.value) || isNaN(Tuchiura.value) || isNaN(Tukuba.value)
+        || isNaN(Sonota.value)
+    ) {
+        return false;
+
+    }
+    document.getElementById("txtGoukei_JK_K2").value = Mito.value * 1 + Tuchiura.value * 1 + Tukuba.value * 1 + Sonota.value * 1;
+}
+
+function JK_J3() {
+    var Mito = document.getElementById("txtMito_JK_J3");
+    var Tuchiura = document.getElementById("txtTuchiura_JK_J3");
+    var Tukuba = document.getElementById("txtTukuba_JK_J3");
+    var Sonota = document.getElementById("txtSonota_JK_J3")
+
+    if (isNaN(Mito.value) || isNaN(Tuchiura.value) || isNaN(Tukuba.value)
+        || isNaN(Sonota.value)
+    ) {
+        return false;
+
+    }
+    document.getElementById("txtGoukei_JK_J3").value = Mito.value * 1 + Tuchiura.value * 1 + Tukuba.value * 1 + Sonota.value * 1;
+}
+
+function JK_K3() {
+    var Mito = document.getElementById("txtMito_JK_K3");
+    var Tuchiura = document.getElementById("txtTuchiura_JK_K3");
+    var Tukuba = document.getElementById("txtTukuba_JK_K3");
+    var Sonota = document.getElementById("txtSonota_JK_K3")
+
+    if (isNaN(Mito.value) || isNaN(Tuchiura.value) || isNaN(Tukuba.value)
+        || isNaN(Sonota.value)
+    ) {
+        return false;
+
+    }
+    document.getElementById("txtGoukei_JK_K3").value = Mito.value * 1 + Tuchiura.value * 1 + Tukuba.value * 1 + Sonota.value * 1;
+}
+
+
+
 //小計
 function SumMitoSubTotal() {
     var Row7_1 = document.getElementById("txtMito_JK_J1");

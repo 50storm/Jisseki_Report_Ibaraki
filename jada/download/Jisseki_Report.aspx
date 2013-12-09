@@ -11,9 +11,33 @@
 	text-align:center;
 }
 </style>
+<script type="text/javascript">
+    // ==============================
+    //  カーソル制御処理
+    // ==============================
+    function setFocus() {
+        document.getElementById('txtYearRep').onkeydown
+        = function () {
+            if (event.keyCode == 13) {
+                document.getElementById('txtMonthRep').focus();
+                document.getElementById('txtMonthRep').select();
+                return false;
+            }
+        }
+
+        document.getElementById('txtMonthRep').onkeydown
+        = function () {
+            if (event.keyCode == 13) {
+                document.getElementById('btnDownload').focus();
+                document.getElementById('btnDownload').select();
+                return false;
+            }
+        }
+    }
+</script>
     <title>実績報告書ダウンロード</title>
 </head>
-<body>
+<body  onload="return setFocus();">
 <!--外枠-->	
 <div id="Wrapper">
     <form id="form1" runat="server">

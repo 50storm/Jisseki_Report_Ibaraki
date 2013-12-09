@@ -40,15 +40,6 @@ namespace Jisseki_Report_Ibaraki.common {
         protected global::System.Web.UI.WebControls.Button btnLogOut;
         
         /// <summary>
-        /// lblMsg コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
-        
-        /// <summary>
         /// lblEraRep0 コントロール。
         /// </summary>
         /// <remarks>
@@ -128,6 +119,15 @@ namespace Jisseki_Report_Ibaraki.common {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTantou;
+        
+        /// <summary>
+        /// lblMsg コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
         /// txtMito_Kamotu1 コントロール。

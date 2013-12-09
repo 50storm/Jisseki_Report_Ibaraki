@@ -37,7 +37,6 @@
             this.label1 = new DataDynamics.ActiveReports.Label();
             this.label2 = new DataDynamics.ActiveReports.Label();
             this.label3 = new DataDynamics.ActiveReports.Label();
-            this.label4 = new DataDynamics.ActiveReports.Label();
             this.label5 = new DataDynamics.ActiveReports.Label();
             this.label6 = new DataDynamics.ActiveReports.Label();
             this.label7 = new DataDynamics.ActiveReports.Label();
@@ -201,7 +200,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label7)).BeginInit();
@@ -344,7 +342,6 @@
             this.label1,
             this.label2,
             this.label3,
-            this.label4,
             this.label5,
             this.label6,
             this.label7,
@@ -577,7 +574,7 @@
             this.lblRecipent.Left = 1.732284F;
             this.lblRecipent.Name = "lblRecipent";
             this.lblRecipent.Style = "font-family: ＭＳ Ｐ明朝; font-size: 16pt; font-weight: bold; vertical-align: middle";
-            this.lblRecipent.Text = "日本自動車販売店協会連合会茨城県支部長　殿";
+            this.lblRecipent.Text = "日本自動車販売協会連合会茨城県支部長　殿";
             this.lblRecipent.Top = 0.7086615F;
             this.lblRecipent.Width = 4.96063F;
             // 
@@ -596,7 +593,7 @@
             // 
             this.label2.Height = 0.3100884F;
             this.label2.HyperLink = null;
-            this.label2.Left = 0.944882F;
+            this.label2.Left = 0.472441F;
             this.label2.Name = "label2";
             this.label2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; text-align: right; vertical-align: middle";
             this.label2.Text = "当社の";
@@ -607,23 +604,12 @@
             // 
             this.label3.Height = 0.3100884F;
             this.label3.HyperLink = null;
-            this.label3.Left = 2.283465F;
+            this.label3.Left = 1.811024F;
             this.label3.Name = "label3";
             this.label3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; text-align: left";
-            this.label3.Text = "月分新車新規登録、届出台数は次のとおりであり";
+            this.label3.Text = "月分新車新規登録、届出台数を次のとおり報告します。";
             this.label3.Top = 3.307087F;
-            this.label3.Width = 5.196851F;
-            // 
-            // label4
-            // 
-            this.label4.Height = 0.3149607F;
-            this.label4.HyperLink = null;
-            this.label4.Left = 0.7874016F;
-            this.label4.Name = "label4";
-            this.label4.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; text-align: justify";
-            this.label4.Text = "ますから報告します。";
-            this.label4.Top = 3.700788F;
-            this.label4.Width = 3.464567F;
+            this.label3.Width = 5.826772F;
             // 
             // label5
             // 
@@ -759,24 +745,24 @@
             // 
             // label17
             // 
-            this.label17.Height = 0.2313483F;
+            this.label17.Height = 0.3100894F;
             this.label17.HyperLink = null;
             this.label17.Left = 0.3149607F;
             this.label17.Name = "label17";
             this.label17.Style = "font-family: ＭＳ Ｐ明朝; text-align: center; vertical-align: middle";
             this.label17.Text = "小";
-            this.label17.Top = 9.6063F;
+            this.label17.Top = 9.527559F;
             this.label17.Width = 0.3149607F;
             // 
             // label18
             // 
-            this.label18.Height = 0.2313483F;
+            this.label18.Height = 0.2983277F;
             this.label18.HyperLink = null;
             this.label18.Left = 0.3149597F;
             this.label18.Name = "label18";
             this.label18.Style = "font-family: ＭＳ Ｐ明朝; text-align: center; vertical-align: middle";
             this.label18.Text = "合";
-            this.label18.Top = 10.06698F;
+            this.label18.Top = 10F;
             this.label18.Width = 0.3149606F;
             // 
             // label19
@@ -840,9 +826,9 @@
             this.txtM_Kamotu1.Height = 0.2362203F;
             this.txtM_Kamotu1.Left = 1.732284F;
             this.txtM_Kamotu1.Name = "txtM_Kamotu1";
-            this.txtM_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
-            this.txtM_Kamotu1.Text = "txtM_Kamotu1";
+            this.txtM_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
+            this.txtM_Kamotu1.Text = "0";
             this.txtM_Kamotu1.Top = 5.275591F;
             this.txtM_Kamotu1.Width = 1.181102F;
             // 
@@ -852,8 +838,8 @@
             this.txtM_Kamotu2.Height = 0.2362203F;
             this.txtM_Kamotu2.Left = 1.732284F;
             this.txtM_Kamotu2.Name = "txtM_Kamotu2";
-            this.txtM_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_Kamotu2.Text = "txtM_Kamotu2";
             this.txtM_Kamotu2.Top = 5.669292F;
             this.txtM_Kamotu2.Width = 1.181102F;
@@ -864,8 +850,8 @@
             this.textBox1.Height = 0.2362203F;
             this.textBox1.Left = 1.732284F;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.textBox1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.textBox1.Text = "txtM_Kamotu3";
             this.textBox1.Top = 6.062993F;
             this.textBox1.Width = 1.181102F;
@@ -876,8 +862,8 @@
             this.txtM_Kamotu4.Height = 0.2362203F;
             this.txtM_Kamotu4.Left = 1.732284F;
             this.txtM_Kamotu4.Name = "txtM_Kamotu4";
-            this.txtM_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_Kamotu4.Text = "txtM_Kamotu4";
             this.txtM_Kamotu4.Top = 6.456693F;
             this.txtM_Kamotu4.Width = 1.181102F;
@@ -888,8 +874,8 @@
             this.txtM_Bus1.Height = 0.2362203F;
             this.txtM_Bus1.Left = 1.732284F;
             this.txtM_Bus1.Name = "txtM_Bus1";
-            this.txtM_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_Bus1.Text = "txtM_Bus1";
             this.txtM_Bus1.Top = 6.929134F;
             this.txtM_Bus1.Width = 1.181102F;
@@ -900,8 +886,8 @@
             this.txtM_Bus2.Height = 0.2362203F;
             this.txtM_Bus2.Left = 1.732284F;
             this.txtM_Bus2.Name = "txtM_Bus2";
-            this.txtM_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_Bus2.Text = "txtM_Bus2";
             this.txtM_Bus2.Top = 7.322835F;
             this.txtM_Bus2.Width = 1.181102F;
@@ -912,8 +898,8 @@
             this.txtM_JK_J1.Height = 0.2362203F;
             this.txtM_JK_J1.Left = 1.732284F;
             this.txtM_JK_J1.Name = "txtM_JK_J1";
-            this.txtM_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_JK_J1.Text = "txtM_JK_J1";
             this.txtM_JK_J1.Top = 8.110237F;
             this.txtM_JK_J1.Width = 0.492126F;
@@ -924,8 +910,8 @@
             this.txtM_JK_K1.Height = 0.2362203F;
             this.txtM_JK_K1.Left = 2.362205F;
             this.txtM_JK_K1.Name = "txtM_JK_K1";
-            this.txtM_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_JK_K1.Text = "txtM_JK_K1";
             this.txtM_JK_K1.Top = 8.110237F;
             this.txtM_JK_K1.Width = 0.492126F;
@@ -936,8 +922,8 @@
             this.txtM_JK_J2.Height = 0.2362203F;
             this.txtM_JK_J2.Left = 1.732284F;
             this.txtM_JK_J2.Name = "txtM_JK_J2";
-            this.txtM_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_JK_J2.Text = "txtM_JK_J2";
             this.txtM_JK_J2.Top = 8.582678F;
             this.txtM_JK_J2.Width = 0.492126F;
@@ -948,8 +934,8 @@
             this.txtM_JK_K2.Height = 0.2362203F;
             this.txtM_JK_K2.Left = 2.362205F;
             this.txtM_JK_K2.Name = "txtM_JK_K2";
-            this.txtM_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_JK_K2.Text = "txtM_JK_K2";
             this.txtM_JK_K2.Top = 8.582678F;
             this.txtM_JK_K2.Width = 0.492126F;
@@ -960,8 +946,8 @@
             this.txtM_JK_J3.Height = 0.2362203F;
             this.txtM_JK_J3.Left = 1.732284F;
             this.txtM_JK_J3.Name = "txtM_JK_J3";
-            this.txtM_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_JK_J3.Text = "txtM_JK_J3";
             this.txtM_JK_J3.Top = 9.105955F;
             this.txtM_JK_J3.Width = 0.492126F;
@@ -972,8 +958,8 @@
             this.txtM_JK_K3.Height = 0.2362203F;
             this.txtM_JK_K3.Left = 2.362205F;
             this.txtM_JK_K3.Name = "txtM_JK_K3";
-            this.txtM_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtM_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtM_JK_K3.Text = "txtM_JK_K3";
             this.txtM_JK_K3.Top = 9.099657F;
             this.txtM_JK_K3.Width = 0.492126F;
@@ -981,32 +967,32 @@
             // txtM_SubTotal1
             // 
             this.txtM_SubTotal1.DataField = "M_SubTotal1";
-            this.txtM_SubTotal1.Height = 0.2362203F;
+            this.txtM_SubTotal1.Height = 0.3149614F;
             this.txtM_SubTotal1.Left = 1.732284F;
             this.txtM_SubTotal1.Name = "txtM_SubTotal1";
-            this.txtM_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e; ddo-font-vertical: none";
-            this.txtM_SubTotal1.Text = "txtM_SubTotal1";
-            this.txtM_SubTotal1.Top = 9.6063F;
+            this.txtM_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle; ddo-font-vertical: none";
+            this.txtM_SubTotal1.Text = "111";
+            this.txtM_SubTotal1.Top = 9.527559F;
             this.txtM_SubTotal1.Width = 1.181102F;
             // 
             // txtM_Total1
             // 
             this.txtM_Total1.DataField = "M_Total1";
-            this.txtM_Total1.Height = 0.2362203F;
+            this.txtM_Total1.Height = 0.3149595F;
             this.txtM_Total1.Left = 1.732283F;
             this.txtM_Total1.Name = "txtM_Total1";
-            this.txtM_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
-            this.txtM_Total1.Text = "txtM_Total1";
-            this.txtM_Total1.Top = 10.07874F;
+            this.txtM_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
+            this.txtM_Total1.Text = "222";
+            this.txtM_Total1.Top = 10F;
             this.txtM_Total1.Width = 1.181102F;
             // 
             // txtMonthRep1
             // 
             this.txtMonthRep1.DataField = "MonthRep";
             this.txtMonthRep1.Height = 0.3149607F;
-            this.txtMonthRep1.Left = 1.889764F;
+            this.txtMonthRep1.Left = 1.417323F;
             this.txtMonthRep1.Name = "txtMonthRep1";
             this.txtMonthRep1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 20pt; font-weight: bold; text-align: center";
             this.txtMonthRep1.Text = "99";
@@ -1019,8 +1005,8 @@
             this.txtTC_Kamotu1.Height = 0.2362203F;
             this.txtTC_Kamotu1.Left = 2.992126F;
             this.txtTC_Kamotu1.Name = "txtTC_Kamotu1";
-            this.txtTC_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_Kamotu1.Text = "txtTC_Kamotu1";
             this.txtTC_Kamotu1.Top = 5.275591F;
             this.txtTC_Kamotu1.Width = 1.181102F;
@@ -1031,8 +1017,8 @@
             this.txtTC_Kamotu2.Height = 0.2362203F;
             this.txtTC_Kamotu2.Left = 2.992126F;
             this.txtTC_Kamotu2.Name = "txtTC_Kamotu2";
-            this.txtTC_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_Kamotu2.Text = "txtTC_Kamotu2";
             this.txtTC_Kamotu2.Top = 5.669292F;
             this.txtTC_Kamotu2.Width = 1.181102F;
@@ -1043,8 +1029,8 @@
             this.txtTC_Kamotu3.Height = 0.2362203F;
             this.txtTC_Kamotu3.Left = 2.992126F;
             this.txtTC_Kamotu3.Name = "txtTC_Kamotu3";
-            this.txtTC_Kamotu3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_Kamotu3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_Kamotu3.Text = "txtTC_Kamotu3";
             this.txtTC_Kamotu3.Top = 6.062993F;
             this.txtTC_Kamotu3.Width = 1.181102F;
@@ -1055,8 +1041,8 @@
             this.txtTC_Kamotu4.Height = 0.2362203F;
             this.txtTC_Kamotu4.Left = 2.992126F;
             this.txtTC_Kamotu4.Name = "txtTC_Kamotu4";
-            this.txtTC_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_Kamotu4.Text = "txtTC_Kamotu4";
             this.txtTC_Kamotu4.Top = 6.456693F;
             this.txtTC_Kamotu4.Width = 1.181102F;
@@ -1067,8 +1053,8 @@
             this.txtTC_Bus1.Height = 0.2362203F;
             this.txtTC_Bus1.Left = 2.992126F;
             this.txtTC_Bus1.Name = "txtTC_Bus1";
-            this.txtTC_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_Bus1.Text = "txtTC_Bus1";
             this.txtTC_Bus1.Top = 6.929134F;
             this.txtTC_Bus1.Width = 1.181102F;
@@ -1079,8 +1065,8 @@
             this.txtTC_Bus2.Height = 0.2362203F;
             this.txtTC_Bus2.Left = 2.992126F;
             this.txtTC_Bus2.Name = "txtTC_Bus2";
-            this.txtTC_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_Bus2.Text = "txtTC_Bus2";
             this.txtTC_Bus2.Top = 7.322835F;
             this.txtTC_Bus2.Width = 1.181102F;
@@ -1091,8 +1077,8 @@
             this.txtTC_JK_J1.Height = 0.2362203F;
             this.txtTC_JK_J1.Left = 2.992126F;
             this.txtTC_JK_J1.Name = "txtTC_JK_J1";
-            this.txtTC_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_JK_J1.Text = "txtTC_JK_J1";
             this.txtTC_JK_J1.Top = 8.110237F;
             this.txtTC_JK_J1.Width = 0.492126F;
@@ -1103,8 +1089,8 @@
             this.txtTC_JK_K1.Height = 0.2362203F;
             this.txtTC_JK_K1.Left = 3.622047F;
             this.txtTC_JK_K1.Name = "txtTC_JK_K1";
-            this.txtTC_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_JK_K1.Text = "txtTC_JK_K1";
             this.txtTC_JK_K1.Top = 8.110237F;
             this.txtTC_JK_K1.Width = 0.492126F;
@@ -1115,8 +1101,8 @@
             this.txtTC_JK_J2.Height = 0.2362203F;
             this.txtTC_JK_J2.Left = 2.992126F;
             this.txtTC_JK_J2.Name = "txtTC_JK_J2";
-            this.txtTC_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_JK_J2.Text = "txtTC_JK_J2";
             this.txtTC_JK_J2.Top = 8.582676F;
             this.txtTC_JK_J2.Width = 0.492126F;
@@ -1127,8 +1113,8 @@
             this.txtTC_JK_K2.Height = 0.2362203F;
             this.txtTC_JK_K2.Left = 3.622048F;
             this.txtTC_JK_K2.Name = "txtTC_JK_K2";
-            this.txtTC_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_JK_K2.Text = "txtTC_JK_K2";
             this.txtTC_JK_K2.Top = 8.582676F;
             this.txtTC_JK_K2.Width = 0.492126F;
@@ -1139,8 +1125,8 @@
             this.txtTC_JK_J3.Height = 0.2362203F;
             this.txtTC_JK_J3.Left = 2.992126F;
             this.txtTC_JK_J3.Name = "txtTC_JK_J3";
-            this.txtTC_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_JK_J3.Text = "txtTC_JK_J3";
             this.txtTC_JK_J3.Top = 9.105954F;
             this.txtTC_JK_J3.Width = 0.492126F;
@@ -1151,8 +1137,8 @@
             this.txtTC_JK_K3.Height = 0.2362203F;
             this.txtTC_JK_K3.Left = 3.622048F;
             this.txtTC_JK_K3.Name = "txtTC_JK_K3";
-            this.txtTC_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_JK_K3.Text = "txtTC_JK_K3";
             this.txtTC_JK_K3.Top = 9.099655F;
             this.txtTC_JK_K3.Width = 0.492126F;
@@ -1160,25 +1146,25 @@
             // txtTC_SubTotal1
             // 
             this.txtTC_SubTotal1.DataField = "TC_SubTotal1";
-            this.txtTC_SubTotal1.Height = 0.2362203F;
+            this.txtTC_SubTotal1.Height = 0.3149614F;
             this.txtTC_SubTotal1.Left = 2.992126F;
             this.txtTC_SubTotal1.Name = "txtTC_SubTotal1";
-            this.txtTC_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_SubTotal1.Text = "txtTC_SubTotal1";
-            this.txtTC_SubTotal1.Top = 9.6063F;
+            this.txtTC_SubTotal1.Top = 9.527559F;
             this.txtTC_SubTotal1.Width = 1.181102F;
             // 
             // txtTC_Total1
             // 
             this.txtTC_Total1.DataField = "TC_Total1";
-            this.txtTC_Total1.Height = 0.2362203F;
+            this.txtTC_Total1.Height = 0.3149595F;
             this.txtTC_Total1.Left = 2.992125F;
             this.txtTC_Total1.Name = "txtTC_Total1";
-            this.txtTC_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTC_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTC_Total1.Text = "txtTC_Total1";
-            this.txtTC_Total1.Top = 10.07874F;
+            this.txtTC_Total1.Top = 10F;
             this.txtTC_Total1.Width = 1.181102F;
             // 
             // txtTK_Kamotu1
@@ -1187,8 +1173,8 @@
             this.txtTK_Kamotu1.Height = 0.2362203F;
             this.txtTK_Kamotu1.Left = 4.251969F;
             this.txtTK_Kamotu1.Name = "txtTK_Kamotu1";
-            this.txtTK_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_Kamotu1.Text = "txtTK_Kamotu1";
             this.txtTK_Kamotu1.Top = 5.275591F;
             this.txtTK_Kamotu1.Width = 1.181102F;
@@ -1199,8 +1185,8 @@
             this.txtTK_Kamotu2.Height = 0.2362203F;
             this.txtTK_Kamotu2.Left = 4.251969F;
             this.txtTK_Kamotu2.Name = "txtTK_Kamotu2";
-            this.txtTK_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_Kamotu2.Text = "txtTK_Kamotu2";
             this.txtTK_Kamotu2.Top = 5.669292F;
             this.txtTK_Kamotu2.Width = 1.181102F;
@@ -1211,8 +1197,8 @@
             this.txtTK_Kamotu3.Height = 0.2362203F;
             this.txtTK_Kamotu3.Left = 4.251969F;
             this.txtTK_Kamotu3.Name = "txtTK_Kamotu3";
-            this.txtTK_Kamotu3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_Kamotu3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_Kamotu3.Text = "txtTK_Kamotu3";
             this.txtTK_Kamotu3.Top = 6.062993F;
             this.txtTK_Kamotu3.Width = 1.181102F;
@@ -1223,8 +1209,8 @@
             this.txtTK_Kamotu4.Height = 0.2362203F;
             this.txtTK_Kamotu4.Left = 4.251969F;
             this.txtTK_Kamotu4.Name = "txtTK_Kamotu4";
-            this.txtTK_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_Kamotu4.Text = "txtTK_Kamotu4";
             this.txtTK_Kamotu4.Top = 6.456693F;
             this.txtTK_Kamotu4.Width = 1.181102F;
@@ -1235,8 +1221,8 @@
             this.txtTK_Bus1.Height = 0.2362203F;
             this.txtTK_Bus1.Left = 4.251969F;
             this.txtTK_Bus1.Name = "txtTK_Bus1";
-            this.txtTK_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_Bus1.Text = "txtTK_Bus1";
             this.txtTK_Bus1.Top = 6.929134F;
             this.txtTK_Bus1.Width = 1.181102F;
@@ -1247,8 +1233,8 @@
             this.txtTK_Bus2.Height = 0.2362203F;
             this.txtTK_Bus2.Left = 4.251969F;
             this.txtTK_Bus2.Name = "txtTK_Bus2";
-            this.txtTK_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_Bus2.Text = "txtTK_Bus2";
             this.txtTK_Bus2.Top = 7.322835F;
             this.txtTK_Bus2.Width = 1.181102F;
@@ -1259,8 +1245,8 @@
             this.txtTK_JK_J1.Height = 0.2362203F;
             this.txtTK_JK_J1.Left = 4.251969F;
             this.txtTK_JK_J1.Name = "txtTK_JK_J1";
-            this.txtTK_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_JK_J1.Text = "txtTK_JK_J1";
             this.txtTK_JK_J1.Top = 8.110237F;
             this.txtTK_JK_J1.Width = 0.492126F;
@@ -1271,8 +1257,8 @@
             this.txtTK_JK_K1.Height = 0.2362203F;
             this.txtTK_JK_K1.Left = 4.88189F;
             this.txtTK_JK_K1.Name = "txtTK_JK_K1";
-            this.txtTK_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_JK_K1.Text = "txtTK_JK_K1";
             this.txtTK_JK_K1.Top = 8.110237F;
             this.txtTK_JK_K1.Width = 0.492126F;
@@ -1283,8 +1269,8 @@
             this.txtTK_JK_K2.Height = 0.2362203F;
             this.txtTK_JK_K2.Left = 4.88189F;
             this.txtTK_JK_K2.Name = "txtTK_JK_K2";
-            this.txtTK_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_JK_K2.Text = "txtTK_JK_K2";
             this.txtTK_JK_K2.Top = 8.582676F;
             this.txtTK_JK_K2.Width = 0.492126F;
@@ -1295,8 +1281,8 @@
             this.txtTK_JK_J2.Height = 0.2362203F;
             this.txtTK_JK_J2.Left = 4.251969F;
             this.txtTK_JK_J2.Name = "txtTK_JK_J2";
-            this.txtTK_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_JK_J2.Text = "txtTK_JK_J2";
             this.txtTK_JK_J2.Top = 8.582676F;
             this.txtTK_JK_J2.Width = 0.492126F;
@@ -1307,8 +1293,8 @@
             this.txtTK_JK_J3.Height = 0.2362203F;
             this.txtTK_JK_J3.Left = 4.251969F;
             this.txtTK_JK_J3.Name = "txtTK_JK_J3";
-            this.txtTK_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_JK_J3.Text = "txtTK_JK_J3";
             this.txtTK_JK_J3.Top = 9.105954F;
             this.txtTK_JK_J3.Width = 0.492126F;
@@ -1319,8 +1305,8 @@
             this.txtTK_JK_K3.Height = 0.2362203F;
             this.txtTK_JK_K3.Left = 4.88189F;
             this.txtTK_JK_K3.Name = "txtTK_JK_K3";
-            this.txtTK_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_JK_K3.Text = "txtTK_JK_K3";
             this.txtTK_JK_K3.Top = 9.099655F;
             this.txtTK_JK_K3.Width = 0.492126F;
@@ -1328,25 +1314,25 @@
             // txtTK_SubTotal1
             // 
             this.txtTK_SubTotal1.DataField = "TK_SubTotal1";
-            this.txtTK_SubTotal1.Height = 0.2362203F;
+            this.txtTK_SubTotal1.Height = 0.3149614F;
             this.txtTK_SubTotal1.Left = 4.251969F;
             this.txtTK_SubTotal1.Name = "txtTK_SubTotal1";
-            this.txtTK_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_SubTotal1.Text = "txtTK_SubTotal1";
-            this.txtTK_SubTotal1.Top = 9.6063F;
+            this.txtTK_SubTotal1.Top = 9.527559F;
             this.txtTK_SubTotal1.Width = 1.181102F;
             // 
             // txtTK_Total1
             // 
             this.txtTK_Total1.DataField = "TK_Total1";
-            this.txtTK_Total1.Height = 0.2362203F;
+            this.txtTK_Total1.Height = 0.3149595F;
             this.txtTK_Total1.Left = 4.251968F;
             this.txtTK_Total1.Name = "txtTK_Total1";
-            this.txtTK_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtTK_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtTK_Total1.Text = "txtTK_Total1";
-            this.txtTK_Total1.Top = 10.07874F;
+            this.txtTK_Total1.Top = 10F;
             this.txtTK_Total1.Width = 1.181102F;
             // 
             // txtS_Kamotu1
@@ -1355,8 +1341,8 @@
             this.txtS_Kamotu1.Height = 0.2362203F;
             this.txtS_Kamotu1.Left = 5.433071F;
             this.txtS_Kamotu1.Name = "txtS_Kamotu1";
-            this.txtS_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_Kamotu1.Text = "txtS_Kamotu1";
             this.txtS_Kamotu1.Top = 5.275591F;
             this.txtS_Kamotu1.Width = 1.181102F;
@@ -1367,8 +1353,8 @@
             this.txtS_Kamotu2.Height = 0.2362203F;
             this.txtS_Kamotu2.Left = 5.433071F;
             this.txtS_Kamotu2.Name = "txtS_Kamotu2";
-            this.txtS_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_Kamotu2.Text = "txtS_Kamotu2";
             this.txtS_Kamotu2.Top = 5.669292F;
             this.txtS_Kamotu2.Width = 1.181102F;
@@ -1379,8 +1365,8 @@
             this.txtS_Kamotu3.Height = 0.2362203F;
             this.txtS_Kamotu3.Left = 5.433071F;
             this.txtS_Kamotu3.Name = "txtS_Kamotu3";
-            this.txtS_Kamotu3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_Kamotu3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_Kamotu3.Text = "txtS_Kamotu3";
             this.txtS_Kamotu3.Top = 6.062993F;
             this.txtS_Kamotu3.Width = 1.181102F;
@@ -1391,8 +1377,8 @@
             this.txtS_Kamotu4.Height = 0.2362203F;
             this.txtS_Kamotu4.Left = 5.433071F;
             this.txtS_Kamotu4.Name = "txtS_Kamotu4";
-            this.txtS_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_Kamotu4.Text = "txtS_Kamotu4";
             this.txtS_Kamotu4.Top = 6.456693F;
             this.txtS_Kamotu4.Width = 1.181102F;
@@ -1403,8 +1389,8 @@
             this.txtS_Bus1.Height = 0.2362203F;
             this.txtS_Bus1.Left = 5.433071F;
             this.txtS_Bus1.Name = "txtS_Bus1";
-            this.txtS_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_Bus1.Text = "txtS_Bus1";
             this.txtS_Bus1.Top = 6.929134F;
             this.txtS_Bus1.Width = 1.181102F;
@@ -1415,8 +1401,8 @@
             this.txtS_Bus2.Height = 0.2362203F;
             this.txtS_Bus2.Left = 5.433071F;
             this.txtS_Bus2.Name = "txtS_Bus2";
-            this.txtS_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_Bus2.Text = "txtS_Bus2";
             this.txtS_Bus2.Top = 7.322835F;
             this.txtS_Bus2.Width = 1.181102F;
@@ -1427,8 +1413,8 @@
             this.txtS_JK_J1.Height = 0.2362203F;
             this.txtS_JK_J1.Left = 5.511811F;
             this.txtS_JK_J1.Name = "txtS_JK_J1";
-            this.txtS_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_JK_J1.Text = "txtS_JK_J1";
             this.txtS_JK_J1.Top = 8.110237F;
             this.txtS_JK_J1.Width = 0.492126F;
@@ -1439,8 +1425,8 @@
             this.txtS_JK_K1.Height = 0.2362203F;
             this.txtS_JK_K1.Left = 6.141733F;
             this.txtS_JK_K1.Name = "txtS_JK_K1";
-            this.txtS_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_JK_K1.Text = "txtS_JK_K1";
             this.txtS_JK_K1.Top = 8.110237F;
             this.txtS_JK_K1.Width = 0.492126F;
@@ -1451,8 +1437,8 @@
             this.txtS_JK_K2.Height = 0.2362203F;
             this.txtS_JK_K2.Left = 6.141733F;
             this.txtS_JK_K2.Name = "txtS_JK_K2";
-            this.txtS_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_JK_K2.Text = "txtS_JK_K2";
             this.txtS_JK_K2.Top = 8.582678F;
             this.txtS_JK_K2.Width = 0.492126F;
@@ -1463,8 +1449,8 @@
             this.txtS_JK_J2.Height = 0.2362203F;
             this.txtS_JK_J2.Left = 5.511811F;
             this.txtS_JK_J2.Name = "txtS_JK_J2";
-            this.txtS_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_JK_J2.Text = "txtS_JK_J2";
             this.txtS_JK_J2.Top = 8.582678F;
             this.txtS_JK_J2.Width = 0.492126F;
@@ -1475,8 +1461,8 @@
             this.txtS_JK_J3.Height = 0.2362203F;
             this.txtS_JK_J3.Left = 5.511811F;
             this.txtS_JK_J3.Name = "txtS_JK_J3";
-            this.txtS_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_JK_J3.Text = "txtS_JK_J3";
             this.txtS_JK_J3.Top = 9.105906F;
             this.txtS_JK_J3.Width = 0.492126F;
@@ -1487,8 +1473,8 @@
             this.txtS_JK_K3.Height = 0.2362203F;
             this.txtS_JK_K3.Left = 6.141733F;
             this.txtS_JK_K3.Name = "txtS_JK_K3";
-            this.txtS_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_JK_K3.Text = "txtS_JK_K3";
             this.txtS_JK_K3.Top = 9.099607F;
             this.txtS_JK_K3.Width = 0.492126F;
@@ -1496,25 +1482,25 @@
             // txtS_SubTotal1
             // 
             this.txtS_SubTotal1.DataField = "S_SubTotal1";
-            this.txtS_SubTotal1.Height = 0.2362203F;
+            this.txtS_SubTotal1.Height = 0.3149614F;
             this.txtS_SubTotal1.Left = 5.433071F;
             this.txtS_SubTotal1.Name = "txtS_SubTotal1";
-            this.txtS_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_SubTotal1.Text = "txtS_SubTotal1";
-            this.txtS_SubTotal1.Top = 9.6063F;
+            this.txtS_SubTotal1.Top = 9.527559F;
             this.txtS_SubTotal1.Width = 1.181102F;
             // 
             // txtS_Total1
             // 
             this.txtS_Total1.DataField = "S_Total1";
-            this.txtS_Total1.Height = 0.2362203F;
+            this.txtS_Total1.Height = 0.3149595F;
             this.txtS_Total1.Left = 5.43307F;
             this.txtS_Total1.Name = "txtS_Total1";
-            this.txtS_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtS_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtS_Total1.Text = "txtS_Total1";
-            this.txtS_Total1.Top = 10.07874F;
+            this.txtS_Total1.Top = 10F;
             this.txtS_Total1.Width = 1.181102F;
             // 
             // txtG_Kamotu1
@@ -1523,8 +1509,8 @@
             this.txtG_Kamotu1.Height = 0.2362203F;
             this.txtG_Kamotu1.Left = 6.771654F;
             this.txtG_Kamotu1.Name = "txtG_Kamotu1";
-            this.txtG_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_Kamotu1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_Kamotu1.Text = "txtG_Kamotu1";
             this.txtG_Kamotu1.Top = 5.275591F;
             this.txtG_Kamotu1.Width = 1.181102F;
@@ -1535,8 +1521,8 @@
             this.txtG_Kamotu2.Height = 0.2362203F;
             this.txtG_Kamotu2.Left = 6.771654F;
             this.txtG_Kamotu2.Name = "txtG_Kamotu2";
-            this.txtG_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_Kamotu2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_Kamotu2.Text = "txtG_Kamotu2";
             this.txtG_Kamotu2.Top = 5.669292F;
             this.txtG_Kamotu2.Width = 1.181102F;
@@ -1547,8 +1533,8 @@
             this.txtG_Kamotu3.Height = 0.2362203F;
             this.txtG_Kamotu3.Left = 6.771654F;
             this.txtG_Kamotu3.Name = "txtG_Kamotu3";
-            this.txtG_Kamotu3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_Kamotu3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_Kamotu3.Text = "txtG_Kamotu3";
             this.txtG_Kamotu3.Top = 6.062993F;
             this.txtG_Kamotu3.Width = 1.181102F;
@@ -1559,8 +1545,8 @@
             this.txtG_Kamotu4.Height = 0.2362203F;
             this.txtG_Kamotu4.Left = 6.771654F;
             this.txtG_Kamotu4.Name = "txtG_Kamotu4";
-            this.txtG_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_Kamotu4.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_Kamotu4.Text = "txtG_Kamotu4";
             this.txtG_Kamotu4.Top = 6.456693F;
             this.txtG_Kamotu4.Width = 1.181102F;
@@ -1571,8 +1557,8 @@
             this.txtG_Bus1.Height = 0.2362203F;
             this.txtG_Bus1.Left = 6.771654F;
             this.txtG_Bus1.Name = "txtG_Bus1";
-            this.txtG_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_Bus1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_Bus1.Text = "txtG_Bus1";
             this.txtG_Bus1.Top = 6.929134F;
             this.txtG_Bus1.Width = 1.181102F;
@@ -1583,8 +1569,8 @@
             this.txtG_Bus2.Height = 0.2362203F;
             this.txtG_Bus2.Left = 6.771654F;
             this.txtG_Bus2.Name = "txtG_Bus2";
-            this.txtG_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_Bus2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_Bus2.Text = "txtG_Bus2";
             this.txtG_Bus2.Top = 7.322835F;
             this.txtG_Bus2.Width = 1.181102F;
@@ -1595,8 +1581,8 @@
             this.txtG_JK_J1.Height = 0.2362203F;
             this.txtG_JK_J1.Left = 6.771654F;
             this.txtG_JK_J1.Name = "txtG_JK_J1";
-            this.txtG_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_JK_J1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_JK_J1.Text = "txtG_JK_J1";
             this.txtG_JK_J1.Top = 8.110237F;
             this.txtG_JK_J1.Width = 0.492126F;
@@ -1607,8 +1593,8 @@
             this.txtG_JK_K1.Height = 0.2362203F;
             this.txtG_JK_K1.Left = 7.480316F;
             this.txtG_JK_K1.Name = "txtG_JK_K1";
-            this.txtG_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_JK_K1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_JK_K1.Text = "txtG_JK_K1";
             this.txtG_JK_K1.Top = 8.110237F;
             this.txtG_JK_K1.Width = 0.492126F;
@@ -1619,8 +1605,8 @@
             this.txtG_JK_J2.Height = 0.2362203F;
             this.txtG_JK_J2.Left = 6.771654F;
             this.txtG_JK_J2.Name = "txtG_JK_J2";
-            this.txtG_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_JK_J2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_JK_J2.Text = "txtG_JK_J2";
             this.txtG_JK_J2.Top = 8.582678F;
             this.txtG_JK_J2.Width = 0.492126F;
@@ -1631,8 +1617,8 @@
             this.txtG_JK_K2.Height = 0.2362203F;
             this.txtG_JK_K2.Left = 7.480316F;
             this.txtG_JK_K2.Name = "txtG_JK_K2";
-            this.txtG_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_JK_K2.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_JK_K2.Text = "txtG_JK_K2";
             this.txtG_JK_K2.Top = 8.582678F;
             this.txtG_JK_K2.Width = 0.492126F;
@@ -1643,8 +1629,8 @@
             this.txtG_JK_K3.Height = 0.2362203F;
             this.txtG_JK_K3.Left = 7.480316F;
             this.txtG_JK_K3.Name = "txtG_JK_K3";
-            this.txtG_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_JK_K3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_JK_K3.Text = "txtG_JK_K3";
             this.txtG_JK_K3.Top = 9.099607F;
             this.txtG_JK_K3.Width = 0.492126F;
@@ -1655,8 +1641,8 @@
             this.txtG_JK_J3.Height = 0.2362203F;
             this.txtG_JK_J3.Left = 6.771654F;
             this.txtG_JK_J3.Name = "txtG_JK_J3";
-            this.txtG_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_JK_J3.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_JK_J3.Text = "txtG_JK_J3";
             this.txtG_JK_J3.Top = 9.105906F;
             this.txtG_JK_J3.Width = 0.492126F;
@@ -1664,25 +1650,25 @@
             // txtG_SubTotal1
             // 
             this.txtG_SubTotal1.DataField = "G_SubTotal1";
-            this.txtG_SubTotal1.Height = 0.2362203F;
+            this.txtG_SubTotal1.Height = 0.3149614F;
             this.txtG_SubTotal1.Left = 6.771654F;
             this.txtG_SubTotal1.Name = "txtG_SubTotal1";
-            this.txtG_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_SubTotal1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_SubTotal1.Text = "txtG_SubTotal1";
-            this.txtG_SubTotal1.Top = 9.6063F;
+            this.txtG_SubTotal1.Top = 9.527559F;
             this.txtG_SubTotal1.Width = 1.181102F;
             // 
             // txtG_Total1
             // 
             this.txtG_Total1.DataField = "G_Total1";
-            this.txtG_Total1.Height = 0.2362203F;
+            this.txtG_Total1.Height = 0.3149595F;
             this.txtG_Total1.Left = 6.771654F;
             this.txtG_Total1.Name = "txtG_Total1";
-            this.txtG_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-weight: bold; text-align: center; vertical-align: middl" +
-    "e";
+            this.txtG_Total1.Style = "font-family: ＭＳ Ｐ明朝; font-size: 18pt; font-weight: bold; text-align: center; vert" +
+    "ical-align: middle";
             this.txtG_Total1.Text = "txtG_Total1";
-            this.txtG_Total1.Top = 10.07874F;
+            this.txtG_Total1.Top = 10F;
             this.txtG_Total1.Width = 1.181102F;
             // 
             // label24
@@ -1703,7 +1689,7 @@
             this.label25.Left = 0.472441F;
             this.label25.Name = "label25";
             this.label25.Style = "font-family: ＭＳ Ｐ明朝; text-align: left; vertical-align: middle";
-            this.label25.Text = "※翌月5日までに必らず報告のこと。";
+            this.label25.Text = "※翌月5日までに必ず報告のこと。";
             this.label25.Top = 10.70866F;
             this.label25.Width = 2.362205F;
             // 
@@ -2417,24 +2403,24 @@
             // 
             // label49
             // 
-            this.label49.Height = 0.2313483F;
+            this.label49.Height = 0.3100894F;
             this.label49.HyperLink = null;
             this.label49.Left = 1.102362F;
             this.label49.Name = "label49";
             this.label49.Style = "font-family: ＭＳ Ｐ明朝; text-align: center; vertical-align: middle";
             this.label49.Text = "計";
-            this.label49.Top = 9.6063F;
+            this.label49.Top = 9.527559F;
             this.label49.Width = 0.3149606F;
             // 
             // label50
             // 
-            this.label50.Height = 0.2313483F;
+            this.label50.Height = 0.2983277F;
             this.label50.HyperLink = null;
             this.label50.Left = 1.102361F;
             this.label50.Name = "label50";
             this.label50.Style = "font-family: ＭＳ Ｐ明朝; text-align: center; vertical-align: middle";
             this.label50.Text = "計";
-            this.label50.Top = 10.06698F;
+            this.label50.Top = 10F;
             this.label50.Width = 0.3149606F;
             // 
             // Jisseki_Report
@@ -2463,7 +2449,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.label1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label7)).EndInit();
@@ -2604,7 +2589,6 @@
         private DataDynamics.ActiveReports.Label label1;
         private DataDynamics.ActiveReports.Label label2;
         private DataDynamics.ActiveReports.Label label3;
-        private DataDynamics.ActiveReports.Label label4;
         private DataDynamics.ActiveReports.Label label5;
         private DataDynamics.ActiveReports.Label label6;
         private DataDynamics.ActiveReports.Label label7;

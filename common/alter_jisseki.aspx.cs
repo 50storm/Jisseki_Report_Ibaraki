@@ -1262,20 +1262,36 @@ namespace Jisseki_Report_Ibaraki.common
                     using (SqlDataReader Reader = cmd.ExecuteReader())
                     {
                         Reader.Read();
-                        this.txtMito_Kamotu1.Text   = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
-                        this.txtMito_Kamotu2.Text   = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
-                        this.txtMito_Kamotu3.Text   = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
-                        this.txtMito_Kamotu4.Text   = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
-                        this.txtMito_Bus1.Text      = Utility.zeroToSpace(Reader["Bus1"].ToString());
-                        this.txtMito_Bus2.Text      = Utility.zeroToSpace(Reader["Bus2"].ToString());
-                        this.txtMito_JK_J1.Text     = Utility.zeroToSpace(Reader["JK_J1"].ToString());
-                        this.txtMito_JK_K1.Text     = Utility.zeroToSpace(Reader["JK_K1"].ToString());
-                        this.txtMito_JK_J2.Text     = Utility.zeroToSpace(Reader["JK_J2"].ToString());
-                        this.txtMito_JK_K2.Text     = Utility.zeroToSpace(Reader["JK_K2"].ToString());
-                        this.txtMito_JK_J3.Text     = Utility.zeroToSpace(Reader["JK_J3"].ToString());
-                        this.txtMito_JK_K3.Text     = Utility.zeroToSpace(Reader["JK_K3"].ToString());
-                        this.txtMito_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
-                        this.txtMito_Total1.Text    = Utility.zeroToSpace(Reader["Total1"].ToString());
+                        //this.txtMito_Kamotu1.Text   = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtMito_Kamotu2.Text   = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtMito_Kamotu3.Text   = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtMito_Kamotu4.Text   = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtMito_Bus1.Text      = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtMito_Bus2.Text      = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtMito_JK_J1.Text     = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtMito_JK_K1.Text     = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtMito_JK_J2.Text     = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtMito_JK_K2.Text     = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtMito_JK_J3.Text     = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtMito_JK_K3.Text     = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtMito_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtMito_Total1.Text    = Utility.zeroToSpace(Reader["Total1"].ToString());
+
+                        this.txtMito_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtMito_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtMito_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtMito_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtMito_Bus1.Text    = Reader["Bus1"].ToString();
+                        this.txtMito_Bus2.Text    = Reader["Bus2"].ToString();
+                        this.txtMito_JK_J1.Text   = Reader["JK_J1"].ToString();
+                        this.txtMito_JK_K1.Text   = Reader["JK_K1"].ToString();
+                        this.txtMito_JK_J2.Text   = Reader["JK_J2"].ToString();
+                        this.txtMito_JK_K2.Text   = Reader["JK_K2"].ToString();
+                        this.txtMito_JK_J3.Text   = Reader["JK_J3"].ToString();
+                        this.txtMito_JK_K3.Text   = Reader["JK_K3"].ToString();
+                        this.txtMito_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtMito_Total1.Text = Reader["Total1"].ToString();
+
 
 
                     }
@@ -1305,21 +1321,36 @@ namespace Jisseki_Report_Ibaraki.common
                     using (SqlDataReader Reader = cmd.ExecuteReader())
                     {
                         Reader.Read();
-                        this.txtTuchiura_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
-                        this.txtTuchiura_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
-                        this.txtTuchiura_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
-                        this.txtTuchiura_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
-                        this.txtTuchiura_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
-                        this.txtTuchiura_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
-                        this.txtTuchiura_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
-                        this.txtTuchiura_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
-                        this.txtTuchiura_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
-                        this.txtTuchiura_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
-                        this.txtTuchiura_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
-                        this.txtTuchiura_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
-                        this.txtTuchiura_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
-                        this.txtTuchiura_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
+                        //this.txtTuchiura_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtTuchiura_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtTuchiura_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtTuchiura_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtTuchiura_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtTuchiura_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtTuchiura_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtTuchiura_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtTuchiura_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtTuchiura_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtTuchiura_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtTuchiura_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtTuchiura_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtTuchiura_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
 
+
+                        this.txtTuchiura_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtTuchiura_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtTuchiura_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtTuchiura_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtTuchiura_Bus1.Text  = Reader["Bus1"].ToString();
+                        this.txtTuchiura_Bus2.Text  = Reader["Bus2"].ToString();
+                        this.txtTuchiura_JK_J1.Text = Reader["JK_J1"].ToString();
+                        this.txtTuchiura_JK_K1.Text = Reader["JK_K1"].ToString();
+                        this.txtTuchiura_JK_J2.Text = Reader["JK_J2"].ToString();
+                        this.txtTuchiura_JK_K2.Text = Reader["JK_K2"].ToString();
+                        this.txtTuchiura_JK_J3.Text = Reader["JK_J3"].ToString();
+                        this.txtTuchiura_JK_K3.Text = Reader["JK_K3"].ToString();
+                        this.txtTuchiura_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtTuchiura_Total1.Text =  Reader["Total1"].ToString();
 
                     }
                 }
@@ -1348,20 +1379,35 @@ namespace Jisseki_Report_Ibaraki.common
                     using (SqlDataReader Reader = cmd.ExecuteReader())
                     {
                         Reader.Read();
-                        this.txtTukuba_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
-                        this.txtTukuba_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
-                        this.txtTukuba_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
-                        this.txtTukuba_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
-                        this.txtTukuba_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
-                        this.txtTukuba_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
-                        this.txtTukuba_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
-                        this.txtTukuba_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
-                        this.txtTukuba_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
-                        this.txtTukuba_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
-                        this.txtTukuba_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
-                        this.txtTukuba_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
-                        this.txtTukuba_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
-                        this.txtTukuba_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
+                        //this.txtTukuba_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtTukuba_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtTukuba_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtTukuba_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtTukuba_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtTukuba_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtTukuba_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtTukuba_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtTukuba_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtTukuba_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtTukuba_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtTukuba_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtTukuba_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtTukuba_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
+
+                        this.txtTukuba_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtTukuba_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtTukuba_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtTukuba_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtTukuba_Bus1.Text = Reader["Bus1"].ToString();
+                        this.txtTukuba_Bus2.Text = Reader["Bus2"].ToString();
+                        this.txtTukuba_JK_J1.Text = Reader["JK_J1"].ToString();
+                        this.txtTukuba_JK_K1.Text = Reader["JK_K1"].ToString();
+                        this.txtTukuba_JK_J2.Text = Reader["JK_J2"].ToString();
+                        this.txtTukuba_JK_K2.Text = Reader["JK_K2"].ToString();
+                        this.txtTukuba_JK_J3.Text = Reader["JK_J3"].ToString();
+                        this.txtTukuba_JK_K3.Text = Reader["JK_K3"].ToString();
+                        this.txtTukuba_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtTukuba_Total1.Text = Reader["Total1"].ToString();
 
 
                     }
@@ -1391,21 +1437,35 @@ namespace Jisseki_Report_Ibaraki.common
                     using (SqlDataReader Reader = cmd.ExecuteReader())
                     {
                         Reader.Read();
-                        this.txtSonota_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
-                        this.txtSonota_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
-                        this.txtSonota_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
-                        this.txtSonota_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
-                        this.txtSonota_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
-                        this.txtSonota_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
-                        this.txtSonota_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
-                        this.txtSonota_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
-                        this.txtSonota_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
-                        this.txtSonota_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
-                        this.txtSonota_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
-                        this.txtSonota_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
-                        this.txtSonota_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
-                        this.txtSonota_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
+                        //this.txtSonota_Kamotu1.Text = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtSonota_Kamotu2.Text = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtSonota_Kamotu3.Text = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtSonota_Kamotu4.Text = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtSonota_Bus1.Text = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtSonota_Bus2.Text = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtSonota_JK_J1.Text = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtSonota_JK_K1.Text = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtSonota_JK_J2.Text = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtSonota_JK_K2.Text = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtSonota_JK_J3.Text = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtSonota_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtSonota_SubTotal1.Text = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtSonota_Total1.Text = Utility.zeroToSpace(Reader["Total1"].ToString());
 
+                        this.txtSonota_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtSonota_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtSonota_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtSonota_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtSonota_Bus1.Text    =  Reader["Bus1"].ToString();
+                        this.txtSonota_Bus2.Text    =  Reader["Bus2"].ToString();
+                        this.txtSonota_JK_J1.Text = Reader["JK_J1"].ToString();
+                        this.txtSonota_JK_K1.Text = Reader["JK_K1"].ToString();
+                        this.txtSonota_JK_J2.Text = Reader["JK_J2"].ToString();
+                        this.txtSonota_JK_K2.Text = Reader["JK_K2"].ToString();
+                        this.txtSonota_JK_J3.Text = Reader["JK_J3"].ToString();
+                        this.txtSonota_JK_K3.Text = Reader["JK_K3"].ToString();
+                        this.txtSonota_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtSonota_Total1.Text = Reader["Total1"].ToString();
 
                     }
                 }
@@ -1433,21 +1493,35 @@ namespace Jisseki_Report_Ibaraki.common
                     using (SqlDataReader Reader = cmd.ExecuteReader())
                     {
                         Reader.Read();
-                        this.txtGoukei_Kamotu1.Text     = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
-                        this.txtGoukei_Kamotu2.Text     = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
-                        this.txtGoukei_Kamotu3.Text     = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
-                        this.txtGoukei_Kamotu4.Text     = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
-                        this.txtGoukei_Bus1.Text        = Utility.zeroToSpace(Reader["Bus1"].ToString());
-                        this.txtGoukei_Bus2.Text        = Utility.zeroToSpace(Reader["Bus2"].ToString());
-                        this.txtGoukei_JK_J1.Text       = Utility.zeroToSpace(Reader["JK_J1"].ToString());
-                        this.txtGoukei_JK_K1.Text       = Utility.zeroToSpace(Reader["JK_K1"].ToString());
-                        this.txtGoukei_JK_J2.Text       = Utility.zeroToSpace(Reader["JK_J2"].ToString());
-                        this.txtGoukei_JK_K2.Text       = Utility.zeroToSpace(Reader["JK_K2"].ToString());
-                        this.txtGoukei_JK_J3.Text       = Utility.zeroToSpace(Reader["JK_J3"].ToString());
-                        this.txtGoukei_JK_K3.Text = Utility.zeroToSpace(Reader["JK_K3"].ToString());
-                        this.txtGoukei_SubTotal1.Text   = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
-                        this.txtGoukei_Total1.Text      = Utility.zeroToSpace(Reader["Total1"].ToString());
+                        //this.txtGoukei_Kamotu1.Text     = Utility.zeroToSpace(Reader["Kamotu1"].ToString());
+                        //this.txtGoukei_Kamotu2.Text     = Utility.zeroToSpace(Reader["Kamotu2"].ToString());
+                        //this.txtGoukei_Kamotu3.Text     = Utility.zeroToSpace(Reader["Kamotu3"].ToString());
+                        //this.txtGoukei_Kamotu4.Text     = Utility.zeroToSpace(Reader["Kamotu4"].ToString());
+                        //this.txtGoukei_Bus1.Text        = Utility.zeroToSpace(Reader["Bus1"].ToString());
+                        //this.txtGoukei_Bus2.Text        = Utility.zeroToSpace(Reader["Bus2"].ToString());
+                        //this.txtGoukei_JK_J1.Text       = Utility.zeroToSpace(Reader["JK_J1"].ToString());
+                        //this.txtGoukei_JK_K1.Text       = Utility.zeroToSpace(Reader["JK_K1"].ToString());
+                        //this.txtGoukei_JK_J2.Text       = Utility.zeroToSpace(Reader["JK_J2"].ToString());
+                        //this.txtGoukei_JK_K2.Text       = Utility.zeroToSpace(Reader["JK_K2"].ToString());
+                        //this.txtGoukei_JK_J3.Text       = Utility.zeroToSpace(Reader["JK_J3"].ToString());
+                        //this.txtGoukei_JK_K3.Text       = Utility.zeroToSpace(Reader["JK_K3"].ToString());
+                        //this.txtGoukei_SubTotal1.Text   = Utility.zeroToSpace(Reader["SubTotal1"].ToString());
+                        //this.txtGoukei_Total1.Text      = Utility.zeroToSpace(Reader["Total1"].ToString());
 
+                        this.txtGoukei_Kamotu1.Text = Reader["Kamotu1"].ToString();
+                        this.txtGoukei_Kamotu2.Text = Reader["Kamotu2"].ToString();
+                        this.txtGoukei_Kamotu3.Text = Reader["Kamotu3"].ToString();
+                        this.txtGoukei_Kamotu4.Text = Reader["Kamotu4"].ToString();
+                        this.txtGoukei_Bus1.Text  = Reader["Bus1"].ToString();
+                        this.txtGoukei_Bus2.Text  = Reader["Bus2"].ToString();
+                        this.txtGoukei_JK_J1.Text = Reader["JK_J1"].ToString();
+                        this.txtGoukei_JK_K1.Text = Reader["JK_K1"].ToString();
+                        this.txtGoukei_JK_J2.Text = Reader["JK_J2"].ToString();
+                        this.txtGoukei_JK_K2.Text = Reader["JK_K2"].ToString();
+                        this.txtGoukei_JK_J3.Text = Reader["JK_J3"].ToString();
+                        this.txtGoukei_JK_K3.Text = Reader["JK_K3"].ToString();
+                        this.txtGoukei_SubTotal1.Text = Reader["SubTotal1"].ToString();
+                        this.txtGoukei_Total1.Text = Reader["Total1"].ToString();
 
                     }
                 }
@@ -1478,6 +1552,13 @@ namespace Jisseki_Report_Ibaraki.common
             //EnableをFalse
             this.txtYearRep0.Enabled = false;
             this.txtMonthRep0.Enabled = false;
+
+            this.txtYear.Enabled = false;
+            this.txtMonth.Enabled = false;
+            this.txtDay.Enabled = false;
+
+            this.txtSyamei.Enabled = false;
+
             this.txtTantou.Focus();
 
         }

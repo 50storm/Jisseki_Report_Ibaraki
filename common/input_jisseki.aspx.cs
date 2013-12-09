@@ -1159,12 +1159,31 @@ namespace Jisseki_Report_Ibaraki.common
                 txtYear.Text = jCalender.GetYear(DateTime.Today).ToString();
                 txtMonth.Text = jCalender.GetMonth(DateTime.Today).ToString();
                 txtDay.Text = jCalender.GetDayOfMonth(DateTime.Today).ToString();
+                txtYear.Enabled = false;
+                txtMonth.Enabled = false;
+                txtDay.Enabled = false;
 
                 //会社名
                 txtSyamei.Text = Session["CONAME"].ToString();
+                txtSyamei.Enabled = false;
+
 
                 //報告日
-                txtMonthRep0.Text = string.Empty;
+                txtYearRep0.Text = jCalender.GetYear(DateTime.Today).ToString();
+                txtYearRep0.Enabled = false;
+
+                //入力制限
+                if (DateTime.Today.Day < 6)
+                {
+                    txtMonthRep0.Text = jCalender.GetMonth(DateTime.Today.AddMonths(-1)).ToString();
+                }
+                else 
+                {
+                    txtMonthRep0.Text = jCalender.GetMonth(DateTime.Today).ToString();
+                }
+                txtMonthRep0.Enabled = false;
+                
+
 
                 this.btnPrint.Visible = false;
                 this.btnKariInvoice.Visible = false;

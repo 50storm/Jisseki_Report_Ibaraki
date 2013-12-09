@@ -11,9 +11,34 @@
 	text-align:center;
 }
 </style>
+<script type="text/javascript">
+    // ==============================
+    //  カーソル制御処理
+    // ==============================
+    function setFocus() {
+        document.getElementById('txtYearRep').onkeydown
+        = function () {
+            if (event.keyCode == 13) {
+                document.getElementById('txtMonthRep').focus();
+                document.getElementById('txtMonthRep').select();
+                return false;
+            }
+        }
+
+        document.getElementById('txtMonthRep').onkeydown
+        = function () {
+            if (event.keyCode == 13) {
+                document.getElementById('btnSearch').focus();
+                document.getElementById('btnSearch').select();
+                return false;
+            }
+        }
+    }
+</script>
+
     <title>未受信データ会員</title>
 </head>
-<body>
+<body  onload="return setFocus();">
 <!--外枠-->	
 <div id="Wrapper">
     <h1>未受信データ確認画面</h1>
