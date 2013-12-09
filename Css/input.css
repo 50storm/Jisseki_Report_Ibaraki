@@ -240,6 +240,7 @@
 	ime-mode:active;
 	
 }
+
 #txtYearRep0
 {
 	width:20px;
@@ -261,6 +262,24 @@
 	height:20px;
 }
 
+/*20131202*/
+#txtYear
+{
+	width:20px;
+	height:20px;
+}
+
+#txtMonth
+{
+	width:20px;
+	height:20px;
+}
+#txtDay
+{
+	width:20px;
+	height:20px;
+	
+}
 
 /*乗用及び貨物車*/
 .Row_JK{

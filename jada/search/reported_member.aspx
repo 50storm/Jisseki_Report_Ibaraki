@@ -10,6 +10,11 @@
 	height:20px;
 	text-align:center;
 }
+#Wrapper
+{
+    width:900px;	
+
+}
 </style>
 <script type="text/javascript">
     // ==============================

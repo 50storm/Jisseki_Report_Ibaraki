@@ -452,9 +452,17 @@ namespace Jisseki_Report_Ibaraki.common
             
             //Key項目
             //EnableをFalse
+            //Key項目
+            //EnableをFalse
             this.txtYearRep0.Enabled = false;
             this.txtMonthRep0.Enabled = false;
-            this.txtTantou.Focus();
+
+            this.txtYear.Enabled = false;
+            this.txtMonth.Enabled = false;
+            this.txtDay.Enabled = false;
+
+            this.txtSyamei.Enabled = false;
+
 
         }
 
