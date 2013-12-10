@@ -79,6 +79,7 @@
             this.line26 = new DataDynamics.ActiveReports.Line();
             this.line27 = new DataDynamics.ActiveReports.Line();
             this.line28 = new DataDynamics.ActiveReports.Line();
+            this.line29 = new DataDynamics.ActiveReports.Line();
             this.line30 = new DataDynamics.ActiveReports.Line();
             this.line31 = new DataDynamics.ActiveReports.Line();
             this.line32 = new DataDynamics.ActiveReports.Line();
@@ -106,7 +107,6 @@
             this.line19 = new DataDynamics.ActiveReports.Line();
             this.line18 = new DataDynamics.ActiveReports.Line();
             this.line34 = new DataDynamics.ActiveReports.Line();
-            this.line29 = new DataDynamics.ActiveReports.Line();
             ((System.ComponentModel.ISupportInitialize)(this.label14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label16)).BeginInit();
@@ -172,6 +172,7 @@
             // 
             // detail
             // 
+            this.detail.CanGrow = false;
             this.detail.ColumnSpacing = 0F;
             this.detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
             this.label14,
@@ -901,6 +902,19 @@
             this.line28.Y1 = 5.196851F;
             this.line28.Y2 = 5.196851F;
             // 
+            // line29
+            // 
+            this.line29.Height = 0F;
+            this.line29.Left = 0.472441F;
+            this.line29.LineWeight = 1F;
+            this.line29.Name = "line29";
+            this.line29.Top = 5.669292F;
+            this.line29.Width = 6.771656F;
+            this.line29.X1 = 0.472441F;
+            this.line29.X2 = 7.244097F;
+            this.line29.Y1 = 5.669292F;
+            this.line29.Y2 = 5.669292F;
+            // 
             // line30
             // 
             this.line30.Height = 5.275591F;
@@ -1210,24 +1224,11 @@
             this.line34.LineWeight = 1F;
             this.line34.Name = "line34";
             this.line34.Top = 0.944882F;
-            this.line34.Width = 4.768372E-07F;
+            this.line34.Width = 0F;
             this.line34.X1 = 4.094489F;
             this.line34.X2 = 4.094489F;
             this.line34.Y1 = 0.944882F;
             this.line34.Y2 = 5.196851F;
-            // 
-            // line29
-            // 
-            this.line29.Height = 0F;
-            this.line29.Left = 0.472441F;
-            this.line29.LineWeight = 1F;
-            this.line29.Name = "line29";
-            this.line29.Top = 5.669292F;
-            this.line29.Width = 6.771656F;
-            this.line29.X1 = 0.472441F;
-            this.line29.X2 = 7.244097F;
-            this.line29.Y1 = 5.669292F;
-            this.line29.Y2 = 5.669292F;
             // 
             // InvoiceSanjyo
             // 
