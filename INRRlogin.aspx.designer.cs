@@ -10,7 +10,7 @@
 namespace Jisseki_Report_Ibaraki {
     
     
-    public partial class loginJisseki {
+    public partial class INRRlogin {
         
         /// <summary>
         /// form1 コントロール。

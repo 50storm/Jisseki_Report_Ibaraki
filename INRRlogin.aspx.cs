@@ -12,7 +12,7 @@ using Jisseki_Report_Ibaraki.Tools;
 
 namespace Jisseki_Report_Ibaraki
 {
-    public partial class loginJisseki : System.Web.UI.Page
+    public partial class INRRlogin: System.Web.UI.Page
     {
         //接続文字列
         private String strConn;

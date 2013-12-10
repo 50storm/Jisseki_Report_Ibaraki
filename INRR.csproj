@@ -74,17 +74,18 @@
     <Content Include="Css\input.css" />
     <Content Include="Css\inputText.css" />
     <Content Include="Global.asax" />
+    <Content Include="INRRlogin.aspx" />
     <Content Include="jada\download\Jisseki_Report.aspx" />
     <Content Include="jada\master\IdMaster.aspx" />
     <Content Include="jada\master\UnitPriceMaster.aspx" />
     <Content Include="jada\menu\Jihan.aspx" />
     <Content Include="jada\search\reported_member.aspx" />
     <Content Include="jada\search\nonReported_member.aspx" />
-    <Content Include="loginJisseki.aspx" />
     <Content Include="member\menu\Dealer.aspx" />
     <Content Include="member\search\jisseki.aspx" />
     <Content Include="Report\Invoice\Invoice_View.aspx" />
     <Content Include="Report\Jisseki_Report\Jisseki_Report_View.aspx" />
+    <Content Include="Scripts\download.js" />
     <Content Include="Scripts\inputJisseki.js" />
     <Content Include="Scripts\inputJisseki_AutoSum.js" />
     <Content Include="Scripts\inputJisseki_Key.js" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="INRRlogin.aspx.cs">
+      <DependentUpon>INRRlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="INRRlogin.aspx.designer.cs">
+      <DependentUpon>INRRlogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="jada\download\Jisseki_Report.aspx.cs">
       <DependentUpon>Jisseki_Report.aspx</DependentUpon>
@@ -165,13 +173,6 @@
     </Compile>
     <Compile Include="jada\search\nonReported_member.aspx.designer.cs">
       <DependentUpon>nonReported_member.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="loginJisseki.aspx.cs">
-      <DependentUpon>loginJisseki.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="loginJisseki.aspx.designer.cs">
-      <DependentUpon>loginJisseki.aspx</DependentUpon>
     </Compile>
     <Compile Include="member\menu\Dealer.aspx.cs">
       <DependentUpon>Dealer.aspx</DependentUpon>
@@ -235,7 +236,9 @@
       <DependentUpon>Jisseki_Report.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="pdf\動作環境.pdf" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
