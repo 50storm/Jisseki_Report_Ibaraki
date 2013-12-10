@@ -14,84 +14,9 @@
 }
 </style>
 <script type="text/javascript" src="../../Scripts/Utility.js"></script>
+<script type="text/javascript" src="../../Scripts/download.js"></script>
 <script type="text/javascript">
-function setFileName(){
 
-        var txtFileName = document.getElementById("txtFileName");
-        var today = new Date();
-        //年月日
-        var YearMonthDay = String(today.getFullYear()) +
-        String(today.getMonth()) +
-        String(today.getDate());
-
-
-        //時間分秒
-        var HMS = String(today.getHours()) +
-              String(today.getMinutes()) +
-              String(today.getSeconds());
-
-        var txtYearRep = document.getElementById("txtYearRep").value;
-        var txtMonthRep = document.getElementById("txtMonthRep").value;
-
-        var txtFileName = String(txtYearRep) + String(txtMonthRep) + "Jisseki" +
-                              String(YearMonthDay) +
-                              String(HMS) +
-                              ".csv";
-
-        document.getElementById("txtFileName").value = txtFileName;
-
-    }
-</script>
-<script type="text/javascript">
-    function validateForm() {
-
-        if (!isEmpty("txtYearRep")) {
-            return false;
-        }
-
-        if (!isEmpty("txtMonthRep")) {
-            return false;
-        }
-
-
-        if (!isNumber("txtYearRep")) {
-            return false;
-        }
-
-        if (!isNumber("txtMonthRep")) {
-            return false;
-        }
-
-        if (!isEmpty("txtFileName")) {
-            document.getElementById("lblMsg").value = "ファイル名を入力してください。";
-            return false;
-        } else {
-            document.getElementById("lblMsg").value = "";
-        }
-
-    }
-    // ==============================
-    //  カーソル制御処理
-    // ==============================
-    function setFocus() {
-        document.getElementById('txtYearRep').onkeydown
-        = function () {
-            if (event.keyCode == 13) {
-                document.getElementById('txtMonthRep').focus();
-                document.getElementById('txtMonthRep').select();
-                return false;
-            }
-        }
-
-        document.getElementById('txtMonthRep').onkeydown
-        = function () {
-            if (event.keyCode == 13) {
-                document.getElementById('btnDownload').focus();
-                document.getElementById('btnDownload').select();
-                return false;
-            }
-        }
-    }
 </script>
     <title>実績報告書ダウンロード</title>
 </head>

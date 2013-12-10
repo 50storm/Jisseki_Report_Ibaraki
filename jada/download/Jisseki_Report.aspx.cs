@@ -18,79 +18,8 @@ namespace Jisseki_Report_Ibaraki.jada.download
 
         private string strConn;
         //TODO　パスとファイルをデータベースか設定ファイルに
-        //string DownloadWritePath = "C:\\Users\\Hiroshi\\Desktop\\";
         string DownloadWritePath;
-        //string DownloadFileName = "test.csv";
         string DownloadFileName ;
-
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            //ログインしていなければ表示しない
-            if (Session["COCODE"] == null)
-            {
-                Response.Redirect(URL.LOGIN_DEALER);
-            }
-
-
-            //接続文字列
-            strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
-            DownloadWritePath = ConfigurationManager.AppSettings["DownloadWritePath"].ToString();
-
-            JapaneseCalendar jCalender = new JapaneseCalendar();
-            if (Page.IsPostBack)
-            {
-
-                
-                int iEra = jCalender.GetEra(DateTime.Now);
-                switch (iEra)
-                {
-                    case 4://平成
-                        lblEra.Text = "平成";
-                        break;
-
-                    case 3://昭和
-                        lblEra.Text = "昭和";
-                        break;
-
-                    case 2://大正
-                        lblEra.Text = "大正";
-
-                        break;
-
-                    case 1://明治
-                        lblEra.Text = "明治";
-
-                        break;
-                }
-                //No28
-
-
-     
-
-
-
-            }
-            else
-            {
-     
-                //初期表示のみ
-                this.txtYearRep.Text = jCalender.GetYear(DateTime.Today).ToString();
-                this.txtMonthRep.Text = DateTime.Today.AddMonths(-1).Month.ToString();
-
-                //string strYearMonthDay = (jCalender.GetYear(DateTime.Today).ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Day.ToString());
-                string strYearMonthDay = (DateTime.Today.Year.ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Day.ToString());
-                string strHourMinSec = (DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString());
-
-
-                this.txtFileName.Text = this.txtYearRep.Text + this.txtMonthRep.Text + "Jisseki" + strYearMonthDay + strHourMinSec + ".csv"; 
-
-               
-            }
-
-        }
-
-
         
         public string getSql()
         { 
@@ -387,13 +316,74 @@ namespace Jisseki_Report_Ibaraki.jada.download
         
         }
 
-
         private void outData() {
             //Response.CleaarContent();
             Response.ContentType = "text/csv";//Defined in RFC4180 
             Response.AddHeader("Content-Disposition", "Attachment;filename=" + HttpUtility.UrlEncode(DownloadFileName));
             Response.WriteFile(DownloadWritePath + DownloadFileName);
             Response.End();
+
+        }
+#region "イベント"
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //ログインしていなければ表示しない
+            if (Session["COCODE"] == null)
+            {
+                Response.Redirect(URL.LOGIN_DEALER);
+            }
+
+
+            //接続文字列
+            strConn = ConfigurationManager.ConnectionStrings["JissekiConnectionString"].ConnectionString;
+            DownloadWritePath = ConfigurationManager.AppSettings["DownloadWritePath"].ToString();
+
+            JapaneseCalendar jCalender = new JapaneseCalendar();
+            if (Page.IsPostBack)
+            {
+                //No28
+
+
+
+
+            }
+            else
+            {
+
+                //初期表示のみ
+                int iEra = jCalender.GetEra(DateTime.Now);
+                switch (iEra)
+                {
+                    case 4://平成
+                        lblEra.Text = "平成";
+                        break;
+
+                    case 3://昭和
+                        lblEra.Text = "昭和";
+                        break;
+
+                    case 2://大正
+                        lblEra.Text = "大正";
+
+                        break;
+
+                    case 1://明治
+                        lblEra.Text = "明治";
+
+                        break;
+                }
+                this.txtYearRep.Text = jCalender.GetYear(DateTime.Today).ToString();
+                this.txtMonthRep.Text = Utility.covertDigit2(DateTime.Today.AddMonths(-1).Month);
+
+                //string strYearMonthDay = (jCalender.GetYear(DateTime.Today).ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Day.ToString());
+                string strYearMonthDay = (DateTime.Today.Year.ToString() + Utility.covertDigit2(DateTime.Today.Month) + Utility.covertDigit2(DateTime.Today.Day));
+                string strHourMinSec = (Utility.covertDigit2(DateTime.Now.Hour) + Utility.covertDigit2(DateTime.Now.Minute) + Utility.covertDigit2(DateTime.Now.Second));
+
+
+                this.txtFileName.Text = DateTime.Today.Year.ToString() + this.txtMonthRep.Text + "Jisseki" + strYearMonthDay + strHourMinSec + ".csv";
+
+
+            }
 
         }
 
@@ -514,5 +504,6 @@ namespace Jisseki_Report_Ibaraki.jada.download
 
             }
         }
+#endregion
     }
 }
