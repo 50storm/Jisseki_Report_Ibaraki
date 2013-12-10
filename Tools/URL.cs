@@ -8,7 +8,7 @@ namespace Jisseki_Report_Ibaraki.Tools
     public class URL
     {
       //ログイン画面
-      public const string LOGIN_DEALER = "~/loginJisseki.aspx";
+        public const string LOGIN_DEALER = "~/INRRlogin.aspx";
     　//共通
       public const string INPUT_JISSEKI = "~/common/input_jisseki.aspx" ;
       public const string ALTER_JISSEKI = "~/common/alter_jisseki.aspx";

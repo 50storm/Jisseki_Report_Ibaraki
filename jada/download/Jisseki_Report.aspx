@@ -26,12 +26,16 @@
     <form id="form1" runat="server">
     <!--メニュー-->	
 	<div id="Menu" >
-        <div id="Menu_Link">
-            <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
-        </div>
-        <div id="Menu_Btn">
-            <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
-        </div>
+        <table id="MenuTable" cellpadding="1" cellspacing="5" style="border-collapse: separate;">
+            <tr >            
+                <td >
+                   <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
+                </td>
+                <td >
+                    <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
+                </td>
+            </tr>
+        </table>
     </div>
     <!--改行-->
     <div>

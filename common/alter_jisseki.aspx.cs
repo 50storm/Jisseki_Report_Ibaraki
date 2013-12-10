@@ -330,10 +330,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtMito_SubTotal1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtMito_SubTotal1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtMito_SubTotal1.BackColor = System.Drawing.Color.White;
+            //}
 
             //合計
             if (Utility.IsNotNumber(this.txtMito_Total1.Text))
@@ -342,10 +342,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtMito_Total1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtMito_Total1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtMito_Total1.BackColor = System.Drawing.Color.White;
+            //}
 
 
             return true;
@@ -489,10 +489,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtTuchiura_SubTotal1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtTuchiura_SubTotal1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtTuchiura_SubTotal1.BackColor = System.Drawing.Color.White;
+            //}
 
             //合計
             if (Utility.IsNotNumber(this.txtTuchiura_Total1.Text))
@@ -501,10 +501,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtTuchiura_Total1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtTuchiura_Total1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtTuchiura_Total1.BackColor = System.Drawing.Color.White;
+            //}
 
 
             return true;
@@ -648,10 +648,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtTukuba_SubTotal1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtTukuba_SubTotal1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtTukuba_SubTotal1.BackColor = System.Drawing.Color.White;
+            //}
 
             //合計
             if (Utility.IsNotNumber(this.txtTukuba_Total1.Text))
@@ -660,10 +660,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtTukuba_Total1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtTukuba_Total1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtTukuba_Total1.BackColor = System.Drawing.Color.White;
+            //}
 
 
             return true;
@@ -807,10 +807,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtSonota_SubTotal1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtSonota_SubTotal1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtSonota_SubTotal1.BackColor = System.Drawing.Color.White;
+            //}
 
             //合計
             if (Utility.IsNotNumber(this.txtSonota_Total1.Text))
@@ -819,10 +819,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtSonota_Total1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtSonota_Total1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtSonota_Total1.BackColor = System.Drawing.Color.White;
+            //}
 
 
             return true;
@@ -837,20 +837,20 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtGoukei_Kamotu1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_Kamotu1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_Kamotu1.BackColor = System.Drawing.Color.White;
+            //}
             if (Utility.IsNotNumber(this.txtGoukei_Kamotu2.Text))
             {
                 this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.Pink;
                 this.txtGoukei_Kamotu2.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.White;
+            //}
 
             if (Utility.IsNotNumber(this.txtGoukei_Kamotu3.Text))
             {
@@ -858,10 +858,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtGoukei_Kamotu3.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_Kamotu3.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_Kamotu3.BackColor = System.Drawing.Color.White;
+            //}
 
             if (Utility.IsNotNumber(this.txtGoukei_Kamotu4.Text))
             {
@@ -869,10 +869,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtGoukei_Kamotu4.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_Kamotu4.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_Kamotu4.BackColor = System.Drawing.Color.White;
+            //}
 
             //バス
             if (Utility.IsNotNumber(this.txtGoukei_Bus1.Text))
@@ -881,20 +881,20 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtGoukei_Bus1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_Bus1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_Bus1.BackColor = System.Drawing.Color.White;
+            //}
             if (Utility.IsNotNumber(this.txtGoukei_Bus2.Text))
             {
                 this.txtGoukei_Bus2.BackColor = System.Drawing.Color.Pink;
                 this.txtGoukei_Bus2.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_Bus2.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_Bus2.BackColor = System.Drawing.Color.White;
+            //}
 
             //乗用及び貨物車
             if (Utility.IsNotNumber(this.txtGoukei_JK_J1.Text))
@@ -903,20 +903,20 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtGoukei_JK_J1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_JK_J1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_JK_J1.BackColor = System.Drawing.Color.White;
+            //}
             if (Utility.IsNotNumber(this.txtGoukei_JK_K1.Text))
             {
                 this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.Pink;
                 this.txtGoukei_JK_K1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.White;
+            //}
             if (Utility.IsNotNumber(this.txtGoukei_JK_J2.Text))
             {
                 this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.Pink;
@@ -924,40 +924,40 @@ namespace Jisseki_Report_Ibaraki.common
                 return false;
 
             }
-            else
-            {
-                this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.White;
+            //}
             if (Utility.IsNotNumber(this.txtGoukei_JK_K2.Text))
             {
                 this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.Pink;
                 this.txtGoukei_JK_K2.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.White;
+            //}
             if (Utility.IsNotNumber(this.txtGoukei_JK_J3.Text))
             {
                 this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.Pink;
                 this.txtGoukei_JK_J3.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.White;
+            //}
             if (Utility.IsNotNumber(this.txtGoukei_JK_K3.Text))
             {
                 this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.Pink;
                 this.txtGoukei_JK_K3.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.White;
+            //}
 
             //小計
             if (Utility.IsNotNumber(this.txtGoukei_SubTotal1.Text))
@@ -966,10 +966,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtGoukei_SubTotal1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_SubTotal1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_SubTotal1.BackColor = System.Drawing.Color.White;
+            //}
 
             //合計
             if (Utility.IsNotNumber(this.txtGoukei_Total1.Text))
@@ -978,10 +978,10 @@ namespace Jisseki_Report_Ibaraki.common
                 this.txtGoukei_Total1.Focus();
                 return false;
             }
-            else
-            {
-                this.txtGoukei_Total1.BackColor = System.Drawing.Color.White;
-            }
+            //else
+            //{
+            //    this.txtGoukei_Total1.BackColor = System.Drawing.Color.White;
+            //}
 
 
             return true;
@@ -2511,6 +2511,7 @@ namespace Jisseki_Report_Ibaraki.common
                  qMonthRep = Page.Request.QueryString.Get("MonthRep"); 
 
 
+
             //     Response.Write(qCOCODE);
             //     Response.Write(qYearRep);
             //     Response.Write(qMonthRep);
@@ -2519,12 +2520,71 @@ namespace Jisseki_Report_Ibaraki.common
                  if (!Page.IsPostBack)
                  {
                      initializeForm();
-                     ////一ヶ月過ぎてたら修正できないようにする
+                     //会員の場合閉め日を過ぎてたら修正できないようにする
+                     if (!jadaUser) 
+                     {
+                         if (DateTime.Today.Day < 6)
+                         {
+                             //前の月で取得
+                             if (DateTime.Today.AddMonths(-1).Month > int.Parse(qMonthRep))
+                             {
 
-
-
+                                 this.lblMsg.Text = "５日を過ぎているので修正できません。";
+                                 this.btnSubmit.Enabled = false;
+                             }
+                         }
+                         else 
+                         {
+                             //1～11月
+                             if (DateTime.Today.Month >= 1 && DateTime.Today.Month <= 11)
+                             {
+                                 if (DateTime.Today.Month > int.Parse(qMonthRep))
+                                 {
+                                     this.lblMsg.Text = "５日を過ぎているので修正できません。";
+                                     this.btnSubmit.Enabled = false;
+                                 }
+                             }
+                             else 
+                             { 
+                             //12月
+                                 if (DateTime.Today.Month < int.Parse(qMonthRep))
+                                 {
+                                     this.lblMsg.Text = "５日を過ぎているので修正できません。";
+                                     this.btnSubmit.Enabled = false;
+                                 }
+                             }
+                         }                     
+                     }
 
                  }
+                 //入力しない箇所の色対応
+                 this.txtGoukei_Kamotu1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Kamotu3.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Kamotu4.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Bus1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Bus2.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_J1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Total1.BackColor = System.Drawing.Color.Silver;
+
+                 this.txtMito_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtMito_Total1.BackColor = System.Drawing.Color.Silver;
+
+                 this.txtTuchiura_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtTuchiura_Total1.BackColor = System.Drawing.Color.Silver;
+
+                 this.txtTukuba_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtTukuba_Total1.BackColor = System.Drawing.Color.Silver;
+
+                 this.txtSonota_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtSonota_Total1.BackColor = System.Drawing.Color.Silver;
+
             }
             catch
             {

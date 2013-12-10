@@ -4,16 +4,26 @@
 <head runat="server">
 <link rel="stylesheet" href="../../Css/input.css" type="text/css" />
     <style type="text/css">
-        #Wrapper
+<%--        #Wrapper
         {
 	        width: 400px;  
 	        height:auto;
 	        margin: 100px auto;
+        }--%>
+        #UnitPriceTable
+        {
+            	
         }
         #Content
         {
         	
         	}
+        	.txtUnitPrice
+        	{
+        		width:130px;
+        		text-align:center;
+        	}
+
     </style>
     <script type="text/javascript" src="../../Scripts/Utility.js"></script>
     <script type="text/javascript">
@@ -33,7 +43,7 @@
         
         };
         function checkForm() {
-            if (!isNumber("FormView1_BigSizeTextBox")) {
+            if (!isNumber("txtBigSize")) {
                 
                 flag.BigSize=false;
             }else{
@@ -41,75 +51,73 @@
 
             }
 
-            if (!isNumber("FormView1_MediumSmallTextBox")) {
+            if (!isNumber("txtMediumSmall")) {
                 flag.MediumSmall=false;
             }else{
                 flag.MediumSmall=true;
             }
 
-            if (!isNumber("FormView1_AverageTextBox")) {
+            if (!isNumber("txtAverage")) {
                 flag.Average=false;
             }else{
                 flag.Average=true;
             }
 
 
-            if (!isNumber("FormView1_Kamotu7tTextBox")) {
+            if (!isNumber("txtKamotu7t")) {
                 flag.Kamotu7t=false;
             }else{
                 flag.Kamotu7t=true;
             }
 
 
-            if (!isNumber("FormView1_Kamotu6DP9_5tTextBox")) {
+            if (!isNumber("txtKamotu6DP9_5t")) {
                 flag.Kamotu6DP9_5t=false;
             }else{
                 flag.Kamotu6DP9_5t=true;
             }
 
-            if (!isNumber("FormView1_Kamotu4DP9_3tTextBox")) {
+            if (!isNumber("txtKamotu4DP9_3t")) {
                 flag.Kamotu4DP9_3t=false;
             }else{
                 flag.Kamotu4DP9_3t=true;
             }
 
-            if (!isNumber("FormView1_Kamotu2DP9_2DP5tTextBox")) {
+            if (!isNumber("txtKamotu2DP9_2DP5t")) {
                 flag.Kamotu2DP9_2DP5t=false;
             }else{
                 flag.Kamotu2DP9_2DP5t=true;
             }
 
-            if (!isNumber("FormView1_Over2001ccTextBox")) {
+            if (!isNumber("txtOver2001cc")) {
                 flag.Over2001cc=false;
             }else{
                 flag.Over2001cc=true;
             }
 
-            if (!isNumber("FormView1_To2000From1000ccTextBox")) {
+            if (!isNumber("txtTo2000From1000cc")) {
                 flag.To2000From1000cc=false;
             }else{
                 flag.To2000From1000cc=true;
             }
 
-            if (!isNumber("FormView1_Over30TextBox")) {
+            if (!isNumber("txtOver30")) {
                 flag.Over30=false;
             }else{
                 flag.Over30=true;
             }
 
-            if (!isNumber("FormView1_LessThan29TextBox")) {
+            if (!isNumber("txtLessThan29")) {
                 flag.LessThan29=false;
             }else{
                 flag.LessThan29=true;
             }
 
-            if (!isNumber("FormView1_MemberFeeTextBox")) {
+            if (!isNumber("txtMemberFee")) {
                 flag.MemberFee=false;
             }else{
                 flag.MemberFee=true;
             }
-
-
             if(
                 flag.BigSize
                 && flag.MediumSmall
@@ -132,110 +140,95 @@
             return true;
 
         }
-    </script>
+
+</script>
     <title>単価マスター【一括修正】</title>
 </head>
 <body>
     <form id="form1" runat="server">
+    <h1>単価マスター</h1>
     <div id="Wrapper">
     <!--メニュー-->	
 	<div id="Menu" >
-        <div id="Menu_Link">
-            <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
-        </div>
-        <div id="Menu_Btn">
-            <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
-        </div>
+        <table id="MenuTable" cellpadding="1" cellspacing="5" style="border-collapse: separate;">
+            <tr >            
+                <td >
+                   <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
+                </td>
+                <td >
+                    <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
+                </td>
+            </tr>
+        </table>
     </div>
     <!--改行-->
     <div>
         <br/><br/><br/>
     </div>
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="Code,COCODE" 
-            DataSourceID="SqlDataSource_UnitPriceMaster" BackColor="#DEBA84" 
-            BorderColor="#DEBA84" BorderStyle="Solid" BorderWidth="3px" CellPadding="3" 
-            CellSpacing="2" DefaultMode="Edit" GridLines="Both" 
-            onitemupdating="FormView1_ItemUpdating" HeaderText="単価マスター" 
-            FooterText="仮請求書の単価を設定" onitemupdated="FormView1_ItemUpdated" 
-            EmptyDataText="単価マスターに設定がありません。" HorizontalAlign="Center">
-            <EditItemTemplate>
-                台数割会費　大型:
-                <asp:TextBox ID="BigSizeTextBox" runat="server" Text='<%# Bind("BigSize") %>' />
-                <br />
-                台数割会費　中・小型:
-                <asp:TextBox ID="MediumSmallTextBox" runat="server" 
-                    Text='<%# Bind("MediumSmall") %>' />
-                <br />
-                均等割会費:
-                <asp:TextBox ID="AverageTextBox" runat="server" Text='<%# Bind("Average") %>' />
-                <br />
-                ７ｔ以上:
-                <asp:TextBox ID="Kamotu7tTextBox" runat="server" 
-                    Text='<%# Bind("Kamotu7t") %>' />
-                <br />
-                ６．９ｔ～５ｔ:
-                <asp:TextBox ID="Kamotu6DP9_5tTextBox" runat="server" 
-                    Text='<%# Bind("Kamotu6DP9_5t") %>' />
-                <br />
-                ４．９ｔ～３ｔ:
-                <asp:TextBox ID="Kamotu4DP9_3tTextBox" runat="server" 
-                    Text='<%# Bind("Kamotu4DP9_3t") %>' />
-                <br />
-                ２．９ｔ～２．５ｔ:
-                <asp:TextBox ID="Kamotu2DP9_2DP5tTextBox" runat="server" 
-                    Text='<%# Bind("Kamotu2DP9_2DP5t") %>' />
-                <br />
-                ２，００１ｃｃ以上:
-                <asp:TextBox ID="Over2001ccTextBox" runat="server" 
-                    Text='<%# Bind("Over2001cc") %>' />
-                <br />
-                ２，０００ｃｃ～１，０００ｃｃ:
-                <asp:TextBox ID="To2000From1000ccTextBox" runat="server" 
-                    Text='<%# Bind("To2000From1000cc") %>' />
-                <br />
-                乗合定員３０人以上:
-                <asp:TextBox ID="Over30TextBox" runat="server" Text='<%# Bind("Over30") %>' />
-                <br />
-                乗合定員２９人以下:
-                <asp:TextBox ID="LessThan29TextBox" runat="server" 
-                    Text='<%# Bind("LessThan29") %>' />
-                <br />
-                会費:
-                <asp:TextBox ID="MemberFeeTextBox" runat="server"  Text='<%# Bind("MemberFee") %>' />
-                <br />
-                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True"  CommandName="Update" Text="更新" OnClientClick="return checkForm();" />
-                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" 
-                    CausesValidation="False" CommandName="Cancel" Text="キャンセル"  />
-            </EditItemTemplate>
-            <EditRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" BorderStyle="Solid" 
-                BorderWidth="3px" />
-            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" Wrap="True" />
-            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" BorderStyle="Dashed" 
-                BorderWidth="1px" />
-        </asp:FormView>
-        <asp:SqlDataSource ID="SqlDataSource_UnitPriceMaster" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:JissekiConnectionString %>" SelectCommand="SELECT TOP 1 *
-  FROM [Jisseki_Report_Ibaraki].[dbo].[UnitPrice]
-where 
-Code='01'" 
-            UpdateCommand="UPDATE UnitPrice SET BigSize = @BigSize, MediumSmall = @MediumSmall, Average = @Average, Kamotu7t = @Kamotu7t, Kamotu6DP9_5t = @Kamotu6DP9_5t, Kamotu4DP9_3t = @Kamotu4DP9_3t, Kamotu2DP9_2DP5t = @Kamotu2DP9_2DP5t, Over2001cc = @Over2001cc, To2000From1000cc = @To2000From1000cc, MemberFee = @MemberFee, LessThan29 = @LessThan29, Over30 = @Over30 WHERE (Code = '01')">
-            <UpdateParameters>
-                <asp:Parameter Name="BigSize" />
-                <asp:Parameter Name="MediumSmall" />
-                <asp:Parameter Name="Average" />
-                <asp:Parameter Name="Kamotu7t" />
-                <asp:Parameter Name="Kamotu6DP9_5t" />
-                <asp:Parameter Name="Kamotu4DP9_3t" />
-                <asp:Parameter Name="Kamotu2DP9_2DP5t" />
-                <asp:Parameter Name="Over2001cc" />
-                <asp:Parameter Name="To2000From1000cc" />
-                <asp:Parameter Name="MemberFee" />
-                <asp:Parameter Name="LessThan29" />
-                <asp:Parameter Name="Over30" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
+    <div>
+        <asp:Label ID="lblMsg" runat="server" BackColor="#FF66FF"></asp:Label>
+    </div>
+    <div>
+        <table id="UnitPriceTable" style="width:360px;" border="1">
+        <colgroup span="1" style="background-color:#1C5E55;color:White;"></colgroup>
+        <colgroup span="1"></colgroup>
+            <tr>
+                <td>台数割会費　大型:</td>
+                <td><asp:TextBox ID="txtBigSize" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>台数割会費　中・小型:</td>
+                <td><asp:TextBox ID="txtMediumSmall" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>均等割会費: </td>
+                <td><asp:TextBox ID="txtAverage" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>７ｔ以上: </td>
+                <td><asp:TextBox ID="txtKamotu7t" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>６．９ｔ～５ｔ:</td>
+                <td><asp:TextBox ID="txtKamotu6DP9_5t" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>４．９ｔ～３ｔ: </td>
+                <td><asp:TextBox ID="txtKamotu4DP9_3t" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>２．９ｔ～２．５ｔ:</td>
+                <td><asp:TextBox ID="txtKamotu2DP9_2DP5t" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>２，００１ｃｃ以上: </td>
+                <td><asp:TextBox ID="txtOver2001cc" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>２，０００ｃｃ～１，０００ｃｃ: </td>
+                <td><asp:TextBox ID="txtTo2000From1000cc" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>乗合定員３０人以上:</td>
+                <td><asp:TextBox ID="txtOver30" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>乗合定員２９人以下:</td>
+                <td><asp:TextBox ID="txtLessThan29" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>会費:</td>
+                <td><asp:TextBox ID="txtMemberFee" runat="server" class="txtUnitPrice"></asp:TextBox></td>
+            </tr>
+            
+        </table>
+        <br/>
+        <div>
+            <asp:Button ID="btnUpdate" runat="server" Text="更新"  onclick="btnUpdate_Click1" OnClientClick="return checkForm();" />
+            <input id="Reset1" type="reset" value="リセット" />
+        </div>
+        <br/>
+      </div>
     </div>
     </form>
 </body>

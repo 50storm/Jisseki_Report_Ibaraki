@@ -108,6 +108,18 @@ namespace Jisseki_Report_Ibaraki.Tools
             }
         }
 
+        public static string covertDigit2(int val)
+        {
+
+            if (val == 1 || val == 2  || val == 3 ||
+                val == 4 || val == 5  || val == 6 ||
+                val == 7 || val == 9  || val == 9
+                ){
+            
+                return ("0" + val.ToString()).ToString();
+            }
+            return val.ToString();       
+        }
        
 
     }

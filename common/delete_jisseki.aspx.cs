@@ -546,8 +546,70 @@ namespace Jisseki_Report_Ibaraki.common
                  if (!Page.IsPostBack)
                  {
                      initializeForm();
+                     //会員の場合閉め日を過ぎてたら修正できないようにする
+                     if (!jadaUser)
+                     {
+                         if (DateTime.Today.Day < 6)
+                         {
+                             //前の月で取得
+                             if (DateTime.Today.AddMonths(-1).Month > int.Parse(qMonthRep))
+                             {
+
+                                 this.lblMsg.Text = "５日を過ぎているので修正できません。";
+                                 this.btnSubmit.Enabled = false;
+                             }
+                         }
+                         else
+                         {
+                             //1～11月
+                             if (DateTime.Today.Month >= 1 && DateTime.Today.Month <= 11)
+                             {
+                                 if (DateTime.Today.Month > int.Parse(qMonthRep))
+                                 {
+                                     this.lblMsg.Text = "５日を過ぎているので修正できません。";
+                                     this.btnSubmit.Enabled = false;
+                                 }
+                             }
+                             else
+                             {
+                                 //12月
+                                 if (DateTime.Today.Month < int.Parse(qMonthRep))
+                                 {
+                                     this.lblMsg.Text = "５日を過ぎているので修正できません。";
+                                     this.btnSubmit.Enabled = false;
+                                 }
+                             }
+                         }
+                     }
                  }
                  ////一ヶ月過ぎてたら削除できないようにする
+                 //入力しない箇所の色対応
+                 this.txtGoukei_Kamotu1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Kamotu2.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Kamotu3.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Kamotu4.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Bus1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Bus2.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_J1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_J2.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_J3.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_K1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_K2.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_JK_K3.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtGoukei_Total1.BackColor = System.Drawing.Color.Silver;
+
+                 this.txtMito_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtMito_Total1.BackColor = System.Drawing.Color.Silver;
+
+                 this.txtTuchiura_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtTuchiura_Total1.BackColor = System.Drawing.Color.Silver;
+
+                 this.txtTukuba_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtTukuba_Total1.BackColor = System.Drawing.Color.Silver;
+
+                 this.txtSonota_SubTotal1.BackColor = System.Drawing.Color.Silver;
+                 this.txtSonota_Total1.BackColor = System.Drawing.Color.Silver;
 
 
            }catch{

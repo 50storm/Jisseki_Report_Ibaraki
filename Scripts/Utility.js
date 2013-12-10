@@ -91,3 +91,36 @@ function isOk(id) {
 
 
 
+//和暦を西暦に変換(igarashi)
+function warekiToSeireki(Gengo, y) {
+    y = parseInt(y, 10);
+    var seireki;
+
+    switch (Gengo) {
+        case "平成":
+            if ((y > 0)) {
+                seireki = 1988 + y; //　平成
+            }
+            break;
+        case "昭和":
+            if ((y > 0) && (y < 65)) {
+                seireki = 1925 + y;
+            }
+            break;
+
+        case "大正":
+            if ((y > 0) && (y < 16)) {
+                seireki = 1911 + y;
+            }
+            break;
+
+        case "明治":
+            if ((y > 0) && (y < 46)) {
+                seireki = 1867 + y;
+            }
+            break;
+    }
+
+    return seireki;
+}
+

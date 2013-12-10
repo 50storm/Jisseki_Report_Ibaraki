@@ -16,12 +16,16 @@
 <form id="form1" runat="server" >
     <!--メニュー-->	
 	<div id="Menu" >
-        <div id="Menu_Link">
-            <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"    onclick="btnlinkMenu_Click" class="BtnMenu" />
-        </div>
-        <div id="Menu_Btn">
-            <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click"  class="BtnMenu"  />
-        </div>
+        <table id="MenuTable" cellpadding="1" cellspacing="5" style="border-collapse: separate;">
+            <tr >            
+                <td >
+                   <asp:Button ID="btnlinkMenu" runat="server" Text="メニュー"  onclick="btnlinkMenu_Click" class="BtnMenu" />
+                </td>
+                <td >
+                    <asp:Button ID="btnLogOut" runat="server" Text="ログアウト"    onclick="btnLogOut_Click" />
+                </td>
+            </tr>
+        </table>
     </div>
     <!--改行-->
     <div>
@@ -76,7 +80,7 @@
         </colgroup>
 		<thead>
 		<tr>
-			<th class="col"></th><th>区　分</th><th colspan="2">水　戸</th><th colspan="2">土　浦</th><th colspan="2">つ　く　ば</th><th colspan="2">その他</th><th colspan="2">合計</th>
+			<th class="col"></th><th>区　分</th><th colspan="2">水　戸</th><th colspan="2">土　浦</th><th colspan="2">つ　く　ば</th><th colspan="2">その他</th><th  style="background:gray;"  colspan="2">合計</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -88,7 +92,9 @@
 			<td colspan="2"><asp:TextBox ID="txtTuchiura_Kamotu1" runat="server" class="txtTableType1" MaxLength="3"  onfocus="select();"   onBlur="SumRow1();SumTuchiura();SumGoukei();" >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtTukuba_Kamotu1" runat="server" class="txtTableType1"  MaxLength="3"   onfocus="select();"  onBlur="SumRow1();SumTukuba();SumGoukei();">0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtSonota_Kamotu1" runat="server" class="txtTableType1"  MaxLength="3"   onfocus="select();"  onBlur="SumRow1();SumSonota();SumGoukei();">0</asp:TextBox></td>
-			<td colspan="2"><asp:TextBox ID="txtGoukei_Kamotu1" runat="server" class="txtTableType1"  MaxLength="3"   onfocus="select();"  onBlur="SumRow1();SumGoukei();">0</asp:TextBox></td>
+			<td style="background:gray;" colspan="2"><asp:TextBox ID="txtGoukei_Kamotu1" 
+                    runat="server" class="txtTableType1"  MaxLength="3"   onfocus="select();"  
+                    onBlur="SumRow1();SumGoukei();" BackColor="Silver">0</asp:TextBox></td>
 		</tr>
 		<tr>
 			<td  class="Category">6.9t ～ 5t以上</td>
@@ -96,7 +102,9 @@
 			<td colspan="2"><asp:TextBox ID="txtTuchiura_Kamotu2" runat="server" class="txtTableType1" MaxLength="3"  onfocus="select();"  onBlur="SumRow2();SumTuchiura();SumGoukei();" >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtTukuba_Kamotu2" runat="server" class="txtTableType1"   MaxLength="3"  onfocus="select();"  onBlur="SumRow2();SumTukuba();SumGoukei();" >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtSonota_Kamotu2" runat="server" class="txtTableType1"   MaxLength="3"  onfocus="select();"  onBlur="SumRow2();SumSonota();SumGoukei();" >0</asp:TextBox></td>
-			<td colspan="2"><asp:TextBox ID="txtGoukei_Kamotu2" runat="server" class="txtTableType1"   MaxLength="3"  onfocus="select();"  onBlur="SumRow2();SumGoukei();" >0</asp:TextBox></td>
+			<td  style="background:gray;"  colspan="2"><asp:TextBox ID="txtGoukei_Kamotu2" 
+                    runat="server" class="txtTableType1"   MaxLength="3"  onfocus="select();"  
+                    onBlur="SumRow2();SumGoukei();"  >0</asp:TextBox></td>
 		</tr>
 		<tr>
 		<td  class="Category">4.9t ～ 3t以上</td>
@@ -104,7 +112,9 @@
 			<td colspan="2"><asp:TextBox ID="txtTuchiura_Kamotu3" runat="server" class="txtTableType1"  MaxLength="3"   onfocus="select();" onBlur="SumRow3();SumTuchiura();SumGoukei();" >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtTukuba_Kamotu3" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();" onBlur="SumRow3();SumTukuba();SumGoukei();" >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtSonota_Kamotu3" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();" onBlur="SumRow3();SumSonota();SumGoukei();" >0</asp:TextBox></td>
-			<td colspan="2"><asp:TextBox ID="txtGoukei_Kamotu3" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();" onBlur="SumRow3();SumGoukei();" >0</asp:TextBox></td>
+			<td  style="background:gray;"  colspan="2"><asp:TextBox ID="txtGoukei_Kamotu3" 
+                    runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();" 
+                    onBlur="SumRow3();SumGoukei();" BackColor="Silver" >0</asp:TextBox></td>
 		
 		</tr>
 		<tr>
@@ -113,7 +123,9 @@
 			<td colspan="2"><asp:TextBox ID="txtTuchiura_Kamotu4" runat="server" class="txtTableType1"  MaxLength="3"   onfocus="select();" onBlur="SumRow4();SumTuchiura();SumGoukei();" >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtTukuba_Kamotu4" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();" onBlur="SumRow4();SumTukuba();SumGoukei();" >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtSonota_Kamotu4" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();" onBlur="SumRow4();SumSonota();SumGoukei();" >0</asp:TextBox></td>
-			<td colspan="2"><asp:TextBox ID="txtGoukei_Kamotu4" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();" onBlur="SumRow4();SumGoukei();" >0</asp:TextBox></td>
+			<td  style="background:gray;"  colspan="2"><asp:TextBox ID="txtGoukei_Kamotu4" 
+                    runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();" 
+                    onBlur="SumRow4();SumGoukei();" BackColor="Silver" >0</asp:TextBox></td>
 		</tr>
 		<!--バス-->
 		<tr>
@@ -123,7 +135,9 @@
 			<td colspan="2"><asp:TextBox ID="txtTuchiura_Bus1" runat="server" class="txtTableType1"  MaxLength="3"    onfocus="select();" onBlur="SumBus1();SumTuchiura();SumGoukei();"  >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtTukuba_Bus1" runat="server" class="txtTableType1"    MaxLength="3"    onfocus="select();" onBlur="SumBus1();SumTukuba();SumGoukei();"  >0</asp:TextBox></td>
 			<td colspan="2"><asp:TextBox ID="txtSonota_Bus1" runat="server" class="txtTableType1"    MaxLength="3"    onfocus="select();" onBlur="SumBus1();SumSonota();SumGoukei();"  >0</asp:TextBox></td>
-			<td colspan="2"><asp:TextBox ID="txtGoukei_Bus1" runat="server" class="txtTableType1"    MaxLength="3"    onfocus="select();" onBlur="SumBus1();SumGoukei();"  >0</asp:TextBox></td>
+			<td  style="background:gray;"  colspan="2"><asp:TextBox ID="txtGoukei_Bus1" 
+                    runat="server" class="txtTableType1"    MaxLength="3"    onfocus="select();" 
+                    onBlur="SumBus1();SumGoukei();" BackColor="Silver"  >0</asp:TextBox></td>
 		</tr>
 		<tr>
 		<td  class="Category">定員29人以下<br/>(乗用車を除く)</td>
@@ -131,7 +145,9 @@
 		<td colspan="2"><asp:TextBox ID="txtTuchiura_Bus2" runat="server" class="txtTableType1"  MaxLength="3"   onfocus="select();"   onBlur="SumBus2();SumTuchiura();SumGoukei();" >0</asp:TextBox></td>
 		<td colspan="2"><asp:TextBox ID="txtTukuba_Bus2" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();"   onBlur="SumBus2();SumTukuba();SumGoukei();" >0</asp:TextBox></td>
 		<td colspan="2"><asp:TextBox ID="txtSonota_Bus2" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();"   onBlur="SumBus2();SumSonota();SumGoukei();" >0</asp:TextBox></td>
-		<td colspan="2"><asp:TextBox ID="txtGoukei_Bus2" runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();"   onBlur="SumBus2();SumGoukei();" >0</asp:TextBox></td>
+		<td  style="background:gray;"  colspan="2"><asp:TextBox ID="txtGoukei_Bus2" 
+                runat="server" class="txtTableType1"    MaxLength="3"   onfocus="select();"   
+                onBlur="SumBus2();SumGoukei();" BackColor="Silver" >0</asp:TextBox></td>
 		</tr>
 		<!--乗用車及び貨物車-->
 		<tr>
@@ -142,7 +158,7 @@
                 <p id="Row_JK_4" >及&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                 <p id="Row_JK_5" >び&nbsp;&nbsp;車</p>
             </td>
-             <td >&nbsp;</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td>
+             <td >&nbsp;</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td>乗用</td><td>貨物</td><td  style="background:gray;">乗用</td><td  style="background:gray;" >貨物</td>
 		</tr>
 		<tr >
 			<td class="Category" ><p>2,001cc以上</p></td>
@@ -154,8 +170,14 @@
 			<td><asp:TextBox ID="txtTukuba_JK_K1" runat="server"     MaxLength="3"  class="txtTableType2"   onfocus="select();" onblur="SumTukubaSubTotal();SumTukuba();JK_K1();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
 			<td><asp:TextBox ID="txtSonota_JK_J1" runat="server"     MaxLength="3"  class="txtTableType2"   onfocus="select();" onblur="SumSonotaSubTotal();SumSonota();JK_J1();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
 			<td><asp:TextBox ID="txtSonota_JK_K1" runat="server"     MaxLength="3"  class="txtTableType2"   onfocus="select();" onblur="SumSonotaSubTotal();SumSonota();JK_K1();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
-			<td><asp:TextBox ID="txtGoukei_JK_J1" runat="server"     MaxLength="3"  class="txtTableType2"   onfocus="select();" onblur="SumGoukeiSubTotal();SumGoukei();JK_J1();SumGoukeiSubTotal();SumGoukei();">0</asp:TextBox></td>
-			<td><asp:TextBox ID="txtGoukei_JK_K1" runat="server"     MaxLength="3"  class="txtTableType2"   onfocus="select();" onblur="SumGoukeiSubTotal();SumGoukei();JK_K1();SumGoukeiSubTotal();SumGoukei();">0</asp:TextBox></td>
+			<td  style="background:gray;" ><asp:TextBox ID="txtGoukei_JK_J1" runat="server"     
+                    MaxLength="3"  class="txtTableType2"   onfocus="select();" 
+                    onblur="SumGoukeiSubTotal();SumGoukei();JK_J1();SumGoukeiSubTotal();SumGoukei();" 
+                    BackColor="Silver">0</asp:TextBox></td>
+			<td  style="background:gray;" ><asp:TextBox ID="txtGoukei_JK_K1" runat="server"     
+                    MaxLength="3"  class="txtTableType2"   onfocus="select();" 
+                    onblur="SumGoukeiSubTotal();SumGoukei();JK_K1();SumGoukeiSubTotal();SumGoukei();" 
+                    BackColor="Silver">0</asp:TextBox></td>
 		</tr>
 		<tr style="height:10px;">
 			<td  class="Category" ><p style="line-height:14px;">2,000cc&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;～1,000cc</p></td>
@@ -167,8 +189,14 @@
 			<td><asp:TextBox ID="txtTukuba_JK_K2" runat="server"  MaxLength="3"    class="txtTableType2"   onfocus="select();" onblur="SumTukubaSubTotal();SumTukuba();JK_K2();SumGoukeiSubTotal();SumGoukei();">0</asp:TextBox></td>
 			<td><asp:TextBox ID="txtSonota_JK_J2" runat="server"  MaxLength="3"    class="txtTableType2"   onfocus="select();" onblur="SumSonotaSubTotal();SumSonota();JK_J2();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
 			<td><asp:TextBox ID="txtSonota_JK_K2" runat="server"  MaxLength="3"    class="txtTableType2"   onfocus="select();" onblur="SumSonotaSubTotal();SumSonota();JK_K2();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
-			<td><asp:TextBox ID="txtGoukei_JK_J2" runat="server"  MaxLength="3"    class="txtTableType2"   onfocus="select();" onblur="SumGoukeiSubTotal();SumGoukei();JK_J2();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
-			<td><asp:TextBox ID="txtGoukei_JK_K2" runat="server"  MaxLength="3"    class="txtTableType2"   onfocus="select();" onblur="SumGoukeiSubTotal();SumGoukei();JK_K2();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
+			<td  style="background:gray;" ><asp:TextBox ID="txtGoukei_JK_J2" runat="server"  
+                    MaxLength="3"    class="txtTableType2"   onfocus="select();" 
+                    onblur="SumGoukeiSubTotal();SumGoukei();JK_J2();SumGoukeiSubTotal();SumGoukei();" 
+                    BackColor="Silver" >0</asp:TextBox></td>
+			<td  style="background:gray;" ><asp:TextBox ID="txtGoukei_JK_K2" runat="server"  
+                    MaxLength="3"    class="txtTableType2"   onfocus="select();" 
+                    onblur="SumGoukeiSubTotal();SumGoukei();JK_K2();SumGoukeiSubTotal();SumGoukei();" 
+                    BackColor="Silver" >0</asp:TextBox></td>
 		</tr>
 		<tr  style="height:10px;">
 			<td class="Category" ><p>1,000cc未満</p></td>
@@ -180,26 +208,52 @@
 			<td><asp:TextBox ID="txtTukuba_JK_K3" runat="server"  MaxLength="3"   class="txtTableType2"   onfocus="select();" onblur="SumTukubaSubTotal();SumTukuba();JK_K3();SumGoukeiSubTotal();SumGoukei();">0</asp:TextBox></td>
 			<td><asp:TextBox ID="txtSonota_JK_J3" runat="server"  MaxLength="3"   class="txtTableType2"   onfocus="select();" onblur="SumSonotaSubTotal();SumSonota();JK_J3();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
 			<td><asp:TextBox ID="txtSonota_JK_K3" runat="server"  MaxLength="3"   class="txtTableType2"   onfocus="select();" onblur="SumSonotaSubTotal();SumSonota();JK_K3();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
-			<td><asp:TextBox ID="txtGoukei_JK_J3" runat="server"  MaxLength="3"  class="txtTableType2"   onfocus="select();" onblur="SumGoukeiSubTotal();SumGoukei();JK_J3();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
-			<td><asp:TextBox ID="txtGoukei_JK_K3" runat="server"  MaxLength="3"  class="txtTableType2"   onfocus="select();" onblur="SumGoukeiSubTotal();SumGoukei();JK_K3();SumGoukeiSubTotal();SumGoukei();" >0</asp:TextBox></td>
+			<td  style="background:gray;" ><asp:TextBox ID="txtGoukei_JK_J3" runat="server"  
+                    MaxLength="3"  class="txtTableType2"   onfocus="select();" 
+                    onblur="SumGoukeiSubTotal();SumGoukei();JK_J3();SumGoukeiSubTotal();SumGoukei();" 
+                    BackColor="Silver" >0</asp:TextBox></td>
+			<td  style="background:gray;" ><asp:TextBox ID="txtGoukei_JK_K3" runat="server"  
+                    MaxLength="3"  class="txtTableType2"   onfocus="select();" 
+                    onblur="SumGoukeiSubTotal();SumGoukei();JK_K3();SumGoukeiSubTotal();SumGoukei();" 
+                    BackColor="Silver" >0</asp:TextBox></td>
 		</tr>
 		<!--小計-->
 		<tr>
-		<td colspan="2">小　計</td>
-		<td colspan="2"><asp:TextBox ID="txtMito_SubTotal1" runat="server" class="txtTableType1"  MaxLength="3" >0</asp:TextBox></td>
-		<td colspan="2"><asp:TextBox ID="txtTuchiura_SubTotal1" runat="server" class="txtTableType1"  MaxLength="3" >0</asp:TextBox></td>
-		<td colspan="2"><asp:TextBox ID="txtTukuba_SubTotal1" runat="server" class="txtTableType1"   MaxLength="3" >0</asp:TextBox></td>
-		<td colspan="2"><asp:TextBox ID="txtSonota_SubTotal1" runat="server" class="txtTableType1"   MaxLength="3" >0</asp:TextBox></td>
-		<td colspan="2"><asp:TextBox ID="txtGoukei_SubTotal1" runat="server" class="txtTableType1"   MaxLength="3" >0</asp:TextBox></td>
+		<td   style="background:gray;" colspan="2">小　計</td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtMito_SubTotal1" 
+                runat="server" class="txtTableType1"  MaxLength="3"  onfocus="select();" 
+                BackColor="Silver" >0</asp:TextBox></td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtTuchiura_SubTotal1" 
+                runat="server" class="txtTableType1"  MaxLength="3" onfocus="select();" 
+                BackColor="Silver" >0</asp:TextBox></td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtTukuba_SubTotal1" 
+                runat="server" class="txtTableType1"   MaxLength="3" onfocus="select();" 
+                BackColor="Silver">0</asp:TextBox></td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtSonota_SubTotal1" 
+                runat="server" class="txtTableType1"   MaxLength="3" onfocus="select();" 
+                BackColor="Silver">0</asp:TextBox></td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtGoukei_SubTotal1" 
+                runat="server" class="txtTableType1"   MaxLength="3" onfocus="select();" 
+                BackColor="Silver">0</asp:TextBox></td>
 		</tr>
 		<!--合計-->
 		<tr>
-		<td colspan="2">合　計</td>
-		<td colspan="2"><asp:TextBox ID="txtMito_Total1" runat="server" class="txtTableType1"     MaxLength="3" onblur="SumMito();" >0</asp:TextBox></td>
-		<td colspan="2"><asp:TextBox ID="txtTuchiura_Total1" runat="server" class="txtTableType1"  MaxLength="3" onblur="SumTuchiura();" >0</asp:TextBox></td>
-		<td colspan="2"><asp:TextBox ID="txtTukuba_Total1" runat="server" class="txtTableType1"   MaxLength="3" onblur="SumTukuba();">0</asp:TextBox></td>
-		<td colspan="2"><asp:TextBox ID="txtSonota_Total1" runat="server" class="txtTableType1"   MaxLength="3" onblur="SumSonota();" >0</asp:TextBox></td>
-		<td  colspan="2"><asp:TextBox ID="txtGoukei_Total1" runat="server" class="txtTableType1"   MaxLength="3" onblur="SumGoukei();">0</asp:TextBox></td>
+		<td   style="background:gray;" colspan="2">合　計</td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtMito_Total1"   
+                runat="server" class="txtTableType1"     MaxLength="3" onblur="SumMito();"    
+                onfocus="select();" BackColor="Silver">0</asp:TextBox></td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtTuchiura_Total1" 
+                runat="server" class="txtTableType1"  MaxLength="3" onblur="SumTuchiura();" 
+                onfocus="select();" BackColor="Silver">0</asp:TextBox></td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtTukuba_Total1" 
+                runat="server" class="txtTableType1"   MaxLength="3" onblur="SumTukuba();"    
+                onfocus="select();" BackColor="Silver">0</asp:TextBox></td>
+		<td  style="background:gray;" colspan="2"><asp:TextBox ID="txtSonota_Total1" 
+                runat="server" class="txtTableType1"   MaxLength="3" onblur="SumSonota();"    
+                onfocus="select();" BackColor="Silver">0</asp:TextBox></td>
+		<td  style="background:gray;"  colspan="2"><asp:TextBox ID="txtGoukei_Total1" 
+                runat="server" class="txtTableType1"   MaxLength="3" onblur="SumGoukei();"   
+                onfocus="select();" BackColor="Silver">0</asp:TextBox></td>
 		</tr>
 		</tbody>
 		</table>

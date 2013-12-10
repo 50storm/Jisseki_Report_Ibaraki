@@ -127,8 +127,8 @@
             DataNavigateUrlFormatString="~/common/delete_jisseki.aspx?COCODE={0}&amp;YearRep={1}&amp;MonthRep={2}" 
             Target="_self" />
         
-        <asp:HyperLinkField Text="修正" DataNavigateUrlFields="COCODE,YearRep,MonthRep" 
-            DataNavigateUrlFormatString="~/common/alter_jisseki.aspx?COCODE={0}&amp;YearRep={1}&amp;MonthRep={2}" 
+        <asp:HyperLinkField Text="修正" DataNavigateUrlFields="COCODE,YearRep,MonthRep,Year,Month,Day" 
+            DataNavigateUrlFormatString="~/common/alter_jisseki.aspx?COCODE={0}&amp;YearRep={1}&amp;MonthRep={2}&amp;Year={3}&amp;Month={4}&amp;Day={5}" 
             Target="_self" />
         
         <asp:BoundField DataField="Year" HeaderText="Year" />

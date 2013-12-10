@@ -35,8 +35,10 @@
         {
         	width:230px;height:280px;border:1px solid black; padding:10px 10px 10px 10px;
         }
-        
-        
+        #Env
+       {
+            clear:left
+       } 
         /*ログアウト*/
         #MemberLogOut
         {
@@ -73,9 +75,13 @@
                 <p><asp:Button ID="btnSerachJisseki" runat="server" Text="新車台数実績検索"  onclick="btnSearchJisseki_Click" /></p>
             </div>
         </div>
+    <div id="Env">
+        <p><a href="../../pdf/動作環境.pdf">動作環境について</a></p>
+    </div>
         <div id="MemberLogOut">
             <asp:Button ID="btnLogOut" runat="server" Text="ログアウト" onclick="btnLogOut_Click" />
         </div>
+
         </form>
     </div>
 </body>

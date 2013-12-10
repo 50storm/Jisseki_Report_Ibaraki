@@ -15,6 +15,112 @@ namespace Jisseki_Report_Ibaraki.jada.master
     {
         private string strConn;
 
+        private Boolean isRegisterd() {
+            try
+            {
+                string Sql = " SELECT * FROM [Jisseki_Report_Ibaraki].dbo.ID WHERE COCODE=@COCODE ";
+                using (SqlConnection Conn = new SqlConnection(strConn))
+                {
+                    Conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(Sql, Conn))
+                    {
+
+                        cmd.Parameters.Add(new SqlParameter("@COCODE", this.txtCOCODE.Text));
+
+                        using (SqlDataReader Reader = cmd.ExecuteReader()) {
+                            if (Reader.HasRows)
+                            {
+                                return true;
+                            }
+                            else 
+                            {
+                                return false;
+                            }
+                        
+                        }
+                    }
+                    
+                }
+            }
+            catch 
+            {
+                throw;
+
+            }     
+        
+        }
+
+        private void insertUnitPrice()
+        {
+            string Sql = "SELECT TOP 1 *  FROM [dbo].[UnitPrice]";
+            using (SqlConnection Conn = new SqlConnection(strConn))
+            {
+                Conn.Open();
+                using (SqlCommand cmd = new SqlCommand(Sql, Conn))
+                {
+
+                    SqlDataReader Reader = cmd.ExecuteReader();
+                    if (Reader.HasRows)
+                    {
+                        Reader.Read();
+                        //登録
+                        string InsertSQL = "INSERT INTO [Jisseki_Report_Ibaraki].[dbo].[UnitPrice] "
+                                        + " ([Code] ,[BigSize] ,[MediumSmall] ,[Average] ,[Kamotu7t] ,[Kamotu6DP9_5t] "
+                                        + "  ,[Kamotu4DP9_3t] ,[Kamotu2DP9_2DP5t] ,[Over2001cc] ,[To2000From1000cc] "
+                                        + "  ,[Over30] ,[LessThan29] ,[MemberFee] ,[COCODE]) "
+                                        + "VALUES"
+                                        + "("
+                                        +"  @Code"
+                                        +" ,@BigSize"
+                                        +" ,@MediumSmall"
+                                        +" ,@Average"
+                                        +" ,@Kamotu7t"
+                                        +" ,@Kamotu6DP9_5t"
+                                        +" ,@Kamotu4DP9_3t"
+                                        +" ,@Kamotu2DP9_2DP5t"
+                                        +" ,@Over2001cc"
+                                        +" ,@To2000From1000cc"
+                                        +" ,@Over30"
+                                        +" ,@LessThan29"
+                                        +" ,@MemberFee"
+                                        +" ,@COCODE"
+            
+                                        + ")";
+                        using (SqlConnection ConnIns = new SqlConnection(strConn))
+                        {
+                            ConnIns.Open();
+                            //using (SqlTransaction Tran = ConnIns.BeginTransaction())
+                            //{
+
+                                SqlCommand InsertCmd = new SqlCommand();
+                                InsertCmd.Connection = ConnIns;
+                                InsertCmd.CommandText = InsertSQL;
+                                //InsertCmd.Transaction = Tran;
+                                InsertCmd.Parameters.Add(new SqlParameter("@Code", Reader["Code"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@BigSize", Reader["BigSize"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@MediumSmall", Reader["MediumSmall"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@Average", Reader["Average"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@Kamotu7t", Reader["Kamotu7t"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@Kamotu6DP9_5t", Reader["Kamotu6DP9_5t"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@Kamotu4DP9_3t", Reader["Kamotu4DP9_3t"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@Kamotu2DP9_2DP5t", Reader["Kamotu2DP9_2DP5t"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@Over2001cc", Reader["Over2001cc"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@To2000From1000cc", Reader["To2000From1000cc"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@Over30", Reader["Over30"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@LessThan29", Reader["LessThan29"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@MemberFee", Reader["MemberFee"].ToString()));
+                                InsertCmd.Parameters.Add(new SqlParameter("@COCODE", this.txtCOCODE.Text));
+                                InsertCmd.ExecuteNonQuery();
+
+
+                            //}
+                        }
+                    }
+                }
+            }    
+        
+        }
+
         private void setGridView() {
             try
             {
@@ -114,8 +220,6 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
                         }
 
-
-
                     }
                     Conn.Close();
                 }
@@ -126,7 +230,7 @@ namespace Jisseki_Report_Ibaraki.jada.master
             }
 
         }
-
+#region"ボタン"
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             //Update
@@ -204,25 +308,35 @@ namespace Jisseki_Report_Ibaraki.jada.master
         {
 
             //削除確認
-            //OnClient_Clickで
-
-
+            //OnClient_Clickでやる
             //削除
-            string Sql = " DELETE FROM  [Jisseki_Report_Ibaraki].dbo.ID "
-                       + " WHERE COCODE = @Key ";
-                       
-            using (SqlConnection Conn = new SqlConnection(strConn))
+            try
             {
-                Conn.Open();
-                using (SqlCommand cmd = new SqlCommand(Sql, Conn))
-                {   
-                    cmd.Parameters.Add(new SqlParameter("@Key", this.txtCOCODE.Text));
-                    cmd.ExecuteNonQuery();
+                string Sql = " DELETE FROM  [Jisseki_Report_Ibaraki].dbo.ID "
+                           + " WHERE COCODE = @Key; "
+                           + " DELETE FROM [Jisseki_Report_Ibaraki].[dbo].[UnitPrice] "
+                           + " WHERE COCODE = @Key; ";
 
-                    setGridView();
+                using (SqlConnection Conn = new SqlConnection(strConn))
+                {
+                    Conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(Sql, Conn))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@Key", this.txtCOCODE.Text));
+                        cmd.ExecuteNonQuery();
 
+                        setGridView();
+                        this.lblMsg.Text = "削除しました";
+                        this.lblMsg.BackColor = System.Drawing.Color.Pink;
+
+                    }
                 }
-            }          
+            }
+            catch (Exception ex)
+            {
+                 this.lblMsg.Text = ex.Message;
+     
+            }
         }
 
         protected void btnInsert_Click(object sender, EventArgs e)
@@ -308,7 +422,13 @@ namespace Jisseki_Report_Ibaraki.jada.master
                 this.txtMemberType.BackColor = System.Drawing.Color.White;
             }
 
+            //重複チェック
 
+            if (isRegisterd()) {
+                this.lblMsg.Text = "既に登録済です";
+                this.lblMsg.BackColor = System.Drawing.Color.Pink;
+                return;
+            }
 
             string Sql = " INSERT INTO [Jisseki_Report_Ibaraki].[dbo].[ID] "
                          + "(" 
@@ -372,6 +492,13 @@ namespace Jisseki_Report_Ibaraki.jada.master
                             cmd.Parameters.Add(new SqlParameter("@Position", this.txtPosition.Text));
                             //cmd.Parameters.Add(new SqlParameter("@isCanceled", this.txtPosition.Text));
                             cmd.ExecuteNonQuery();
+
+
+                            //単価マスタも登録する
+                            this.insertUnitPrice();
+
+
+
                             //Commit Transaction
                             Tran.Commit();
                             this.setGridView();
@@ -423,7 +550,6 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
         }
 
-
         protected void btnlinkMenu_Click(object sender, EventArgs e)
         {
             try
@@ -450,5 +576,28 @@ namespace Jisseki_Report_Ibaraki.jada.master
 
             }
         }
+#endregion 
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+            this.txtCOCODE.Text = "";
+            this.txtUID.Text = "";
+            this.txtCONAME.Text = "";
+            this.txtshort_CONAME.Text = "";
+            this.txtRepName.Text = "";
+            this.txtPostalCode.Text = "";
+            this.txtAddress.Text = "";
+            this.txtTel.Text = "";
+            this.txtPassword.Text = "";
+            this.txtMember.Text = "";
+            this.txtMemberType.Text = "";
+            this.txtPosition.Text = "";
+            this.txtisCanceled.Text = "";
+            this.txtCOCODE.Focus();
+
+        }
+
+
     }
 }

@@ -30,6 +30,11 @@
        {
             width:230px;height:280px;border:1px solid black; padding:10px 10px 10px 10px;
        }
+       #Env
+       {
+            clear:left
+       }
+       
        #jadaLogOut
        {
        	    clear:left;
@@ -75,10 +80,14 @@
                     onclick="btnUnitPrice_Click"  /></p>
         </div>
     </div>
+    <div id="Env">
+        <p><a href="../../pdf/動作環境.pdf">動作環境について</a></p>
+    </div>
     <div id="jadaLogOut">
         <asp:Button ID="btnLogOut" runat="server" Text="ログアウト" 
             onclick="btnLogOut_Click" />
     </div>
+
     </form>
 </body>
 </html>
